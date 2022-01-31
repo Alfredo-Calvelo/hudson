@@ -3,7 +3,7 @@ import {ACTIVAR_MENU_DESPLEGABLE, CAMBIAR_NAV_BAR } from "./actions"
 
 const initialState={
   menuDesplegable:false,
-  navBar:false,
+  navBar:true,
 }
 
 function rootReducer(state=initialState, action){
