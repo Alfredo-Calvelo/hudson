@@ -1,0 +1,46 @@
+
+.NavBar,.NavBarInactiva, .container{
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+  transition: var(--transitionCorta);
+  padding: 5px 0px 5px 0px;
+  width:100% ;
+}
+.container{
+  display: block;
+  position: fixed;
+  padding: 0;
+}
+.NavBarInactiva{
+  background-color: black;
+  
+}
+.logos{
+  display: flex;
+
+}
+.logo, .logoActivo{
+  width: 100px;
+  transition: var(--transitionCorta);
+  opacity: 0;
+}
+
+.logoActivo{
+  position: fixed;
+  opacity: 1;
+}
+
+.menu,.menuActivo{
+  width: fit-content;
+  height: fit-content;
+  display: inline-flex;
+  transition: var(--transitionCorta);
+}
+.menuActivo svg, .menuActivo svg{
+  transition: var(--transitionCorta);
+  color: white;
+  
+}

@@ -1,0 +1,30 @@
+
+
+.SearchBar,.SearchBarActivo{
+  display: inline;
+  display: inline-flex;
+  width: fit-content;
+  background-color: rgba(142, 142, 141 ,.3);
+  padding: 6px;
+  height: fit-content;
+  transition: var(--transitionCorta);
+}
+.SearchBarActivo{
+  transition: var(--transitionCorta);
+  background-color: rgba(142, 142, 141 ,1);
+  
+}
+.SearchBar svg, .SearchBarActivo svg{
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+}
+
+.input{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 80px;
+  padding: 5px;
+}
