@@ -5,8 +5,10 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import Circulo from '../../components/circuloProductos/Circulo';
 import conccionYHorneado from '../../imagenes/coccionYHorneado.png'
 import  cafeTeYMate from '../../imagenes/cafeTeYMate.png'
+import { useState } from 'react';
 export default function Home(){
-
+  const[translateX, setTranslateX] = useState(0)
+  const [carrusellActivo, setCarrusellActivo]=useState(false)
   const items = [
   <Circulo srcImg={conccionYHorneado} label='Coccion y Horneado' />,
   <Circulo srcImg={cafeTeYMate} label='Cafe te y Mate' />,
@@ -16,19 +18,8 @@ export default function Home(){
   <Circulo srcImg={cafeTeYMate} label='Cafe te y Mate' />,
   <Circulo srcImg={conccionYHorneado} label='Coccion y Horneado' />,
   <Circulo srcImg={conccionYHorneado} label='Coccion y Horneado' />,
-  // <div>hola</div>,
-  // <div>hola</div>,
-  // <div>hola</div>,
-  // <div>hola</div>,
 ]
-const responsivePrincipal = {
-  0: {
-      items: 3,
-  },
-  1024:  {
-      items: 3,
-  },
-}
+
 
   return(
     <div className={styles.Home}>
@@ -40,23 +31,16 @@ const responsivePrincipal = {
           <Boton text='TIENDA ONLINE' relleno={true} dropList/>
         </div>
       </div>
-      <div className={styles.carrusell} 
-      onMouseDown={()=>{
-        onmousemove=function(){
-          console.log('hola');
-        }
-        
-      }}
-      onMouseUp={()=>{
-        onmousemove=null
-        
-      }}
+      <div className={styles.carrusell} onDoubleClick={e=>e.preventDefault()}
+      onMouseDown={()=>setCarrusellActivo(true)}
+      onMouseUp={()=>setCarrusellActivo(false)}
+      onMouseMove={(e)=>carrusellActivo?setTranslateX(e.screenX):null}
       >
       
 
-        <ul className={styles.lista}>
-          <li>chau</li>
-          <li>chau</li>
+        <ul className={styles.lista} style={{transform:`translateX(${translateX}px)`}}>
+          <li><Circulo srcImg={conccionYHorneado} label='Coccion y Horneado' /></li>
+          <li><Circulo srcImg={cafeTeYMate} label='Cafe te y Mate' /></li>
           <li>chau</li>
           <li>chau</li>
           <li>chau</li>

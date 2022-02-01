@@ -35,6 +35,7 @@
 .lista{
   display: flex;
   transition: 1s;
+  overflow: hidden;
 }
 .lista li{
   list-style: none;

@@ -6,13 +6,10 @@ import { Provider } from 'react-redux';
 import store from './redux/store.js'
 import Home from './Pages/Home/Home';
 function App() {
-  window.onscroll = function() {
-    console.log(window.scrollY);
-  };
   return (
     <BrowserRouter>
       <Provider store={store} >
-          <div className="App" >
+          <div className="App"  >
             <Routes>
               <Route exact path='/'element={<>
                 <NavBar/>
