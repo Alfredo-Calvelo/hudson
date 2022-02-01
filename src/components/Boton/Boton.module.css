@@ -1,0 +1,19 @@
+.relleno,.noRelleno{
+  background-color: var(--rojo);
+  border: var(--rojo) 1px solid;
+  color: white;
+  width: fit-content;
+  font-family: 'Medium';
+  font-size: 11pt;
+  padding: 7px 13px 7px 13px;
+  display: inline-flex;
+  align-items: center;
+}
+.noRelleno{
+  background-color: red;
+  color: black;
+}
+.flecha{
+  display: flex;
+  margin: 0 0 0 13px;
+}

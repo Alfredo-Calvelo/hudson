@@ -12,17 +12,12 @@ import { activarMenuDesplegable, cambiarNavBar } from '../../redux/actions'
 export default function NavBar(){
   const dispatch = useDispatch()
   const navBarActiva = useSelector(state=>state.navBar)
-  const menuDesplegable = useSelector(state=>state.menuDesplegable)
+  // const menuDesplegable = useSelector(state=>state.menuDesplegable)
 
-  useEffect(()=>{
-    console.log(menuDesplegable)
-    console.log('menu');
-  },[menuDesplegable])
-  
 
   return(
-    <div className={styles.container} >
-      <div className={navBarActiva? styles.NavBar:styles.NavBarInactiva} onClick={()=>dispatch(cambiarNavBar())}>
+    <div className={navBarActiva? styles.container:styles.containerInactivo} >
+      <div className={styles.NavBar} onClick={()=>dispatch(cambiarNavBar())}>
         <div className={styles.logos}>
           <img className={navBarActiva? styles.logoActivo:styles.logo} src={logoNegro} />
           <img className={navBarActiva?styles.logo:styles.logoActivo} src={logoBlanco} />
@@ -36,10 +31,9 @@ export default function NavBar(){
               dispatch(activarMenuDesplegable())
             }}
           >
-            <AiOutlineMenu />
-
+            <AiOutlineMenu /> 
+            
           </div>
-
       </div>
     </div>
   )

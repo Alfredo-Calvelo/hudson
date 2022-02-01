@@ -1,0 +1,19 @@
+.Circulo{
+  background-color: white;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+} 
+
+.Img{
+  height: 80%;
+}
+.container{
+  width: fit-content;
+}

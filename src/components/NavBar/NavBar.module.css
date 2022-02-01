@@ -1,22 +1,25 @@
 
-.NavBar,.NavBarInactiva, .container{
+.NavBar, .container, .containerInactivo{
   background-color: transparent;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  /* gap: 10px; */
   height: 50px;
   transition: var(--transitionCorta);
-  padding: 5px 0px 5px 0px;
   width:100% ;
+  margin: 0 20px 0 20px;
 }
-.container{
-  display: block;
+.container, .containerInactivo{
+  display: flex;
   position: fixed;
-  padding: 0;
+  align-items: center;
+  margin: 0;
 }
-.NavBarInactiva{
+
+.containerInactivo{
+  margin: 0;
   background-color: black;
-  
 }
 .logos{
   display: flex;
