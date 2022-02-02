@@ -20,7 +20,10 @@ import lineaVintage from '../../imagenes/lineaVintage.png'
 import carbonSteel from '../../imagenes/carbonSteel.png'
 import lineaCobre from '../../imagenes/lineaCobre.png'
 import Destacado_Inpirate from '../../components/destacados-inspirate/Destacado_Inpirate';
-
+import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
+import imgDerecha from '../../imagenes/bifero26CM.png'
+import conocenos from '../../imagenes/grupoGente.jfif'
+import { BsChevronRight } from 'react-icons/bs';
 
 
 export default function Home(){
@@ -47,7 +50,7 @@ export default function Home(){
         <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
         <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
         <div className={styles.boton} >
-          <Boton text='TIENDA ONLINE' relleno={true} dropList/>
+          <Boton text='TIENDA ONLINE' relleno dropList/>
         </div>
       </div>
 
@@ -91,7 +94,26 @@ export default function Home(){
           />
       </div>
       <div className={styles.produDestacados}>
-        <Destacado_Inpirate/>
+        <Destacado_Inpirate leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
+        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' rightImg={imgDerecha}/>
+      </div>
+
+
+      
+      <div className={styles.conocenos}>
+        <div className={styles.conocenosImg}>
+          <img className={styles.grupoGente} src={conocenos}/>
+        </div>
+          <div className={styles.subCard} >
+            <h2 className={`${styles.tituloConocer}  ${styles.espacios}`}>CONOCENOS</h2>
+            <h3 className={`${styles.subTitleConocer}  ${styles.espacios}`} >Somos mas que una marca, somos familia.</h3>
+            <div className={styles.flecha}>
+              <h5 className={`${styles.textRuta} ${styles.espacios}`} >VER MAS</h5>
+              <BsChevronRight/>
+            </div>
+          </div>
+
+
       </div>
     </div>
   )

@@ -1,6 +1,9 @@
 import styles from './CatalogCard.module.css'
 import { BsChevronRight } from 'react-icons/bs'
 
+// LAS IMAGENES PARA ESTAS CARDS TIENEN QUE SER DE  1200x900 PARA EL DISEÑO MOBILE
+
+
 export default function CatalogCard(props){
 
   

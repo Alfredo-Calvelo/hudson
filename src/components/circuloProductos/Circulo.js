@@ -1,5 +1,5 @@
 import styles from './Circulo.module.css'
-
+// LAS IMAGENES PARA ESTE CIRCULO TIENEN QUE SER DE 400x400 PARA EL DISEÑO MOBILE
 
 export default function Circulo (props){
 
