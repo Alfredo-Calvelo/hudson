@@ -48,3 +48,9 @@
   color: white;
   
 }
+.activo path,.inactivo path{
+  transition: var(--transitionCorta);
+}
+.activo path{
+  color: white;
+}

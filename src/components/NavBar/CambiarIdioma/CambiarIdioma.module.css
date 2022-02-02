@@ -23,9 +23,17 @@
   display: grid;
   align-items: center;
 }
-.opcion{
+.opcionNegra,.opcionBlanca{
   display: block;
   position: fixed;
-  /* display: none; */
+  color: var(--grisFuente);
+  transition: var(--transitionCorta);
+}
+.blanco,.negro,.blanco path,.negro path,.opcionNegra path{
+  transition: var(--transitionCorta);
+
+}
+.blanco,.opcionBlanca path,.blanco path ,.opcionBlanca{
+  color: white;
 }
 

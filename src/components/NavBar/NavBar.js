@@ -29,7 +29,10 @@ export default function NavBar(){
               dispatch(activarMenuDesplegable())
             }}
           >
-            <AiOutlineMenu /> 
+            <div className={!navBarActiva? styles.activo:styles.inactivo}>
+              <AiOutlineMenu /> 
+
+            </div>
             
           </div>
       </div>
