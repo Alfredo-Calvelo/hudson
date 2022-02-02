@@ -22,17 +22,11 @@ function rootReducer(state=initialState, action){
     }
   }
   if (action.type === CAMBIAR_NAV_BAR) {
-    if (state.navBar) {
+    console.log(action.payload);
       return{
         ...state,
-        navBar:false
+        navBar:action.payload
       }
-    }else{
-      return{
-        ...state,
-        navBar:true
-      }
-    }
   }
   
   return state
