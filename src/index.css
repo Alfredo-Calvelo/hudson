@@ -1,9 +1,13 @@
 :root{
   --grisFondo: #EEECEA;
+  --grisMedio:#D3D3D3;
+  --grisFuente:#4E4E4E;
   --transitionCorta:  .5s;
   --rojo: #E2091D;
 }
-
+*{
+  color: var(--grisFuente);
+}
 @font-face {
   font-family: 'Black';
   src: url(../src/Fuentes/Mulish-Black.ttf);
@@ -11,6 +15,10 @@
 @font-face {
   font-family: 'Medium';
   src: url(../src/Fuentes/Mulish-Medium.ttf);
+}
+@font-face {
+  font-family: 'Regular';
+  src: url(../src/Fuentes/Mulish-Regular.ttf);
 }
 @font-face {
   font-family: 'Light';

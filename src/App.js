@@ -1,26 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from'./App.module.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home/Home';
-import { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { cambiarNavBar } from './redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { activarMenuDesplegable, cambiarNavBar } from './redux/actions';
 
 function App() {
   const dispatch = useDispatch()
+  let dropMenu= useSelector(state=>state.menuDesplegable)
   const hola =()=>{
-    if (window.scrollY >=2) {
+    if (window.scrollY >=25) {
       dispatch(cambiarNavBar(false))
     }else{
       dispatch(cambiarNavBar(true))
     }
   }
+  function apagarMenu(){
+    dispatch(activarMenuDesplegable(false))
+  }
 
   window.addEventListener('scroll',hola)
   return (
     <BrowserRouter>
-          <div className="App"  >
+          <div className={styles.App}>
+            {dropMenu?
+          <div className={styles.tapaderaContainer} onClick={()=>apagarMenu()}>
+            <div className={styles.tapadera}>
+            </div>
+          </div>:null
+            }
             <Routes>
               <Route exact path='/'element={<>
                 <NavBar/>

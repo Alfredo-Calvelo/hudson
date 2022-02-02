@@ -1,9 +1,10 @@
 
+
 .top{
   
   background-image: url('../../imagenes/Fondo\ Home.jfif');
   background-size: 190%;
-  padding: 60px 20px 0 20px
+  padding: 60px 20px 0 20px;
 }
 .tittle{
   width: 60%;
@@ -24,20 +25,35 @@
 .boton{
   margin-top: 20px;
   padding-bottom: 20px;
+  width: fit-content;
 }
-
-.hola{
-  background-color: red;
+.carrusell,.carrusell div{
+  z-index: 1;
+  
 }
 .carrusell li{
-  margin: 0 20px 0 20px;
+  width: fit-content ;
 }
-.lista{
+.video{
+  width: 100%;
+  display: grid;
+}
+.video iframe{
+  width: calc(100% - 40px);
+  height: 300px;
+  margin: auto;
+}
+.plus{
   display: flex;
-  transition: 1s;
-  overflow: hidden;
+  justify-content: center;
+  height: 200px;
+  align-items: center;
 }
-.lista li{
-  list-style: none;
-  display: inline-block;
+.plus img{
+  width: 50px;
+  height: 50px;
+}
+.produDestacados{
+  margin-top: 70px;
+  padding: 0 20px 0 20px;
 }

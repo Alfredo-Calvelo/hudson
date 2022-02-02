@@ -1,0 +1,56 @@
+.containerLeft,.containerRight{
+  margin: 20px;
+  overflow: hidden;
+  display: grid;
+}
+
+.imagenLeft,.imagenRight{
+  width: 80%;
+  height: 150px;
+  overflow: hidden;
+  display: grid;
+  align-content: center;
+}
+.imagenRight{
+  justify-self: right;
+}
+.imagenLeft img, .imagenRight img{
+  width: 100%;
+  position: relative;
+}
+.subCardLeft,.subCardRight{
+  background-color: white;
+  width: 65%;
+  height: 100%;
+  justify-self: right;
+  position: relative;
+  top: -45px;
+  padding: 10px;
+  display: grid;
+}
+.subCardRight{
+  justify-self: left;
+}
+
+.tittle{
+  color: var(--rojo);
+  font-size: 14pt;
+}
+.subTittle{
+  font-size: 12pt;
+  width: 80%;
+}
+.textRuta{
+  font-size: 8pt;
+  display: inline-block;
+}
+.flecha{
+  display: flex;
+  gap: 20px;
+
+}
+.flecha svg{
+  font-size: 8pt;
+  position: relative;
+  top: 1.2px;
+}

@@ -1,0 +1,19 @@
+.tapaderaContainer{
+  width: 0 ;
+  height: 0;
+  display: grid;
+  z-index: 100;
+  position: relative;
+}
+
+
+.tapadera{
+  z-index: 1;
+  background-color: rgba(255, 255, 255, .5);
+  position: fixed;
+  display: grid;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  /* display: none; */
+}

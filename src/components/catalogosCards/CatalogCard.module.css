@@ -1,0 +1,55 @@
+.requiredContainer{
+  padding: 20px;
+  padding-top:60px;
+
+}
+
+.container{
+  background-color: white;
+  width: fit-content;
+  overflow: visible;
+}
+
+.top{
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.img{
+  filter: drop-shadow(25px 23px 10px rgba(0, 0, 0,.15));
+  position: relative;
+  width: 70%;
+  top: -60px;
+}
+.bottom,.bottomSpace{
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+}
+.bottomSpace{
+  margin-top: -40px;
+}
+.flecha{
+  display: flex;
+  gap: 20px;
+}
+.flecha svg{
+  font-size: 8pt;
+  position: relative;
+  top: 1.2px;
+}
+.subTittle{
+  font-size: 12pt;
+  width: 80%;
+  color: var(--rojo);
+}
+.textRuta{
+  font-size: 10pt;
+  display: inline-block;
+}
+.Linea{
+  position: relative;
+}

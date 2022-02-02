@@ -6,14 +6,47 @@
   font-family: 'Medium';
   font-size: 11pt;
   padding: 7px 13px 7px 13px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 200;
 }
 .noRelleno{
   background-color: red;
   color: black;
 }
+.text{
+  color: white;
+}
 .flecha{
   display: flex;
   margin: 0 0 0 13px;
+
+}
+.flecha path{
+  color: white;
+
+}
+.lista{
+  height: 0px;
+  display: grid;
+}
+.listContainer{
+  background-color: var(--grisMedio);
+  width: 100%;
+  display: grid;
+  gap: 2px;
+  z-index: 200;
+}
+.li{
+  color: var(--grisFuente);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0 0 0 15px;
+  background-color: white;
+  z-index: 200;
+  font-size: 9pt;
+  font-family: 'Black';
 }
