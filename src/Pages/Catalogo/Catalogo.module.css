@@ -34,3 +34,6 @@
   background-color: var(--grisFuente);
   margin: 50px auto 50px auto;
 }
+.prodDestacados{
+  padding: 0 20px 0 20px;
+}
