@@ -8,11 +8,15 @@ import Destacado_Inpirate from "../../components/destacados-inspirate/Destacado_
 import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
 import imgDerecha from '../../imagenes/bifero26CM.png'
 import Footer from "../../components/Footer/Footer";
+import { useEffect } from "react";
 
 
 export default function Catalogo(props){
   document.title=`Hudson | Catalogo`
   const params = useParams()
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
     
   return(
     <div className={styles.container}>

@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import { useDispatch, useSelector } from 'react-redux';
 import { activarMenuDesplegable, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo } from './redux/actions';
 import Catalogo from './Pages/Catalogo/Catalogo';
+import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 function App() {
   const dispatch = useDispatch()
   let dropMenu= useSelector(state=>state.menuDesplegable)
@@ -26,8 +27,9 @@ function App() {
   return (
     <BrowserRouter>
           <div className={styles.App}>
-            <NavBar/>
             {dropMenu || opciones?<div className={styles.tapaderaContainer} onClick={()=>apagarMenu()}><div className={styles.tapadera}></div></div>:null}
+            <NavBar/>
+            <MenuDesplegable/>
             <Routes>
               <Route exact path='/'element={<Home/>}/>
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>

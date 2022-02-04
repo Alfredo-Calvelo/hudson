@@ -34,12 +34,15 @@ import image5 from '../../imagenes/UltimasPublicaciones/5.png'
 import image6 from '../../imagenes/UltimasPublicaciones/6.png' 
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
 import FondoHome from '../../imagenes/Fondo Home.jpg'
+import { useEffect } from 'react';
 
 
 export default function Home(){
   document.title='Hudson | Home'
   
-  
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   const items = [
     <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' ruta='https://www.facebook.com/' />,
     <Circulo srcImg={cafeTeYMate} label='Cafe y Mate' />,

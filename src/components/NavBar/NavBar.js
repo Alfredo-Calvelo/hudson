@@ -19,7 +19,7 @@ export default function NavBar(){
 
   return(
     <div className={navBarActiva? styles.container:styles.containerInactivo} >
-      <MenuDesplegable/>
+      {/* <MenuDesplegable/> */}
       <div className={styles.NavBar} >
         <div className={styles.logos} onClick={()=>navigate('/')}>
           <img alt='' className={navBarActiva? styles.logoActivo:styles.logo} src={logoNegro} />
