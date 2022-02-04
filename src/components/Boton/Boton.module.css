@@ -2,7 +2,7 @@
 .relleno,.noRelleno{
   background-color: var(--rojo);
   border: var(--rojo) 1px solid;
-  color: white;
+  color: transparent;
   /* width: fit-content; */
   font-family: 'Medium';
   font-size: 11pt;
