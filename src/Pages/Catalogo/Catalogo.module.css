@@ -1,0 +1,36 @@
+.header{
+  overflow: hidden;
+}
+.subHeader{
+  margin: 0 20px 0 20px;
+  align-items: center;
+  background-color: var(--naranjaMasterChef);
+}
+.logo{
+  width: 60px;
+  background-color: white;
+  padding: 30px;
+}
+.subHeader{
+  display: flex;
+  position: relative;
+  top: -40px;
+}
+.title{
+  display: inline;
+  width: fit-content;
+  padding: 0 0 0 20px;
+  color: white;
+}
+.descargarCatalogo{
+  padding: 0 20% 0 20%;
+}
+.Cards{
+  padding: 0 20px 0 20px;
+}
+.Separador{
+  width: 50px;
+  height: 1px;
+  background-color: var(--grisFuente);
+  margin: 50px auto 50px auto;
+}

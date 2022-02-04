@@ -24,6 +24,16 @@ import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
 import imgDerecha from '../../imagenes/bifero26CM.png'
 import conocenos from '../../imagenes/grupoGente.jfif'
 import { BsChevronRight } from 'react-icons/bs';
+import Footer from '../../components/Footer/Footer';
+import UltimasPublicaciones from '../../components/ultimasPublicaciones/UltimasPublicaciones';
+import image1 from '../../imagenes/UltimasPublicaciones/1.png' 
+import image2 from '../../imagenes/UltimasPublicaciones/2.png' 
+import image3 from '../../imagenes/UltimasPublicaciones/3.png' 
+import image4 from '../../imagenes/UltimasPublicaciones/4.png' 
+import image5 from '../../imagenes/UltimasPublicaciones/5.png' 
+import image6 from '../../imagenes/UltimasPublicaciones/6.png' 
+import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
+import FondoHome from '../../imagenes/Fondo Home.jpg'
 
 
 export default function Home(){
@@ -43,14 +53,25 @@ export default function Home(){
     <CatalogCard tittle='CARBON STEEL' subTittle='Productos profesionales para usar en el hogar.' textRuta='VER CATÁLOGO' img={carbonSteel}/>,
     <CatalogCard tittle='VINTAGE' subTittle='Lucí tu cocina con colores y un estilo único.' textRuta='VER CATÁLOGO' img={lineaCobre}/>,
   ]
+  const items3=[
+    <CardUltimas image={image1}/>,
+    <CardUltimas image={image2}/>,
+    <CardUltimas image={image3}/>,
+    <CardUltimas image={image4}/>,
+    <CardUltimas image={image5}/>,
+    <CardUltimas image={image6}/>,
+  ]
   return(
     <div className={styles.Home}>
+      <div className={styles.fondo}>
+        <img src={FondoHome} />
+      </div>
       <div className={styles.top}>
         <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
         <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
         <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
         <div className={styles.boton} >
-          <Boton text='TIENDA ONLINE' relleno dropList/>
+          <Boton text='TIENDA ONLINE' relleno dropMenu/>
         </div>
       </div>
 
@@ -75,7 +96,7 @@ export default function Home(){
         <Card  tittle='EL IMPERDIBLE' subTittle='Cafetera prensa francesa 350ml' textRuta='VER PRODUCTO' img={elImperdible} />
       </div>
       <div className={styles.video}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
       </div>
       <div className={styles.plus} >
         <img src={Plus} alt='' />
@@ -104,17 +125,20 @@ export default function Home(){
         <div className={styles.conocenosImg}>
           <img className={styles.grupoGente} src={conocenos}/>
         </div>
-          <div className={styles.subCard} >
-            <h2 className={`${styles.tituloConocer}  ${styles.espacios}`}>CONOCENOS</h2>
-            <h3 className={`${styles.subTitleConocer}  ${styles.espacios}`} >Somos mas que una marca, somos familia.</h3>
-            <div className={styles.flecha}>
-              <h5 className={`${styles.textRuta} ${styles.espacios}`} >VER MAS</h5>
-              <BsChevronRight/>
-            </div>
+        <div className={styles.subCard} >
+          <h2 className={`${styles.tituloConocer}  ${styles.espacios}`}>CONOCENOS</h2>
+          <h3 className={`${styles.subTitleConocer}  ${styles.espacios}`} >Somos mas que una marca, somos familia.</h3>
+          <div className={styles.flecha}>
+            <h5 className={`${styles.textRuta} ${styles.espacios}`} >VER MAS</h5>
+            <BsChevronRight/>
           </div>
-
-
+        </div>
       </div>
+      <div className={styles.UltimasPublicaciones}>
+        <UltimasPublicaciones items={items3} />
+      </div>
+      <Footer/>
+
     </div>
   )
 }

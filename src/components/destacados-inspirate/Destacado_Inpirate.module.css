@@ -1,7 +1,11 @@
 
 .titles{
-  display: grid;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.titles h3{
+  color: var(--rojo);
 }
 .imgLeft,.imgRight{
   width: 150px;
@@ -26,7 +30,7 @@
   font-size: 11pt;
 }
 .vender{
-  width: 65%;
+  width: 70%;
   margin: auto;
   text-align: center;
   margin-bottom: 10px;

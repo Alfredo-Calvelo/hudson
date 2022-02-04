@@ -29,7 +29,7 @@ export default function Destacado_Inpirate(props){
 
             <h5 className={`${styles.subTitle} ${styles.vender}`}>Conseguí todos nuestros productos en nuestras tiendas online.</h5>  
             <div className={styles.tiendas}>
-              <Boton text='TIENDA ONLINE'  dropList relleno/>
+              <Boton text='TIENDA ONLINE'  dropMenu relleno/>
             </div>
     </div>
   )

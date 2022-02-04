@@ -1,0 +1,10 @@
+.container{
+  display: grid;
+}
+
+.input{
+  /* width: ; */
+  background-color: var(--grisFondo);
+  border: var(--rojo) 2px solid;
+  padding: 15px;
+}

@@ -4,6 +4,7 @@
   --grisFuente:#4E4E4E;
   --transitionCorta:  .5s;
   --rojo: #E2091D;
+  --naranjaMasterChef:#E26340;
 }
 *{
   color: var(--grisFuente);
@@ -24,17 +25,31 @@
   font-family: 'Light';
   src: url(../src/Fuentes/Mulish-Light.ttf);
 }
+@font-face {
+  font-family: 'ExtraLight';
+  src: url(../src/Fuentes/Mulish-ExtraLight.ttf);
+}
+@font-face {
+  font-family: 'ExtraBold';
+  src: url(../src/Fuentes/Mulish-ExtraBold.ttf);
+}
 
 
 
 h1{
   font-family: 'Black';
 }
+h2{
+  font-family: 'ExtraBold';
+}
 h3{
   font-family: 'Medium';
 }
 h5{
 font-family: 'Light';
+}
+h6{
+  font-family: 'ExtraLight';
 }
 
 
@@ -53,9 +68,7 @@ body {
 }
 html{
   width: 100%;
-  /* width: 100vw; */
   height: fit-content;
-  
 }
 
 code {

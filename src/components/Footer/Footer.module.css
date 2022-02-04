@@ -1,0 +1,40 @@
+.container{
+  /* margin-bottom: 200px; */
+  display: grid;
+  margin-top: 90px;
+}
+
+.top{
+  display: flex;
+  background-color: white;
+  padding: 30px;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.title{
+  display: block;
+  font-size: 11pt;
+}
+.medium{
+  padding: 0 20px 0 20px;
+  display: grid;
+  gap: 10px;
+}
+.subscription{
+  font-size: 11pt;
+}
+.recibirMail{
+  font-size: 9pt;
+  font-family: 'Light';
+} 
+.bottom{
+  padding: 20px;
+  display: grid;
+  gap: 15px;
+}
+
+.copyright{
+  justify-self: center;
+  margin-bottom: 15px;
+}

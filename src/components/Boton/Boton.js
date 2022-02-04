@@ -2,8 +2,10 @@ import styles from './Boton.module.css'
 import { BsChevronDown } from 'react-icons/bs'
 import { useSelector, useDispatch } from 'react-redux'
 import { activarMenuDesplegable } from '../../redux/actions'
+import { useNavigate } from 'react-router-dom'
 
 export default function Boton (props){
+  const navigate = useNavigate()
   let dropMenu= useSelector(state=>state.menuDesplegable)
   const dispatch = useDispatch()
   function dropMenuFunction(){
@@ -13,10 +15,13 @@ export default function Boton (props){
   }
 
   return(
-    <div>
-    <div className={props.relleno?styles.relleno:styles.noRelleno} onClick={()=>dropMenuFunction()}>
+    <div className={styles.container}>
+    <div className={props.relleno?`${styles.relleno} ${dropMenu?styles.adelante:''}`:`${styles.noRelleno} ${dropMenu?styles.adelante:''}`} onClick={()=>{
+      if(props.dropMenu)dropMenuFunction()
+      if (props.ruta)navigate(props?.ruta)
+    }}>
       <span className={styles.text}>{props.text}</span>
-        {props.dropList?
+        {props.dropMenu?
         <div className={styles.flecha}  >
           <BsChevronDown/>
         </div>
@@ -24,6 +29,7 @@ export default function Boton (props){
         }
     </div>
         {dropMenu
+//------------------ DROP MENU-------------------------------
         ?<ul className={styles.lista}>
           <div className={styles.listContainer}>
             <span className={`${styles.text} ${styles.li}`}>ARGENTINA</span>

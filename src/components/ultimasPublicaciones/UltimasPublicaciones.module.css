@@ -1,0 +1,21 @@
+.container{
+  padding: 0 20px 0 20px;
+}
+
+.titles{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+}
+.title{
+  display: inline;
+  font-size: 13pt;
+  color: var(--rojo);
+}
+.arroba{
+  display: inline;
+  font-size: 8pt;
+  position: relative;
+  top: 2px;
+}

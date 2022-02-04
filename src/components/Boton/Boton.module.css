@@ -1,20 +1,29 @@
+
 .relleno,.noRelleno{
   background-color: var(--rojo);
   border: var(--rojo) 1px solid;
   color: white;
-  width: fit-content;
+  /* width: fit-content; */
   font-family: 'Medium';
   font-size: 11pt;
   padding: 7px 13px 7px 13px;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   position: relative;
+}
+.adelante{
   z-index: 200;
+
 }
 .noRelleno{
-  background-color: red;
-  color: black;
+  border: var(--rojo) 2px solid;
+  background-color: white;
+}
+.noRelleno span{
+  color: var(--rojo);
+  font-family: 'Black';
 }
 .text{
   color: white;

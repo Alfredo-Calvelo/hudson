@@ -9,7 +9,7 @@
   transition: var(--transitionCorta);
   width:100% ;
   margin: 0 20px 0 20px;
-  z-index: 10;
+  z-index: 1000;
 }
 .container, .containerInactivo{
   display: flex;
@@ -24,7 +24,7 @@
 }
 .logos{
   display: flex;
-
+  cursor: pointer;
 }
 .logo, .logoActivo{
   width: 100px;
@@ -42,6 +42,7 @@
   height: fit-content;
   display: inline-flex;
   transition: var(--transitionCorta);
+  cursor: pointer;
 }
 .menuActivo svg, .menuActivo svg{
   transition: var(--transitionCorta);
