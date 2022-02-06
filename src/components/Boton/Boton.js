@@ -19,6 +19,7 @@ export default function Boton (props){
     <div className={props.relleno?`${styles.relleno} ${dropMenu?styles.adelante:''}`:`${styles.noRelleno} ${dropMenu?styles.adelante:''}`} onClick={()=>{
       if(props.dropMenu)dropMenuFunction()
       if (props.ruta)navigate(props?.ruta)
+      if (props.click) props.click() 
     }}>
       <span className={styles.text}>{props.text}</span>
         {props.dropMenu?

@@ -1,6 +1,7 @@
 :root{
   --grisFondo: #EEECEA;
   --grisMedio:#D3D3D3;
+  --marronHeader:#D9D4D0;
   --grisFuente:#4E4E4E;
   --transitionCorta:  .5s;
   --rojo: #E2091D;
@@ -34,7 +35,9 @@
   src: url(../src/Fuentes/Mulish-ExtraBold.ttf);
 }
 
-
+*{
+  scroll-behavior: smooth;
+}
 
 h1{
   font-family: 'Black';
@@ -44,6 +47,9 @@ h2{
 }
 h3{
   font-family: 'Medium';
+}
+h4{
+  font-family:'Regular' ;
 }
 h5{
 font-family: 'Light';

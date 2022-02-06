@@ -1,0 +1,10 @@
+.container{
+  width:calc(50% - 20px);
+  height: 200px;
+  /* background-color: red; */
+  max-width: 100%;
+
+}
+.img{
+  width: 100%;
+}

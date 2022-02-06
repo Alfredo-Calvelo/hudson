@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { activarMenuDesplegable, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo } from './redux/actions';
 import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
+import Inspirate from './Pages/Inspirate/Inspirate';
+
 function App() {
   const dispatch = useDispatch()
   let dropMenu= useSelector(state=>state.menuDesplegable)
   let opciones= useSelector(state=>state.opciones)
   const NavBarChange =()=>{
-    console.log(window.scrollY);
     if (window.scrollY >=25) {
       dispatch(cambiarNavBar(false))
     }else{
@@ -33,6 +34,7 @@ function App() {
             <Routes>
               <Route exact path='/'element={<Home/>}/>
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
+              <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
               <Route path='*' element={<div>404 | Not Found</div>}/>
 
             </Routes>

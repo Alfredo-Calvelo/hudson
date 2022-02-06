@@ -1,0 +1,63 @@
+.gradient{
+  height: 75px;
+  width: 100%;
+  background:linear-gradient(var(--marronHeader) 60% , transparent 100% );
+}
+.headerImg{
+  padding: 0 20px 0 20px;
+  width: calc(100% - 40px);
+}
+.title{
+  background-color: white;
+  width: 55%;
+  margin: auto;
+  padding: 25px;
+  position: relative;
+  top: -40px;
+  display: grid;
+  gap: 10px;
+}
+.title h3{
+  line-height: 23px;
+}
+.verReceta{
+  display: flex;
+  align-items: center;
+  gap: 20%;
+}
+.filter{
+  display: flex;
+  background-color: white;
+  gap: 1px;
+  width: 100%;
+}
+.filterBlock{
+  background-color: var(--rojo);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 10px 15px 10%;
+}
+.filterBlock path ,.filterBlock line ,.filterBlock circle{
+  color: white;
+}
+.filterBlock h6{
+  color: white;
+  font-size: 10pt;
+  font-weight: 100;
+}
+
+.otrasRecetas{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.paginacion{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}

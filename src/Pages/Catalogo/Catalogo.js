@@ -22,6 +22,7 @@ export default function Catalogo(props){
     <div className={styles.container}>
       <div className={styles.header} >
         <img src={FondoHome}/>
+      </div>
         <div className={styles.subHeader} >
           <img src={logoMasterChef} className={styles.logo}/>
           <h2 className={styles.title} >LINEA HUDSON MASTERCHEF</h2>
@@ -29,7 +30,6 @@ export default function Catalogo(props){
         <div className={styles.descargarCatalogo}>
           <Boton text='DESCARGAR CATÁLOGO'  />
         </div>
-      </div>
       <div className={styles.Cards}>
         <CardCatalogo/>
         <CardCatalogo/>

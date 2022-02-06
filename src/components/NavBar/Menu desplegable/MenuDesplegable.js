@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styles from './MenuDesplegable.module.css'
 import Boton from '../../Boton/Boton.js'
 import { AiOutlineClose } from 'react-icons/ai'
-import {  cambiarOpciones, cambiarMenuCatalogo } from '../../../redux/actions'
+import {  cambiarOpciones, cambiarMenuCatalogo, cerrarTodo } from '../../../redux/actions'
 import { BsChevronRight } from 'react-icons/bs'
 import Separador from '../Separador/Separador'
 import instagram from '../../../imagenes/iconos/instagram.png'
@@ -11,11 +11,15 @@ import facebook from '../../../imagenes/iconos/facebook.png'
 import twitter from '../../../imagenes/iconos/twitter.png'
 import youtube from '../../../imagenes/iconos/youtube.png'
 import MenuCatalogo from './menuCatalogo/menuCatalogo'
+import { useNavigate } from 'react-router-dom'
 
 export default function MenuDesplegable(){
   const dispatch = useDispatch()
   let active=useSelector(state=>state.opciones)
- 
+  const navigate = useNavigate()
+  
+
+
   return(
     <div className={active?styles.containerActivo:styles.containerInActivo}>
       <MenuCatalogo/>
@@ -41,10 +45,10 @@ export default function MenuDesplegable(){
       </div>
       <div className={styles.tiendas}>
         <h5>HUDSON</h5>
-        <h6>Inspírate</h6>
-        <h6>Uso y cuidados</h6>
-        <h6>Nosotros</h6>
-        <h6>Contacto</h6>
+        <h6 className={styles.clases} onClick={()=>{navigate('/Inspirate/1');dispatch(cerrarTodo())}}>Inspírate</h6>
+        <h6 className={styles.clases} onClick={()=>navigate('/Uso_Y_Cuidados')}>Uso y cuidados</h6>
+        <h6 className={styles.clases} onClick={()=>navigate('/Nosotros')}>Nosotros</h6>
+        <h6 className={styles.clases} onClick={()=>navigate('/Contacto')}>Contacto</h6>
       </div>
       <div className={styles.separador}>
         <Separador/>
