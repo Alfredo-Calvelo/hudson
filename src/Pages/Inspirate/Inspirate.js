@@ -1,5 +1,4 @@
 import styles from './Inspirate.module.css'
-import fondo from  '../../imagenes/Fondo Home.jpg'
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs'
 import {CgOptions} from 'react-icons/cg'
 import {FiSearch} from 'react-icons/fi'
@@ -10,6 +9,8 @@ import Boton from '../../components/Boton/Boton'
 import { createRef, useEffect } from 'react'
 import Footer from '../../components/Footer/Footer'
 import Gradient from '../../components/Gradient/Gradient'
+import InspirateCard from '../../components/InspirateCard/InspirateCard'
+import AliceCarousel from 'react-alice-carousel'
 
 export default function Inspirate(){
   document.title=`Hudson | Inspirate`
@@ -18,9 +19,7 @@ export default function Inspirate(){
   let bloque = {inicio:0 + 10*page, final:9+ 10*page}
   let buttons = Math.ceil(arr.length/10)
   let iterable =[]
-  const Ref = createRef()
-  let subir=0
-
+  let items= [<InspirateCard/>,<InspirateCard/>,<InspirateCard/>]
 
   useEffect(()=>{
     window.scrollTo(0,0)
@@ -28,24 +27,27 @@ export default function Inspirate(){
   for (let i = 0; i < buttons; i++) {
     iterable.push('')
   }
-  useEffect(()=>{
-    subir = Ref.current.offsetTop - Ref.current.offsetHeight
-  },[Ref])
-
+  
   function scrollTop(){
-    window.scrollTo(0,subir)
+    window.scrollTo(0,0)
   }
   return(
     <div>
       <div className={styles.header} >
         <Gradient/>
-        <img className={styles.headerImg} src={fondo}/>
-        <div className={styles.title}>
-          <h3>Pasta mediterranea express</h3>
-          <h6 className={styles.verReceta}> VER RECETA  <BsChevronRight/></h6>
-        </div>
+        <AliceCarousel
+          touchTracking
+          mouseTracking
+          items={items}
+          controlsStrategy="alternate"
+          autoWidth
+          disableDotsControls
+          disableButtonsControls
+          paddingLeft={10}
+          paddingRight={10}
+          />
       </div>
-      <div className={styles.filter} id='filtros' ref={Ref}>
+      <div className={styles.filter} id='filtros' >
         <div className={styles.filterBlock}><CgOptions/>  <h6>Filtrar</h6></div>
         <div className={styles.filterBlock}><FiSearch />  <h6>Buscar</h6></div>
       </div>

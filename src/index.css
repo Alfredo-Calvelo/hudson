@@ -38,6 +38,10 @@
   font-family: 'ExtraBold';
   src: url(../src/Fuentes/Mulish-ExtraBold.ttf);
 }
+@font-face {
+  font-family: 'Bold';
+  src: url(../src/Fuentes/Mulish-Bold.ttf);
+}
 
 
 

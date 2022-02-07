@@ -26,10 +26,10 @@ export default function Catalogo(props){
       </div>
         <div className={styles.subHeader} >
           <img src={logoMasterChef} className={styles.logo}/>
-          <h2 className={styles.title} >LINEA HUDSON MASTERCHEF</h2>
+          <h2 className={styles.title} >LÍNEA HUDSON MASTERCHEF</h2>
         </div>
         <div className={styles.descargarCatalogo}>
-          <Boton text='DESCARGAR CATÁLOGO'  />
+          <Boton text='DESCARGAR CATÁLOGO' masterChef  />
         </div>
       <div className={styles.Cards}>
         <CardCatalogo/>

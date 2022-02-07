@@ -1,26 +1,5 @@
 
-.headerImg{
-  padding: 0 20px 0 20px;
-  width: calc(100% - 40px);
-}
-.title{
-  background-color: white;
-  width: 55%;
-  margin: auto;
-  padding: 25px;
-  position: relative;
-  top: -40px;
-  display: grid;
-  gap: 10px;
-}
-.title h3{
-  line-height: 23px;
-}
-.verReceta{
-  display: flex;
-  align-items: center;
-  gap: 20%;
-}
+
 .filter{
   display: flex;
   background-color: white;
@@ -32,8 +11,9 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 15px 10px 15px 10%;
+  padding: 15px;
 }
 .filterBlock path ,.filterBlock line ,.filterBlock circle{
   color: white;
