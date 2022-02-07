@@ -41,6 +41,9 @@
   padding-bottom: 30px;
   width: fit-content;
 }
+.carrusell{
+  margin-top: 30px;
+}
 .carrusell,.carrusell div{
   z-index: 1;
   
