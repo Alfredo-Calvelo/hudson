@@ -2,8 +2,11 @@
   height: 0;
 }
 .fondo img{
-  overflow: hidden;
   width: 100%;
+}
+.imgContainer{
+  width: 100%;
+  overflow: hidden;
 }
 
 .top{
@@ -113,21 +116,23 @@
 .espacios{
   margin: 5px 0 5px 0;
 }
-@media (width < 339px) {
+@media (max-width: 306px) {
   .fondo img{
-    overflow: hidden;
+    width: 193%;
+  }
+}
+@media (min-width:306px) and (max-width: 339px) {
+  .fondo img{
     width: 160%;
   }
 }
-@media (340px <= width<= 345px) {
+@media (min-width: 340px) and (max-width: 345px) {
   .fondo img{
-    overflow: hidden;
     width: 140%;
   }
 }
 @media (min-width: 346px) and (max-width: 404px){
   .fondo img{
-    overflow: hidden;
-    width: 120%;
+    width:120%;
   }
 }

@@ -67,7 +67,9 @@ export default function Home(){
   return(
     <div className={styles.Home}>
       <div className={styles.fondo}>
-        <img src={FondoHomexD} />
+        <div className={styles.imgContainer}>
+          <img src={FondoHomexD} />
+        </div>
       </div>
       <div className={styles.top}>
         <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
