@@ -16,17 +16,20 @@
 .tittle{
   width: 60%;
   color: var(--rojo);
-  font-size: 15pt;
+  font-size: 18pt;
+  letter-spacing: 3px;
 
 }
 .subTittle{
-  width: 65%;
-  font-size: 8pt;
+  width: 70%;
+  font-size: 10pt;
   margin-top: 13px;
   line-height: 15px;
+  font-family: 'Bold';
+  color: black;
 }
 .aclaracion{
-  font-size: 6pt;
+  font-size: 8pt;
   margin-top: 3px;
 }
 .boton{

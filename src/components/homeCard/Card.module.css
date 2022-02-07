@@ -36,10 +36,12 @@
   color: var(--rojo);
   font-size: 15pt;
   font-family: 'ExtraBold';
+  height: fit-content;
 }
 .subTittle{
   font-size: 15pt;
   font-family: 'Bold';
+  margin-top: 5px;
 }
 .textRuta{
   font-size: 8pt;
@@ -50,6 +52,7 @@
 .flecha{
   display: flex;
   gap: 20px;
+  align-items: flex-end;
 
 }
 .flecha svg{

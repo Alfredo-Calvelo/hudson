@@ -11,8 +11,10 @@ export default function Card(props){
         <img alt='' src={props.img} />
       </div>
       <div className={props.left?styles.subCardLeft:styles.subCardRight} >
+        <div>
         <h2 className={`${styles.tittle}  ${styles.espacios}`}>{props.tittle}</h2>
         <h3 className={`${styles.subTittle}  ${styles.espacios}`} >{props.subTittle}</h3>
+        </div>
         <div className={styles.flecha}>
           <h5 className={`${styles.textRuta} ${styles.espacios}`} >{props.textRuta}</h5>
           <BsChevronRight/>
