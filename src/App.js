@@ -7,6 +7,7 @@ import { activarMenuDesplegable, cambiarMenuCatalogo, cambiarNavBar, cambiarOpci
 import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 import Inspirate from './Pages/Inspirate/Inspirate';
+import Contacto from './Pages/Contacto/Contacto';
 
 function App() {
   const dispatch = useDispatch()
@@ -21,8 +22,9 @@ function App() {
   }
   function apagarMenu(){
     dispatch(cerrarTodo())
+    
   }
- 
+
 
   window.addEventListener('scroll',NavBarChange)
   return (
@@ -35,6 +37,7 @@ function App() {
               <Route exact path='/'element={<Home/>}/>
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
               <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
+              <Route exact path='/Contacto'element={<Contacto/>}/>
               <Route path='*' element={<div>404 | Not Found</div>}/>
 
             </Routes>

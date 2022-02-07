@@ -1,10 +1,9 @@
-.container{
-  display: grid;
-}
+
 
 .input{
-  /* width: ; */
+  border: var(--rojo) 1px solid;
   background-color: var(--grisFondo);
-  border: var(--rojo) 2px solid;
   padding: 15px;
+  outline: none;
+  display: inline;
 }

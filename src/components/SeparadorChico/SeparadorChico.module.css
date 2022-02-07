@@ -1,0 +1,6 @@
+.Separador{
+  width: 50px;
+  height: 1px;
+  background-color: var(--grisFuente);
+  margin: 50px auto 50px auto;
+}

@@ -19,7 +19,7 @@ import CatalogCard from '../../components/catalogosCards/catalogCard';
 import lineaVintage from '../../imagenes/lineaVintage.png'
 import carbonSteel from '../../imagenes/carbonSteel.png'
 import lineaCobre from '../../imagenes/lineaCobre.png'
-import Destacado_Inpirate from '../../components/destacados-inspirate/Destacado_Inpirate';
+import Destacado from '../../components/destacados/Destacado';
 import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
 import imgDerecha from '../../imagenes/bifero26CM.png'
 import conocenos from '../../imagenes/grupoGente.jfif'
@@ -33,7 +33,7 @@ import image4 from '../../imagenes/UltimasPublicaciones/4.png'
 import image5 from '../../imagenes/UltimasPublicaciones/5.png' 
 import image6 from '../../imagenes/UltimasPublicaciones/6.png' 
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
-import FondoHome from '../../imagenes/Fondo Home.jpg'
+import FondoHomexD from '../../imagenes/Fondo Home.jpg'
 import { useEffect } from 'react';
 
 
@@ -67,7 +67,7 @@ export default function Home(){
   return(
     <div className={styles.Home}>
       <div className={styles.fondo}>
-        <img src={FondoHome} />
+        <img src={FondoHomexD} />
       </div>
       <div className={styles.top}>
         <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
@@ -118,7 +118,7 @@ export default function Home(){
           />
       </div>
       <div className={styles.produDestacados}>
-        <Destacado_Inpirate leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
+        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' rightImg={imgDerecha}/>
       </div>
 
@@ -140,7 +140,7 @@ export default function Home(){
       <div className={styles.UltimasPublicaciones}>
         <UltimasPublicaciones items={items3} />
       </div>
-      <Footer/>
+      <Footer contacto/>
 
     </div>
   )

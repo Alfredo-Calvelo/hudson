@@ -17,7 +17,11 @@ export default function MenuDesplegable(){
   const dispatch = useDispatch()
   let active=useSelector(state=>state.opciones)
   const navigate = useNavigate()
-  
+  function navegar(ruta){
+    navigate(ruta)
+    dispatch(cerrarTodo())
+    window.scrollTo(0,0)
+  }
 
 
   return(
@@ -45,10 +49,10 @@ export default function MenuDesplegable(){
       </div>
       <div className={styles.tiendas}>
         <h5>HUDSON</h5>
-        <h6 className={styles.clases} onClick={()=>{navigate('/Inspirate/1');dispatch(cerrarTodo())}}>Inspírate</h6>
-        <h6 className={styles.clases} onClick={()=>navigate('/Uso_Y_Cuidados')}>Uso y cuidados</h6>
-        <h6 className={styles.clases} onClick={()=>navigate('/Nosotros')}>Nosotros</h6>
-        <h6 className={styles.clases} onClick={()=>navigate('/Contacto')}>Contacto</h6>
+        <h6 className={styles.clases} onClick={()=>navegar('/Inspirate/1')}  >Inspírate</h6>
+        <h6 className={styles.clases} onClick={()=>navegar('/Uso_Y_Cuidados')}>Uso y cuidados</h6>
+        <h6 className={styles.clases} onClick={()=>navegar('/Nosotros')}>Nosotros</h6>
+        <h6 className={styles.clases} onClick={()=>navegar('/Contacto')}>Contacto</h6>
       </div>
       <div className={styles.separador}>
         <Separador/>

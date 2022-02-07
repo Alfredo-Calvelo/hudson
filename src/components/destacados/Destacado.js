@@ -2,7 +2,7 @@ import styles from './Destacado_Inpirate.module.css'
 import imgDerecha from '../../imagenes/fuenteCuadrada.png'
 import Boton from '../Boton/Boton'
 
-export default function Destacado_Inpirate(props){
+export default function Destacado(props){
   
   // LAS IMAGENES PARA ESTAS CARDS TIENEN QUE SER DE  1200x900 PARA EL DISEÑO MOBILE
 

@@ -21,7 +21,7 @@ export default function NavBar(){
     <div className={navBarActiva? styles.container:styles.containerInactivo} >
       {/* <MenuDesplegable/> */}
       <div className={styles.NavBar} >
-        <div className={styles.logos} onClick={()=>navigate('/')}>
+        <div className={styles.logos} onClick={()=>{navigate('/');window.scrollTo(0,0)}}>
           <img alt='' className={navBarActiva? styles.logoActivo:styles.logo} src={logoNegro} />
           <img alt='' className={navBarActiva?styles.logo:styles.logoActivo} src={logoBlanco} />
         </div>

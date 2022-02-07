@@ -1,8 +1,4 @@
-.gradient{
-  height: 75px;
-  width: 100%;
-  background:linear-gradient(var(--marronHeader) 60% , transparent 100% );
-}
+
 .headerImg{
   padding: 0 20px 0 20px;
   width: calc(100% - 40px);

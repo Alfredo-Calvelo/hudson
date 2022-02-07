@@ -12,6 +12,7 @@
   justify-content: center;
   cursor: pointer;
   position: relative;
+  letter-spacing: 1.5px;
 }
 .adelante{
   z-index: 200;

@@ -4,16 +4,17 @@ import FondoHome from '../../imagenes/Fondo Home.jpg'
 import logoMasterChef from '../../imagenes/iconos/masterChef.png'
 import Boton from "../../components/Boton/Boton";
 import CardCatalogo from "../../components/CardCatalogo/CardCatalogo";
-import Destacado_Inpirate from "../../components/destacados-inspirate/Destacado_Inpirate";
+import Destacado from "../../components/destacados/Destacado";
 import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
 import imgDerecha from '../../imagenes/bifero26CM.png'
 import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
-
+import SeparadorChico from '../../components/SeparadorChico/SeparadorChico'
 
 export default function Catalogo(props){
-  document.title=`Hudson | Catalogo`
   const params = useParams()
+  document.title=`Hudson | Catalogo ${params.catalog}`
+  console.log(params);
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
@@ -36,12 +37,12 @@ export default function Catalogo(props){
         <CardCatalogo/>
         <CardCatalogo/>
       </div>
-      <div className={styles.Separador}></div>
+      <SeparadorChico/>
       <div className={styles.prodDestacados}>
-        <Destacado_Inpirate leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
+        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
           rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' rightImg={imgDerecha}/>
       </div>
-      <Footer/>
+      <Footer contacto/>
     </div>
   )
 

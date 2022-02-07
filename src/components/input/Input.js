@@ -1,9 +1,8 @@
 import styles from './Input.module.css'
 
-export default function Input(){
+export default function Input(props){
   return(
-    <div className={styles.container}>
-      <input className={styles.input} placeholder='Su email, por favor' autoComplete='false'/>
-    </div>
+    
+      <input className={styles.input} placeholder={props.placeholder} autoComplete='false'/>
   )
 }

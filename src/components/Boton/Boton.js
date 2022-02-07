@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Boton (props){
   const navigate = useNavigate()
   let dropMenu= useSelector(state=>state.menuDesplegable)
+  if (!props.dropMenu)dropMenu=false
   const dispatch = useDispatch()
   function dropMenuFunction(){
     if (dropMenu) {

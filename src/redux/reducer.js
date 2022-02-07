@@ -64,12 +64,13 @@ function rootReducer(state=initialState, action){
       }
   }
   if (action.type === CERRAR_TODO) {
-      return{
-        ...state,
-        menuCatalgo:false,
-        navBar:false,
-        opciones:false,
-      }
+      
+        return{
+          ...state,
+          menuCatalgo:false,
+          opciones:false,
+        }
+      
   }
   
   

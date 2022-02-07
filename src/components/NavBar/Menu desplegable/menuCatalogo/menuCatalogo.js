@@ -18,7 +18,7 @@ export default function MenuCatalogo(){
   return(
     <div className={active?styles.containerActivo:styles.containerInActivo}>
       <h5 className={styles.bloque} onClick={()=>{dispatch(cambiarMenuCatalogo(false))}} ><BsChevronLeft/>CATALOGO</h5>
-      <h5 className={styles.subBloque} onClick={()=>{navigate(`/Catalogo/:masterChef`);dispatch(cerrarTodo())}}>LINEA MASTERCHEF <BsChevronRight/> </h5>
+      <h5 className={styles.subBloque} onClick={()=>{navigate(`/Catalogo/Master Chef`);dispatch(cerrarTodo())}}>LINEA MASTERCHEF <BsChevronRight/> </h5>
       <h5 className={styles.subBloque}  >LINEA ACERO AL CARBONO <BsChevronRight/></h5>
       <h5 className={styles.subBloque}  >LINEA VINTAGE<BsChevronRight/></h5>
       <h5 className={styles.subBloque}  >LINEA VIDRIO<BsChevronRight/></h5>

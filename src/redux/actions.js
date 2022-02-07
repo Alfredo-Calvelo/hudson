@@ -16,6 +16,6 @@ export function cambiarMenuCatalogo(payload){
     // console.log('holas');
     return{type:CAMBIAR_MENU_CATALOGO, payload}
 }
-export function cerrarTodo(){
-    return{type:CERRAR_TODO}
+export function cerrarTodo(payload){
+    return{type:CERRAR_TODO, payload}
 }

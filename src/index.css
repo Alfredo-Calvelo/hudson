@@ -6,9 +6,13 @@
   --transitionCorta:  .5s;
   --rojo: #E2091D;
   --naranjaMasterChef:#E26340;
+  --gradient:linear-gradient(var(--marronHeader) 60% , transparent 100% );
 }
 *{
   color: var(--grisFuente);
+  scroll-behavior: smooth;
+  font-family: 'Regular';
+
 }
 @font-face {
   font-family: 'Black';
@@ -35,9 +39,7 @@
   src: url(../src/Fuentes/Mulish-ExtraBold.ttf);
 }
 
-*{
-  scroll-behavior: smooth;
-}
+
 
 h1{
   font-family: 'Black';
