@@ -34,7 +34,7 @@ import image5 from '../../imagenes/UltimasPublicaciones/5.png'
 import image6 from '../../imagenes/UltimasPublicaciones/6.png' 
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
 import FondoHomexD from '../../imagenes/Fondo Home.jpg'
-import { useEffect } from 'react';
+import { createRef, useEffect } from 'react';
 
 
 export default function Home(){
@@ -64,14 +64,14 @@ export default function Home(){
     <CardUltimas image={image5}/>,
     <CardUltimas image={image6}/>,
   ]
+  let ref = createRef()
+  useEffect(()=>{
+    ref.current.style.backgroundImage='url(https://s3-alpha-sig.figma.com/img/baae/f330/90292b464aac1f6d499e88cbde4c3646?Expires=1645401600&Signature=EEWwBIfKNxix0G3yRPEdGQsZR~n4Z7nUC1d94YuMacd47msYQl7SrkV8w8B75XZbvnMGRaXAJaA-FHml0tLTx9cr0G-6G4bKo0NgnCY2HifFSUmNELBzxe8QGqX~45bngPY0lW~ZhbfgfW2PYJzMDD-HlEQujVLXiA2v0gweOuuzxqkEe2BFo-9gsBWe3pIODRLDJIM90Yx9FTzMQ7gxfO5E2PUNhtBK3Aef9nH4KFqj9Fs0kh26Bih1fCtTpLxRKUoX7dVx6lrbrPa1ruYxKWqUpjEE52jw-PwZJMmxO5VvbBjLquH5xtcn9-Yg9j3HuV5fIDhc-hH8IwLRKSBa5A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA)'
+  },[ref])
   return(
     <div className={styles.Home}>
-      <div className={styles.fondo}>
-        <div className={styles.imgContainer}>
-          <img src={FondoHomexD} />
-        </div>
-      </div>
-      <div className={styles.top}>
+      
+      <div className={styles.top} ref={ref} >
         <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
         <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
         <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>

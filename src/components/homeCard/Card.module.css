@@ -6,7 +6,7 @@
 
 .imagenLeft,.imagenRight{
   width: 85%;
-  height: 150px;
+  height: 110px;
   overflow: hidden;
   display: grid;
   align-content: center;
@@ -59,4 +59,14 @@
   font-size: 8pt;
   position: relative;
   top: 1.2px;
+}
+@media (min-width: 370px) and (max-width: 408px){
+  .subCardLeft,.subCardRight{
+    height: 125px;
+  }
+}
+@media (min-width: 409px) and (max-width: 500px){
+  .subCardLeft,.subCardRight{
+    height: 110px;
+  }
 }

@@ -12,6 +12,7 @@
 .top{
   background-repeat: no-repeat;
   padding: 60px 20px 0 20px;
+  background-size:  auto 100%; 
 
 
 }
@@ -36,7 +37,7 @@
 }
 .boton{
   margin-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   width: fit-content;
 }
 .carrusell,.carrusell div{
