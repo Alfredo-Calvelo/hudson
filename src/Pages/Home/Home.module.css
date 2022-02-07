@@ -3,7 +3,6 @@
 }
 .fondo img{
   overflow: hidden;
-  /* height: 300px; */
   width: 100%;
 }
 
@@ -113,4 +112,22 @@
 }
 .espacios{
   margin: 5px 0 5px 0;
+}
+@media (width < 339px) {
+  .fondo img{
+    overflow: hidden;
+    width: 160%;
+  }
+}
+@media (340px <= width<= 345px) {
+  .fondo img{
+    overflow: hidden;
+    width: 140%;
+  }
+}
+@media (min-width: 346px) and (max-width: 404px){
+  .fondo img{
+    overflow: hidden;
+    width: 120%;
+  }
 }
