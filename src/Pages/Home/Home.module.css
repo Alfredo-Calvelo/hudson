@@ -13,6 +13,7 @@
   background-repeat: no-repeat;
   padding: 60px 20px 0 20px;
   background-size:  auto 100%; 
+  background-position: center;
 
 
 }
@@ -117,23 +118,9 @@
 .espacios{
   margin: 5px 0 5px 0;
 }
-@media (max-width: 306px) {
-  .fondo img{
-    width: 193%;
-  }
-}
-@media (min-width:306px) and (max-width: 339px) {
-  .fondo img{
-    width: 160%;
-  }
-}
-@media (min-width: 340px) and (max-width: 345px) {
-  .fondo img{
-    width: 140%;
-  }
-}
-@media (min-width: 346px) and (max-width: 404px){
-  .fondo img{
-    width:120%;
+
+@media (min-width:486px)  {
+  .top{
+    background-size:   100% auto; 
   }
 }
