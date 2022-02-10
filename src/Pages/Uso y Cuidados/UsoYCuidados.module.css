@@ -1,0 +1,26 @@
+.header{width: 100%;}
+
+.headerImg{width: 100%;}
+
+.titles{
+  display: grid;
+  justify-items: center;
+  background-color: white;
+  margin: 0 20px 0 20px;
+  padding: 25px 40px 25px 40px;
+  gap: 20px;
+  position: relative;
+  top: -70px;
+}
+.title{
+  color: var(--rojo);
+}
+.subTitle{
+  font-size: 15pt;
+  font-family: 'Bold';
+  text-align: center;
+}
+.cards{
+  position: relative;
+  top: -20px;
+}

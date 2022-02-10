@@ -1,17 +1,17 @@
-import styles from './InspirateCard.module.css'
+import styles from './Header.module.css'
 import fondo from  '../../imagenes/Fondo Home.jpg'
 import { BsChevronRight} from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
 
-export default function InspirateCard(){
+
+export default function Header(props){
   const navigate = useNavigate()
   return(
     <div className={styles.container} onClick={()=>navigate('../Receta')}>
-      <img className={styles.headerImg} src={fondo}/>
+      <img className={styles.headerImg} src={props.img}/>
       <div className={styles.title}>
-        <h3>Pasta mediterranea express</h3>
-        <h6 className={styles.verReceta}> VER RECETA  <BsChevronRight/></h6>
+        <h3>{props.title.toUpperCase()}</h3>
       </div>
     </div>
   )

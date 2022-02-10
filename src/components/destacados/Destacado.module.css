@@ -8,8 +8,9 @@
   color: var(--rojo);
 }
 .imgLeft,.imgRight{
-  width: 150px;
+  width: 100%;
   margin: 90px 0 90px 0;
+  filter: var(--centerShadow);
 }
 .bottom{
   display: flex;

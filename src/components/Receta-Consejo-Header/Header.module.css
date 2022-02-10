@@ -5,18 +5,22 @@
 }
 .title{
   background-color: white;
-  width: 55%;
+  width: 60%;
   margin: auto;
   padding: 25px;
   position: relative;
   top: -40px;
   display: grid;
   gap: 10px;
+  justify-items: center;
 }
 .title h3{
   line-height: 23px;
-  font-family: 'Bold';
+  font-family: 'ExtraBold';
   font-size: 15pt;
+  width: fit-content;
+  text-align: center;
+  color: var(--rojo);
 }
 .verReceta{
   display: flex;

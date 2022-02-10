@@ -15,6 +15,7 @@
   width: 90%;
   position: relative;
   top: -40px;
+  filter: var(--shadow);
 }
 .description{
   display: grid;

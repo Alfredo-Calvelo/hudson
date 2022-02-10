@@ -8,6 +8,10 @@ import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 import Inspirate from './Pages/Inspirate/Inspirate';
 import Contacto from './Pages/Contacto/Contacto';
+import Receta from './Pages/Receta/Receta';
+import Consejo from './Pages/Consejo/Consejo';
+import Nosotros from './Pages/Nosotros/Nosotros';
+import UsoYCuidados from './Pages/Uso y Cuidados/UsoYCuidados';
 
 function App() {
   const dispatch = useDispatch()
@@ -38,6 +42,10 @@ function App() {
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
               <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
               <Route exact path='/Contacto'element={<Contacto/>}/>
+              <Route exact path='/Receta'element={<Receta/>}/>
+              <Route exact path='/Consejo'element={<Consejo/>}/>
+              <Route exact path='/Nosotros'element={<Nosotros/>}/>
+              <Route exact path='/Uso_Y_Cuidados'element={<UsoYCuidados/>}/>
               <Route path='*' element={<div>404 | Not Found</div>}/>
 
             </Routes>

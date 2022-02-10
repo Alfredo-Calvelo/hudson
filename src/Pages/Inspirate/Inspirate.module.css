@@ -25,11 +25,10 @@
 }
 
 .otrasRecetas{
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
 }
 .paginacion{
   display: flex;

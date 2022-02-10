@@ -1,0 +1,22 @@
+.container{
+  width: fit-content;
+  display: grid;
+  justify-items: center;
+  gap: 30px;
+
+}
+.img{
+  width: 250px;
+  filter: var(--shadow);
+}
+.titles{
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+}
+.title{
+  font-family: 'Bold';
+}
+.subTitle{
+  font-family: 'ExtraLight';
+}

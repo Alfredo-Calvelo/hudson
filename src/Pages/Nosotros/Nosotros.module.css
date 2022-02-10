@@ -1,0 +1,43 @@
+.header{
+
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+.headerTitle{
+  margin-bottom: 20px;
+}
+.imgHeader{
+  width: 100%;
+  z-index: -1;
+}
+.bajada{
+  background-color: white;
+  margin: -30px 20px 0 20px ;
+  display: grid;
+  justify-items: center;
+  padding: 20px;
+
+}
+.title{
+  color: var(--rojo);
+  font-family: 'ExtraBold';
+  font-size: 15pt;
+  margin-bottom: 7px;
+}
+.subTitle{
+  font-family: 'Bold';
+  font-size: 13pt;
+  text-align: center;
+}
+.parrafo,.parrafo2{
+  padding: 30px;
+  font-family: 'Regular';
+  font-size: 10pt;
+}
+.parrafo2{
+  padding: 30px 30px 15px 30px;
+}
+.destacado{
+  margin: 0 20px 0 20px;
+}

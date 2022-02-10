@@ -14,6 +14,9 @@ import AliceCarousel from 'react-alice-carousel'
 
 export default function Inspirate(){
   document.title=`Hudson | Inspirate`
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   let arr = [{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},{img:fideos, text:'Bruschetta de palta y huevo soft'},]
   let page = useParams().page -1 
   let bloque = {inicio:0 + 10*page, final:9+ 10*page}
@@ -21,9 +24,6 @@ export default function Inspirate(){
   let iterable =[]
   let items= [<InspirateCard/>,<InspirateCard/>,<InspirateCard/>]
 
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[])
   for (let i = 0; i < buttons; i++) {
     iterable.push('')
   }
@@ -40,7 +40,7 @@ export default function Inspirate(){
           mouseTracking
           items={items}
           controlsStrategy="alternate"
-          autoWidth
+          
           disableDotsControls
           disableButtonsControls
           paddingLeft={10}

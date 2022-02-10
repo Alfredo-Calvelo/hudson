@@ -1,0 +1,20 @@
+.inspirado{
+  padding: 20px 0 40px 0;
+}
+
+.titles{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 0 20px 0 20px;
+}
+
+
+.inspirado h3{color: var(--rojo);}
+
+.imagenes{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

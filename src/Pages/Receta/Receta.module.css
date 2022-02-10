@@ -1,0 +1,71 @@
+.receta{
+  background-color: white;
+  margin: 0 20px 0 20px;
+  display: grid;
+  justify-items: center;
+  padding: 30px;
+  gap: 20px;
+}
+
+.info{
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.estrellas{
+  display: flex;
+  gap: 10px;
+}
+.estrella,.estrellaApagada,.icono{width: 40px;}
+
+.estrellaApagada{filter:opacity(.7)}
+
+.cocinero{width: 120px;}
+
+.ingredientesTitle {color: var(--rojo);}
+
+.ingredientesList{
+  width: 80%;
+  display: grid;
+  gap: 10px;
+  margin-left: 20px;
+}
+.ingredientesList li,.preparacionList li,.consejo{
+  font-family: 'SemiBold';
+  font-size: 13pt;
+}
+.video{
+  background-color: red;
+  width: 100vw;
+}
+.preparacion{
+  position: relative;
+  top: -3px;
+}
+.preparacionList{
+  list-style: none; 
+  display: grid;
+  gap: 10px;
+  width: 90%;
+}
+.consejo{
+  width: 90%;
+}
+.separador{
+  width: 100%;
+  height: 20px;
+}
+.productos{
+  background-color: white;
+  padding: 30px;
+  gap: 20px;
+  margin: 0 20px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.carrusell{
+  width:calc(100vw);
+}

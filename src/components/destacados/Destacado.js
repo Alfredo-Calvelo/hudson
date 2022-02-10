@@ -1,6 +1,7 @@
-import styles from './Destacado_Inpirate.module.css'
-import imgDerecha from '../../imagenes/fuenteCuadrada.png'
+import styles from './Destacado.module.css'
 import Boton from '../Boton/Boton'
+import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
+import imgDerecha from '../../imagenes/bifero26CM.png'
 
 export default function Destacado(props){
   
@@ -15,12 +16,12 @@ export default function Destacado(props){
       </div>
         <div className={styles.bottom}>
           <div className={styles.right}>
-            <img className={styles.imgLeft} alt='' src={props.leftImg}/>
+            <img className={styles.imgLeft} alt='' src={imgIzquierda}/>
             <h3 className={styles.title}>{props.leftTitle}</h3>
             <h5 className={styles.sbuTitle}>{props.leftDescription}</h5>  
           </div>
           <div className={styles.right}>
-            <img className={styles.imgLeft} alt='' src={props.rightImg}/>
+            <img className={styles.imgLeft} alt='' src={imgDerecha}/>
             <h3 className={styles.title}>{props.rightTitle}</h3>
             <h5 className={styles.subTitle}>{props.rightDescription}</h5>  
 

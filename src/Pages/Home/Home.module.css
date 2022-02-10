@@ -56,7 +56,6 @@
   display: grid;
 }
 .video iframe{
-  width: calc(100% );
   height: 300px;
   margin: auto;
 }
@@ -70,6 +69,7 @@
   width: 50px;
   height: 50px;
 }
+
 .produDestacados{
   margin-top: 70px;
   padding: 0 20px 0 20px;

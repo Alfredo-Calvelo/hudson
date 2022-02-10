@@ -1,0 +1,25 @@
+.consejo{
+  background-color: white;
+  margin: 0 20px 0 20px;
+  padding: 40px 55px 30px 55px;
+  display: grid;
+  justify-items: center;
+}
+.parrafo{
+  font-size: 13pt;
+}
+.title{
+  color: var(--rojo);
+  margin-bottom: 20px;
+}
+.algunosConsejos{
+  display: grid;
+  gap: 15px;
+}
+.algunosConsejos li{
+  font-size: 13pt;
+  font-family: 'SemiBold';
+}
+.destacado{
+  margin: 0 20px 0 20px;
+}

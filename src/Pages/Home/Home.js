@@ -20,8 +20,6 @@ import lineaVintage from '../../imagenes/lineaVintage.png'
 import carbonSteel from '../../imagenes/carbonSteel.png'
 import lineaCobre from '../../imagenes/lineaCobre.png'
 import Destacado from '../../components/destacados/Destacado';
-import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
-import imgDerecha from '../../imagenes/bifero26CM.png'
 import conocenos from '../../imagenes/grupoGente.jfif'
 import { BsChevronRight } from 'react-icons/bs';
 import Footer from '../../components/Footer/Footer';
@@ -33,16 +31,17 @@ import image4 from '../../imagenes/UltimasPublicaciones/4.png'
 import image5 from '../../imagenes/UltimasPublicaciones/5.png' 
 import image6 from '../../imagenes/UltimasPublicaciones/6.png' 
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
-import FondoHomexD from '../../imagenes/Fondo Home.jpg'
 import { createRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Home(){
   document.title='Hudson | Home'
-  
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
+  const navigate = useNavigate()
+  
   const items = [
     <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' ruta='https://www.facebook.com/' />,
     <Circulo srcImg={cafeTeYMate} label='Cafe y Mate' />,
@@ -95,13 +94,13 @@ export default function Home(){
 
       </div>
       <div>
-        <Card left tittle='LÍNEA MASTERCHEF' subTittle='Sentite un chef en la cocina de tu casa.' textRuta='VER RECETA' img={lineaMasterchef}/>
-        <Card  tittle='COCINÁ CON HUDSON' subTittle='Pancakes con arándanos' textRuta='VER PRODUCTOS' img={cocinaConHudson}/>
-        <Card left tittle='TRUCOS Y CONSEJOS' subTittle='Como conservar los nutrientes en el hervor' textRuta='LEER ARTICULO' img={trucosYConsejos} />
+        <Card left ruta='../Catalogo/Master Chef' tittle='LÍNEA MASTERCHEF' subTittle='Sentite un chef en la cocina de tu casa.' textRuta='VER RECETA' img={lineaMasterchef}/>
+        <Card ruta='Receta' tittle='COCINÁ CON HUDSON' subTittle='Pancakes con arándanos' textRuta='VER PRODUCTOS' img={cocinaConHudson}/>
+        <Card ruta='Consejo' left tittle='TRUCOS Y CONSEJOS' subTittle='Como conservar los nutrientes en el hervor' textRuta='LEER ARTICULO' img={trucosYConsejos} />
         <Card  tittle='EL IMPERDIBLE' subTittle='Cafetera prensa francesa 350ml' textRuta='VER PRODUCTO' img={elImperdible} />
       </div>
       <div className={styles.video}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
       </div>
       <div className={styles.plus} >
         <img src={Plus} alt='' />
@@ -112,7 +111,6 @@ export default function Home(){
           mouseTracking
           items={items2}
           controlsStrategy="alternate"
-          autoWidth
           disableDotsControls
           disableButtonsControls
           paddingLeft={10}
@@ -120,13 +118,13 @@ export default function Home(){
           />
       </div>
       <div className={styles.produDestacados}>
-        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
-        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' rightImg={imgDerecha}/>
+        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
+        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       </div>
 
 
       
-      <div className={styles.conocenos}>
+      <div className={styles.conocenos} onClick={()=>navigate('/Conocenos')}>
         <div className={styles.conocenosImg}>
           <img className={styles.grupoGente} src={conocenos}/>
         </div>

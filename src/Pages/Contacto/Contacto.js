@@ -6,20 +6,17 @@ import { useEffect, useState } from 'react';
 import {AiOutlineCheck} from 'react-icons/ai'
 import Boton from '../../components/Boton/Boton'
 import Destacado from '../../components/destacados/Destacado';
-import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
-import imgDerecha from '../../imagenes/bifero26CM.png'
 import Footer from '../../components/Footer/Footer';
-import RecetaCard from '../../components/RecetaCard/RecetaCard';
-import fideos from '../../imagenes/fideos.jfif'
 import SeparadorChico from '../../components/SeparadorChico/SeparadorChico';
+import Inspirado from '../../components/Inpirado/Inspirado';
 
 
 export default function Contacto (){
+  document.title='Hudson | Contaco'
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   const [revendedor, setRevendedor]=useState(false)
-  // useEffect(()=>{
-  //   window.scrollTo(0,0)
-  // },[])
-
   
   return(
     <div>
@@ -41,8 +38,6 @@ export default function Contacto (){
           </p>
         </div>
       </div>
-
-
       <div className={styles.info}>
         <Input placeholder='Nombre'/>
         <Input placeholder='email'/>
@@ -63,20 +58,10 @@ export default function Contacto (){
           <Boton dropMenu={false} text='ENVIAR' relleno/>
       </div>
       <SeparadorChico/>
-      <div className={styles.inspirado}>
-        <div className={styles.titles}>
-          <h3>Hudson te Inspira</h3>
-          <h5>VER MÁS</h5>
-        </div>
-        <div className={styles.imagenes}>
-          <RecetaCard img={fideos} title='Pasta mediterranea express'/>
-          <RecetaCard img={fideos} title='Pasta mediterranea express'/>
-        </div>
-      </div>
-
+      <Inspirado title='Hudson te inspira'/>
       <div className={styles.destacado}>
-        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
-        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' rightImg={imgDerecha}/>
+        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
+        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       </div>
       <Footer/>
     </div>

@@ -14,7 +14,6 @@ import SeparadorChico from '../../components/SeparadorChico/SeparadorChico'
 export default function Catalogo(props){
   const params = useParams()
   document.title=`Hudson | Catalogo ${params.catalog}`
-  console.log(params);
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
