@@ -8,8 +8,14 @@ import Footer from '../../components/Footer/Footer'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 export default function UsoYCuidados(){
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
+  
+  
   let UsosYCuidados = useSelector(state=> state.UsosYCuidados)
   let cardActiva = useSelector(state=>state.cardActiva)
+  const [elements, setElements]= useState([])
 
   function mapear(valor){
     let elements = UsosYCuidados.map((item,index)=>{
@@ -21,20 +27,11 @@ export default function UsoYCuidados(){
     })
     return elements
   }
-
-  const [elements, setElements]= useState([])
+  
 
   useEffect(()=>{
-    // console.log(cardActiva);
     setElements(mapear())
   },[cardActiva])
-
-
-  useEffect(()=>{
-    // console.log(elements);
-  },[elements])
-
-
 
   return(
     <div>
@@ -44,7 +41,6 @@ export default function UsoYCuidados(){
           <div className={styles.titles}>
             <h2 className={styles.title}>¿YA RECIBISTE TU PRODUCTO HUDSON?</h2>
             <h3 className={styles.subTitle}>Aprendé como utilizarlo correctamente para aprovechar al máximo y extender la vida útil.</h3>
-            <button onClick={()=>setElements([...elements,<div>hola</div>])}>aumentar</button>
           </div>
         </div>
         <div className={styles.cards}>

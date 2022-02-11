@@ -15,7 +15,6 @@ export default function CuidadosCard(props){
     if (props.active) {dispatch(activarCard(null))}
     else {dispatch(activarCard(props.clave))}
   }
-  console.log(props.active);
 
   let referencia = createRef()
   let referencia2 = createRef()

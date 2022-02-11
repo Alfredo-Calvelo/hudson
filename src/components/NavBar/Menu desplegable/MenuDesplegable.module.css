@@ -14,7 +14,7 @@
   align-self: right;
   transform: translateX(100%);
 }
-.bloque,.subBloque{
+.bloque,.subBloque,.subBloqueInicio{
   background-color: var(--rojo);
   color: white;
   padding: 20px;
@@ -23,12 +23,16 @@
   font-family: 'ExtraLight';
   cursor: pointer;
 }
-.subBloque{
+.subBloque,.subBloqueInicio{
   background-color: white;
   color: var(--grisFuente);
   padding: 15px 30px 15px 20px;
   display: flex;
   justify-content: space-between;
+}
+.subBloqueInicio{
+  background-color: white;
+  margin-top: 5px;
 }
 
 .bloque svg{
@@ -40,7 +44,7 @@
 
 }
 .separador1{
-  margin: 10px 0 10px 0;
+  margin: 5px 0 5px 0;
 }
 .separador{
   margin-top: 20px;
