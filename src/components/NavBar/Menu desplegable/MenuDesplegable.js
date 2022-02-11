@@ -28,6 +28,10 @@ export default function MenuDesplegable(){
     <div className={active?styles.containerActivo:styles.containerInActivo}>
       <MenuCatalogo/>
       <h5 className={styles.bloque} onClick={()=>dispatch(cambiarOpciones(false))} ><AiOutlineClose/>CERRAR</h5>
+      <h5 className={styles.subBloque} onClick={()=>navegar('../')}>INICIO <BsChevronRight/></h5>
+      <div className={styles.separador1}>
+        <Separador/>
+      </div>
       <h5 className={styles.subBloque} onClick={()=>{dispatch(cambiarMenuCatalogo(true))}} >CATÁLOGO <BsChevronRight/> </h5>
       <h5 className={styles.subBloque}  >COCCIÓN Y HORNEADO <BsChevronRight/></h5>
       <h5 className={styles.subBloque}  >CAFÉ, TÉ Y MATE <BsChevronRight/></h5>

@@ -1,6 +1,6 @@
 .Separador{
   width: 50px;
   height: 1px;
-  background-color: var(--grisFuente);
+  background-color: var(--grisSeparadores);
   margin: 50px auto 50px auto;
 }

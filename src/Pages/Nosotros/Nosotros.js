@@ -9,9 +9,9 @@ import Destacado from '../../components/destacados/Destacado'
 import Footer from '../../components/Footer/Footer'
 export default function Nosotros(){
   document.title='Hudson | Conocenos'
-  // useEffect(()=>{
-  //   window.scrollTo(0,0)
-  // },[])
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
 
   return(
     <div>
@@ -70,10 +70,8 @@ export default function Nosotros(){
       </div>
       <SeparadorChico/>
       <Inspirado title='Hudson te inspira'/>
-      <div className={styles.destacado}>
-        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
-        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
-      </div>
+      <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
+      rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       <Footer contacto/>
     </div>
   )

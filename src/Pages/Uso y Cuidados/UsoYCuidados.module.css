@@ -7,20 +7,36 @@
   justify-items: center;
   background-color: white;
   margin: 0 20px 0 20px;
-  padding: 25px 40px 25px 40px;
-  gap: 20px;
+  padding: 25px 0 0 0 ;
+  justify-items: center;
   position: relative;
   top: -70px;
 }
+
 .title{
   color: var(--rojo);
+  text-align: center;
+}
+@media (min-width:300px) and (max-width:337px) {
+  .title{
+    font-size: 16pt;
+  }
+}
+@media (min-width:3px) and (max-width:299px) {
+  .title{
+    font-size: 14pt;
+  }
 }
 .subTitle{
   font-size: 15pt;
   font-family: 'Bold';
   text-align: center;
+  padding: 10px 20px 20px 20px;
 }
 .cards{
   position: relative;
   top: -20px;
+}
+.destacado{
+  margin: 0 20px 0 20px;
 }

@@ -59,10 +59,8 @@ export default function Contacto (){
       </div>
       <SeparadorChico/>
       <Inspirado title='Hudson te inspira'/>
-      <div className={styles.destacado}>
-        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
-        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
-      </div>
+      <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
+      rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       <Footer/>
     </div>
   )

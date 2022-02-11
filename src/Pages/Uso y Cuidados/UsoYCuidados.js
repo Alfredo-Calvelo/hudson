@@ -5,7 +5,35 @@ import Inspirado from '../../components/Inpirado/Inspirado'
 import SeparadorChico from '../../components/SeparadorChico/SeparadorChico'
 import Destacado from '../../components/destacados/Destacado'
 import Footer from '../../components/Footer/Footer'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 export default function UsoYCuidados(){
+  let UsosYCuidados = useSelector(state=> state.UsosYCuidados)
+  let cardActiva = useSelector(state=>state.cardActiva)
+
+  function mapear(valor){
+    let elements = UsosYCuidados.map((item,index)=>{
+      if (index===cardActiva) {
+        return<CuidadosCard active={true} item={item} clave={index} key = {index} />
+      }else{
+        return<CuidadosCard active={false} item={item} clave={index} key = {index} />
+      }
+    })
+    return elements
+  }
+
+  const [elements, setElements]= useState([])
+
+  useEffect(()=>{
+    // console.log(cardActiva);
+    setElements(mapear())
+  },[cardActiva])
+
+
+  useEffect(()=>{
+    // console.log(elements);
+  },[elements])
+
 
 
   return(
@@ -14,22 +42,20 @@ export default function UsoYCuidados(){
         <img className={styles.headerImg} src={header}></img>
         <div className={styles.titlesContainer}>
           <div className={styles.titles}>
-            <h2 className={styles.title}>¿YA TENÉS TU HUDSON?</h2>
-            <h3 className={styles.subTitle}> Aprendé como cuidar tu pieza y aprovechala al máximo.</h3>
+            <h2 className={styles.title}>¿YA RECIBISTE TU PRODUCTO HUDSON?</h2>
+            <h3 className={styles.subTitle}>Aprendé como utilizarlo correctamente para aprovechar al máximo y extender la vida útil.</h3>
+            <button onClick={()=>setElements([...elements,<div>hola</div>])}>aumentar</button>
           </div>
         </div>
         <div className={styles.cards}>
-          <CuidadosCard/>
-          <CuidadosCard/>
-          <CuidadosCard/>
-          <CuidadosCard/>
+          {elements}
+          
+          
         </div>
         <SeparadorChico/>
         <Inspirado title='Hudson te inspira'/>
-        <div className={styles.destacado}>
         <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
-        </div>
         <Footer contacto/>
       </div>
     </div>

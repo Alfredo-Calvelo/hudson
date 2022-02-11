@@ -20,8 +20,18 @@
 .estrella,.estrellaApagada,.icono{width: 40px;}
 
 .estrellaApagada{filter:opacity(.7)}
-
-.cocinero{width: 120px;}
+.cocinero{
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.cocineroImg{width: 140px;}
+.cocineroTitle,.cocineroSubTitle{
+  text-align: center;
+  font-family: 'Bold';
+  font-size: 12pt;
+}
 
 .ingredientesTitle {color: var(--rojo);}
 
@@ -68,4 +78,7 @@
 
 .carrusell{
   width:calc(100vw);
+}
+.destacado{
+  margin: 0 20px 0 20px;
 }

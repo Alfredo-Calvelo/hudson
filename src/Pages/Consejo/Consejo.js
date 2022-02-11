@@ -37,10 +37,8 @@ export default function Consejo (){
       </div>
       <SeparadorChico/>
       <Inspirado title='Sigue inspirandote...'/>
-      <div className={styles.destacado}>
         <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
-      </div>
       <Footer contacto/>
     </div>
   )

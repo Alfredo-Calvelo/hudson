@@ -37,10 +37,8 @@ export default function Catalogo(props){
         <CardCatalogo/>
       </div>
       <SeparadorChico/>
-      <div className={styles.prodDestacados}>
-        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
-          rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' rightImg={imgDerecha}/>
-      </div>
+      <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' leftImg={imgIzquierda}  
+        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' rightImg={imgDerecha}/>
       <Footer contacto/>
     </div>
   )

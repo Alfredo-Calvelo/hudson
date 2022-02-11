@@ -72,55 +72,9 @@
 
 .produDestacados{
   margin-top: 70px;
-  padding: 0 20px 0 20px;
+
 }
-.conocenos{
-  margin-top: 100px; 
-  display: grid;
-}
-.conocenosImg{
-  width: 100%;
-  overflow: hidden;
-}
-.grupoGente{
-  display: grid;
-  width: 400px;
-  position: relative;
-  left: -90px;
-}
-.subCard{
-  background-color: white;
-  width:45%;
-  justify-self: right;
-  position: relative;
-  top: -150%;
-  padding: 12px 0 12px 25px;
-}
-.tituloConocer{
-  color: var(--rojo);
-  font-size: 14pt;
-}
-.subTitleConocer{
-  font-size: 12pt;
-  width: 100%;
-}
-.textRuta{
-  font-size: 8pt;
-  display: inline-block;
-}
-.flecha{
-  display: flex;
-  gap: 20px;
-}
-.flecha svg{
-  font-size: 8pt;
-  position: relative;
-  top: 6px;
-  margin-left: 50px;
-}
-.espacios{
-  margin: 5px 0 5px 0;
-}
+
 
 @media (min-width:486px)  {
   .top{

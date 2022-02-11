@@ -1,5 +1,5 @@
 .separador{
   width: 100%;
-  background-color: #CCCCCC;
+  background-color: var(--grisSeparadores);
   height: 1px;
 }

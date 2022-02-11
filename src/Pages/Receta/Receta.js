@@ -16,9 +16,9 @@ import Footer from '../../components/Footer/Footer'
 export default function Receta(){
   document.title='Hudson | Receta'
 
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[])
+  // useEffect(()=>{
+  //   window.scrollTo(0,0)
+  // },[])
   
   let items =[<RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
   <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
@@ -36,8 +36,8 @@ export default function Receta(){
   const estrellas =[]
   for (let i = 0; i < 3; i++) {
     if (Dificultad-1 >=i) {
-      estrellas.push(<img className={styles.estrella} src={estrella}/>)
-    }else estrellas.push(<img className={styles.estrellaApagada} src={estrella}/>)
+      estrellas.push(<img key={i} className={styles.estrella} src={estrella}/>)
+    }else estrellas.push(<img key={i} className={styles.estrellaApagada} src={estrella}/>)
   }
 
 
@@ -48,19 +48,27 @@ export default function Receta(){
       <div className={styles.receta}>
         <div className={styles.info}>
           <img src={Porcion} className={styles.icono}/>
-          <h4>Porciones:6</h4>
+          <h4>Porciones:{' '}6</h4>
         </div>
         <div className={styles.info}>
           <img src={reloj} className={styles.icono}/>
-          <h4>Preparación:15 min.</h4>
+          <h4>Preparación:{' '}15 min.</h4>
         </div>
         <div className={styles.info}>
           <div className={styles.estrellas}>
             {estrellas}
           </div>
-          <h4>Dificultad:Baja.</h4>
+          <h4>Dificultad:{' '}Baja.</h4>
         </div>
-        <img src={fotoPersona} className={styles.cocinero}/>
+        <div className={styles.cocinero}>
+          <img src={fotoPersona} className={styles.cocineroImg}/>
+          <div >
+            <h4 className={styles.cocineroTitle}>Hoy Cocina:{' '} Belu Lucius</h4>
+            <h4 className={styles.cocineroSubTitle}>ig @belulucius</h4>
+          </div>
+
+        </div>
+
         <SeparadorChico/>
         <h3 className={styles.ingredientesTitle}>Ingredientes</h3>
         <ul className={styles.ingredientesList}>
@@ -109,7 +117,7 @@ export default function Receta(){
       </div>
       <SeparadorChico/>
       <Inspirado title='Sigue inspirándote...'/>
-      <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
+        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       <Footer contacto/>
     </div>

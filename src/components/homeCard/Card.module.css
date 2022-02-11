@@ -6,7 +6,7 @@
 
 .imagenLeft,.imagenRight{
   width: 85%;
-  height: 110px;
+  height: 170px;
   overflow: hidden;
   display: grid;
   align-content: center;
@@ -24,9 +24,10 @@
   height: 145px;
   justify-self: right;
   position: relative;
-  top: -45px;
+  top: -65px;
   padding: 20px 20px 20px 25px;
   display: grid;
+  cursor: pointer;
 }
 .subCardRight{
   justify-self: left;
@@ -53,12 +54,19 @@
   display: flex;
   gap: 20px;
   align-items: flex-end;
-
+  transition: .4s;
 }
 .flecha svg{
   font-size: 8pt;
   position: relative;
-  top: 1.2px;
+  top: -1.2px;
+}
+.subCardLeft:hover .flecha{
+  gap: 10px;
+
+}
+.subCardRight:hover .flecha {
+gap: 10px;
 }
 @media (min-width: 370px) and (max-width: 408px){
   .subCardLeft,.subCardRight{

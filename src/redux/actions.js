@@ -3,6 +3,7 @@ export const CAMBIAR_NAV_BAR = 'CAMBIAR_NAV_BAR'
 export const CAMBIAR_OPCIONES = 'CAMBIAR_OPCIONES'
 export const CAMBIAR_MENU_CATALOGO = 'CAMBIAR_MENU_CATALOGO'
 export const CERRAR_TODO = 'CERRAR_TODO'
+export const CARD_ACTIVA = 'CARD_ACTIVA'
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
 }
@@ -18,4 +19,7 @@ export function cambiarMenuCatalogo(payload){
 }
 export function cerrarTodo(payload){
     return{type:CERRAR_TODO, payload}
+}
+export function activarCard(payload){
+    return{type:CARD_ACTIVA, payload}
 }

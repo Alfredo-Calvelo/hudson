@@ -20,8 +20,6 @@ import lineaVintage from '../../imagenes/lineaVintage.png'
 import carbonSteel from '../../imagenes/carbonSteel.png'
 import lineaCobre from '../../imagenes/lineaCobre.png'
 import Destacado from '../../components/destacados/Destacado';
-import conocenos from '../../imagenes/grupoGente.jfif'
-import { BsChevronRight } from 'react-icons/bs';
 import Footer from '../../components/Footer/Footer';
 import UltimasPublicaciones from '../../components/ultimasPublicaciones/UltimasPublicaciones';
 import image1 from '../../imagenes/UltimasPublicaciones/1.png' 
@@ -33,6 +31,8 @@ import image6 from '../../imagenes/UltimasPublicaciones/6.png'
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
 import { createRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ConocenosCard from '../../components/ConocenosCard/ConocenosCard';
+import Conocenos from '../../components/Conocenos/Conocenos';
 
 
 export default function Home(){
@@ -122,21 +122,9 @@ export default function Home(){
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       </div>
 
-
+      <Conocenos/>
       
-      <div className={styles.conocenos} onClick={()=>navigate('/Conocenos')}>
-        <div className={styles.conocenosImg}>
-          <img className={styles.grupoGente} src={conocenos}/>
-        </div>
-        <div className={styles.subCard} >
-          <h2 className={`${styles.tituloConocer}  ${styles.espacios}`}>CONOCENOS</h2>
-          <h3 className={`${styles.subTitleConocer}  ${styles.espacios}`} >Somos mas que una marca, somos familia.</h3>
-          <div className={styles.flecha}>
-            <h5 className={`${styles.textRuta} ${styles.espacios}`} >VER MAS</h5>
-            <BsChevronRight/>
-          </div>
-        </div>
-      </div>
+      
       <div className={styles.UltimasPublicaciones}>
         <UltimasPublicaciones items={items3} />
       </div>

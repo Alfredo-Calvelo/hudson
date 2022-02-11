@@ -1,23 +1,42 @@
-import {ACTIVAR_MENU_DESPLEGABLE, CAMBIAR_NAV_BAR,CAMBIAR_OPCIONES,CAMBIAR_MENU_CATALOGO, CERRAR_TODO } from "./actions"
-import fondoHome from '../imagenes/Fondo HomexD.jfif'
-import conccionYHorneado from '../imagenes/Circulos/coccionYHorneado.png'
-import cafeTeYMate from '../imagenes/Circulos/cafeTeYMate.png'
-import Utensillios from '../imagenes/Circulos/Utensillios.png'
-import Vajilla from '../imagenes/Circulos/Vajilla.png'
-import Reposteria from '../imagenes/Circulos/Reposteria.png'
-import Organizacion from '../imagenes/Circulos/Organizacion.png'
-import lineaMasterchef from '../imagenes/lineaMasterchef.png'
-import lineaVintage from '../imagenes/lineaVintage.png'
-import grupoGente from '../imagenes/grupoGente.jfif'
-import fuenteCuadrada from '../imagenes/fuenteCuadrada.png'
-import img1 from '../imagenes/UltimasPublicaciones/1.png'
-import img2 from '../imagenes/UltimasPublicaciones/2.png'
-import img3 from '../imagenes/UltimasPublicaciones/3.png'
-import img4 from '../imagenes/UltimasPublicaciones/4.png'
-import img5 from '../imagenes/UltimasPublicaciones/5.png'
-import img6 from '../imagenes/UltimasPublicaciones/6.png'
-import lineaCobre from '../imagenes/lineaCobre.png'
-import fideos from '../imagenes/fideos.jfif'
+import {
+  ACTIVAR_MENU_DESPLEGABLE, 
+  CAMBIAR_NAV_BAR,
+  CAMBIAR_OPCIONES,
+  CAMBIAR_MENU_CATALOGO, 
+  CERRAR_TODO,
+  CARD_ACTIVA, 
+} from "./actions"
+
+
+//-----------MODELO DE DATOS DE USOS Y CUIDADOS-----------
+    // {
+    //   title:'',
+    //   subtitle:'',
+    //   recomendacionesGenerales:[
+    //     '',
+    //     '',
+    //   ],
+    //   extras:[
+    //     {
+    //       title:'',
+    //       subTitle:'',
+    //       items:[
+    //         '',
+    //         '',
+    //       ]
+    //     },
+    //     {
+    //       title:'',
+    //       subTitle:'',
+    //       items:[
+    //         '',
+    //         '',
+    //       ]
+    //     }
+    //   ]
+    // }
+
+
 
 
 const initialState={
@@ -25,277 +44,264 @@ const initialState={
   navBar:true,
   opciones:false,
   menuCatalgo:false,
-  Home:{
-    header:{
-      title:'SEMANA DE DESCUENTOS PARA MAMÁ',
-      subtitle: 'Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.',
-      aclaracion:'Línea de vigencia de la promoción ',
-      backgroundImg: fondoHome
+  cardActiva:null,
+
+  UsosYCuidados:[
+    {
+      title:'Piezas de Aluminio',
+      subTitle:'Con Antiadherente',
+      recomendacionesGenerales:[
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+        'No dejes los utensilios vacíos sobre una fuente de calor (a menos que requieras calentarlo durante unos pocos segundos antes de incorporar el aceite).',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que decoloran y desgastan la superficie.',
+        'Para piezas con recubrimiento antiadherente, evitar el uso de utensilios metálicos y/o cortantes, ya que pueden dañar el recubrimiento. Aconsejamos el uso del Set 6 Utensilios Nylon Y Acero Hudson'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Siempre lava tus ollas y sartenes con esponjas suaves y detergentes y sécalas con un repasador suave. Evitar el uso de esponjas abrasivas o de metal ya que esto afectará al antiadherente y al recubrimiento externo de tu pieza.',
+            'No dejes alimentos en las sartenes y ollas durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.'
+          ]
+        },
+        {
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes. ',
+            'Al guardar piezas revestidas interiormente con antiadherente, no dar vuelta las tapas dentro de las mismas ya que las perillas pueden rayar su interior. Para guardar las piezas apiladas, colocar entre una y otra un paño o repasador.',
+            'Advertencia: no guardar las piezas en sus cajas originales por un largo período de tiempo. El cartón puede humedecer la pieza.'
+          ]
+        }
+      ]
     },
-    carrusell1:[
-      {label:'Coccion y Horneado' ,img:conccionYHorneado},
-      {label:'Cafe y Mate' ,img:cafeTeYMate},
-      {label:'Utensilios' ,img:Utensillios},
-      {label:'Vajilla' ,img:Vajilla},
-      {label:'Reposteria' ,img:Reposteria},
-      {label:'Organizacion' ,img:Organizacion},
-    ],
-    cards:[
-      {
-        img:lineaMasterchef,
-        info:{
-          title:'Linea masterchef',
-          subtitle:'Sentite un chef en la cocina de tu casa',
-          ruta:'ver productos'
+
+
+    {
+      title:'Piezas de acero al carbono',
+      subtitle:'Con Antiadherente',
+      recomendacionesGenerales:[
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+        'No dejes los utensilios vacíos sobre una fuente de calor (a menos que requieras calentarlo durante unos pocos segundos antes de incorporar el aceite).',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que decoloran y desgastan la superficie.',
+        'Para piezas con recubrimiento antiadherente, evitar el uso de utensilios metálicos y/o cortantes, ya que pueden dañar el recubrimiento. Aconsejamos el uso del Set 6 Utensilios Nylon Y Acero Hudson'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Siempre lava tus ollas y sartenes con esponjas suaves y detergentes y sécalas con un repasador suave. Evitar el uso de esponjas abrasivas o de metal ya que esto afectará al antiadherente y al recubrimiento externo de tu pieza.',
+            'No dejes alimentos en las sartenes y ollas durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.'
+          ]
+        },
+        {
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes.',
+            'Al guardar piezas revestidas interiormente con antiadherente, no dar vuelta las tapas dentro de las mismas ya que las perillas pueden rayar su interior. Para guardar las piezas apiladas, colocar entre una y otra un paño o repasador. ',
+            'Advertencia: no guardar las piezas en sus cajas originales por un largo período de tiempo. El cartón puede humedecer la pieza.'
+          ]
         }
-      },
-      {
-        img:lineaMasterchef,
-        info:{
-          title:'Linea masterchef',
-          subtitle:'Sentite un chef en la cocina de tu casa',
-          ruta:'ver productos'
-        }
-      },
-      {
-        img:lineaMasterchef,
-        info:{
-          title:'Linea masterchef',
-          subtitle:'Sentite un chef en la cocina de tu casa',
-          ruta:'ver productos'
-        }
-      },
-      {
-        img:lineaMasterchef,
-        info:{
-          title:'Linea masterchef',
-          subtitle:'Sentite un chef en la cocina de tu casa',
-          ruta:'ver productos'
-        }
-      },
-    ],
-    video:'https://www.youtube.com/watch?v=krRvyeapHio',
-    carrusell2:[
-      {
-        img:lineaVintage,
-        info:{
-          title:'línea vintage',
-          subtitle:'Lucí tu cocina con colores y un estilo único',
-          ruta:'ver catálogo'
-        }
-      },
-      {
-        img:lineaVintage,
-        info:{
-          title:'línea vintage',
-          subtitle:'Lucí tu cocina con colores y un estilo único',
-          ruta:'ver catálogo'
-        }
-      },
-      {
-        img:lineaVintage,
-        info:{
-          title:'línea vintage',
-          subtitle:'Lucí tu cocina con colores y un estilo único',
-          ruta:'ver catálogo'
-        }
-      },
-    ],
-    conocenos:{
-      img:grupoGente,
-      info:{
-        title:'conocenos',
-        subtitle: 'Somos más que una marca, somos familia',
-        ruta:'ver más'
-      }
-    }
-  },
-  productosDestacados:{
-    left:{
-      img:fuenteCuadrada,
-      title: 'Fuente cuadrada',
-      subtitle:'Vidrio Templado'
+      ]
     },
-    right:{
-      img:fuenteCuadrada,
-      title: 'Fuente cuadrada',
-      subtitle:'Vidrio Templado'
+
+
+    {
+      title:'Pavas y Cafeteras',
+      subtitle:'',
+      recomendacionesGenerales:[
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Para lavar tu pava o cafetera y que dure mucho más tiempo hacerlo con una esponja suave para no dañar el color.',
+            'Si por dentro tiene sarro, podes sacárselo hirviendo un poco de agua con vinagre por al menos 5 minutos.',
+          ]
+        },
+        {
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes.'
+          ]
+        }
+      ]
     },
-  },
-  ultimasPublicaciones:{
-    images:[img1,img2,img3,img4,img5,img6]
-  },
-  Catalogos:{
-    masterChef:{
-      name:'Masterchef',
-      header:{
-        img:fondoHome,
-        title:'línea hudson masterchef'
-      },
-      cards:[
+
+
+    {
+      title:'Utensilios de Nylon y Silicona',
+      subtitle:'',
+      recomendacionesGenerales:[
+        'Evitar el uso de fuegos directo sobre el nylon o silicona.',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'Usa tus productos con antiadherente con utensilios de nylon o silicona para no rayar la superficie y que te duren mucho más tiempo: Además, es un material muy estable que resiste altas temperaturas.'
+      ],
+      extras:[
         {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Los utensilios de Silicona y Nylon si bien son fáciles de limpiar Tenes que tener en cuenta: Se deben usar esponjas suaves; se deben lavar con agua caliente y no se deben dejar mucho tiempo en remojo con productos de limpieza porque podrían absorber los aromas de los mismos.',
+            'Si lo lavas en lavavajillas se debe tener en cuenta que no se deben meter con restos de comida y se deben usar detergentes que no sean abrasivos',
           ]
         },
         {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco. '
+          ]
+        }
+      ]
+    },
+
+
+    {
+      title:'Utensilios de Acero Inoxidable',
+      subtitle:'',
+      recomendacionesGenerales:[
+        'Evitar el uso de fuegos directo sobre estos utensilios',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'Usa tus productos de acero inoxidable con este tipo de utensilios. Evitar utilizarlo sobre productos con antiadherente.'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Para limpiar los utensilios de acero inoxidable solo se necesita agua, detergente y un paño.',
+            'Si lo lavas en lavavajillas se debe tener en cuenta que no se deben meter con restos de comida y se deben usar detergentes que no sean abrasivos',
           ]
         },
         {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco. ',
+          ]
+        }
+      ]
+    },
+
+
+    {
+      title:'Piezas de vidrio para horno',
+      subtitle:'',
+      recomendacionesGenerales:[
+        'Evitar el uso de fuegos directo sobre este tipo de productos. ',
+        'Estas piezas son aptas hornos a gas y eléctricos y microondas.',
+        'Estas piezas también son aptas heladera y freezer.'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Para nuestros productos de vidrio para horno solo se necesita agua, detergente y un paño.',
+            'Si lo lavas en lavavajillas se debe tener en cuenta que no se deben meter con restos de comida y se deben usar detergentes que no sean abrasivos.',
           ]
         },
         {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco. ',
+          ]
+        }
+      ]
+    },
+
+
+    {
+      title:'Piezas de Acero Inoxidable',
+      subtitle:'',
+      recomendacionesGenerales:[
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en el exterior o en los mangos.',
+        'No dejes los utensilios vacíos sobre una fuente de calor (a menos que requieras calentarlo durante unos pocos segundos antes de incorporar el aceite).',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que pueden generar manchas y desgastar la superficie.',
+        'Para piezas es tipo de piezas sin recubrimiento antiadherente, puede utilizar utensilios de Acero Inoxidable, de todas formas, recomendamos el uso de productos cortantes., ya que pueden dañar el recubrimiento.'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Lávalas con jabón neutro y agua tibia y siempre usa un paño suave para no rallarlas y evitar que se formen manchas.',
+            'No dejes alimentos en las sartenes y ollas durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.'
           ]
         },
         {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes. ',
+            'Advertencia: no guardar las piezas en sus cajas originales por un largo período de tiempo. El cartón puede humedecer la pieza.',
+          ]
+        }
+      ]
+    },
+
+
+    {
+      title:'Piezas de Moldería',
+      subtitle:'Con Antiadherente',
+      recomendacionesGenerales:[
+        'Evitar el uso sobre hornallas, brasas directas y microondas.',
+        'Todas nuestras piezas son aptas hornos a gas y eléctricos.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que pueden generar manchas y desgastar la superficie.',
+        'Para piezas con recubrimiento antiadherente, evitar el uso de utensilios metálicos y/o cortantes, ya que pueden dañar el recubrimiento. Aconsejamos el uso del Set 6 Utensilios Nylon Y Acero Hudson'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Siempre lava tus piezas con esponjas suaves y detergentes y sécalas con un repasador suave. Evitar el uso de esponjas abrasivas o de metal ya que esto afectará al antiadherente y al recubrimiento externo de tu pieza.',
+            'No dejes alimentos en los moldes durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.',
           ]
         },
         {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes.',
+            'Al guardar piezas revestidas interiormente con antiadherente, no dar vuelta las tapas dentro de las mismas ya que las perillas pueden rayar su interior. Para guardar las piezas apiladas, colocar entre una y otra un paño o repasador.',
           ]
-        },
-        {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
-          ]
-        },
-        {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
-          ]
-        },
-        {
-          img:lineaCobre,
-          title:'presumí con hudson y su línea cobre',
-          subtitle:'Realizá tus preparaciones con estilo y hacé brillar tu cocina.',
-          listItems:[
-            'Hechos en Aluminio de 2.1 mm de espesor.',
-            'Triple capa de antiadherente cerámico degradado, reduce o elimina el uso de aceites para cocinar. Evitará que los productos se peguen y podrás realizar comidas que serán más sanas.',
-            'Mangos y asas recubiertas con tecnología Soft Touch, permite manipular sin quemarte durante la cocción y una sensación agradable al tacto.',
-            'Difusor de calor en la base, permitiendo equilibrar la distribución del calor y ahorrar energía.',
-            'Disponible en 7 piezas.',
-            'Diseño de packaging exclusivo Masterchef.'
-          ]
-        },
+        }
       ]
     }
-  },
-  Inspirate:{
-    recetas:[
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-        header:true
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-        header:true
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-        header:true
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-      },
-      {
-        img:fideos,
-        title:'Pasta medtierranea express',
-      },
-    ],
-  }
+
+
+
+  ]
 }
 
 function rootReducer(state=initialState, action){
@@ -330,6 +336,14 @@ function rootReducer(state=initialState, action){
           ...state,
           menuCatalgo:false,
           opciones:false,
+        }
+      
+  }
+  if (action.type === CARD_ACTIVA) {
+      
+        return{
+          ...state,
+          cardActiva:action.payload
         }
       
   }
