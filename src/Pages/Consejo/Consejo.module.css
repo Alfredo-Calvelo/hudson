@@ -11,6 +11,7 @@
 .title{
   color: var(--rojo);
   margin-bottom: 20px;
+  white-space: nowrap;
 }
 .algunosConsejos{
   display: grid;

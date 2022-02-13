@@ -1,7 +1,7 @@
 import styles from './CuidadosCard.module.css'
 import ollaConCosas from '../../imagenes/ollaConCosas.png'
 import { createRef, useEffect, useState } from 'react'
-import {BsChevronDown,BsChevronUp} from 'react-icons/bs'
+import {BsChevronDown,BsChevronUp, BsLightbulbOff} from 'react-icons/bs'
 import {VscDebugBreakpointData} from 'react-icons/vsc'
 import { useDispatch } from 'react-redux'
 import { activarCard } from '../../redux/actions'
@@ -9,10 +9,17 @@ import { activarCard } from '../../redux/actions'
 export default function CuidadosCard(props){
   let item = props.item
   const dispatch = useDispatch()
-  const [abierto , setAbierto] = useState(false)
-  
+  let altura = createRef()
+  let hola 
+  useEffect(()=>{
+    hola = altura.current.offsetTop
+  })
+
   function Abrir_Cerrar(){
-    if (props.active) {dispatch(activarCard(null))}
+    if (props.active) {
+      dispatch(activarCard(null))
+      window.scrollTo(0,hola)
+    }
     else {dispatch(activarCard(props.clave))}
   }
 
@@ -43,7 +50,7 @@ export default function CuidadosCard(props){
         </div>
 
         <div className={styles.fondo}>
-          <div>
+          <div className={styles.principal}>
             <h4 className={styles.subTitleGris}> Recomendaciones Generales</h4>
             <ul className={styles.items}>
               {item.recomendacionesGenerales.map((elem,index)=>{
@@ -59,12 +66,12 @@ export default function CuidadosCard(props){
               })}
             </ul> 
           </div>
-          <span className={styles.verMas} onClick={()=>{Abrir_Cerrar()}}>{props.active?'VER MENOS':'VER MÁS'}{props.active?<BsChevronUp/>: <BsChevronDown/>}</span>
           <div className={styles.referencia} ref={referencia}>
             <div className={styles.segundaParte} ref={referencia2}>
               {item.extras.map((elem,index)=>{
                 return(
                 <div key={index}>
+                  <br></br>
                   <div className={styles.titles}>
                     <h4 className={styles.subTitleBajo}> {elem.title.toUpperCase()}</h4>
                     <h4 className={styles.subTitleGris}> {elem.subTitle} </h4>
@@ -88,6 +95,7 @@ export default function CuidadosCard(props){
               )})}
             </div>
           </div>
+          <span ref={altura} className={styles.verMas} onClick={()=>{Abrir_Cerrar()}}>{props.active?'VER MENOS':'VER MÁS'}{props.active?<BsChevronUp/>: <BsChevronDown/>}</span>
         </div>
 
       </div>

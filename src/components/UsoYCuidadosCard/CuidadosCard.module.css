@@ -2,16 +2,19 @@
   margin: 20px;
   margin-top: 30px;
 }
-
+.principal{
+  margin-bottom: 30px;
+}
 .header{
   display: grid;
-  justify-items: center;
+  justify-items: left;
   gap: 10px;
+  padding-left: 30px;
 }
 .title{
   color: var(--rojo);
   font-size: 23pt;
-  text-align: center;
+  text-align: left;
   width: 100%;
   /* display: flex; */
 }
@@ -35,7 +38,7 @@
 .subTitle{
   font-family: 'Bold';
   font-size: 14pt;
-  text-align: center;
+  text-align: left;
 }
 .subTitleBajo,.subTitleGris{
   background-color: white;

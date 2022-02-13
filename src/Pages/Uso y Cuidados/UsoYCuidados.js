@@ -45,8 +45,6 @@ export default function UsoYCuidados(){
         </div>
         <div className={styles.cards}>
           {elements}
-          
-          
         </div>
         <SeparadorChico/>
         <Inspirado title='Hudson te inspira'/>

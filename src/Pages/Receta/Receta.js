@@ -16,9 +16,9 @@ import Footer from '../../components/Footer/Footer'
 export default function Receta(){
   document.title='Hudson | Receta'
 
-  // useEffect(()=>{
-  //   window.scrollTo(0,0)
-  // },[])
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   
   let items =[<RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
   <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
@@ -48,11 +48,11 @@ export default function Receta(){
       <div className={styles.receta}>
         <div className={styles.info}>
           <img src={Porcion} className={styles.icono}/>
-          <h4>Porciones:{' '}6</h4>
+          <h4 className={styles.cortado}>Porciones:{' '}6</h4>
         </div>
         <div className={styles.info}>
           <img src={reloj} className={styles.icono}/>
-          <h4>Preparación:{' '}15 min.</h4>
+          <h4 className={styles.cortado}>Preparación:{' '}15 min.</h4>
         </div>
         <div className={styles.info}>
           <div className={styles.estrellas}>
