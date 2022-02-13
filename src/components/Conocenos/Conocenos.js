@@ -21,7 +21,7 @@ export default function Conocenos (){
       <AliceCarousel
         touchTracking
         mouseTracking
-        autoWidth
+        
         responsive={responsive}
         items={items}
         controlsStrategy="alternate"
