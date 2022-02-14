@@ -58,7 +58,7 @@ export default function Receta(){
           <div className={styles.estrellas}>
             {estrellas}
           </div>
-          <h4>Dificultad:{' '}Baja.</h4>
+          <h4 className={styles.cortado}>Dificultad:{' '}Baja.</h4>
         </div>
         <div className={styles.cocinero}>
           <img src={fotoPersona} className={styles.cocineroImg}/>

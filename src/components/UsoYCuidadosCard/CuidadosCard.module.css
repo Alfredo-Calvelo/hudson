@@ -39,6 +39,7 @@
   font-family: 'Bold';
   font-size: 14pt;
   text-align: left;
+  white-space: nowrap;
 }
 .subTitleBajo,.subTitleGris{
   background-color: white;

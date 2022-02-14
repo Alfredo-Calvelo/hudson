@@ -7,14 +7,17 @@
   align-items: center;
   justify-content: flex-end;
   margin: 50px 0 70px 0;
+  width: 100vw;
 }
+
 
 .subCard{
   background-color: white;
   width:45%;
   height: fit-content;
   height: 100px;
-  padding: 12px 0 12px 25px;
+  padding: 12px 10px 12px 25px;
+  margin-right: 20px;
 }
 .tituloConocer{
   color: var(--rojo);

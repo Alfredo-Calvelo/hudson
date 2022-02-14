@@ -17,11 +17,11 @@ export default function Conocenos (){
     }
   }
   return(
-    <div>
+    <div className={styles.carrusell}>
       <AliceCarousel
         touchTracking
         mouseTracking
-        
+        autoWidth
         responsive={responsive}
         items={items}
         controlsStrategy="alternate"

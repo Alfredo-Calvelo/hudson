@@ -10,15 +10,15 @@ export default function CuidadosCard(props){
   let item = props.item
   const dispatch = useDispatch()
   let altura = createRef()
-  let hola 
+  let verMasY 
   useEffect(()=>{
-    hola = altura.current.offsetTop
+    verMasY = altura.current.offsetTop
   })
 
   function Abrir_Cerrar(){
     if (props.active) {
       dispatch(activarCard(null))
-      window.scrollTo(0,hola)
+      window.scrollTo(0,verMasY)
     }
     else {dispatch(activarCard(props.clave))}
   }
