@@ -26,7 +26,7 @@ export default function Destacado(props){
         <h3>Productos destacados</h3>
         <h5>VER MÁS</h5>
       </div>
-        <div className={styles.bottom}>
+      <div className={`${styles.bottom} ${styles.bottomMobile}`}>
           <AliceCarousel
           responsive={responsive}
           touchTracking
@@ -38,7 +38,9 @@ export default function Destacado(props){
 
           />
         </div>
-
+        <div className={`${styles.bottom} ${styles.bottomDesktop}`}>
+          {items}
+        </div>
             <h5 className={`${styles.subTitle} ${styles.vender}`}>Conseguí todos nuestros productos en nuestras tiendas online.</h5>  
             <div className={styles.tiendas}>
               <Boton text='TIENDA ONLINE'  dropMenu relleno/>

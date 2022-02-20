@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 } 
 .label{
   font-size: 9pt;
@@ -29,6 +30,20 @@
 }
 .container{
   width: fit-content;
-  /* margin: 0; */
   padding: 15px 10px 15px 10px ;
+}
+
+@media (min-width:800px) {
+  .Circulo{
+    width: 11vw;
+    height: 11vw;
+    transition: var(--transitionCorta);
+  }
+  .Circulo:hover{
+    filter: var(--strongShadow);
+  }
+  .label{
+    font-family: 'SemiBold';
+    font-size: 13pt;
+  }
 }

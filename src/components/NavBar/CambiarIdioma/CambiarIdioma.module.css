@@ -7,6 +7,7 @@
   font-family: 'Mulish', sans-serif;
   cursor: pointer;
   transition: var(--transitionCorta);
+
 }
 .CambiarIdiomaActivo{
   transition: var(--transitionCorta);
@@ -31,7 +32,9 @@
 }
 .blanco,.negro,.blanco path,.negro path,.opcionNegra path{
   transition: var(--transitionCorta);
-
+}
+.blanco,.negro{
+  white-space: nowrap;
 }
 .blanco,.opcionBlanca path,.blanco path ,.opcionBlanca{
   color: white;

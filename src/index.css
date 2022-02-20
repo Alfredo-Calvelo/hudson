@@ -9,7 +9,8 @@
   --naranjaMasterChef:#E26340;
   --gradient:linear-gradient(var(--marronHeader) 60% , transparent 100% );
   --shadow:drop-shadow(25px 23px 10px rgba(0, 0, 0,.15));
-  --centerShadow:drop-shadow(0px 0px 10px rgba(0, 0, 0,.15))
+  --centerShadow:drop-shadow(0px 0px 10px rgba(0, 0, 0,.15));
+  --strongShadow : drop-shadow(0px 2px 3px rgba(0, 0, 0,.7))
 }
 *{
   color: var(--grisFuente);

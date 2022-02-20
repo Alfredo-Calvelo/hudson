@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 
 export default function ConocenosCard (props){
   const navigate = useNavigate()
-  let hola =`backgroundImage:${conocenos}`
   return(
       <div className={styles.conocenos} style={{backgroundImage:`url(${conocenos})`}} onClick={()=>navigate('/Nosotros')}>
           <div className={styles.subCard} >

@@ -19,3 +19,30 @@
   position: relative;
   top: 2px;
 }
+.desktop{
+  display: none;
+}
+@media (min-width:800px)  {
+  .mobile{
+    display: none;
+  }
+  .desktop{
+    display: flex;
+    justify-content: space-around;
+  }
+  .titles{
+    display: flex;
+    align-items: center;
+  }
+  .title{
+    font-size: 20pt;
+  }
+  .arroba{
+    margin-left: 20px;
+    font-size: 12pt;
+    font-family: 'Regular';
+  }
+  .container{
+    padding: 0 40px 0 40px;
+  }
+}

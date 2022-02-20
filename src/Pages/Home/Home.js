@@ -41,7 +41,14 @@ export default function Home(){
     window.scrollTo(0,0)
   },[])
   const navigate = useNavigate()
-  
+  const responsive={
+    0:{
+      items:1
+    },
+    800:{
+      items:2
+    }
+  }
   const items = [
     <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' ruta='https://www.facebook.com/' />,
     <Circulo srcImg={cafeTeYMate} label='Cafe y Mate' />,
@@ -78,7 +85,9 @@ export default function Home(){
           <Boton text='TIENDA ONLINE' relleno dropMenu/>
         </div>
       </div>
-
+      <div className={styles.productosDesktop}>
+        {items}
+      </div>
       <div className={styles.carrusell} 
       >
       
@@ -93,7 +102,7 @@ export default function Home(){
         />
 
       </div>
-      <div>
+      <div className={styles.cards}>
         <Card left ruta='../Catalogo/Master Chef' tittle='LÍNEA MASTERCHEF' subTittle='Sentite un chef en la cocina de tu casa.' textRuta='VER PRODUCTOS' img={lineaMasterchef}/>
         <Card ruta='Receta' tittle='COCINÁ CON HUDSON' subTittle='Pancakes con arándanos' textRuta='VER RECETA' img={cocinaConHudson}/>
         <Card ruta='Consejo' left tittle='TRUCOS Y CONSEJOS' subTittle='Como conservar los nutrientes en el hervor' textRuta='LEER ARTICULO' img={trucosYConsejos} />
@@ -101,6 +110,10 @@ export default function Home(){
       </div>
       <div className={styles.video}>
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+      </div>
+      <div className={styles.videoDesktop}>
+        <iframe width="70%" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+
       </div>
       <div className={styles.plus} >
         <img src={Plus} alt='' />
@@ -110,10 +123,23 @@ export default function Home(){
           touchTracking
           mouseTracking
           items={items2}
-          controlsStrategy="alternate"
+          autoWidth
+          infinite
+          controlsStrategy='alternate'
           disableDotsControls
           disableButtonsControls
-          paddingLeft={10}
+          paddingLeft={20}
+          paddingRight={10}
+          />
+      </div>
+      <div className={styles.catalogCarrusellDesktop}>
+        <AliceCarousel
+          items={items2}
+          autoWidth
+          infinite
+          controlsStrategy='alternate'
+          disableDotsControls
+          paddingLeft={20}
           paddingRight={10}
           />
       </div>

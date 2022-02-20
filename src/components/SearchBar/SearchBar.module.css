@@ -1,16 +1,15 @@
 
 
 .SearchBar,.SearchBarActivo{
-  display: inline;
   display: inline-flex;
-  width: fit-content;
+  width: 100%;
   background-color: rgba(142, 142, 141 ,.3);
   padding: 6px;
   height: fit-content;
   transition: var(--transitionCorta);
+  align-items: center;
 }
 .SearchBarActivo{
-  transition: var(--transitionCorta);
   background-color: rgba(142, 142, 141 ,1);
   
 }
@@ -20,11 +19,46 @@
   top: 2px;
 }
 
-.input{
+.input,.inputDesktop{
   background-color: transparent;
   border: none;
   outline: none;
   height: 100%;
-  width: 80px;
+  height: 100%;
+  transition: .5s;
+}
+.input{
   padding: 5px;
+  width: 100%;
+}
+
+.inputDesktop{
+  padding: 5px;
+  width: 50px;
+  background-color: rgba(142, 142, 141 ,.3);
+}
+.desktop:hover >.inputDesktop{
+  width: 110px;
+}
+.mobile{
+  width: 100%;
+}
+.mobile,.desktop{
+  display: flex;
+}
+.desktop{
+  display: none;
+}
+@media (min-width:800px) {
+  .desktop{
+    display: flex;
+    gap: 10px;
+  }
+  .mobile{
+    display: none
+  }
+  .SearchBar,.SearchBarActivo{
+    background-color: transparent;
+  }
+
 }

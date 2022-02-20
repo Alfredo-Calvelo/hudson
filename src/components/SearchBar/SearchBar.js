@@ -8,8 +8,14 @@ export default function SearchBar(props){
 
   return(
     <div className={props.activo?styles.SearchBar:styles.SearchBarActivo}>
-      <FiSearch/>
-      <input className={styles.input}/>
+      <div className={styles.mobile}>
+        <FiSearch/>
+        <input className={styles.input}/>
+      </div>
+      <div className={styles.desktop}>
+        <FiSearch/>
+        <input className={styles.inputDesktop}/>
+      </div>
     </div>
   )
 

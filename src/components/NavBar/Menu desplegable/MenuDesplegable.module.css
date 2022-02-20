@@ -66,3 +66,8 @@
 .clases{
   cursor: pointer;
 }
+@media (min-width: 800px) {
+  .containerActivo,.containerInActivo{
+    display: none;
+  }
+}

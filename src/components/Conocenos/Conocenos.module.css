@@ -1,0 +1,12 @@
+.items{
+    display: none;
+}
+@media (min-width:800px) {
+    .carrusell{
+        display: none;
+    }
+    .items{
+        display: flex;
+        /* padding: 20px; */
+    }
+}

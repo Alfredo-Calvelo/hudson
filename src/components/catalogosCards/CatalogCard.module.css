@@ -1,13 +1,14 @@
 .requiredContainer{
   padding: 20px;
   padding-top:60px;
-
 }
 
 .container{
+  height: 400px;
   background-color: white;
   width: fit-content;
   overflow: visible;
+  display: grid;
 }
 
 .top{
@@ -24,14 +25,13 @@
   width: 70%;
   top: -60px;
 }
-.bottom,.bottomSpace{
-  padding: 20px;
+.bottom{
   display: grid;
+  padding: 20px;
   gap: 10px;
+  align-self: end;
 }
-.bottomSpace{
-  margin-top: -40px;
-}
+
 .flecha{
   display: flex;
   gap: 20px;
@@ -52,4 +52,54 @@
 }
 .Linea{
   position: relative;
+}
+@media (min-width:550px) {
+  .container{
+    height: 550px;
+  }
+}
+@media (min-width:800px) {
+  .requiredContainer{
+    padding: 50px;
+    width: fit-content;
+    display: inline-flex;
+  }
+  .container{
+    display: inline-flex;
+    width: fit-content;
+    grid-template-columns: 50% 50%;
+    height: 300px;
+    width: 60vw;
+  }
+  .top{
+    width: 300px;
+    height: 225px;
+  }
+
+  .img{
+    width: 120%;
+    height: 120%;
+    left: -20px;
+    top: -20px;
+  }
+  .bottom{
+    gap: 0;
+    align-self: center;
+    width: fit-content;
+    padding-right: 60px;
+  }
+  .tittle{
+    width: fit-content;
+  }
+  .subTittle{
+    margin-top: 10px;
+  }
+  .flecha{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    margin-top: 30px;
+    width: fit-content;
+  }
 }

@@ -1,7 +1,7 @@
 .imagen{
   width: 150px;
   height: 150px;
-  padding:0 10px 0 10px;
+  overflow: hidden;
 }
 .imagen img{
   width: 100%;

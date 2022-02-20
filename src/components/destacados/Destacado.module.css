@@ -40,3 +40,17 @@
   width: fit-content;
   margin: auto;
 }
+.bottomDesktop{
+  display: none;
+}
+@media (min-width:800px) {
+  .container{
+    padding: 0 40px 0 40px;
+  }
+  .bottomDesktop{
+    display: inline-flex;
+  }
+  .bottomMobile{
+    display: none;
+  }
+}

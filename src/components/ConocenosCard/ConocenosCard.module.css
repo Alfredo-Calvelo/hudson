@@ -44,3 +44,23 @@
 .espacios{
   margin: 5px 0 5px 0;
 }
+
+@media (min-width:800px) {
+  .conocenos{
+    margin: 50px 10px 70px 10px;
+    background-position-x:-100px ;
+  }
+  .subCard{
+    margin: 0;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .flecha{
+    align-self:flex-end;
+    height: fit-content;
+  }
+  .textRuta{
+    margin: 0;
+  }
+}

@@ -1,0 +1,39 @@
+.container{
+    width: 240px;
+    height: calc(100% - 20px);
+    padding: 20px 20px 0 20px ;
+    display: grid;
+    background-color: var(--grisFondo);
+    overflow: hidden;
+}
+.titulos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.title{
+    font-family: 'ExtraBold';
+    font-size: 26pt;
+    color: var(--rojo);
+}
+.subTitle{
+    font-family: 'Bold';
+    font-size: 13pt;
+}
+.rutaTitle{
+    display: flex;
+    align-items: center;
+    font-family: 'Regular';
+    font-size: 11pt;
+}
+.rutaTitle svg{
+    font-size: 9pt;
+}
+.img{
+    overflow: hidden;
+}
+.img {
+    width: 120%;
+
+}

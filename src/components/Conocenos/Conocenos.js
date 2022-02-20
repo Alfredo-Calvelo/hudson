@@ -17,17 +17,23 @@ export default function Conocenos (){
     }
   }
   return(
-    <div className={styles.carrusell}>
-      <AliceCarousel
-        touchTracking
-        mouseTracking
-        autoWidth
-        responsive={responsive}
-        items={items}
-        controlsStrategy="alternate"
-        disableDotsControls
-        disableButtonsControls
-      />
+    <div>
+
+      <div className={styles.carrusell}>
+        <AliceCarousel
+          touchTracking
+          mouseTracking
+          autoWidth
+          responsive={responsive}
+          items={items}
+          controlsStrategy="alternate"
+          disableDotsControls
+          disableButtonsControls
+        />
+      </div>
+      <div className={styles.items}>
+        {items}
+      </div>
     </div>
   )
 }
