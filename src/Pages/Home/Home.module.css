@@ -96,6 +96,9 @@
   .catalogCarrusellDesktop{
     display: flex;
   }
+  .catalogCarrusellDesktop li{
+    width: fit-content;
+  }
   .top{
     transition: var(--transitionCorta);
     background-position: top;
