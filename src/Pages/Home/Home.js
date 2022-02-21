@@ -135,7 +135,6 @@ export default function Home(){
       <div className={styles.catalogCarrusellDesktop}>
         <AliceCarousel
           items={items2}
-          autoWidth
           infinite
           controlsStrategy='alternate'
           disableDotsControls
