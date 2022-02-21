@@ -140,6 +140,7 @@ export default function Home(){
           disableDotsControls
           paddingLeft={20}
           paddingRight={10}
+          autoWidth
           />
       </div>
       <div className={styles.produDestacados}>

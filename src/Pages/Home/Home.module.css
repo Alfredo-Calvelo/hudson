@@ -96,6 +96,7 @@
   .catalogCarrusellDesktop{
     display: flex;
   }
+ 
   .top{
     transition: var(--transitionCorta);
     background-position: top;
