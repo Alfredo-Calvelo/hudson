@@ -13,12 +13,18 @@
 }
 .links{
     padding: 20px 0 20px 50px;
-    display: grid;
+    margin-right: 20px;
+    width: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 20px;
 }
 .title{
     font-family: 'Bold';
     font-size: 20pt;
     color: var(--rojo);
+    height: fit-content;
 }
 .verMas{
     font-family: 'Medium';
@@ -26,16 +32,33 @@
     margin-left: 20px;
     white-space: nowrap;
 }
-.link{
+.link,.masterChef{
     font-family: 'ExtraBold';
     font-size: 10pt;
     height: fit-content; 
+    cursor: pointer;
 }
+.masterChef{
+    color: var(--naranjaMasterChef);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.masterChefImg{
+    width: 20px;
+}
+
 .cards{
     display: flex;
     justify-content: center;
     gap: 2%;
-    width: 100%;
+    width: fit-content;
+}
+.rutas{
+    display: grid;
+    height: fit-content;
+    gap: 10px;
+
 }
 @media (min-width:800px)  {
     .desplegable{

@@ -5,6 +5,7 @@ import instagram from '../../imagenes/iconos/instagramGris.png'
 import facebook from '../../imagenes/iconos/facebookGris.png'
 import twitter from '../../imagenes/iconos/twitterGris.png'
 import youtube from '../../imagenes/iconos/youtubeGris.png'
+import SeparadorChico from '../SeparadorChico/SeparadorChico'
 
 export default function Footer(props){
 
@@ -85,7 +86,7 @@ export default function Footer(props){
 
         </div>
         <div className={styles.copyrightDesktop}>
-            <div className={styles.separador}></div>
+            <SeparadorChico/>
             <h5 className={styles.copyright}>Copyright © 2022 Hudson Kitchenware.</h5>
         </div>
 

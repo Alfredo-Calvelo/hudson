@@ -3,7 +3,9 @@
   overflow: hidden;
   display: grid;
 }
-
+.desktop{
+  display: none;
+}
 .imagenLeft,.imagenRight{
   width: 85%;
   height: 170px;

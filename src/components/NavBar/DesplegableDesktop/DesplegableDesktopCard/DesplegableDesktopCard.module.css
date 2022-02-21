@@ -5,6 +5,7 @@
     display: grid;
     background-color: var(--grisFondo);
     overflow: hidden;
+    cursor: pointer;
 }
 .titulos{
     display: flex;
@@ -26,6 +27,7 @@
     align-items: center;
     font-family: 'Regular';
     font-size: 11pt;
+    gap: 15px;
 }
 .rutaTitle svg{
     font-size: 9pt;

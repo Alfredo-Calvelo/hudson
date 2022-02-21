@@ -59,12 +59,16 @@
 .desktopLinks{
   display: none;
 }
-.desktopLink,.desktopLinkRojo{
+.desktopLink,.desktopLinkRojo,.desktopLinkActivo{
   font-family: 'ExtraBold';
   font-size: 12pt;
+  transition: var(--transitionCorta);
 }
 .desktopLinkRojo{
   color: var(--rojo);
+}
+.desktopLinkActivo{
+  color: white;
 }
 .cambiarIdiomaMobile{
   display: flex;
@@ -88,7 +92,7 @@
     height: 80px;
   }
   .logo,.logoActivo{
-    width: 150px;
+    width: 120px;
   }
   .menu,.menuActivo{
     display: none; 
@@ -114,29 +118,30 @@
   .logos{
     margin-right: 35px;
   }
-  .desktopLink,.desktopLinkRojo{
+  .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     cursor: pointer;
     font-size: 8pt;
     padding: 0;
   }
 }
 @media (min-width:800px) {
-  .desktopLink,.desktopLinkRojo{
+  .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 6.5pt;
   }
 }
-@media (min-width:855px) {
-  .desktopLink,.desktopLinkRojo{
-    font-size: 8.5pt;
+
+@media (min-width:1000px) {
+  .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
+    font-size: 9pt;
   }
 }
-@media (min-width:950px) {
-  .desktopLink,.desktopLinkRojo{
+@media (min-width:1040px) {
+  .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 10pt;
   }
 }
-@media (min-width:1024px) {
-  .desktopLink,.desktopLinkRojo{
-    font-size: 12pt;
+@media (min-width:1200px)  {
+  .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
+    font-size: 11pt;
   }
 }

@@ -4,3 +4,8 @@
   background-color: var(--grisSeparadores);
   margin: 50px auto 50px auto;
 }
+@media (min-width:800px) {
+  .Separador{
+    width: 200px;
+  } 
+}

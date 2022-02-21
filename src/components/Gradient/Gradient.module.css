@@ -3,3 +3,8 @@
   width: 100%;
   background:var(--gradient);
 }
+@media (min-width:800px) {
+  .gradient{
+    height: 80px;
+  }
+}

@@ -100,7 +100,7 @@
   padding-bottom: 15px;
   font-size: 11pt;
 }
-li{
+.items li{
   font-family: 'SemiBold';
   list-style: none;
 }

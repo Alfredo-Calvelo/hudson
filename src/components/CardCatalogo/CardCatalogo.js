@@ -1,9 +1,13 @@
 import styles from './CardCatalogo.module.css'
 import lineaCobre from '../../imagenes/lineaCobre.png'
-export default function CardCatalogo(){
+export default function CardCatalogo(props){
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{
+      flexDirection:props.reverse?'row-reverse':null,
+      left:props.left? '50px':'',
+      right:props.right? '50px' : ''
+    }}>
       <div className={styles.imgContainer}>
         <img src={lineaCobre} className={styles.img} />
       </div>

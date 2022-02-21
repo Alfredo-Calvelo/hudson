@@ -114,12 +114,6 @@
     background-color: white;
     display: grid;
   }
-  .separador{
-    background-color: var(--grisSeparadores);
-    height: 1px;
-    width: 200px;
-    margin: 40px auto 40px auto;
-  }
   .copyright{
     font-family: 'Regular';
     font-size: 11pt;

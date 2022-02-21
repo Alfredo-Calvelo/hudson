@@ -32,4 +32,39 @@
   margin-left: 20px;
   display: grid;
   gap: 7px;
+  /* list-style: inside; */
+}
+@media (min-width:800px) {
+  .container{
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: 30% 50%;
+    width: 75%;
+    background-color: white;
+    position: relative;
+
+  }
+
+  .description{
+    padding: 20px;
+  }
+  .imgContainer{
+    width: 100%;
+    /* display: grid; */
+    justify-content: center;
+    align-items: center;
+  }
+  .img{
+    width: 120%;
+    left: -20px;
+  }
+  .title{
+    font-size: 32pt;
+  }
+  .subtitle{
+    font-size: 16pt;
+  }
+  .lista{
+    font-size: 14.5pt;
+  }
 }

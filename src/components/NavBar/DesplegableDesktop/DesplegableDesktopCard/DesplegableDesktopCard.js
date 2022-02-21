@@ -7,7 +7,7 @@ export default function DesplegableDesktopCard(props){
     const navigate = useNavigate()
 
     return(
-        <div className={styles.container}>
+        <div className={styles.container} onClick={()=>navigate(props.ruta)}>
             <div className={styles.titulos}>
                 <span style={props.masterchef?{color:'var(--naranjaMasterChef)'}:null} className={styles.title}>{props.title}</span>
                 <span className={styles.subTitle}>{props.subTitle}</span>
