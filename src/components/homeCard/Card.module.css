@@ -87,6 +87,7 @@ gap: 10px;
   .desktop{
     background-size: cover;
     background-position: center;
+    background-position-x:-60px ;
     margin: 20px;
     background-repeat: no-repeat;
     display: flex;

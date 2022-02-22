@@ -97,8 +97,11 @@
   .container, .containerInactivo{
     height: 80px;
   }
+  .NavBar{
+    margin: var(--marginDesktop);
+  }
   .logo,.logoActivo{
-    width: 120px;
+    width: 90px;
   }
   .menu,.menuActivo{
     display: none; 
@@ -116,9 +119,8 @@
   .desktopLinks{
     justify-content: space-between;  
     display: flex;
-    gap:  0 20px 0 20px ;
-    white-space: nowrap;
     flex-wrap: wrap;
+    white-space: nowrap;
     width: 100%;
   }
   .logos{
@@ -131,22 +133,18 @@
 }
 @media (min-width:800px) {
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
-    font-size: 6.5pt;
+    font-size: 5.5pt;
   }
 }
 
-@media (min-width:1000px) {
-  .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
-    font-size: 9pt;
-  }
-}
+
 @media (min-width:1040px) {
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
-    font-size: 10pt;
+    font-size: 8pt;
   }
 }
 @media (min-width:1200px)  {
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
-    font-size: 11pt;
+    font-size: 10pt;
   }
 }

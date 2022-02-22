@@ -14,7 +14,7 @@
   padding: 60px 20px 0 20px;
   background-size:  auto 100%; 
   background-position: center;
-  /* height: 100vh; */
+  background-image: url(https://s3-alpha-sig.figma.com/img/baae/f330/90292b464aac1f6d499e88cbde4c3646?Expires=1645401600&Signature=EEWwBIfKNxix0G3yRPEdGQsZR~n4Z7nUC1d94YuMacd47msYQl7SrkV8w8B75XZbvnMGRaXAJaA-FHml0tLTx9cr0G-6G4bKo0NgnCY2HifFSUmNELBzxe8QGqX~45bngPY0lW~ZhbfgfW2PYJzMDD-HlEQujVLXiA2v0gweOuuzxqkEe2BFo-9gsBWe3pIODRLDJIM90Yx9FTzMQ7gxfO5E2PUNhtBK3Aef9nH4KFqj9Fs0kh26Bih1fCtTpLxRKUoX7dVx6lrbrPa1ruYxKWqUpjEE52jw-PwZJMmxO5VvbBjLquH5xtcn9-Yg9j3HuV5fIDhc-hH8IwLRKSBa5A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA);
 
 
 }
@@ -93,13 +93,12 @@
   .catalogCarrusell{
     display: none;
   }
-  .produDestacados{
-    /* margin: var(--marginDesktop); */
-  }
   .catalogCarrusellDesktop{
     display: flex;
-    margin: var(--marginDesktop);
     overflow: visible;
+    position: relative;
+    /* right: 200px; */
+    width: 100%;
   }
  
   .top{
@@ -108,7 +107,7 @@
     padding: 10%;
   }
   .tittle{
-    font-size: 48pt;
+    font-size: 40pt;
   }
   .subTittle{
     font-size: 18pt;
@@ -124,11 +123,11 @@
     display: none;
   }
   .productosDesktop{
-    display: flex;
-
-    
+    display: flex;    
     justify-content: space-around;
     margin: var(--marginDesktop);
+    margin-bottom: 70px;
+    margin-top: 20px ;
   }
   .cards{
     display: grid;

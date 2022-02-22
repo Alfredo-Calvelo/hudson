@@ -5,11 +5,13 @@ export default function CardCatalogo(props){
   return (
     <div className={styles.container} style={{
       flexDirection:props.reverse?'row-reverse':null,
-      left:props.left? '50px':'',
-      right:props.right? '50px' : ''
+      marginRight:props.right? '10%' : '',
+      marginLeft:props.left? '10%':'',
     }}>
       <div className={styles.imgContainer}>
-        <img src={lineaCobre} className={styles.img} />
+        <img src={lineaCobre} className={styles.img} style={{
+          left:props.right?'15%':'-15%'
+        }} />
       </div>
       <div className={styles.description}>
         <h2 className={styles.title}>CONVERTITE EN UN MASTERCHEF</h2>

@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 300px;
+  background-image: url(https://s3-alpha-sig.figma.com/img/baae/f330/90292b464aac1f6d499e88cbde4c3646?Expires=1645401600&Signature=EEWwBIfKNxix0G3yRPEdGQsZR~n4Z7nUC1d94YuMacd47msYQl7SrkV8w8B75XZbvnMGRaXAJaA-FHml0tLTx9cr0G-6G4bKo0NgnCY2HifFSUmNELBzxe8QGqX~45bngPY0lW~ZhbfgfW2PYJzMDD-HlEQujVLXiA2v0gweOuuzxqkEe2BFo-9gsBWe3pIODRLDJIM90Yx9FTzMQ7gxfO5E2PUNhtBK3Aef9nH4KFqj9Fs0kh26Bih1fCtTpLxRKUoX7dVx6lrbrPa1ruYxKWqUpjEE52jw-PwZJMmxO5VvbBjLquH5xtcn9-Yg9j3HuV5fIDhc-hH8IwLRKSBa5A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA);
 }
 .header img{
   width: 100%;
@@ -23,6 +24,7 @@
   position: relative;
   top: -40px;
 }
+
 .title{
   display: inline;
   width: fit-content;
@@ -48,6 +50,9 @@
   .Cards{
     display: none;
   }
+  .titulos{
+    margin: var(--marginDesktop);
+  }
   
   .desktopTitle{
     display: block;
@@ -69,7 +74,7 @@
   }
   .titulos{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
   }
   .subHeader{
@@ -93,5 +98,6 @@
     display: grid;
     justify-items: center;
     margin: var(--marginDesktop);
+
   }
 }

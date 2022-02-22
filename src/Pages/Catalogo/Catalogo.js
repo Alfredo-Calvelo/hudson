@@ -25,7 +25,7 @@ export default function Catalogo(props){
   ]
   return(
     <div className={styles.container}>
-      <div className={styles.header}style={{backgroundImage:'url(https://s3-alpha-sig.figma.com/img/baae/f330/90292b464aac1f6d499e88cbde4c3646?Expires=1645401600&Signature=EEWwBIfKNxix0G3yRPEdGQsZR~n4Z7nUC1d94YuMacd47msYQl7SrkV8w8B75XZbvnMGRaXAJaA-FHml0tLTx9cr0G-6G4bKo0NgnCY2HifFSUmNELBzxe8QGqX~45bngPY0lW~ZhbfgfW2PYJzMDD-HlEQujVLXiA2v0gweOuuzxqkEe2BFo-9gsBWe3pIODRLDJIM90Yx9FTzMQ7gxfO5E2PUNhtBK3Aef9nH4KFqj9Fs0kh26Bih1fCtTpLxRKUoX7dVx6lrbrPa1ruYxKWqUpjEE52jw-PwZJMmxO5VvbBjLquH5xtcn9-Yg9j3HuV5fIDhc-hH8IwLRKSBa5A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA)'}}  >
+      <div className={styles.header} >
         <h1 className={styles.desktopTitle}>DE LA TV A TU COCINA</h1>
       </div>
       <div className={styles.titulos}>
@@ -42,9 +42,9 @@ export default function Catalogo(props){
       </div>
       <div className={styles.cardsDesktop}>
         {items.map((elem, index)=>{
-          if (index%2=== 0) {
-            return <CardCatalogo reverse left/>
-          }else return <CardCatalogo right />
+          if (index%2=== 1) {
+            return <CardCatalogo  left/>
+          }else return <CardCatalogo right reverse />
         })}
       </div>
       <SeparadorChico/>
