@@ -5,14 +5,27 @@ import plato from '../../../imagenes/plato.png'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import masterchef from '../../../imagenes/iconos/masterChef.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { menuActivoMenu } from '../../../redux/actions'
 
 export default function DesplegableDesktop (props){
     const referencia = useRef()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     let altura= referencia.current?.clientHeight
-    
+    let navBarActivo = useSelector(state=>state.menuActivoNavBar)
+    let menuActivo = useSelector(state=>state.menuActivoMenu)
+    let estilo = {
+        height:`${navBarActivo || menuActivo?altura:0}px`
+    }
+    function desplegar(){
+        dispatch(menuActivoMenu(true))
+    }
+    function retraer(){
+        dispatch(menuActivoMenu(false))
+    }
     return(
-        <div className={styles.desplegable} style={{height:`${props.activo?altura:0}px`}} >
+        <div className={styles.desplegable} style={estilo} onMouseEnter={()=>desplegar()} onMouseLeave={()=>retraer()} >
             <div className={styles.container} ref={referencia}>
                 <div className={styles.links}>
                     <span className={styles.title}>

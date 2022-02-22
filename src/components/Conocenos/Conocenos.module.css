@@ -7,6 +7,7 @@
     }
     .items{
         display: flex;
-        /* padding: 20px; */
+        margin: var(--marginDesktop);
     }
+
 }

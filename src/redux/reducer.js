@@ -4,7 +4,9 @@ import {
   CAMBIAR_OPCIONES,
   CAMBIAR_MENU_CATALOGO, 
   CERRAR_TODO,
-  CARD_ACTIVA, 
+  CARD_ACTIVA,
+  MENU_ACTIVO_MENU,
+  MENU_ACTIVO_NAVBAR
 } from "./actions"
 
 
@@ -45,7 +47,8 @@ const initialState={
   opciones:false,
   menuCatalgo:false,
   cardActiva:null,
-
+  menuActivoNavBar:false,
+  menuActivoMenu:false,
   UsosYCuidados:[
     {
       title:'Piezas de Aluminio',
@@ -346,6 +349,18 @@ function rootReducer(state=initialState, action){
           cardActiva:action.payload
         }
       
+  }
+  if (action.type === MENU_ACTIVO_NAVBAR){
+    return{
+      ...state,
+      menuActivoNavBar:action.payload
+    }
+  }
+  if (action.type === MENU_ACTIVO_MENU){
+    return{
+      ...state,
+      menuActivoMenu:action.payload
+    }
   }
   
   

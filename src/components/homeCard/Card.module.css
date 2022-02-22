@@ -85,8 +85,8 @@ gap: 10px;
     display: none;
   }
   .desktop{
-    background-color: red;
     background-size: cover;
+    background-position: center;
     margin: 20px;
     background-repeat: no-repeat;
     display: flex;

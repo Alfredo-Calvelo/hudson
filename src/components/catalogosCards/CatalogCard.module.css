@@ -61,15 +61,15 @@
 @media (min-width:800px) {
   .requiredContainer{
     padding: 50px;
-    width: fit-content;
     display: inline-flex;
+    width: 600px;
   }
   .container{
     display: inline-flex;
     width: fit-content;
     grid-template-columns: 50% 50%;
     height: 300px;
-    width: 60vw;
+    /* width: 60vw; */
   }
   .top{
     width: 300px;

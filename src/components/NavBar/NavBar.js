@@ -5,7 +5,7 @@ import CambiarIdioma from './CambiarIdioma/CambiarIdioma'
 import styles from './NavBar.module.css'
 import {AiOutlineMenu} from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { cambiarOpciones} from '../../redux/actions'
+import { cambiarOpciones, menuActivoNavBar} from '../../redux/actions'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useEffect, useState,useRef } from 'react'
 import DesplegableDesktop from './DesplegableDesktop/DesplegableDesktop'
@@ -25,11 +25,17 @@ export default function NavBar(){
   const [verMas , setVerMas] = useState()
   const [title, setTitle] = useState()
   const [links , setLinks] = useState([])
+  
 
   function navegar(ruta){
     navigate(ruta)
   }
+  function apagar(){
+    dispatch(menuActivoNavBar(false))
+
+  }
   function desplegar (tipo){
+    dispatch(menuActivoNavBar(true))
     setTipoMenu(tipo)
     if (tipo==='productos') {
       setTitle('PRODUCTOS')
@@ -78,13 +84,27 @@ export default function NavBar(){
           <img alt='' className={navBarActiva?styles.logo:styles.logoActivo} src={logoBlanco} />
         </div>
         <div className={styles.desktopLinks} >
-          <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} onClick={()=>desplegar('productos')}>PRODUCTOS</span>
-          <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} onClick={()=>desplegar('catalogo')} >CÁTALOGO</span>
-          <span className={ruta[1]==='Inspirate'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} onClick={()=>navegar('../Inspirate/1')}>INSPÍRATE</span>
-          <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} onClick={()=>navegar('../Uso_Y_Cuidados')}>USO Y CUIDADOS</span>
-          <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} onClick={()=>navegar('Nosotros')}>NOSOTROS</span>
-          <span className={ruta[1]==='Contacto'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} onClick={()=>navegar('Contacto')}>CONTACTO</span>
-          <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} onClick={()=>desplegar('tiendaOnline')}>TIENDA ONLINE</span>
+          <div className={styles.Full} onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('productos')}>
+            <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >PRODUCTOS</span>
+          </div>
+          <div className={styles.Full} onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('catalogo')}>
+            <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo}  >CÁTALOGO</span>
+          </div>
+          <div className={styles.Full}  onClick={()=>navegar('../Inspirate/1')}>
+            <span className={ruta[1]==='Inspirate'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo}>INSPÍRATE</span>
+          </div>
+          <div className={styles.Full} onClick={()=>navegar('../Uso_Y_Cuidados')}>
+            <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >USO Y CUIDADOS</span>
+          </div>
+          <div className={styles.Full} onClick={()=>navegar('Nosotros')}>
+            <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >NOSOTROS</span>
+          </div>
+          <div className={styles.Full} onClick={()=>navegar('Contacto')}>
+            <span className={ruta[1]==='Contacto'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >CONTACTO</span>
+          </div>
+          <div className={styles.Full} onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('tiendaOnline')}>
+            <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >TIENDA ONLINE</span>
+          </div>
         </div>
 
           <div className={styles.cambiarIdiomaDesktop}>

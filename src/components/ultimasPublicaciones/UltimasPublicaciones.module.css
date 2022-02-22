@@ -43,6 +43,6 @@
     font-family: 'Regular';
   }
   .container{
-    padding: 0 40px 0 40px;
+    margin: var(--marginDesktop);
   }
 }

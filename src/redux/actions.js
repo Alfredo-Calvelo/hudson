@@ -4,6 +4,9 @@ export const CAMBIAR_OPCIONES = 'CAMBIAR_OPCIONES'
 export const CAMBIAR_MENU_CATALOGO = 'CAMBIAR_MENU_CATALOGO'
 export const CERRAR_TODO = 'CERRAR_TODO'
 export const CARD_ACTIVA = 'CARD_ACTIVA'
+export const MENU_ACTIVO_NAVBAR = 'MENU_NAVBAR_ACTIVO'
+export const MENU_ACTIVO_MENU = 'MENU_ACTIVO_MENU'
+
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
 }
@@ -22,4 +25,10 @@ export function cerrarTodo(payload){
 }
 export function activarCard(payload){
     return{type:CARD_ACTIVA, payload}
+}
+export function menuActivoNavBar(payload){
+    return{type:MENU_ACTIVO_NAVBAR,payload}
+}
+export function menuActivoMenu(payload){
+    return{type:MENU_ACTIVO_MENU,payload}
 }

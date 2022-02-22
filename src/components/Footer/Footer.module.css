@@ -57,6 +57,7 @@
     display: flex;
     align-items: center; 
     justify-content: center;
+    margin: var(--marginDesktop);
     margin-bottom: 40px;
   }
   
@@ -88,6 +89,10 @@
     grid-template-columns: 33.33% 33.33% 33.33%;
     justify-items: center;
     padding: 30px;  
+    background-color: white;
+    margin: var(--marginDesktop);
+  }
+  .bottomFondo{
     background-color: white;
   }
   .left,.right,.center{

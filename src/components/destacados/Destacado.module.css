@@ -45,7 +45,7 @@
 }
 @media (min-width:800px) {
   .container{
-    padding: 0 40px 0 40px;
+    margin: var(--marginDesktop);
   }
   .bottomDesktop{
     display: inline-flex;

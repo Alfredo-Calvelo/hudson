@@ -34,9 +34,14 @@
 }
 
 @media (min-width:800px) {
+  .Img{
+    height: 100%;
+    width: 100%;
+  }
   .Circulo{
-    width: 11vw;
-    height: 11vw;
+    padding: 10%;
+    width: fit-content;
+    height: fit-content;
     transition: var(--transitionCorta);
   }
   .Circulo:hover{

@@ -87,6 +87,12 @@
   background-color: white;
   transition: var(--transitionCorta);
 }
+.Full{
+  cursor: pointer;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
 @media (min-width: 800px) {
   .container, .containerInactivo{
     height: 80px;
@@ -119,7 +125,6 @@
     margin-right: 35px;
   }
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
-    cursor: pointer;
     font-size: 8pt;
     padding: 0;
   }

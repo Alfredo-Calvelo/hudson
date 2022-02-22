@@ -27,6 +27,7 @@ export default function Footer(props){
         </div>
         <h5 className={styles.copyright}>Copyright © 2022 Hudson Kitchenware.</h5>
       </div>
+      {/* ----------DESKTOP---------- */}
       <div className={styles.Desktop}>
         <div className={styles.topDesktop}>
           <h3 className={`${styles.subscription} ${styles.subscriptionDesktop}`}>¡RECIBE LAS NOVEDADES!</h3>
@@ -39,6 +40,8 @@ export default function Footer(props){
             <img src={youtube} className={styles.linkLogo}/>
           </div>
         </div>
+        <div className={styles.bottomFondo}>
+
         <div className={styles.bottomDesktop}>
           <div className={styles.left}>
             <h3 className={styles.bottomTitle}>Productos</h3>
@@ -84,6 +87,7 @@ export default function Footer(props){
           </div>
 
 
+        </div>
         </div>
         <div className={styles.copyrightDesktop}>
             <SeparadorChico/>
