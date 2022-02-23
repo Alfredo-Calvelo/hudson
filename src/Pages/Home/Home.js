@@ -35,7 +35,7 @@ import ConocenosCard from '../../components/ConocenosCard/ConocenosCard';
 import Conocenos from '../../components/Conocenos/Conocenos';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
+import FondoHome from '../../imagenes/FondoHome.jpg'
 
 export default function Home(){
   document.title='Hudson | Home'
@@ -48,7 +48,7 @@ export default function Home(){
       items:1
     },
     800:{
-      items:2
+      items:3
     }
   }
   const items = [
@@ -69,14 +69,14 @@ export default function Home(){
     <CardUltimas image={image2}/>,
     <CardUltimas image={image3}/>,
     <CardUltimas image={image4}/>,
-    <CardUltimas image={image5}/>,
+    <CardUltimas image={image1}/>,
     <CardUltimas image={image6}/>,
   ]
 
   return(
     <div className={styles.Home}>
       
-      <div className={styles.top} >
+      <div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
         <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
         <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
         <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
@@ -130,20 +130,21 @@ export default function Home(){
           paddingRight={10}
           />
       </div>
-        <Carousel 
-        infiniteLoop 
-        centerMode 
-        showIndicators={false}
+      <div className={styles.overflow}>
+        <div className={styles.catalogCarrusellDesktop}>
+          <AliceCarousel
+            responsive={responsive}
+            autoWidth
+            items={items2}
+            infinite
+            controlsStrategy='alternate'
+            disableDotsControls
+            paddingLeft={20}
+            paddingRight={10}
+            />
+        </div>
+      </div>
         
-        >
-          {items2.map((elem)=>{
-            return(<div>
-              {elem}
-            </div>)
-          })}
-         
-
-        </Carousel>
  
       <div className={styles.produDestacados}>
         <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'

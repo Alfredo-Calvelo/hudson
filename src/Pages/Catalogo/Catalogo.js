@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import styles from './Catalogo.module.css'
-import FondoHome from '../../imagenes/Fondo Home.jpg'
+import FondoHome from '../../imagenes/FondoHome.jpg'
 import logoMasterChef from '../../imagenes/iconos/masterChef.png'
 import Boton from "../../components/Boton/Boton";
 import CardCatalogo from "../../components/CardCatalogo/CardCatalogo";
@@ -17,15 +17,19 @@ export default function Catalogo(props){
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
+  
   let items = [
-    <CardCatalogo/>,
-    <CardCatalogo/>,
-    <CardCatalogo/>,
-    <CardCatalogo/>,
+    <CardCatalogo />,
+    <CardCatalogo />,
+    <CardCatalogo />,
+    <CardCatalogo />,
   ]
+  let estilo ={
+    backgroundImage:`url(${FondoHome})`
+  }
   return(
-    <div className={styles.container}>
-      <div className={styles.header} >
+    <div className={styles.container} >
+      <div className={styles.header} style={estilo} >
         <h1 className={styles.desktopTitle}>DE LA TV A TU COCINA</h1>
       </div>
       <div className={styles.titulos}>
@@ -38,13 +42,15 @@ export default function Catalogo(props){
         </div>
       </div>
       <div className={styles.Cards}>
-        {items}
+        {items.map((elem, index)=>{
+          return<CardCatalogo key={index}/>
+        })}
       </div>
       <div className={styles.cardsDesktop}>
         {items.map((elem, index)=>{
           if (index%2=== 1) {
-            return <CardCatalogo  left/>
-          }else return <CardCatalogo right reverse />
+            return <CardCatalogo key={index}  left/>
+          }else return <CardCatalogo key={index} right reverse />
         })}
       </div>
       <SeparadorChico/>

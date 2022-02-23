@@ -28,7 +28,10 @@
   }
   .desktop{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 1%;
+    overflow: hidden;
+    height: min-content;
   }
   .titles{
     display: flex;
