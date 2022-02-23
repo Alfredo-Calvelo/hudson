@@ -112,23 +112,23 @@
   .top{
     transition: var(--transitionCorta);
     background-position: center;
-    padding: 10%;
+    padding: 80px 10% 0% 10%;
   }
   .tittle{
-    font-size: 40pt;
+    font-size: 35pt;
   }
   .subTittle{
-    font-size: 18pt;
+    font-size: 15pt;
   }
   .aclaracion{
     font-size: 11pt;
     font-family: 'Regular';
   }
   .tittle,.subTittle,.aclaracion{
-    width: 40%;
+    width: 50%;
   }
   .boton{
-    margin-top: 10%;
+    margin-top: 6%;
   } 
   .carrusell{
     display: none;
