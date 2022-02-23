@@ -59,6 +59,11 @@
   .flecha{
     align-self:flex-end;
     height: fit-content;
+    align-items: center;
+  }
+  .flecha svg{
+    top: 0;
+
   }
   .textRuta{
     margin: 0;
