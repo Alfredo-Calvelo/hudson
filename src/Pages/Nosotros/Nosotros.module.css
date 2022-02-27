@@ -10,6 +10,7 @@
 .imgHeader{
   width: 100%;
   z-index: -1;
+  content: url('../../imagenes/grupoGente.jfif');
 }
 .bajada{
   background-color: white;
@@ -17,7 +18,7 @@
   display: grid;
   justify-items: center;
   padding: 20px;
-
+  
 }
 .title{
   color: var(--rojo);
@@ -40,4 +41,32 @@
 }
 .destacado{
   margin: 0 20px 0 20px;
+}
+@media (min-width:800px) {
+  .headerTitle{
+    font-size: 34px;
+    margin: 20px 0 25px 0;
+  }
+  .header{
+    display: grid;
+    
+  }
+  .imgDesktop{
+    height: 400px;
+    overflow: hidden;
+    display: grid;
+    align-content: center;   
+  }
+  .bajada{
+    width: 50%;
+    margin: -30px auto 0 auto ;
+    padding: 40px;
+  }
+  .headerDesktop{
+    margin: var(--marginCatalogo);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: calc( var(--marginCatalogo));
+  }
 }

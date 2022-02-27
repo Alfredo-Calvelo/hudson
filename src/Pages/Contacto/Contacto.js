@@ -12,7 +12,7 @@ import Inspirado from '../../components/Inpirado/Inspirado';
 
 
 export default function Contacto (){
-  document.title='Hudson | Contaco'
+  document.title='Hudson | Contacto'
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
@@ -23,39 +23,44 @@ export default function Contacto (){
       <Gradient/>
       <div className={styles.header}>
         <h2 className={styles.title}>CONTACTO</h2>
-        <img className={styles.headerImg} src={ContactoImg}/>
-      </div>
-      <div className={styles.preguntas}>
-        <div>
-          <h3>Dejanos tu mensaje</h3>
-          <p>¿Tenés consultas o tuviste un problema con nuestros productos? Queremos escucharte</p>
-        </div>
-        <div>
-          <h4>¿Querés vender productos Hudson?</h4>
-          <p>
-            Baterías, Cacerolas, Sartenes, Woks y demás productos de cocina al por mayor.
-            Escribínos para enterarte de las condiciones para ser revendedor de nuestros productos.
-          </p>
+        <div className={styles.headerImgDesktop}>
+          <img className={styles.headerImg} src={ContactoImg}/>
         </div>
       </div>
-      <div className={styles.info}>
-        <Input placeholder='Nombre'/>
-        <Input placeholder='email'/>
-        <Input placeholder='Teléfono'/>
-        <Input placeholder='País' />
-        <Input placeholder='Provincia (opcional)'/>
-        <div className={styles.empresa}>
-          <input id='Empresa' type='checkbox' className={styles.input} onChange={(e)=>{setRevendedor(e.target.checked)}}/>
-          <div className={styles.revendedor}>
-            <label className={styles.label} htmlFor='Empresa'> 
-            {revendedor?<div className={styles.paloma}><AiOutlineCheck/></div>:null}
-            </label>
-            <h5 className={styles.revendedorText}>Soy revendedor</h5>
+      <div className={styles.desktopInputs}>
+
+        <div className={styles.preguntas}>
+          <div>
+            <h3>Dejanos tu mensaje</h3>
+            <p>¿Tenés consultas o tuviste un problema con nuestros productos? Queremos escucharte</p>
           </div>
-          <Input placeholder='Empresa (opcional)'/>
+          <div>
+            <h4>¿Querés vender productos Hudson?</h4>
+            <p>
+              Baterías, Cacerolas, Sartenes, Woks y demás productos de cocina al por mayor.
+              Escribínos para enterarte de las condiciones para ser revendedor de nuestros productos.
+            </p>
+          </div>
         </div>
-        <textarea placeholder='Mensaje' className={styles.mensaje}/>
-          <Boton dropMenu={false} text='ENVIAR' relleno/>
+        <div className={styles.info}>
+          <Input placeholder='Nombre'/>
+          <Input placeholder='email'/>
+          <Input placeholder='Teléfono'/>
+          <Input placeholder='País' />
+          <Input placeholder='Provincia (opcional)'/>
+          <div className={styles.empresa}>
+            <input id='Empresa' type='checkbox' className={styles.input} onChange={(e)=>{setRevendedor(e.target.checked)}}/>
+            <div className={styles.revendedor}>
+              <label className={styles.label} htmlFor='Empresa'> 
+              {revendedor?<div className={styles.paloma}><AiOutlineCheck/></div>:null}
+              </label>
+              <h5 className={styles.revendedorText}>Soy revendedor</h5>
+            </div>
+            <Input placeholder='Empresa (opcional)'/>
+          </div>
+          <textarea placeholder='Mensaje' className={styles.mensaje}/>
+            <Boton dropMenu={false} text='ENVIAR' relleno/>
+        </div>
       </div>
       <SeparadorChico/>
       <Inspirado title='Hudson te inspira'/>

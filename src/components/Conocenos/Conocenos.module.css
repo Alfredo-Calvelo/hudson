@@ -8,6 +8,7 @@
     .items{
         display: flex;
         margin: var(--marginDesktop);
+        gap: 20px;
     }
 
 }

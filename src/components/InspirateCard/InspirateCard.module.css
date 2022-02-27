@@ -25,3 +25,18 @@
   font-family: 'Regular' ;
   letter-spacing: 2px;
 }
+
+@media (min-width:800px) {
+  .container{
+    height: 85vh;
+    display: grid;
+  }
+
+  .imgContainer{
+    /* height: 100%; */
+    display: grid;
+    align-content: center;
+    overflow: hidden;
+  }
+
+}

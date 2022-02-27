@@ -5,7 +5,9 @@ export default function RecetaCard(props){
   
   return(
     <div className={styles.container}>
-      <img src={props.img} className={styles.img}/>
+      <div className={styles.imagenContainer}>
+        <img src={props.img} className={styles.img}/>
+      </div>
       <h4 className={styles.title}>{props.title}</h4>
     </div>
   )

@@ -13,8 +13,8 @@ export default function SearchBar(props){
         <input className={styles.input}/>
       </div>
       <div className={styles.desktop}>
-        <FiSearch/>
         <input className={styles.inputDesktop}/>
+        <FiSearch/>
       </div>
     </div>
   )

@@ -4,7 +4,14 @@
   width: 100%;
 
 }
+.links{
+  cursor: pointer;
 
+}
+.links:hover{
+  text-decoration: underline;
+  
+}
 .top{
   display: flex;
   background-color: white;

@@ -41,10 +41,12 @@ export default function Destacado(props){
         <div className={`${styles.bottom} ${styles.bottomDesktop}`}>
           {items}
         </div>
-            <h5 className={`${styles.subTitle} ${styles.vender}`}>Conseguí todos nuestros productos en nuestras tiendas online.</h5>  
-            <div className={styles.tiendas}>
-              <Boton text='TIENDA ONLINE'  dropMenu relleno/>
-            </div>
+        <div className={styles.tiendaOnline}>
+          <h5 className={`${styles.subTitle} ${styles.vender}`}>Conseguí todos nuestros productos en nuestras tiendas online.</h5>  
+          <div className={styles.tiendas}>
+            <Boton text='TIENDA ONLINE'  dropMenu relleno/>
+          </div>
+        </div>
     </div>
   )
 }

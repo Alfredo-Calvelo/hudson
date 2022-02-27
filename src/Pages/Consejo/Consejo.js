@@ -6,6 +6,7 @@ import SeparadorChico from '../../components/SeparadorChico/SeparadorChico'
 import Inspirado from '../../components/Inpirado/Inspirado'
 import Destacado from '../../components/destacados/Destacado'
 import Footer from '../../components/Footer/Footer'
+import fotoPersona from '../../imagenes/gastonDalmau.png'
 import { useEffect } from 'react'
 export default function Consejo (){
   document.title='Hudson | Trucos y Consejos'
@@ -28,8 +29,19 @@ export default function Consejo (){
       <div className={styles.consejo}>
         <p className={styles.parrafo}>Comer verduras frescas, sin pelar ni cocinar hace que su aporte nutricional permanezca intacto. Al hervirlas, hay que tener en cuenta algunas pautas para que los nutrientes no se pierdan durante la cocción.</p>
       </div>
-        <iframe width='100%'height='250px' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-      <div className={styles.consejo}>
+      <div className={styles.consejero}>
+          <img src={fotoPersona} className={styles.consejeroImg}/>
+          <div >
+            <h4 className={styles.consejeroTitle}>Hoy Cocina:{' '} Belu Lucius</h4>
+            <h4 className={styles.consejeroSubTitle}>ig @belulucius</h4>
+          </div>
+
+        </div>
+      <div className={styles.videoDesktop} >
+        <iframe width='100%'height='100%' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+      </div>
+        <iframe className={styles.videoMobile} width='100%'height='250px' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+      <div className={`${styles.consejo} ${styles.consejoDesktop}`}>
         <h3 className={styles.title}>Algunos consejos</h3>
         <ul className={styles.algunosConsejos}>
           {cortado.map((elem, index)=><li key={index}>{elem}</li>)}
@@ -37,8 +49,8 @@ export default function Consejo (){
       </div>
       <SeparadorChico/>
       <Inspirado title='Sigue inspirandote...'/>
-        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
-        rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
+      <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 
+      rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       <Footer contacto/>
     </div>
   )

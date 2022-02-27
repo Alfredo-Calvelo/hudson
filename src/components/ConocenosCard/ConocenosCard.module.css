@@ -47,8 +47,8 @@
 
 @media (min-width:800px) {
   .conocenos{
-    margin: 50px 10px 70px 10px;
-    background-position-x:-100px ;
+    margin: 50px 0 70px 0;
+    background-position-x:170% ;
   }
   .subCard{
     margin: 0;

@@ -41,3 +41,17 @@
 .destacado{
   margin: 0 20px 0 20px;
 }
+@media (min-width:800px) {
+  .imgDesktop{
+    height: 80vh;
+    overflow: hidden;
+  }
+  .titles{
+    width: 40%;
+    margin: var(--marginCatalogo);
+  }
+  .cards{
+    display: grid;
+    gap: 60px;
+  }
+}

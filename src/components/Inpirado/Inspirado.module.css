@@ -10,11 +10,29 @@
   padding: 0 20px 0 20px;
 }
 
-
+.desktop{
+  display: none;
+}
 .inspirado h3{color: var(--rojo);}
 
 .imagenes{
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+@media (min-width:800px) {
+  .mobile{
+    display: none;
+  }
+  .desktop{
+    display: flex;
+    gap: 1%;
+  }
+  .titles{
+    padding: 0;
+  }
+  .inspirado{
+    margin: var(--marginDesktop);
+
+  }
 }

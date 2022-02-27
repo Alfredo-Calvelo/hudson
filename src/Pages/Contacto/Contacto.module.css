@@ -74,3 +74,30 @@
 .destacado{
   padding: 0 20px 0 20px;
 }
+
+
+@media (min-width:800px) {
+  .header{
+    margin: 0;
+  }
+  .title{
+    font-size: 34px;
+    margin: 20px 0 25px 0;
+  }
+  .headerImgDesktop{
+    height: 400px;
+    display: grid;
+    align-content: center;
+    overflow: hidden;
+  }
+  .desktopInputs{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: var(--marginCatalogo);
+  }
+  .preguntas{
+    display: grid;
+    height: fit-content;
+
+  }
+}

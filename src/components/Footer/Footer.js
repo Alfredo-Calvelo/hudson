@@ -6,10 +6,11 @@ import facebook from '../../imagenes/iconos/facebookGris.png'
 import twitter from '../../imagenes/iconos/twitterGris.png'
 import youtube from '../../imagenes/iconos/youtubeGris.png'
 import SeparadorChico from '../SeparadorChico/SeparadorChico'
+import { useNavigate } from 'react-router-dom'
 
 export default function Footer(props){
 
-
+  const navigate = useNavigate()
   return(
     <div className={styles.container}>
       {props.contacto?<div className={styles.top}>
@@ -72,16 +73,16 @@ export default function Footer(props){
 
             <div className={styles.containers}>
               <h3 className={styles.bottomTitle}>Hudson</h3>
-              <span className={styles.links}>Inspirate</span>
-              <span className={styles.links}>Uso y cuidados</span>
-              <span className={styles.links}>Nosotros</span>
+              <span className={styles.links} onClick={()=>navigate('../Inspirate/1')}>Inspirate</span>
+              <span className={styles.links} onClick={()=>navigate('../Uso_Y_Cuidados')}>Uso y cuidados</span>
+              <span className={styles.links} onClick={()=>navigate('../Nosotros')}>Nosotros</span>
               <span className={styles.links}>Contacto</span>
             </div>
 
             <div className={`${styles.containers} ${styles.containerBottom}`}>
               <h3 className={styles.bottomTitle}>Tiendas Online</h3>
-              <span className={styles.links}>Argenita</span>
-              <span className={styles.links}>Uruguary</span>
+              <span className={styles.links}>Argentina</span>
+              <span className={styles.links}>Uruguay</span>
               <span className={styles.links}>USA</span>
             </div>
           </div>

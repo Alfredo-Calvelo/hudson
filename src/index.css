@@ -3,7 +3,9 @@
   --grisMedio:#D3D3D3;
   --marronHeader:#D9D4D0;
   --grisFuente:#4E4E4E;
+  --grisNumerosFiltros:#A7A7A7;
   --grisSeparadores:#D2D2D2;
+  --grisCheck:#C4C4C4;
   --transitionCorta:  .5s;
   --rojo: #E2091D;
   --naranjaMasterChef:#E26340;
@@ -13,6 +15,9 @@
   --strongShadow : drop-shadow(0px 2px 3px rgba(0, 0, 0,.7));
   --marginDesktop: 0 10vw 0 10vw;
   --marginCatalogo:0 15vw 0 15vw;
+  --marginIzquierda: 0 15vw 0 10vw;
+  --marginDerecha: 0 10vw 0 15vw;
+  --marginReceta: 0 20vw 0 20vw
 }
 @media (min-width:2000px) {
   :root{

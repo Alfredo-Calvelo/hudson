@@ -1,6 +1,7 @@
 import styles from './Nosotros.module.css'
 import Gradient from '../../components/Gradient/Gradient'
 import grupoGente from '../../imagenes/grupoGente.jfif'
+import header from '../../imagenes/HEADER BANNER NOSOTROS.jpg'
 import { useEffect } from 'react'
 import HistoriaCard from '../../components/HistoriaCard/HistoriaCard'
 import SeparadorChico from '../../components/SeparadorChico/SeparadorChico'
@@ -17,9 +18,11 @@ export default function Nosotros(){
     <div>
       <Gradient/>
       <div className={styles.bloque}>
-        <div className={styles.header}>
+        <div className={styles.header }>
           <h2 className={styles.headerTitle}>SOBRE NOSOTROS</h2>
-          <img src={grupoGente} className={styles.imgHeader}/>
+          <div className={styles.imgDesktop}>
+            <img className={styles.imgHeader}/>
+          </div>
         </div>
         <div className={styles.bajada}>
           <h3 className={styles.title}>CONOCENOS</h3>
@@ -39,7 +42,7 @@ export default function Nosotros(){
         </div>
       </div>
       <div className={styles.bloque}>
-        <div className={styles.header}>
+        <div className={`${styles.header} ${styles.headerDesktop}`}>
           <img src={grupoGente} className={styles.imgHeader}/>
         </div>
         <div className={styles.bajada}>
@@ -56,7 +59,7 @@ export default function Nosotros(){
         </div>
       </div>
       <div className={styles.bloque}>
-        <div className={styles.header}>
+        <div className={`${styles.header} ${styles.headerDesktop}`}>
           <img src={grupoGente} className={styles.imgHeader}/>
         </div>
         <div className={styles.bajada}>

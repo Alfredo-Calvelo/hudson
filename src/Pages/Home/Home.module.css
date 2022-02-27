@@ -93,15 +93,13 @@
     display: none;
   }
   .overflow{
-    /* background-color: red; */
     overflow: hidden;
     display: grid;
     justify-content: center;
   }
   .catalogCarrusellDesktop{
-    display: flex;
+    display: block;
     /* overflow: hidden; */
-    position: relative;
     /* right: -200px; */
     width: 700px
   

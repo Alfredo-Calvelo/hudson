@@ -9,7 +9,9 @@ export default function Header(props){
   const navigate = useNavigate()
   return(
     <div className={styles.container} onClick={()=>navigate('../Receta')}>
-      <img className={styles.headerImg} src={props.img}/>
+      <div className={styles.headerDesktop}>
+        <img className={styles.headerImg} src={props.img}/>
+      </div>
       <div className={styles.title}>
         <h3>{props.title.toUpperCase()}</h3>
       </div>

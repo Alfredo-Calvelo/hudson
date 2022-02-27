@@ -6,6 +6,10 @@
   padding: 30px;
   gap: 20px;
 }
+.recetaHeader{
+  display: grid;
+  gap: 20px;
+}
 
 .info{
   display: grid;
@@ -84,4 +88,144 @@
 }
 .cortado{
   white-space: nowrap;
+}
+.videoDesktop{
+  display: none;
+}
+.pasos{
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+}
+.pasosContainer{
+  width: 100%;
+}
+.overflow{
+  display: none;
+}
+
+@media (min-width:800px) {
+  *{
+    overflow: visible;
+  }
+  .receta{
+    margin: var(--marginReceta);
+    overflow: visible;
+  }
+  .cortado{
+    font-family: 'Bold';
+    font-size: 15px;
+  }
+  .icono{width: 70px;}
+  .estrella,.estrellaApagada{
+    height: 40px;
+  }
+  .recetaHeader{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 80%;
+  }
+  .info{
+    height: 100%;
+    align-content: flex-end;
+  }
+  .cortado{
+    display: flex;
+    align-items: flex-end;
+    height: fit-content;
+  }
+  .estrellas{
+    height: 100%;
+    margin-bottom: 15px;
+  }
+  .cocinero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 35px;
+  }
+  .cocineroImg{
+    width: 200px;
+  }
+  .cocineroTitle,.cocineroSubTitle{
+    font-size: 20px;
+    width: 150px;
+    text-align: left;
+  }
+  .separadorLinea{
+    display: none;
+  }
+  .pasosContainer{
+    display: grid;
+    grid-template-columns: 45% 55%;
+    margin: 100px 0 0 0 ;
+    overflow: visible;
+  }
+  .videoMobile{
+    display: none;
+  }
+  .pasos{
+    padding: 15% 0 15% 0;
+  }
+  .videoDesktop{
+    display: block;
+    width: 125%;
+    height: 100%
+  }
+  .ingredientesTitle{
+    font-size: 22px;
+    width: 100%;
+    text-align: left;
+  }
+  .ingredientesList li{
+    font-size: 20px;
+  }
+  .preparacionList,.consejo{
+    width: 50%;
+    justify-self: left;
+  }
+  .productos{
+    margin: var(--marginReceta);
+    display: flex;
+    justify-items: left;
+  }
+  .productosDesktop{
+    overflow: visible;
+  }
+  .consejoDesktop{
+    width: 100%;
+    padding-right: 35%;
+  }
+  .carrusell{
+    display: none;
+  }
+  .overflow{
+    margin-top: 30px;
+    overflow: hidden;
+    display: grid;
+    width: 100vw;
+    justify-content: center;
+
+    
+  }
+  .containerxD{
+    background-color: white;
+    display: grid;
+    justify-content: center;
+    margin: var(--marginReceta);
+  }
+  .carrusellDesktop{
+    width: 300px;
+
+  }
+  .carrusellDesktop div{
+    overflow: visible;
+  }
+  .carrusellContainer{
+    margin: var(--marginReceta);
+    overflow: visible;
+  }
 }
