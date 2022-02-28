@@ -39,6 +39,7 @@
   color: white;
   font-family: 'Bold';
   font-size: 12pt;
+  white-space: nowrap;
 }
 .text path, .text svg{
   color: var(--rojo);

@@ -35,8 +35,7 @@ export default function Consejo (){
             <h4 className={styles.consejeroTitle}>Hoy Cocina:{' '} Belu Lucius</h4>
             <h4 className={styles.consejeroSubTitle}>ig @belulucius</h4>
           </div>
-
-        </div>
+      </div>
       <div className={styles.videoDesktop} >
         <iframe width='100%'height='100%' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
       </div>

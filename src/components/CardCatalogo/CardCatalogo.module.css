@@ -32,7 +32,6 @@
   margin-left: 20px;
   display: grid;
   gap: 7px;
-  /* list-style: inside; */
 }
 @media (min-width:800px) {
   .container{

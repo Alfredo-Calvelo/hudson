@@ -10,7 +10,8 @@ export default function CardCatalogo(props){
     }}>
       <div className={styles.imgContainer}>
         <img src={lineaCobre} className={styles.img} style={{
-          left:props.right?'15%':'-15%'
+          left:props.right?'15%':'',
+          right:props.left?'15%':''
         }} />
       </div>
       <div className={styles.description}>
