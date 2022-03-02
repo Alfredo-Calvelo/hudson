@@ -28,15 +28,34 @@
 
 @media (min-width:800px) {
   .container{
-    /* height: 568px; */
     display: grid;
   }
-
+  
   .imgContainer{
     height: 488px;
     display: grid;
     align-content: center;
     overflow: hidden;
   }
-
+  .title{
+    display: block;
+    margin-left: calc(15vw - 10px);
+    padding: 20px;
+    font-family: 'Bold';
+    width: fit-content;
+    top: -70px;
+    cursor: pointer;
+  }
+  .title h3{
+    font-size: 30px;
+    padding: 20px;
+    line-height: 30px;
+  }
+  .title h6{
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .verReceta{
+    padding: 10px 20px;
+  }
 }

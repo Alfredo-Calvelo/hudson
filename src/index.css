@@ -105,6 +105,7 @@ body {
   width: 100%;
   height: fit-content;
   background-color: var(--grisFondo);
+  overflow-x: hidden;
 }
 html{
   width: 100%;

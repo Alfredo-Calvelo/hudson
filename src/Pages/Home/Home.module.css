@@ -155,4 +155,10 @@
     height: 600px;
     margin-top: 100px;
   }
+  .conocenos{
+    transition: var(--transitionCorta);
+    position: relative;
+    left: 0vw;
+    opacity: 1;
+  }
 }

@@ -47,8 +47,13 @@
     overflow: hidden;
   }
   .titles{
-    width: 40%;
+    width: 30vw;
     margin: var(--marginCatalogo);
+    justify-items: left;
+  }
+  .subTitle,.title{
+    text-align: left;
+
   }
   .cards{
     display: grid;

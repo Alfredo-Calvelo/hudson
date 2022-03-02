@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home/Home';
 import { useDispatch, useSelector } from 'react-redux';
-import { activarMenuDesplegable, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo } from './redux/actions';
+import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo } from './redux/actions';
 import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 import Inspirate from './Pages/Inspirate/Inspirate';
@@ -17,7 +17,8 @@ function App() {
   const dispatch = useDispatch()
   let dropMenu= useSelector(state=>state.menuDesplegable)
   let opciones= useSelector(state=>state.opciones)
-  const NavBarChange =()=>{
+  const NavBarChange =(e)=>{
+    dispatch(alturaPantalla(e))
     if (window.scrollY >=25) {
       dispatch(cambiarNavBar(false))
     }else{

@@ -6,6 +6,7 @@ export const CERRAR_TODO = 'CERRAR_TODO'
 export const CARD_ACTIVA = 'CARD_ACTIVA'
 export const MENU_ACTIVO_NAVBAR = 'MENU_NAVBAR_ACTIVO'
 export const MENU_ACTIVO_MENU = 'MENU_ACTIVO_MENU'
+export const ALTURA_PANTALLA = 'ALTURA_PANTALLA'
 
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
@@ -31,4 +32,7 @@ export function menuActivoNavBar(payload){
 }
 export function menuActivoMenu(payload){
     return{type:MENU_ACTIVO_MENU,payload}
+}
+export function alturaPantalla(payload){
+    return{type:ALTURA_PANTALLA,payload}
 }

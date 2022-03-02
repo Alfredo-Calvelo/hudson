@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { activarCard } from '../../redux/actions'
 
 export default function CuidadosCard(props){
-  console.log(props.active);
+  
   let item = props.item
   const dispatch = useDispatch()
   let altura = createRef()
@@ -42,7 +42,7 @@ export default function CuidadosCard(props){
   let referencia2Desktop = createRef()
   
   useEffect(()=>{
-    console.log(referencia);
+
     if (props.active === false) {
       referencia.current.style.height='0px'
       return

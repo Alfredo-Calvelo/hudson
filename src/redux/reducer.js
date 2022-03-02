@@ -6,7 +6,8 @@ import {
   CERRAR_TODO,
   CARD_ACTIVA,
   MENU_ACTIVO_MENU,
-  MENU_ACTIVO_NAVBAR
+  MENU_ACTIVO_NAVBAR,
+  ALTURA_PANTALLA
 } from "./actions"
 
 
@@ -49,6 +50,7 @@ const initialState={
   cardActiva:null,
   menuActivoNavBar:false,
   menuActivoMenu:false,
+  alturaPantalla:0,
   UsosYCuidados:[
     {
       title:'Piezas de Aluminio',
@@ -360,6 +362,12 @@ function rootReducer(state=initialState, action){
     return{
       ...state,
       menuActivoMenu:action.payload
+    }
+  }
+  if (action.type === ALTURA_PANTALLA){
+    return{
+      ...state,
+      alturaPantalla:action.payload
     }
   }
   

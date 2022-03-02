@@ -150,7 +150,6 @@ export default function Home(){
         <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       </div>
-
       <Conocenos/>
       
       
