@@ -58,6 +58,7 @@
     overflow: hidden;
     display: grid;
     align-content: center;   
+    width: 100%;
   }
   .bajada{
     width: 50%;

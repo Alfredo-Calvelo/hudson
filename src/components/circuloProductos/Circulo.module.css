@@ -40,8 +40,8 @@
   }
   .Circulo{
     padding: 15%;
-    width: fit-content;
-    height: fit-content;
+    width: 7vw;
+    height: 7vw;
     transition: var(--transitionCorta);
   }
   .Circulo:hover{

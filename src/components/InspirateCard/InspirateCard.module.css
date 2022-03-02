@@ -28,12 +28,12 @@
 
 @media (min-width:800px) {
   .container{
-    height: 85vh;
+    /* height: 568px; */
     display: grid;
   }
 
   .imgContainer{
-    /* height: 100%; */
+    height: 488px;
     display: grid;
     align-content: center;
     overflow: hidden;

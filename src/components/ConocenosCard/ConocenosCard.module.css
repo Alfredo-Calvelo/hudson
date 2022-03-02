@@ -18,6 +18,7 @@
   height: 100px;
   padding: 12px 10px 12px 25px;
   margin-right: 20px;
+  cursor: pointer;
 }
 .tituloConocer{
   color: var(--rojo);
@@ -39,7 +40,7 @@
   font-size: 8pt;
   position: relative;
   top: 6px;
-  margin-left: 50px;
+  margin-left: 15%;
 }
 .espacios{
   margin: 5px 0 5px 0;
@@ -48,14 +49,16 @@
 @media (min-width:800px) {
   .conocenos{
     margin: 50px 0 70px 0;
-    background-position-x:170% ;
+    background-position-x:-23vw ;
+    transition: var(--transitionCorta);
   }
   .subCard{
     margin: 0;
-    height: 120px;
+    height: 140px;
     display: flex;
     flex-wrap: wrap;
   }
+
   .flecha{
     align-self:flex-end;
     height: fit-content;
@@ -67,5 +70,21 @@
   }
   .textRuta{
     margin: 0;
+    white-space: nowrap;
+  }
+}
+@media (min-width:1000px) {
+  .conocenos{
+    background-position-x:-15vw ;
+  }
+}
+@media (min-width:1200px) {
+  .conocenos{
+    background-position-x:-7vw ;
+  }
+}
+@media (min-width:1500px) {
+  .conocenos{
+    background-position-x:-3vw ;
   }
 }

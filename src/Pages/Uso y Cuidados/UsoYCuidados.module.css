@@ -43,7 +43,7 @@
 }
 @media (min-width:800px) {
   .imgDesktop{
-    height: 80vh;
+    height: 568px;
     overflow: hidden;
   }
   .titles{

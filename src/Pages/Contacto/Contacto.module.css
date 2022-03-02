@@ -89,6 +89,7 @@
     display: grid;
     align-content: center;
     overflow: hidden;
+    width: 100%;
   }
   .desktopInputs{
     display: grid;

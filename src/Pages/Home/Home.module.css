@@ -99,8 +99,6 @@
   }
   .catalogCarrusellDesktop{
     display: block;
-    /* overflow: hidden; */
-    /* right: -200px; */
     width: 700px
   
   }
@@ -111,6 +109,9 @@
     transition: var(--transitionCorta);
     background-position: center;
     padding: 80px 10% 0% 10%;
+    height: 488px;
+    display: grid;
+    align-content: center;
   }
   .tittle{
     font-size: 35pt;
@@ -123,7 +124,7 @@
     font-family: 'Regular';
   }
   .tittle,.subTittle,.aclaracion{
-    width: 50%;
+    width: 28vw;
   }
   .boton{
     margin-top: 6%;

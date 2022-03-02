@@ -8,6 +8,7 @@ import Footer from '../../components/Footer/Footer'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 export default function UsoYCuidados(){
+  document.title='Hudson | Uso y Cuidados'
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])

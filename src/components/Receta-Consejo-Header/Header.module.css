@@ -37,6 +37,8 @@
   }
   .headerDesktop{
     margin: var(--marginDesktop);
+    height: 488px;
+    overflow: hidden;
   }
   .title h3{
     font-size:36px;
