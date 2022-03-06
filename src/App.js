@@ -18,7 +18,7 @@ function App() {
   let dropMenu= useSelector(state=>state.menuDesplegable)
   let opciones= useSelector(state=>state.opciones)
   const NavBarChange =(e)=>{
-    dispatch(alturaPantalla(e))
+    dispatch(alturaPantalla(window.scrollY))
     if (window.scrollY >=25) {
       dispatch(cambiarNavBar(false))
     }else{

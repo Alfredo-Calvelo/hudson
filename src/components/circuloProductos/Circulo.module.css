@@ -39,7 +39,7 @@
     width: 100%;
   }
   .Circulo{
-    padding: 15%;
+    padding: 2vw;
     width: 7vw;
     height: 7vw;
     transition: var(--transitionCorta);

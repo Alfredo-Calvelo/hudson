@@ -3,7 +3,7 @@ import ollaConCosas from '../../imagenes/ollaConCosas.png'
 import { createRef, useEffect, useState } from 'react'
 import {BsChevronDown,BsChevronUp, BsLightbulbOff} from 'react-icons/bs'
 import {VscDebugBreakpointData} from 'react-icons/vsc'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { activarCard } from '../../redux/actions'
 
 export default function CuidadosCard(props){
@@ -13,14 +13,18 @@ export default function CuidadosCard(props){
   let altura = createRef()
   let alturaDesktop = createRef()
   let verMasY 
-  let verMasYDesktop
+  const [verMasYDesktop, setVerMasYDesktop] = useState(0)
+
+  
+  const [alturaBloque, setAlturaBloque]= useState(0)
+  let alturaPantalla = useSelector(state=>state.alturaPantalla)
   useEffect(()=>{
     verMasY = altura.current.offsetTop
   })
   useEffect(()=>{
-    verMasYDesktop = alturaDesktop.current.offsetTop
   })
-
+  let bloque = createRef()
+  
   function Abrir_Cerrar(){
     if (props.active) {
       dispatch(activarCard(null))
@@ -28,12 +32,23 @@ export default function CuidadosCard(props){
     }
     else {dispatch(activarCard(props.clave))}
   }
+
+  useEffect(()=>{
+    setAlturaBloque(bloque.current.offsetTop)
+  },[alturaBloque])
+
+
   function Abrir_Cerrar_Desktop(){
+    console.log(alturaBloque);
+    console.log(alturaDesktop.current.offsetTop);
     if (props.active) {
       dispatch(activarCard(null))
-      window.scrollTo(0,verMasYDesktop)
+      window.scrollTo(0,alturaBloque + verMasYDesktop)
     }
-    else {dispatch(activarCard(props.clave))}
+    else {
+      setVerMasYDesktop(alturaDesktop.current.offsetTop)
+      dispatch(activarCard(props.clave))
+    }
   }
 
   let referencia = createRef()
@@ -51,6 +66,7 @@ export default function CuidadosCard(props){
       referencia.current.style.height=`${referencia2.current.clientHeight}px`
     }else referencia.current.style.height='0px'
   })
+
   useEffect(()=>{
     if (props.active === false) {
       referenciaDesktop.current.style.height='0px'
@@ -61,8 +77,25 @@ export default function CuidadosCard(props){
     }else referenciaDesktop.current.style.height='0px'
   })
 
+
+
+
+
+
   return(
-    <div className={`${styles.container} ${props.left?styles.izquierdaDesktop:props.right?styles.derechaDesktop:null}`}>
+    <div ref={bloque} className={`${styles.container} ${props.left?styles.izquierdaDesktop:props.right?styles.derechaDesktop:null}
+    ${alturaPantalla -30 >= alturaBloque
+      ?
+      props.left? styles.visibleLeft:
+      props.right?styles.visibleRight:''
+      :
+      props.left?styles.ocultoLeft:
+      props.right?styles.ocultoRight
+      :''
+
+    }
+    `}>
+      
       <div className={styles.header}>
         <h2 className={styles.title}>{item.title.toUpperCase()}</h2>
         <h4 className={styles.subTitle}>{item.subTitle}</h4>
@@ -174,7 +207,7 @@ export default function CuidadosCard(props){
               )})}
             </div>
           </div>
-      <span ref={alturaDesktop} className={styles.verMas} onClick={()=>{Abrir_Cerrar_Desktop()}}>{props.active?'VER MENOS':'VER MÁS'}{props.active?<BsChevronUp/>: <BsChevronDown/>}</span>
+      <span key={props.clave} ref={alturaDesktop} className={styles.verMas} onClick={()=>{Abrir_Cerrar_Desktop()}}>{props.active?'VER MENOS':'VER MÁS'}{props.active?<BsChevronUp/>: <BsChevronDown/>}</span>
 
       </div>
     </div>

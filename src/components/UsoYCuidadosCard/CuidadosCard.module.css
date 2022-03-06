@@ -196,4 +196,29 @@
   .subTitleGris{
     font-size: 18pt;
   }
+
+  .ocultoLeft{
+    position: relative;
+    opacity: 0;
+    transition: var(--transitionCorta);
+    left:-200px;
+  }
+  .ocultoRight{
+    position: relative;
+    opacity: 0;
+    transition: var(--transitionCorta);
+    right: -200px ;
+  }
+  .visibleRight{
+    position: relative;
+    opacity: 1;
+    right: 0;
+    transition: var(--transitionCorta);
+  }
+  .visibleLeft{
+    position: relative;
+    opacity: 1;
+    left: 0px;
+    transition: var(--transitionCorta);
+  }
 }
