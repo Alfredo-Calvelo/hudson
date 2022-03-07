@@ -18,7 +18,7 @@ export default function UsoYCuidados(){
   let cardActiva = useSelector(state=>state.cardActiva)
   const [elements, setElements]= useState([])
 
-  function mapear(valor){
+  function mapear(){
     let elements = UsosYCuidados.map((item,index)=>{
       if (index===cardActiva) {
         return<CuidadosCard left={index%2===0?true:false} right={index%2===1?true:false} active={true} item={item} clave={index} key = {index} />

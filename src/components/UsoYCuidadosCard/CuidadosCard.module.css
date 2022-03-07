@@ -201,13 +201,13 @@
     position: relative;
     opacity: 0;
     transition: var(--transitionCorta);
-    left:-200px;
+    left:-100px;
   }
   .ocultoRight{
     position: relative;
     opacity: 0;
     transition: var(--transitionCorta);
-    right: -200px ;
+    right: -100px ;
   }
   .visibleRight{
     position: relative;

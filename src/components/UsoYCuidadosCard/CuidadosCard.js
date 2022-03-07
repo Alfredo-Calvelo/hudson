@@ -15,8 +15,9 @@ export default function CuidadosCard(props){
   let verMasY 
   const [verMasYDesktop, setVerMasYDesktop] = useState(0)
 
-  
+  let vieportHeight = useSelector(state=>state.vieportHeight)
   const [alturaBloque, setAlturaBloque]= useState(0)
+  const [heightBloque , setHeightBloque] = useState(0)
   let alturaPantalla = useSelector(state=>state.alturaPantalla)
   useEffect(()=>{
     verMasY = altura.current.offsetTop
@@ -35,18 +36,17 @@ export default function CuidadosCard(props){
 
   useEffect(()=>{
     setAlturaBloque(bloque.current.offsetTop)
-  },[alturaBloque])
-
+  })
+  
 
   function Abrir_Cerrar_Desktop(){
-    console.log(alturaBloque);
-    console.log(alturaDesktop.current.offsetTop);
     if (props.active) {
       dispatch(activarCard(null))
-      window.scrollTo(0,alturaBloque + verMasYDesktop)
+      window.scrollTo(0,alturaBloque + heightBloque )
     }
     else {
-      setVerMasYDesktop(alturaDesktop.current.offsetTop)
+      setAlturaBloque(bloque.current.offsetTop)
+      setHeightBloque(bloque.current.clientHeight)
       dispatch(activarCard(props.clave))
     }
   }
@@ -84,7 +84,7 @@ export default function CuidadosCard(props){
 
   return(
     <div ref={bloque} className={`${styles.container} ${props.left?styles.izquierdaDesktop:props.right?styles.derechaDesktop:null}
-    ${alturaPantalla -30 >= alturaBloque
+    ${alturaPantalla - vieportHeight/4.5  >= alturaBloque
       ?
       props.left? styles.visibleLeft:
       props.right?styles.visibleRight:''

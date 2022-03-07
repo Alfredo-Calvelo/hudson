@@ -29,13 +29,14 @@ import image4 from '../../imagenes/UltimasPublicaciones/4.png'
 import image5 from '../../imagenes/UltimasPublicaciones/5.png' 
 import image6 from '../../imagenes/UltimasPublicaciones/6.png' 
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
-import { createRef, useEffect } from 'react';
+import { createRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ConocenosCard from '../../components/ConocenosCard/ConocenosCard';
 import Conocenos from '../../components/Conocenos/Conocenos';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import FondoHome from '../../imagenes/FondoHome.jpg'
+import { useSelector } from 'react-redux';
 
 export default function Home(){
   document.title='Hudson | Home'
@@ -51,6 +52,8 @@ export default function Home(){
       items:3
     }
   }
+
+
   const items = [
     <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' ruta='https://www.facebook.com/' />,
     <Circulo srcImg={cafeTeYMate} label='Cafe y Mate' />,
@@ -72,6 +75,13 @@ export default function Home(){
     <CardUltimas image={image1}/>,
     <CardUltimas image={image6}/>,
   ]
+  let alturaPantalla = useSelector(state=>state.alturaPantalla)
+  let carrusell = createRef()
+  const [alturaCarrusell, setAlturaCarrusell] = useState(0)
+  let vieportHeight = useSelector(state=>state.vieportHeight)
+  useEffect(()=>{
+    setAlturaCarrusell(carrusell.current.offsetTop)
+  },[alturaPantalla])
 
   return(
     <div className={styles.Home}>
@@ -131,7 +141,11 @@ export default function Home(){
           />
       </div>
       <div className={styles.overflow}>
-        <div className={styles.catalogCarrusellDesktop}>
+        <div ref={carrusell} className={`${styles.catalogCarrusellDesktop} 
+        ${alturaPantalla + vieportHeight/1.2 <= alturaCarrusell
+          ?styles.carrusellInvisible
+          :styles.carrusellVisible
+          }`}>
           <AliceCarousel
             responsive={responsive}
             autoWidth

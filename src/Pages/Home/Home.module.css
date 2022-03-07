@@ -161,4 +161,16 @@
     left: 0vw;
     opacity: 1;
   }
+  .carrusellInvisible{
+    opacity: 0;
+    transition: var(--transitionCorta);
+    position: relative;
+    bottom: -100px;
+  }
+  .carrusellVisible{
+    opacity: 1;
+    transition: var(--transitionCorta);
+    position: relative;
+    bottom: 0;
+  }
 }
