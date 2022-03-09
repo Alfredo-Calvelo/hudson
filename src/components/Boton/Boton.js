@@ -16,7 +16,7 @@ export default function Boton (props){
   }
 
   return(
-    <div className={styles.container}>
+    <div className={styles.container} >
     <div className={props.relleno?`${styles.relleno} ${dropMenu?styles.adelante:''}`:`${styles.noRelleno} ${dropMenu?styles.adelante:''} ${props.masterChef?styles.masterChef:''}`} onClick={()=>{
       if(props.dropMenu)dropMenuFunction()
       if (props.ruta)navigate(props?.ruta)
@@ -30,17 +30,17 @@ export default function Boton (props){
         :null
         }
     </div>
-        {dropMenu
-//------------------ DROP MENU-------------------------------
-        ?<ul className={styles.lista}>
-          <div className={styles.listContainer}>
+        
+{/* ------------------ DROP MENU------------------------------- */}
+        <ul className={`${styles.lista}`}>
+          <div className={`${styles.listContainer} ${dropMenu?styles.listaActiva:styles.listaInactiva}`}>
             <span className={`${styles.text} ${styles.li}`}>ARGENTINA</span>
             <span className={`${styles.text} ${styles.li}`}>URUGUAY</span>
             <span className={`${styles.text} ${styles.li}`}>USA</span>
           </div>
         </ul>
-        :null
-        }
+        
+        
 
 
     </div>

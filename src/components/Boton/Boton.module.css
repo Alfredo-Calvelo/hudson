@@ -57,8 +57,24 @@
 
 }
 .lista{
-  height: 0px;
+  height: max-content;
   display: grid;
+}
+.listaActiva{
+  height: max-content;
+  display: grid;
+  z-index: 20000;
+  /* opacity: 1; */
+  transition: var(--transitionCorta);
+  max-height: 200px;
+  margin-bottom: 20px;
+}
+
+.listaInactiva{
+  max-height: 0px;
+  transition: var(--transitionCorta);
+  opacity: 0;
+  background-color: red;
 }
 .listContainer{
   background-color: var(--grisMedio);

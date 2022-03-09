@@ -19,6 +19,7 @@ export default function RecetaCarrusell(props){
               mouseTracking
               disableButtonsControls
               autoWidth
+              activeIndex={2}
               renderDotsItem={DotButton}
               
               />
@@ -35,6 +36,7 @@ export default function RecetaCarrusell(props){
               touchTracking
               disableButtonsControls
               autoWidth
+              activeIndex={2}
               disableDotsControls
               
               />

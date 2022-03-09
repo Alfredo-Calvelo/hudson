@@ -100,7 +100,8 @@ export default function Home(){
       <div className={styles.boton} >
         <Boton text='TIENDA ONLINE' relleno dropMenu/>
       </div>
-    </div>,<div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
+    </div>,
+    <div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
         <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
         <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
         <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
