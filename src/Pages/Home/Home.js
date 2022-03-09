@@ -112,7 +112,21 @@ export default function Home(){
   let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
   return(
     <div className={styles.Home}>
-      <div className={styles.headerCarusell}>
+      <div className={styles.headerCarusellMobile}>
+        <AliceCarousel
+        touchTracking
+        mouseTracking
+        items={itemsHeader}
+        autoWidth
+        renderDotsItem={DotButton}
+        disableButtonsControls
+        disableDotsControls
+        autoPlay
+        autoPlayInterval={tiempoCarrusell}
+        infinite
+        />
+      </div>
+      <div className={styles.headerCarusellDesktop}>
         <AliceCarousel
         touchTracking
         mouseTracking

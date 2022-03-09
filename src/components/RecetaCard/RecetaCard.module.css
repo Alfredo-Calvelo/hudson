@@ -1,4 +1,4 @@
-.container{padding: 10px;}
+.containerMobile{padding: 10px;}
 
 .img{width: 100%;}
 
@@ -14,8 +14,17 @@
     position: relative;
     user-select: none;
   }
+  .containerDesktop{
+    display: none;
+  }
 @media (min-width:800px) {
-    .container{
+  .containerMobile{
+    display: none;
+  }
+  .containerDesktop{
+    display: block;
+  }
+    .containerDesktop{
         padding: 0;
     }
     .imagenContainer{

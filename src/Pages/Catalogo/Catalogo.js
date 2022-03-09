@@ -43,7 +43,10 @@ export default function Catalogo(props){
       </div>
       <div className={styles.Cards}>
         {items.map((elem, index)=>{
-          return<CardCatalogo key={index}/>
+          if (index%2=== 1) {
+            return <CardCatalogo mobile key={index}  left/>
+          }else return <CardCatalogo mobile key={index} right  />
+          
         })}
       </div>
       <div className={styles.cardsDesktop}>

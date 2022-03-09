@@ -15,17 +15,33 @@ export default function RecetaCard(props){
   },[])
   
   return(
-    <div ref={receta} className={`${styles.container} 
-    ${
-      alturaPantalla +700 <= alturaReceta
-      ?styles.Invisible
-      :styles.Visible
+    <div>
+
+      <div ref={receta} className={`${styles.containerMobile} 
+      ${
+        alturaPantalla - 100 <= alturaReceta
+        ?styles.Invisible
+        :styles.Visible
       }
-      `}>
-      <div className={styles.imagenContainer}>
-        <img src={props.img} className={styles.img}/>
+        `}>
+        <div className={styles.imagenContainer}>
+          <img src={props.img} className={styles.img}/>
+        </div>
+        <h4 className={styles.title}>{props.title}</h4>
       </div>
-      <h4 className={styles.title}>{props.title}</h4>
+      <div ref={receta} className={`${styles.containerDesktop} 
+      ${
+        alturaPantalla +700 <= alturaReceta
+        ?styles.Invisible
+        :styles.Visible
+      }
+        `}>
+        <div className={styles.imagenContainer}>
+          <img src={props.img} className={styles.img}/>
+        </div>
+        <h4 className={styles.title}>{props.title}</h4>
+      </div>
+      
     </div>
   )
 }

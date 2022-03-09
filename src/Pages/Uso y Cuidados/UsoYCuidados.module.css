@@ -41,6 +41,9 @@
 .destacado{
   margin: 0 20px 0 20px;
 }
+.header{
+  overflow-x: hidden;
+}
 @media (min-width:800px) {
   .imgDesktop{
     height: 568px;

@@ -45,6 +45,9 @@
 .cardsDesktop{
   display: none;
 }
+.container{
+  overflow-x: hidden;
+}
 @media (min-width:800px) {
   .Cards{
     display: none;

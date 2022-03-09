@@ -40,13 +40,6 @@
   left: 150px;
   user-select: none;
 }
-.VisibleLeft{
-  opacity: 1;
-  transition: var(--transitionCorta);
-  position: relative;
-  left: 0;
-  user-select: none;
-}
 .InvisibleRight{
   opacity: 0;
   transition: var(--transitionCorta);
@@ -59,6 +52,13 @@
   transition: var(--transitionCorta);
   position: relative;
   right: 0;
+  user-select: none;
+}
+.VisibleLeft{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  left: 0;
   user-select: none;
 }
 

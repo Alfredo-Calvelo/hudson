@@ -31,13 +31,13 @@ export default function CardCatalogo(props){
     `} 
     style={{
       flexDirection:props.reverse?'row-reverse':null,
-      marginRight:props.right? '10%' : '',
-      marginLeft:props.left? '10%':'',
+      marginRight:props.mobile?'':props.right? '10%' : '',
+      marginLeft:props.mobile?'':props.left? '10%':'',
     }}>
       <div className={styles.imgContainer}>
         <img src={lineaCobre} className={styles.img} style={{
-          left:props.right?'15%':'',
-          right:props.left?'15%':''
+          left:props.mobile?'':props.right?'15%':'',
+          right:props.mobile?'':props.left?'15%':''
         }} />
       </div>
       <div className={styles.description}>
