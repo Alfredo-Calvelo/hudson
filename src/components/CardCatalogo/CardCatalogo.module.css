@@ -33,6 +33,35 @@
   display: grid;
   gap: 7px;
 }
+.Invisibleleft{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  left: 150px;
+  user-select: none;
+}
+.VisibleLeft{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  left: 0;
+  user-select: none;
+}
+.InvisibleRight{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  right: 150px;
+  user-select: none;
+}
+.VisibleRight{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  right: 0;
+  user-select: none;
+}
+
 @media (min-width:800px) {
   .container{
     display: flex;

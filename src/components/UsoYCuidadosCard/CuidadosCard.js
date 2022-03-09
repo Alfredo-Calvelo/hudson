@@ -22,8 +22,6 @@ export default function CuidadosCard(props){
   useEffect(()=>{
     verMasY = altura.current.offsetTop
   })
-  useEffect(()=>{
-  })
   let bloque = createRef()
   
   function Abrir_Cerrar(){
@@ -77,25 +75,31 @@ export default function CuidadosCard(props){
     }else referenciaDesktop.current.style.height='0px'
   })
 
+  const [visible, setVisible] = useState(false)
+  useEffect(()=>{
+    setVisible(true)
+  })
 
 
-
-
-
+  let clase = `${styles.container} ${props.left?styles.izquierdaDesktop:props.right?styles.derechaDesktop:null}
+  ${
+  alturaPantalla - 150  >= alturaBloque
+  ?
+  props.left? styles.visibleLeft:
+  props.right?styles.visibleRight:''
+  :
+  props.left?styles.ocultoLeft:
+  props.right?styles.ocultoRight
+  :''
+  }
+  `
+  let clase2 = `${styles.container} ${props.left?styles.izquierdaDesktop:props.right?styles.derechaDesktop:null} ${visible
+    ?styles.visibleLeft:
+    styles.ocultoLeft
+  }`
   return(
-    <div ref={bloque} className={`${styles.container} ${props.left?styles.izquierdaDesktop:props.right?styles.derechaDesktop:null}
-    ${alturaPantalla - vieportHeight/4.5  >= alturaBloque
-      ?
-      props.left? styles.visibleLeft:
-      props.right?styles.visibleRight:''
-      :
-      props.left?styles.ocultoLeft:
-      props.right?styles.ocultoRight
-      :''
+    <div key={props.clave} ref={bloque} className={props.clave===0?clase2:clase}>
 
-    }
-    `}>
-      
       <div className={styles.header}>
         <h2 className={styles.title}>{item.title.toUpperCase()}</h2>
         <h4 className={styles.subTitle}>{item.subTitle}</h4>
@@ -153,7 +157,7 @@ export default function CuidadosCard(props){
               )})}
             </div>
           </div>
-          <span ref={altura} className={styles.verMas} onClick={()=>{Abrir_Cerrar()}}>{props.active?'VER MENOS':'VER MÁS'}{props.active?<BsChevronUp/>: <BsChevronDown/>}</span>
+          <span ref={altura} className={styles.verMas} onClick={()=>{Abrir_Cerrar_Desktop()}}>{props.active?'VER MENOS':'VER MÁS'}{props.active?<BsChevronUp/>: <BsChevronDown/>}</span>
         </div>
 
       </div>

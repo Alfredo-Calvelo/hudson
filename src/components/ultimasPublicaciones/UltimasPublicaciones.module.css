@@ -22,6 +22,14 @@
 .desktop{
   display: none;
 }
+.visible{
+  opacity: 1;
+  transition: var(--transitionCorta);
+}
+.invisible{
+  transition: var(--transitionCorta);
+  opacity: 0;
+}
 @media (min-width:800px)  {
   .mobile{
     display: none;

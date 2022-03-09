@@ -12,7 +12,7 @@ export default function CatalogCard(props){
     <div className={styles.requiredContainer}>
       <div className={styles.container} >
         <div className={styles.top}>
-          <img alt='' className={styles.img} src={props.img}/>
+          <img alt='' draggable={false} className={styles.img} src={props.img}/>
         </div>
         <div className={styles.bottom} >
           <h1 className={styles.tittle} >LÍNEA {props.tittle}</h1>

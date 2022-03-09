@@ -120,6 +120,30 @@
 .cuerpoDesktop{
   display: none;
 }
+.ocultoLeft{
+  position: relative;
+  opacity: 0;
+  transition: var(--transitionCorta);
+  left:-100px;
+}
+.ocultoRight{
+  position: relative;
+  opacity: 0;
+  transition: var(--transitionCorta);
+  right: -100px ;
+}
+.visibleRight{
+  position: relative;
+  opacity: 1;
+  right: 0;
+  transition: var(--transitionCorta);
+}
+.visibleLeft{
+  position: relative;
+  opacity: 1;
+  left: 0px;
+  transition: var(--transitionCorta);
+}
 @media (min-width:800px) {
   .cuerpoMobile{
     display: none;
@@ -197,28 +221,4 @@
     font-size: 18pt;
   }
 
-  .ocultoLeft{
-    position: relative;
-    opacity: 0;
-    transition: var(--transitionCorta);
-    left:-100px;
-  }
-  .ocultoRight{
-    position: relative;
-    opacity: 0;
-    transition: var(--transitionCorta);
-    right: -100px ;
-  }
-  .visibleRight{
-    position: relative;
-    opacity: 1;
-    right: 0;
-    transition: var(--transitionCorta);
-  }
-  .visibleLeft{
-    position: relative;
-    opacity: 1;
-    left: 0px;
-    transition: var(--transitionCorta);
-  }
 }

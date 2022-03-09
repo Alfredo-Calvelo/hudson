@@ -4,6 +4,8 @@ import imgIzquierda from '../../imagenes/fuenteCuadrada.png'
 import imgDerecha from '../../imagenes/bifero26CM.png'
 import DestacadoCard from './destacadosCard/DestacadoCard'
 import AliceCarousel from 'react-alice-carousel'
+import { createRef, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 export default function Destacado(props){
   
@@ -20,8 +22,16 @@ export default function Destacado(props){
       items:2
     }
   }
+  let alturaPantalla = useSelector(state=>state.alturaPantalla)
+  let vieportHeight = useSelector(state=>state.vieportHeight)
+  let bloque = createRef()
+
+  const [alturaBloque,setAlturaBloque] = useState(0)
+  useEffect(()=>{
+    setAlturaBloque(bloque.current.offsetTop)
+  },[bloque])
   return(
-    <div className={styles.container}>
+    <div ref={bloque} className={`${styles.container} ${alturaPantalla + vieportHeight/1.4 >alturaBloque?styles.visible:styles.invisible}`}>
       <div className={styles.titles}>
         <h3>Productos destacados</h3>
         <h5>VER MÁS</h5>

@@ -1,7 +1,7 @@
 import Boton from '../../components/Boton/Boton'
+
 import styles from './Home.module.css'
 import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css';
 import Circulo from '../../components/circuloProductos/Circulo';
 import conccionYHorneado from '../../imagenes/Circulos/coccionYHorneado.png'
 import cafeTeYMate from '../../imagenes/Circulos/cafeTeYMate.png'
@@ -31,12 +31,15 @@ import image6 from '../../imagenes/UltimasPublicaciones/6.png'
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
 import { createRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ConocenosCard from '../../components/ConocenosCard/ConocenosCard';
 import Conocenos from '../../components/Conocenos/Conocenos';
-import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import FondoHome from '../../imagenes/FondoHome.jpg'
 import { useSelector } from 'react-redux';
+import DotButton from '../../components/DotButton/DotButton';
+import CarrusellDesktop from '../../components/CarrusellDesktop/CarrusellDesktop';
+import CarrusellMobile from '../../components/CarrusellMobile/CarrusellMobile';
+import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
+import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
 
 export default function Home(){
   document.title='Hudson | Home'
@@ -55,7 +58,7 @@ export default function Home(){
 
 
   const items = [
-    <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' ruta='https://www.facebook.com/' />,
+    <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' />,
     <Circulo srcImg={cafeTeYMate} label='Cafe y Mate' />,
     <Circulo srcImg={Utensillios} label='Utensillios' />,
     <Circulo srcImg={Vajilla} label='Vajilla' />,
@@ -75,18 +78,29 @@ export default function Home(){
     <CardUltimas image={image1}/>,
     <CardUltimas image={image6}/>,
   ]
-  let alturaPantalla = useSelector(state=>state.alturaPantalla)
-  let carrusell = createRef()
-  const [alturaCarrusell, setAlturaCarrusell] = useState(0)
-  let vieportHeight = useSelector(state=>state.vieportHeight)
-  useEffect(()=>{
-    setAlturaCarrusell(carrusell.current.offsetTop)
-  },[alturaPantalla])
 
-  return(
-    <div className={styles.Home}>
-      
+
+
+
+  
+
+  const itemsHeader=[
+    <div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
+        <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
+        <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
+        <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
+        <div className={styles.boton} >
+          <Boton text='TIENDA ONLINE' relleno dropMenu/>
+        </div>
+      </div>,
       <div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
+      <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
+      <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
+      <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
+      <div className={styles.boton} >
+        <Boton text='TIENDA ONLINE' relleno dropMenu/>
+      </div>
+    </div>,<div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
         <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
         <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
         <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
@@ -94,6 +108,24 @@ export default function Home(){
           <Boton text='TIENDA ONLINE' relleno dropMenu/>
         </div>
       </div>
+  ]
+  let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
+  return(
+    <div className={styles.Home}>
+      <div className={styles.headerCarusell}>
+        <AliceCarousel
+        touchTracking
+        mouseTracking
+        items={itemsHeader}
+        autoWidth
+        renderDotsItem={DotButton}
+        disableButtonsControls
+        autoPlay
+        autoPlayInterval={tiempoCarrusell}
+        infinite
+        />
+      </div>
+
       <div className={styles.productosDesktop}>
         {items}
       </div>
@@ -117,47 +149,12 @@ export default function Home(){
         <Card ruta='Consejo' left tittle='TRUCOS Y CONSEJOS' subTittle='Como conservar los nutrientes en el hervor' textRuta='LEER ARTICULO' img={trucosYConsejos} />
         <Card  tittle='EL IMPERDIBLE' subTittle='Cafetera prensa francesa 350ml' textRuta='VER PRODUCTO' img={elImperdible} />
       </div>
-      <div className={styles.video}>
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-      </div>
-      <div className={styles.videoDesktop}>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-      </div>
-      <div className={styles.plus} >
-        <img src={Plus} alt='' />
-      </div>
-      <div className={styles.catalogCarrusell}>
-        <AliceCarousel
-          touchTracking
-          mouseTracking
-          items={items2}
-          autoWidth
-          infinite
-          controlsStrategy='alternate'
-          disableDotsControls
-          disableButtonsControls
-          paddingLeft={20}
-          paddingRight={10}
-          />
-      </div>
-      <div className={styles.overflow}>
-        <div ref={carrusell} className={`${styles.catalogCarrusellDesktop} 
-        ${alturaPantalla + vieportHeight/1.2 <= alturaCarrusell
-          ?styles.carrusellInvisible
-          :styles.carrusellVisible
-          }`}>
-          <AliceCarousel
-            responsive={responsive}
-            autoWidth
-            items={items2}
-            infinite
-            controlsStrategy='alternate'
-            disableDotsControls
-            paddingLeft={20}
-            paddingRight={10}
-            />
-        </div>
-      </div>
+      
+      <VideoMobile/>
+      <VideoDesktop/>
+
+      <CarrusellMobile items={items2}/>
+      <CarrusellDesktop items={items2}/>
         
  
       <div className={styles.produDestacados}>

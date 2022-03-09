@@ -88,9 +88,9 @@
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33% ;
     padding: 0;
-    gap: 10px;
+    gap: 20px;
     margin-top: 70px;
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
   }
   .rutaDesktop{
     display: flex;
@@ -163,6 +163,6 @@
   }
   .headerDesktop{
     display: block;
-
+    margin-bottom: 30px;
   }
 }

@@ -74,6 +74,20 @@
 .destacado{
   padding: 0 20px 0 20px;
 }
+.Invisible{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: -100px;
+  user-select: none;
+}
+.Visible{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: 0;
+  user-select: none;
+}
 
 
 @media (min-width:800px) {

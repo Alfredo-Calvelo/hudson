@@ -1,12 +1,22 @@
+import { createRef, useEffect, useState } from 'react'
 import AliceCarousel from 'react-alice-carousel'
+import { useSelector } from 'react-redux'
 import styles from './UltimasPublicaciones.module.css'
 
 
 export default function UltimasPublicaciones (props){
 
+  let alturaPantalla = useSelector(state=>state.alturaPantalla)
+  let vieportHeight = useSelector(state=>state.vieportHeight)
+  let bloque = createRef()
+
+  const [alturaBloque,setAlturaBloque] = useState(0)
+  useEffect(()=>{
+    setAlturaBloque(bloque.current.offsetTop)
+  },[bloque])
   
   return(
-    <div className={styles.container}>
+    <div  ref={bloque} className={`${styles.container} ${alturaPantalla + vieportHeight/1.4 >alturaBloque?styles.visible:styles.invisible}`}>
       <div className={styles.titles}>
         <h3 className={styles.title}>Últimas publicaciones</h3>
         <h3 className={styles.arroba}>@HUDSONKITCHENWARE</h3>

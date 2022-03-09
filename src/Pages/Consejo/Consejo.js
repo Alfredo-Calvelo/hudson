@@ -7,7 +7,7 @@ import Inspirado from '../../components/Inpirado/Inspirado'
 import Destacado from '../../components/destacados/Destacado'
 import Footer from '../../components/Footer/Footer'
 import fotoPersona from '../../imagenes/gastonDalmau.png'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 export default function Consejo (){
   document.title='Hudson | Trucos y Consejos'
   let text = "Lavar los vegetales enteros y cortarlos o pelarlos justo antes de utilizarlos para evitar la oxidación en contacto con el aire.\n\
@@ -21,30 +21,36 @@ export default function Consejo (){
     window.scrollTo(0,0)
   },[])
   
+  const [visible, setVisible] = useState(false)
+  useEffect(()=>{
+    setVisible(true)
+  })
 
   return(
-    <div>
+    <div >
       <Gradient/>
       <Header img={brocoli} title='como conservar los nutrientes durante el hervor'/>
-      <div className={styles.consejo}>
-        <p className={styles.parrafo}>Comer verduras frescas, sin pelar ni cocinar hace que su aporte nutricional permanezca intacto. Al hervirlas, hay que tener en cuenta algunas pautas para que los nutrientes no se pierdan durante la cocción.</p>
-      </div>
-      <div className={styles.consejero}>
-          <img src={fotoPersona} className={styles.consejeroImg}/>
-          <div >
-            <h4 className={styles.consejeroTitle}>Hoy Cocina:{' '} Belu Lucius</h4>
-            <h4 className={styles.consejeroSubTitle}>ig @belulucius</h4>
-          </div>
-      </div>
-      <div className={styles.videoDesktop} >
-        <iframe width='100%'height='100%' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-      </div>
-        <iframe className={styles.videoMobile} width='100%'height='250px' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-      <div className={`${styles.consejo} ${styles.consejoDesktop}`}>
-        <h3 className={styles.title}>Algunos consejos</h3>
-        <ul className={styles.algunosConsejos}>
-          {cortado.map((elem, index)=><li key={index}>{elem}</li>)}
-        </ul>
+      <div className={`${visible?styles.Visible:styles.Invisible}`}>
+        <div className={styles.consejo}>
+          <p className={styles.parrafo}>Comer verduras frescas, sin pelar ni cocinar hace que su aporte nutricional permanezca intacto. Al hervirlas, hay que tener en cuenta algunas pautas para que los nutrientes no se pierdan durante la cocción.</p>
+        </div>
+        <div className={styles.consejero}>
+            <img src={fotoPersona} className={styles.consejeroImg}/>
+            <div >
+              <h4 className={styles.consejeroTitle}>Hoy Cocina:{' '} Belu Lucius</h4>
+              <h4 className={styles.consejeroSubTitle}>ig @belulucius</h4>
+            </div>
+        </div>
+        <div className={styles.videoDesktop} >
+          <iframe width='100%'height='100%' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        </div>
+          <iframe className={styles.videoMobile} width='100%'height='250px' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <div className={`${styles.consejo} ${styles.consejoDesktop}`}>
+          <h3 className={styles.title}>Algunos consejos</h3>
+          <ul className={styles.algunosConsejos}>
+            {cortado.map((elem, index)=><li key={index}>{elem}</li>)}
+          </ul>
+        </div>
       </div>
       <SeparadorChico/>
       <Inspirado title='Sigue inspirandote...'/>

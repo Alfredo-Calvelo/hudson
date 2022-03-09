@@ -1,9 +1,35 @@
 import styles from './CardCatalogo.module.css'
 import lineaCobre from '../../imagenes/lineaCobre.png'
+import { createRef, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 export default function CardCatalogo(props){
 
+
+  let alturaPantalla = useSelector(state=>state.alturaPantalla)
+  let bloque = createRef()
+
+  let vieportHeight = useSelector(state=>state.vieportHeight)
+  
+  const [alturaBloque, setAlturaBloque] = useState(0)
+  useEffect(()=>{
+    setAlturaBloque(bloque.current?.offsetTop)
+  })
+  
+
   return (
-    <div className={styles.container} style={{
+    <div ref={bloque} className={`${styles.container} 
+    ${
+      alturaPantalla + vieportHeight/1.2 <= alturaBloque
+      ?
+      props.left?styles.Invisibleleft:
+      props.right?styles.InvisibleRight:''
+      :
+      props.left?styles.VisibleLeft:
+      props.right?styles.VisibleRight
+      :''
+      }
+    `} 
+    style={{
       flexDirection:props.reverse?'row-reverse':null,
       marginRight:props.right? '10%' : '',
       marginLeft:props.left? '10%':'',

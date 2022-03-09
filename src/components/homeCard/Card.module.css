@@ -2,6 +2,7 @@
   margin: 20px;
   overflow: hidden;
   display: grid;
+  position: relative;
 }
 .desktop{
   display: none;
@@ -70,6 +71,34 @@
 .subCardRight:hover .flecha {
 gap: 10px;
 }
+.visibleRight{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  right: 0;
+}
+.visibleLeft{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  left: 0;
+
+}
+.invisibleLeft{
+  position: relative;
+  transition: var(--transitionCorta);
+  opacity: 0;
+  left: -100px;
+}
+.invisibleRight{
+  position: relative;
+  transition: var(--transitionCorta);
+  opacity: 0;
+  right: -100px;
+}
+
+
+
 @media (min-width: 370px) and (max-width: 408px){
   .subCardLeft,.subCardRight{
     height: 125px;

@@ -1,4 +1,6 @@
+import { createRef, useEffect, useState } from 'react'
 import AliceCarousel from 'react-alice-carousel'
+import { useSelector } from 'react-redux'
 import ConocenosCard from '../ConocenosCard/ConocenosCard'
 import styles from './Conocenos.module.css'
 
@@ -16,9 +18,19 @@ export default function Conocenos (){
       items:1
     }
   }
-  return(
-    <div>
+  
+  let alturaPantalla = useSelector(state=>state.alturaPantalla)
+  let vieportHeight = useSelector(state=>state.vieportHeight)
+  let bloque = createRef()
 
+  const [alturaBloque,setAlturaBloque] = useState(0)
+  useEffect(()=>{
+    setAlturaBloque(bloque.current.offsetTop)
+  },[bloque])
+
+
+  return(
+    <div ref={bloque} className={`${alturaPantalla + vieportHeight/1.4 >alturaBloque?styles.visible:styles.invisible}`}>
       <div className={styles.carrusell}>
         <AliceCarousel
           touchTracking
@@ -33,6 +45,8 @@ export default function Conocenos (){
       </div>
       <div className={styles.items}>
         {items}
+        
+        
       </div>
     </div>
   )

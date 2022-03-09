@@ -92,6 +92,9 @@
   .catalogCarrusell{
     display: none;
   }
+  .headerCarusell{
+    user-select: none;
+  }
   .overflow{
     overflow: hidden;
     display: grid;

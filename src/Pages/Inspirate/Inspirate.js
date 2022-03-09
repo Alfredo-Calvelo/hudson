@@ -11,6 +11,8 @@ import Footer from '../../components/Footer/Footer'
 import Gradient from '../../components/Gradient/Gradient'
 import InspirateCard from '../../components/InspirateCard/InspirateCard'
 import AliceCarousel from 'react-alice-carousel'
+import DotButton from '../../components/DotButton/DotButton'
+import { useSelector } from 'react-redux'
 
 export default function Inspirate(){
   document.title=`Hudson | Inspirate`
@@ -59,8 +61,9 @@ export default function Inspirate(){
       console.log('chau');
       ref.current.checked = true
     }
-
   }
+  let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
+  
   return(
     <div>
         <Gradient/>
@@ -75,15 +78,23 @@ export default function Inspirate(){
             disableButtonsControls
             paddingLeft={10}
             paddingRight={10}
+            
             />
         </div>
         <div className={styles.headerDesktop}>
           <AliceCarousel
             items={items}
             controlsStrategy="alternate"
-            disableDotsControls
             paddingLeft={10}
             paddingRight={10}
+            touchTracking
+            mouseTracking
+            autoWidth
+            renderDotsItem={DotButton}
+            disableButtonsControls
+            autoPlay
+            autoPlayInterval={tiempoCarrusell}
+            infinite
             
             />
         </div>

@@ -21,14 +21,19 @@
 .verReceta{
   display: flex;
   align-items: center;
-  gap: 20%;
+  gap: 70px;
+  transition: var(--transitionCorta);
   font-family: 'Regular' ;
   letter-spacing: 2px;
+}
+.verReceta:hover{
+  gap: 30px;
 }
 
 @media (min-width:800px) {
   .container{
     display: grid;
+    margin-bottom: -70px;
   }
   
   .imgContainer{

@@ -52,6 +52,7 @@ const initialState={
   menuActivoMenu:false,
   alturaPantalla:0,
   vieportHeight: window.innerHeight,
+  tiempoCarrusell:4000,
   UsosYCuidados:[
     {
       title:'Piezas de Aluminio',

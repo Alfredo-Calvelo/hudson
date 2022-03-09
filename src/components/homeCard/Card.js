@@ -1,4 +1,6 @@
+import { createRef, useEffect, useState } from 'react'
 import { BsChevronRight } from 'react-icons/bs'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import styles from './Card.module.css'
 
@@ -9,8 +11,23 @@ export default function Card(props){
     navigate(props.ruta)
   }
 
+  let alturaPantalla = useSelector(state=>state.alturaPantalla)
+  let vieportHeight = useSelector(state=>state.vieportHeight)
+  let bloque = createRef()
+
+  const [alturaBloque,setAlturaBloque] = useState(0)
+  useEffect(()=>{
+    setAlturaBloque(bloque.current.offsetTop)
+  },[bloque])
+  
+
+  
   return(
-    <div>
+    <div ref={bloque} className={`${alturaPantalla + vieportHeight/1.4 >alturaBloque
+      ?props.left?styles.visibleLeft:styles.visibleRight
+      :props.left?styles.invisibleLeft:styles.invisibleRight
+    
+    }`}>
       <div className={styles.mobile}>
 
         <div className={props.left? styles.containerLeft:styles.containerRight} onClick={()=>ejecutable()}>

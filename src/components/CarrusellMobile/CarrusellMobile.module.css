@@ -1,0 +1,23 @@
+
+
+.carrusellInvisible{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: -100px;
+  user-select: none;
+}
+.carrusellVisible{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: 0;
+  user-select: none;
+}
+@media (min-width:800px) {
+  .catalogCarrusellMobile{
+    display: none;
+  
+  }
+  
+}
