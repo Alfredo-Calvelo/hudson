@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom'
 export default function Header(props){
   const navigate = useNavigate()
   return(
-    <div className={styles.container} onClick={()=>navigate('../Receta')}>
+    <div className={styles.container} >
       <div className={styles.headerDesktop}>
-        <img className={styles.headerImg} src={props.img}/>
+        <img draggable={false} className={styles.headerImg} src={props.img}/>
       </div>
       <div className={styles.title}>
         <h3>{props.title.toUpperCase()}</h3>

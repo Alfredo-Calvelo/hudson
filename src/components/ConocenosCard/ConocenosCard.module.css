@@ -35,6 +35,7 @@
 .flecha{
   display: flex;
   gap: 20px;
+  transition: var(--transitionCorta);
 }
 .flecha svg{
   font-size: 8pt;
@@ -52,6 +53,7 @@
     background-position-x:-23vw ;
     transition: var(--transitionCorta);
   }
+  
   .subCard{
     margin: 0;
     height: 140px;
@@ -66,7 +68,9 @@
   }
   .flecha svg{
     top: 0;
-
+  }
+  .subCard:hover .flecha{
+    gap: 5px;
   }
   .textRuta{
     margin: 0;

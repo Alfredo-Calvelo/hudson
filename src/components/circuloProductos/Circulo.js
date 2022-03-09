@@ -7,7 +7,7 @@ export default function Circulo (props){
     <div className={styles.container}>
       <a className={styles.subContainer} href={props?.ruta}>
       <div className={styles.Circulo}>
-        <img alt='' className={styles.Img} src={props.srcImg}/>
+        <img alt='' draggable={false} className={styles.Img} src={props.srcImg}/>
       </div>
         <span className={styles.label}>{props.label}</span>
       </a>
