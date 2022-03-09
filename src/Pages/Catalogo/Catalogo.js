@@ -44,16 +44,16 @@ export default function Catalogo(props){
       <div className={styles.Cards}>
         {items.map((elem, index)=>{
           if (index%2=== 1) {
-            return <CardCatalogo mobile key={index}  left/>
-          }else return <CardCatalogo mobile key={index} right  />
+            return <CardCatalogo  mobile key={index} clave={index} left/>
+          }else return <CardCatalogo  mobile key={index} right  clave={index} />
           
         })}
       </div>
       <div className={styles.cardsDesktop}>
         {items.map((elem, index)=>{
           if (index%2=== 1) {
-            return <CardCatalogo key={index}  left/>
-          }else return <CardCatalogo key={index} right reverse />
+            return <CardCatalogo key={index} clave={index} left/>
+          }else return <CardCatalogo key={index} clave={index}right reverse />
         })}
       </div>
       <SeparadorChico/>

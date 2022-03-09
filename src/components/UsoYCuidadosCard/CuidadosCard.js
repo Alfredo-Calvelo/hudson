@@ -90,9 +90,7 @@ export default function CuidadosCard(props){
   :
   props.left?styles.ocultoLeft:
   props.right?styles.ocultoRight
-  :''
-  }
-  `
+  :''}`
   let clase2 = `${styles.container} ${props.left?styles.izquierdaDesktop:props.right?styles.derechaDesktop:null} ${visible
     ?styles.visibleLeft:
     styles.ocultoLeft

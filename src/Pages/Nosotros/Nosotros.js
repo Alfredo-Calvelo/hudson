@@ -72,7 +72,7 @@ export default function Nosotros(){
       </div>
       <div className={` 
       ${
-        alturaPantalla + vieportHeight/1.6 <= alturaImagen2
+        alturaPantalla + vieportHeight <= alturaImagen2
         ?styles.Invisible
         :styles.Visible
         }

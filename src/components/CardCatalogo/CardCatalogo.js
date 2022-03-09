@@ -13,22 +13,37 @@ export default function CardCatalogo(props){
   const [alturaBloque, setAlturaBloque] = useState(0)
   useEffect(()=>{
     setAlturaBloque(bloque.current?.offsetTop)
+    if (props.clave>=0) {
+      console.log(props.clave);
+    }
   })
-  
 
+
+  const [visible, setVisible] = useState(false)
+
+  useEffect(()=>{
+    setVisible(true)
+  })
+  let clase = `${styles.container} 
+  ${
+    alturaPantalla + vieportHeight/1.2 <= alturaBloque
+    ?
+    props.left?styles.Invisibleleft:
+    props.right?styles.InvisibleRight:''
+    :
+    props.left?styles.VisibleLeft:
+    props.right?styles.VisibleRight
+    :''
+    }
+  `
+  let clase2 = `${styles.container}
+  ${visible?
+    styles.VisibleRight:
+    styles.InvisibleRight
+  }`
+  
   return (
-    <div ref={bloque} className={`${styles.container} 
-    ${
-      alturaPantalla + vieportHeight/1.2 <= alturaBloque
-      ?
-      props.left?styles.Invisibleleft:
-      props.right?styles.InvisibleRight:''
-      :
-      props.left?styles.VisibleLeft:
-      props.right?styles.VisibleRight
-      :''
-      }
-    `} 
+    <div id={props.clave} ref={bloque} className={props.clave===0?clase2:clase}
     style={{
       flexDirection:props.reverse?'row-reverse':null,
       marginRight:props.mobile?'':props.right? '10%' : '',
