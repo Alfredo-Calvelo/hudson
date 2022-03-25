@@ -58,9 +58,14 @@ export default function Home(){
       items:3
     }
   }
+  const HeaderBanner = useSelector(state=>state.HeaderBanner)
   useEffect(()=>{
     dispatch(getData(typeBanner))
-  })
+  },[])
+  useEffect(()=>{
+    console.log(HeaderBanner);
+  },[HeaderBanner])
+
 
   const items = [
     <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' />,
@@ -89,35 +94,48 @@ export default function Home(){
 
   
 
-  const itemsHeader=[
-    <div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
-        <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
-        <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
-        <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
+  const itemsHeader= HeaderBanner?.map((elem,index)=>{
+    return(
+      <div key={index} className={styles.top} style={{backgroundImage:`url(${elem?.image})`}} >
+        <h1 className={styles.tittle}>{`${elem?.title}`}</h1>
+        <h3 className={styles.subTittle}>{`${elem?.description}`}</h3>
+        <h5 className={styles.aclaracion}>{`${elem?.footer}`}</h5>
         <div className={styles.boton} >
-          <Boton text='TIENDA ONLINE' relleno dropMenu/>
-        </div>
-      </div>,
-      <div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
-      <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
-      <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
-      <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
-      <div className={styles.boton} >
-        <Boton text='TIENDA ONLINE' relleno dropMenu/>
-      </div>
-    </div>,
-    <div className={styles.top} style={{backgroundImage:`url(${FondoHome})`}} >
-        <h1 className={styles.tittle}>SEMANA DE DESCUENTOS PARA MAMÁ</h1>
-        <h3 className={styles.subTittle}> Con el cupón: MAMACHEF20. Sed aliquam et risus fusce a. Risus neque ultricies suscipit diam nulla ultrices volutpat.</h3>
-        <h5 className={styles.aclaracion}>Linea de vigencia de la promoción.</h5>
-        <div className={styles.boton} >
-          <Boton text='TIENDA ONLINE' relleno dropMenu/>
+          <Boton link={elem.CTA.linkBoton} text={`${elem?.CTA.textoBoton}`} relleno />
         </div>
       </div>
-  ]
+    )
+  })
+  //   <div className={styles.top} style={{backgroundImage:`url(${HeaderBanner[0]?.image})`}} >
+  //       <h1 className={styles.tittle}>{`${HeaderBanner[0]?.title}`}</h1>
+  //       <h3 className={styles.subTittle}>{`${HeaderBanner[0]?.description}`}</h3>
+  //       <h5 className={styles.aclaracion}>{`${HeaderBanner[0]?.footer}`}</h5>
+  //       <div className={styles.boton} >
+  //         <Boton text={`${HeaderBanner[0]?.CTA.textoBoton}`} relleno />
+  //       </div>
+  //     </div>,
+  //     <div className={styles.top} style={{backgroundImage:`url(${HeaderBanner[1]?.image})`}} >
+  //     <h1 className={styles.tittle}>{`${HeaderBanner[1]?.title}`}</h1>
+  //     <h3 className={styles.subTittle}>{`${HeaderBanner[1]?.description}`}</h3>
+  //     <h5 className={styles.aclaracion}>{`${HeaderBanner[1]?.footer}`}</h5>
+  //     <div className={styles.boton} >
+  //       <Boton text={`${HeaderBanner[1]?.CTA.textoBoton}`} relleno />
+  //     </div>
+  //   </div>,
+  //   <div className={styles.top} style={{backgroundImage:`url(${HeaderBanner[2]?.image})`}}>
+  //       <h1 className={styles.tittle}>{`${HeaderBanner[2]?.title}`}</h1>
+  //       <h3 className={styles.subTittle}>{`${HeaderBanner[2]?.description}`}</h3>
+  //       <h5 className={styles.aclaracion}>{`${HeaderBanner[2]?.footer}`}</h5>
+  //       <div className={styles.boton} >
+  //         <Boton text={`${HeaderBanner[2]?.CTA.textoBoton}`} relleno />
+  //       </div>
+  //     </div>
+  // ]
   let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
   return(
+    
     <div className={styles.Home}>
+
       <div className={styles.headerCarusellMobile}>
         <AliceCarousel
         touchTracking

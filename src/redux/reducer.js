@@ -313,7 +313,6 @@ const initialState={
 }
 
 function rootReducer(state=initialState, action){
-  
   if (action.type === ACTIVAR_MENU_DESPLEGABLE) {
     return{
       ...state,
@@ -374,10 +373,10 @@ function rootReducer(state=initialState, action){
     }
   }
   if (action.type === GET_DATA){
-    console.log(action);
+
     return {
       ...state,
-      [action.payload.type]: action.payload.data,
+      [action.propiedadName]: action.payload,
     }
   }
   

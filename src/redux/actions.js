@@ -39,19 +39,18 @@ export function menuActivoMenu(payload){
 export function alturaPantalla(payload){
     return{type:ALTURA_PANTALLA,payload}
 }
-export function getData(type) {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
-    console.log('getData');
+export function getData(propiedadName) {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
     return async function (dispatch) {
         try {
             const json = await axios({
-            method: "GET",
-            withCredentials: true,
-            Credentials: "includes",
-            url: BASE_URL + "/getData/" + type,
+                method: "GET",
+                withCredentials: true,
+                Credentials: "includes",
+                url: BASE_URL + "/getData/" + propiedadName,
             });
-            return dispatch({ type: GET_DATA, payload: json.data, type });
+            return dispatch({ type: GET_DATA, payload: json.data, propiedadName });
         } catch (error) {
-            console.log(error);
+        console.log(error);
         }
-        };
-    }
+    };
+}
