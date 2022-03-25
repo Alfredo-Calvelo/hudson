@@ -34,12 +34,14 @@ import { useNavigate } from 'react-router-dom';
 import Conocenos from '../../components/Conocenos/Conocenos';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import FondoHome from '../../imagenes/FondoHome.jpg'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DotButton from '../../components/DotButton/DotButton';
 import CarrusellDesktop from '../../components/CarrusellDesktop/CarrusellDesktop';
 import CarrusellMobile from '../../components/CarrusellMobile/CarrusellMobile';
 import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
 import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
+import { getData } from '../../redux/actions';
+import { typeBanner } from '../../types';
 
 export default function Home(){
   document.title='Hudson | Home'
@@ -47,6 +49,7 @@ export default function Home(){
     window.scrollTo(0,0)
   },[])
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const responsive={
     0:{
       items:1
@@ -55,7 +58,9 @@ export default function Home(){
       items:3
     }
   }
-
+  useEffect(()=>{
+    dispatch(getData(typeBanner))
+  })
 
   const items = [
     <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' />,

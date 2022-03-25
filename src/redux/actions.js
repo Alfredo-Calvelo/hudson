@@ -1,3 +1,4 @@
+import axios from 'axios'
 export const ACTIVAR_MENU_DESPLEGABLE='ACTIVAR_MENU_DESPLEGABLE'
 export const CAMBIAR_NAV_BAR = 'CAMBIAR_NAV_BAR'
 export const CAMBIAR_OPCIONES = 'CAMBIAR_OPCIONES'
@@ -7,6 +8,8 @@ export const CARD_ACTIVA = 'CARD_ACTIVA'
 export const MENU_ACTIVO_NAVBAR = 'MENU_NAVBAR_ACTIVO'
 export const MENU_ACTIVO_MENU = 'MENU_ACTIVO_MENU'
 export const ALTURA_PANTALLA = 'ALTURA_PANTALLA'
+export const GET_DATA = "GET_DATA";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
@@ -36,3 +39,19 @@ export function menuActivoMenu(payload){
 export function alturaPantalla(payload){
     return{type:ALTURA_PANTALLA,payload}
 }
+export function getData(type) {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
+    console.log('getData');
+    return async function (dispatch) {
+        try {
+            const json = await axios({
+            method: "GET",
+            withCredentials: true,
+            Credentials: "includes",
+            url: BASE_URL + "/getData/" + type,
+            });
+            return dispatch({ type: GET_DATA, payload: json.data, type });
+        } catch (error) {
+            console.log(error);
+        }
+        };
+    }

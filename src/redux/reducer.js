@@ -7,7 +7,8 @@ import {
   CARD_ACTIVA,
   MENU_ACTIVO_MENU,
   MENU_ACTIVO_NAVBAR,
-  ALTURA_PANTALLA
+  ALTURA_PANTALLA,
+  GET_DATA
 } from "./actions"
 
 
@@ -370,6 +371,13 @@ function rootReducer(state=initialState, action){
     return{
       ...state,
       alturaPantalla:action.payload
+    }
+  }
+  if (action.type === GET_DATA){
+    console.log(action);
+    return {
+      ...state,
+      [action.payload.type]: action.payload.data,
     }
   }
   
