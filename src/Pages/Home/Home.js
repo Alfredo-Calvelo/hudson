@@ -41,7 +41,7 @@ import CarrusellMobile from '../../components/CarrusellMobile/CarrusellMobile';
 import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
 import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
 import { getData } from '../../redux/actions';
-import { typeBanner } from '../../types';
+import { typeBanner, typeCatalogo, typeCategorias, typeDestacadas, typeProducto } from '../../types';
 
 export default function Home(){
   document.title='Hudson | Home'
@@ -59,14 +59,20 @@ export default function Home(){
     }
   }
   const HeaderBanner = useSelector(state=>state.HeaderBanner)
+  const state = useSelector(state=>state)
   useEffect(()=>{
     dispatch(getData(typeBanner))
+    dispatch(getData(typeCategorias))
+    dispatch(getData(typeProducto))
+    dispatch(getData(typeDestacadas))
+    dispatch(getData(typeCatalogo))
+    
   },[])
   useEffect(()=>{
-    console.log(HeaderBanner);
-  },[HeaderBanner])
+    console.log(state);
+  },[state])
 
-
+  
   const items = [
     <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' />,
     <Circulo srcImg={cafeTeYMate} label='Cafe y Mate' />,
@@ -106,31 +112,6 @@ export default function Home(){
       </div>
     )
   })
-  //   <div className={styles.top} style={{backgroundImage:`url(${HeaderBanner[0]?.image})`}} >
-  //       <h1 className={styles.tittle}>{`${HeaderBanner[0]?.title}`}</h1>
-  //       <h3 className={styles.subTittle}>{`${HeaderBanner[0]?.description}`}</h3>
-  //       <h5 className={styles.aclaracion}>{`${HeaderBanner[0]?.footer}`}</h5>
-  //       <div className={styles.boton} >
-  //         <Boton text={`${HeaderBanner[0]?.CTA.textoBoton}`} relleno />
-  //       </div>
-  //     </div>,
-  //     <div className={styles.top} style={{backgroundImage:`url(${HeaderBanner[1]?.image})`}} >
-  //     <h1 className={styles.tittle}>{`${HeaderBanner[1]?.title}`}</h1>
-  //     <h3 className={styles.subTittle}>{`${HeaderBanner[1]?.description}`}</h3>
-  //     <h5 className={styles.aclaracion}>{`${HeaderBanner[1]?.footer}`}</h5>
-  //     <div className={styles.boton} >
-  //       <Boton text={`${HeaderBanner[1]?.CTA.textoBoton}`} relleno />
-  //     </div>
-  //   </div>,
-  //   <div className={styles.top} style={{backgroundImage:`url(${HeaderBanner[2]?.image})`}}>
-  //       <h1 className={styles.tittle}>{`${HeaderBanner[2]?.title}`}</h1>
-  //       <h3 className={styles.subTittle}>{`${HeaderBanner[2]?.description}`}</h3>
-  //       <h5 className={styles.aclaracion}>{`${HeaderBanner[2]?.footer}`}</h5>
-  //       <div className={styles.boton} >
-  //         <Boton text={`${HeaderBanner[2]?.CTA.textoBoton}`} relleno />
-  //       </div>
-  //     </div>
-  // ]
   let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
   return(
     

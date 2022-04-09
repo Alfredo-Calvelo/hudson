@@ -5,18 +5,23 @@ import imgDerecha from '../../imagenes/bifero26CM.png'
 import DestacadoCard from './destacadosCard/DestacadoCard'
 import AliceCarousel from 'react-alice-carousel'
 import { createRef, useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getData } from '../../redux/actions'
+import { typeProducto } from '../../types'
 
 export default function Destacado(props){
-  
-  // LAS IMAGENES PARA ESTAS CARDS TIENEN QUE SER DE  1200x900 PARA EL DISEÑO MOBILE
+  // const dispatch = useDispatch()
+  // useEffect(()=>{
+  //   dispatch(getData(typeProducto))
+  // },[])
   let items= [
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
-    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,]
+    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
+  ]
   let responsive={
     0:{
       items:2
@@ -49,7 +54,11 @@ export default function Destacado(props){
           />
         </div>
         <div className={`${styles.bottom} ${styles.bottomDesktop}`}>
-          {items}
+          {items.map((elem,index)=>{
+            return(
+              elem
+            )
+          })}
         </div>
         <div className={styles.tiendaOnline}>
           <h5 className={`${styles.subTitle} ${styles.vender}`}>Conseguí todos nuestros productos en nuestras tiendas online.</h5>  
