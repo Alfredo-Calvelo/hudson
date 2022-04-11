@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './index.css';
@@ -6,16 +6,30 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import CambiarNavBar from './CambiarNavBar';
 
+let scroll  =0 
+function NavBarChange (e){
+  scroll = window.scrollY
+  // console.log(scroll);
+}
+// window.addEventListener('scroll',e=>ReactDOM.render(ReactDOM.render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//       <App scroll={scroll}/>
+//     </Provider>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// )))
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App scroll={scroll}/>
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

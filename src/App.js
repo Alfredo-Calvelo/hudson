@@ -12,24 +12,33 @@ import Receta from './Pages/Receta/Receta';
 import Consejo from './Pages/Consejo/Consejo';
 import Nosotros from './Pages/Nosotros/Nosotros';
 import UsoYCuidados from './Pages/Uso y Cuidados/UsoYCuidados';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { typeBanner, typeCatalogo, typeCategorias, typeDestacadas, typeProducto } from './types';
 
-function App() {
+
+
+function App(props) {
+  const [altura,setAltura]=useState()
+  function scroll(params) {
+    setAltura(window.scrollY)
+  }
+  window.addEventListener('scroll',e=>scroll(e))
   const dispatch = useDispatch()
   let dropMenu= useSelector(state=>state.menuDesplegable)
   let opciones= useSelector(state=>state.opciones)
-  const NavBarChange =(e)=>{
+  
+  useEffect(()=>{
+    console.log(altura);
     dispatch(alturaPantalla(window.scrollY))
     if (window.scrollY >=25) {
       dispatch(cambiarNavBar(false))
     }else{
       dispatch(cambiarNavBar(true))
     }
-  }
+  },[altura])
+  
   function apagarMenu(){
     dispatch(cerrarTodo())
-    
   }
   useEffect(()=>{
     dispatch(getData(typeBanner))
@@ -40,10 +49,11 @@ function App() {
   },[])
   const state = useSelector(state=>state)
   useEffect(()=>{
-    console.log(state);
+    // console.log(state);
   },[state])
-  window.addEventListener('scroll',NavBarChange)
   return (
+
+
     <BrowserRouter>
           <div className={styles.App}>
             {dropMenu || opciones?<div className={styles.tapaderaContainer} onClick={()=>apagarMenu()}><div className={styles.tapadera}></div></div>:null}
