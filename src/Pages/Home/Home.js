@@ -40,8 +40,8 @@ import CarrusellDesktop from '../../components/CarrusellDesktop/CarrusellDesktop
 import CarrusellMobile from '../../components/CarrusellMobile/CarrusellMobile';
 import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
 import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
-import { getData } from '../../redux/actions';
-import { typeBanner, typeCatalogo, typeCategorias, typeDestacadas, typeProducto } from '../../types';
+import { getData, getSocial } from '../../redux/actions';
+import { typeBanner, typeCatalogo, typeCategorias, typeDestacadas, typeProducto, typeVideoHome } from '../../types';
 
 export default function Home(){
   document.title='Hudson | Home'
@@ -50,6 +50,8 @@ export default function Home(){
   },[])
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [destacadaCatalogo, setDestacadaCatalogo] = useState()
+  const [destacadaProducto, setDestacadaProducto] = useState()
   const responsive={
     0:{
       items:1
@@ -60,27 +62,38 @@ export default function Home(){
   }
   const HeaderBanner = useSelector(state=>state.HeaderBanner)
   const state = useSelector(state=>state)
-  useEffect(()=>{
-    dispatch(getData(typeBanner))
-    dispatch(getData(typeCategorias))
-    dispatch(getData(typeProducto))
-    dispatch(getData(typeDestacadas))
-    dispatch(getData(typeCatalogo))
-    
-  },[])
-  useEffect(()=>{
-    console.log(state);
-  },[state])
-
   
-  const items = [
-    <Circulo srcImg={conccionYHorneado} label='Cocción y Horneado' />,
-    <Circulo srcImg={cafeTeYMate} label='Cafe y Mate' />,
-    <Circulo srcImg={Utensillios} label='Utensillios' />,
-    <Circulo srcImg={Vajilla} label='Vajilla' />,
-    <Circulo srcImg={Reposteria} label='Repostería' />,
-    <Circulo srcImg={Organizacion} label='Organización' />,
-  ]
+  useEffect(()=>{
+
+    if (state?.CategoriasHome) {
+      let items = state.CategoriasHome.map((elem,index)=>{
+        return<Circulo key ={index} srcImg={elem.image} label={elem.title}/>
+      })
+      setItems(items)
+    }
+  },[state])
+  useEffect(()=>{
+    if (state?.SeccionesDestacadas) {
+      let rutaCatalogo = state?.SeccionesDestacadas[0]['catalogo'].title
+      let footerCatalogo = state?.SeccionesDestacadas[0]['catalogo'].footer
+      let imgCatalogo = state.SeccionesDestacadas[0]['catalogo'].image
+      let cardCatalogo = <Card left ruta={`../Catalogo/${rutaCatalogo}`} tittle={rutaCatalogo} subTittle={footerCatalogo} textRuta='VER PRODUCTOS' img={imgCatalogo}/>
+      setDestacadaCatalogo(cardCatalogo)
+      let titleProducto = state?.SeccionesDestacadas[0]['producto'].title
+      let footerProducto = state?.SeccionesDestacadas[0]['producto'].footer
+      let imgProducto = state.SeccionesDestacadas[0]['producto'].image
+      let linkProducto = state.SeccionesDestacadas[0]['producto'].link
+      // console.log(linkProducto);
+      let cardProducto =<Card link={linkProducto} tittle={titleProducto} subTittle={footerProducto} textRuta='VER PRODUCTO' img={imgProducto} />
+      setDestacadaProducto(cardProducto)
+    }
+  },[state])
+  useEffect(()=>{
+    dispatch(getSocial())
+  },[])
+  
+  const [items,setItems] = useState();
+
   const items2 =[
     <CatalogCard tittle='VINTAGE' subTittle='Lucí tu cocina con colores y un estilo único.' textRuta='VER CATÁLOGO' img={lineaVintage}/>,
     <CatalogCard tittle='CARBON STEEL' subTittle='Productos profesionales para usar en el hogar.' textRuta='VER CATÁLOGO' img={carbonSteel}/>,
@@ -163,10 +176,12 @@ export default function Home(){
 
       </div>
       <div className={styles.cards}>
-        <Card left ruta='../Catalogo/Master Chef' tittle='LÍNEA MASTERCHEF' subTittle='Sentite un chef en la cocina de tu casa.' textRuta='VER PRODUCTOS' img={lineaMasterchef}/>
+        {/* <Card left ruta='../Catalogo/Master Chef' tittle='LÍNEA MASTERCHEF' subTittle='Sentite un chef en la cocina de tu casa.' textRuta='VER PRODUCTOS' img={lineaMasterchef}/> */}
+        {destacadaCatalogo?destacadaCatalogo:null}
         <Card ruta='Receta' tittle='COCINÁ CON HUDSON' subTittle='Pancakes con arándanos' textRuta='VER RECETA' img={cocinaConHudson}/>
         <Card ruta='Consejo' left tittle='TRUCOS Y CONSEJOS' subTittle='Como conservar los nutrientes en el hervor' textRuta='LEER ARTICULO' img={trucosYConsejos} />
-        <Card  tittle='EL IMPERDIBLE' subTittle='Cafetera prensa francesa 350ml' textRuta='VER PRODUCTO' img={elImperdible} />
+        {destacadaProducto?destacadaProducto:null}
+        {/* <Card  tittle='EL IMPERDIBLE' subTittle='Cafetera prensa francesa 350ml' textRuta='VER PRODUCTO' img={elImperdible} /> */}
       </div>
       
       <VideoMobile/>

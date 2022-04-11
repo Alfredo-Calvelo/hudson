@@ -3,13 +3,14 @@ import styles from './menuCatalogo.module.css'
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import Separador from '../../Separador/Separador.js'
 import { cambiarMenuCatalogo, cerrarTodo } from '../../../../redux/actions'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
 export default function MenuCatalogo(){
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [titles,setTitles] = useState()
   let active=useSelector(state=>state.menuCatalgo)
   let obj = {
     hola:'hola',
@@ -20,16 +21,23 @@ export default function MenuCatalogo(){
     dispatch(cerrarTodo())
     window.scrollTo(0,0)
   }
+  const Catalogos = useSelector(state=>state.Catalogo)
+  useEffect(()=>{
+    if (Catalogos) {
+      let titles = Catalogos.map((elem)=>{
+        return elem.title
+      })
+      setTitles(titles)
+    }
+  },[Catalogos])
   return(
     <div className={active?styles.containerActivo:styles.containerInActivo}>
       <h5 className={styles.bloque} onClick={()=>{dispatch(cambiarMenuCatalogo(false))}} ><BsChevronLeft/>CATALOGO</h5>
-      <h5 className={styles.subBloque} onClick={()=>navegar('../Catalogo/Master Chef')}>LINEA MASTERCHEF <BsChevronRight/> </h5>
-      <h5 className={styles.subBloque}  >LINEA ACERO AL CARBONO <BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >LINEA VINTAGE<BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >LINEA VIDRIO<BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >LINEA XXXXXX<BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >LINEA XXXXXX<BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >LINEA XXXXXX<BsChevronRight/></h5>
+      {titles?.map((elem,index)=>{
+        return(
+          <h5 key ={index}className={styles.subBloque} onClick={()=>navegar(`../Catalogo/${elem}`)} >{elem.toUpperCase()}<BsChevronRight/></h5>
+        )
+      })}
       <div className={styles.separador}>
         <Separador/>
       </div>

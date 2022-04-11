@@ -8,7 +8,8 @@ import {
   MENU_ACTIVO_MENU,
   MENU_ACTIVO_NAVBAR,
   ALTURA_PANTALLA,
-  GET_DATA
+  GET_DATA,
+  GET_SOCIAL
 } from "./actions"
 
 
@@ -353,6 +354,12 @@ function rootReducer(state=initialState, action){
           cardActiva:action.payload
         }
       
+  }
+  if (action.type === GET_SOCIAL) {
+        return{
+          ...state,
+          social:action.payload
+        }
   }
   if (action.type === MENU_ACTIVO_NAVBAR){
     return{

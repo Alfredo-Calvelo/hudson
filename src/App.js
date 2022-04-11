@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home/Home';
 import { useDispatch, useSelector } from 'react-redux';
-import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo } from './redux/actions';
+import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo, getData } from './redux/actions';
 import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 import Inspirate from './Pages/Inspirate/Inspirate';
@@ -12,6 +12,8 @@ import Receta from './Pages/Receta/Receta';
 import Consejo from './Pages/Consejo/Consejo';
 import Nosotros from './Pages/Nosotros/Nosotros';
 import UsoYCuidados from './Pages/Uso y Cuidados/UsoYCuidados';
+import { useEffect } from 'react';
+import { typeBanner, typeCatalogo, typeCategorias, typeDestacadas, typeProducto } from './types';
 
 function App() {
   const dispatch = useDispatch()
@@ -29,7 +31,13 @@ function App() {
     dispatch(cerrarTodo())
     
   }
-
+  useEffect(()=>{
+    dispatch(getData(typeBanner))
+    dispatch(getData(typeCategorias))
+    dispatch(getData(typeDestacadas))
+    dispatch(getData(typeProducto))
+    dispatch(getData(typeCatalogo))
+  },[])
 
   window.addEventListener('scroll',NavBarChange)
   return (
