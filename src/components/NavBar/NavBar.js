@@ -25,7 +25,19 @@ export default function NavBar(){
   const [verMas , setVerMas] = useState()
   const [title, setTitle] = useState()
   const [links , setLinks] = useState([])
-  
+
+
+  const [catalogosTitles,setCatalogosTitles] = useState()
+  const Catalogos = useSelector(state=>state.Catalogo)
+  useEffect(()=>{
+    if (Catalogos) {
+      let titles = Catalogos.map((elem)=>{
+        return elem.title
+      })
+      setCatalogosTitles(titles)
+    }
+  },[Catalogos])
+
 
   function navegar(ruta){
     navigate(ruta)
@@ -59,6 +71,12 @@ export default function NavBar(){
         {title:'LINEA VIDRIO', ruta:''},
         {title:'LINEA BRONCE', ruta:''},
       ])
+      setLinks(
+        catalogosTitles?.map((elem)=>{
+          console.log(elem);
+          return{title:elem.toUpperCase(), ruta:`../Catalogo/${elem}`}
+        })
+      )
     }else
     if (tipo==='tiendaOnline') {
       setVerMas('')

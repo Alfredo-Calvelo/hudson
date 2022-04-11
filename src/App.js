@@ -38,7 +38,10 @@ function App() {
     dispatch(getData(typeProducto))
     dispatch(getData(typeCatalogo))
   },[])
-
+  const state = useSelector(state=>state)
+  useEffect(()=>{
+    console.log(state);
+  },[state])
   window.addEventListener('scroll',NavBarChange)
   return (
     <BrowserRouter>

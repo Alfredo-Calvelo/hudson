@@ -37,7 +37,7 @@ export default function DesplegableDesktop (props){
                     </span>
                     <div className={styles.rutas}>
                         {props.links.map((elem, index)=>{
-                            if (elem.masterChef) {
+                            if (elem?.masterChef) {
                                 return(
                                     <span 
                                     key={index} 
@@ -49,7 +49,7 @@ export default function DesplegableDesktop (props){
                                     </span>
                                 )
                             }
-                            return <span key={index} onClick={()=>navigate(elem.ruta)} className={styles.link}>{elem.title}</span>
+                            return <span key={index} onClick={()=>navigate(elem.ruta)} className={styles.link}>{elem?.title}</span>
                         })}
                     </div>
                  

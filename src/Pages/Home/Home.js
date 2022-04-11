@@ -40,8 +40,6 @@ import CarrusellDesktop from '../../components/CarrusellDesktop/CarrusellDesktop
 import CarrusellMobile from '../../components/CarrusellMobile/CarrusellMobile';
 import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
 import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
-import { getData, getSocial } from '../../redux/actions';
-import { typeBanner, typeCatalogo, typeCategorias, typeDestacadas, typeProducto, typeVideoHome } from '../../types';
 
 export default function Home(){
   document.title='Hudson | Home'
@@ -88,9 +86,7 @@ export default function Home(){
       setDestacadaProducto(cardProducto)
     }
   },[state])
-  useEffect(()=>{
-    dispatch(getSocial())
-  },[])
+
   
   const [items,setItems] = useState();
 
