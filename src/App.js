@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home/Home';
 import { useDispatch, useSelector } from 'react-redux';
-import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo, getData } from './redux/actions';
+import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo, getData, getSocial } from './redux/actions';
 import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 import Inspirate from './Pages/Inspirate/Inspirate';
@@ -28,7 +28,7 @@ function App(props) {
   let opciones= useSelector(state=>state.opciones)
   
   useEffect(()=>{
-    console.log(altura);
+
     dispatch(alturaPantalla(window.scrollY))
     if (window.scrollY >=25) {
       dispatch(cambiarNavBar(false))
@@ -46,10 +46,11 @@ function App(props) {
     dispatch(getData(typeDestacadas))
     dispatch(getData(typeProducto))
     dispatch(getData(typeCatalogo))
+    dispatch(getSocial())
   },[])
-  const state = useSelector(state=>state)
+  let state = useSelector(state=>state)
   useEffect(()=>{
-    // console.log(state);
+    console.log(state);
   },[state])
   return (
 

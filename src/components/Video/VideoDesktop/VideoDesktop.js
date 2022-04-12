@@ -2,7 +2,7 @@ import { createRef, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './VideoDesktop.module.css'
 
-export default function VideoDesktop(){
+export default function VideoDesktop(props){
 
 
   let alturaPantalla = useSelector(state=>state.alturaPantalla)
@@ -24,7 +24,7 @@ export default function VideoDesktop(){
       :styles.videoVisible
       }
       `}>
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+      <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${props.videoID}`}title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
     </div>
   )
 }

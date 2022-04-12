@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import styles from './VideoMobile.module.css'
 
 
-export default function VideoMobile(){
+export default function VideoMobile(props){
   let alturaPantalla = useSelector(state=>state.alturaPantalla)
   let video = createRef()
 
@@ -22,7 +22,7 @@ export default function VideoMobile(){
       :styles.videoVisible
       }
       `}>
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/krRvyeapHio" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <iframe width="100%" height="315" src={`https://www.youtube.com/embed/${props.videoID}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
       </div>
   )
 }

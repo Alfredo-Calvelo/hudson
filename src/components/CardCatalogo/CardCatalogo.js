@@ -13,9 +13,6 @@ export default function CardCatalogo(props){
   const [alturaBloque, setAlturaBloque] = useState(0)
   useEffect(()=>{
     setAlturaBloque(bloque.current?.offsetTop)
-    if (props.clave>=0) {
-      console.log(props.clave);
-    }
   })
 
 
@@ -50,23 +47,26 @@ export default function CardCatalogo(props){
       marginLeft:props.mobile?'':props.left? '10%':'',
     }}>
       <div className={styles.imgContainer}>
-        <img src={lineaCobre} className={styles.img} style={{
-          left:props.mobile?'':props.right?'15%':'',
-          right:props.mobile?'':props.left?'15%':''
-        }} />
+        <div className={styles.imgVisible}>
+          <img src={props.elem.imgPrincipal} className={`${styles.img}`} style={{
+            left:props.mobile?'':props.right?'15%':'',
+            right:props.mobile?'':props.left?'15%':''
+          }} />
+        </div>
+        <div className={styles.imgOculta}>
+          <img src={props.elem.imgHover} className={`${styles.img} ` } style={{
+            left:props.mobile?'':props.right?'15%':'',
+            right:props.mobile?'':props.left?'15%':''
+          }} />
+        </div>
       </div>
       <div className={styles.description}>
-        <h2 className={styles.title}>CONVERTITE EN UN MASTERCHEF</h2>
-          <h3 className={styles.subtitle}>Crea con Hudson como lo hacen los celebrities del Show más famoso de la TV con nuestras líneas:</h3>
+        <h2 className={styles.title}>{props.elem.title}</h2>
+          <h3 className={styles.subtitle}>{props.elem.footer}</h3>
         <ul className={styles.lista}>
-          <li>Línea profesional Carbon Steel.</li>
-          <li>Línea Aluminio con Antiadherente.</li>
-          <li>Línea Cobre con Antiadherente Cerámico.</li>
-          <li>Línea Vintage con Antiadherente Cerámico.</li>
-          <li>Línea vidrio para horno.</li>
-          <li>Línea de Utensilios y Kitchen Tools.</li>
-          <li>Línea de Ralladores</li>
-          <li>Línea de Pavas y Cafeteras.</li>
+          {props.elem.description.map((elem,index)=>{
+            return<li key={index}>{elem[index+1]}</li>
+          })}
         </ul>
       </div>
     </div>

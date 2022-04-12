@@ -20,8 +20,11 @@ export default function Destacado(props){
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
     <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
-    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
   ]
+  let itemsReales = props.productos?.map((elem,index)=>{
+    
+    return<DestacadoCard key={index} img={elem.archivo} title={elem.nombre} subTitle={elem.caracteristicas} enlace={elem.link}/>
+  })
   let responsive={
     0:{
       items:2
@@ -46,7 +49,7 @@ export default function Destacado(props){
           responsive={responsive}
           touchTracking
           mouseTracking
-          items={items}
+          items={itemsReales}
           controlsStrategy="alternate"
           disableDotsControls
           disableButtonsControls
@@ -54,7 +57,7 @@ export default function Destacado(props){
           />
         </div>
         <div className={`${styles.bottom} ${styles.bottomDesktop}`}>
-          {items.map((elem,index)=>{
+          {itemsReales?.map((elem,index)=>{
             return(
               elem
             )

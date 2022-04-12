@@ -56,3 +56,19 @@ export function getData(propiedadName) {  //prop es el tipo (string) de coleccio
         }
     };
 }
+export function getSocial() {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
+    return async function (dispatch) {
+        try {
+            const json = await axios({
+                method: "GET",
+                withCredentials: true,
+                Credentials: "includes",
+                url: BASE_URL + "/social",
+            });
+            
+            return dispatch({ type: GET_SOCIAL, payload: json.data });
+        } catch (error) {
+        console.log(error);
+        }
+    };
+}

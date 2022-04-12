@@ -7,6 +7,17 @@
 .imagen img{
   width: calc(100% - 10px);
 }
+.img{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+}
 @media (min-width:800px) {
   .imagen{
     width: 100%;

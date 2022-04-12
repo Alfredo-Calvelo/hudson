@@ -60,7 +60,7 @@ export default function Home(){
   }
   const HeaderBanner = useSelector(state=>state.HeaderBanner)
   const state = useSelector(state=>state)
-  
+  const social = useSelector(state=>state?.social)
   useEffect(()=>{
 
     if (state?.CategoriasHome) {
@@ -87,6 +87,7 @@ export default function Home(){
     }
   },[state])
 
+
   
   const [items,setItems] = useState();
 
@@ -95,6 +96,11 @@ export default function Home(){
     <CatalogCard tittle='CARBON STEEL' subTittle='Productos profesionales para usar en el hogar.' textRuta='VER CATÁLOGO' img={carbonSteel}/>,
     <CatalogCard tittle='VINTAGE' subTittle='Lucí tu cocina con colores y un estilo único.' textRuta='VER CATÁLOGO' img={lineaCobre}/>,
   ]
+  const itemsxD = state?.Catalogo?.map((elem,index)=>{
+    if (index <= 2) {
+      return<CatalogCard key={index} tittle={elem.title} subTittle={elem.footer} textRuta='VER CATÁLOGO' img={elem.carrousellHomeIMG}/>
+    }
+  })
   const items3=[
     <CardUltimas image={image1}/>,
     <CardUltimas image={image2}/>,
@@ -103,7 +109,11 @@ export default function Home(){
     <CardUltimas image={image1}/>,
     <CardUltimas image={image6}/>,
   ]
-
+  const itemsIG = state?.social?.instagram.map((elem,index)=>{
+    if (index <=5) {
+      return <CardUltimas key={index} image={elem.node.display_resources[2].src} link={`https://www.instagram.com/p/${elem.shortcode}/`}/>
+    }
+  })
 
 
 
@@ -172,30 +182,28 @@ export default function Home(){
 
       </div>
       <div className={styles.cards}>
-        {/* <Card left ruta='../Catalogo/Master Chef' tittle='LÍNEA MASTERCHEF' subTittle='Sentite un chef en la cocina de tu casa.' textRuta='VER PRODUCTOS' img={lineaMasterchef}/> */}
         {destacadaCatalogo?destacadaCatalogo:null}
         <Card ruta='Receta' tittle='COCINÁ CON HUDSON' subTittle='Pancakes con arándanos' textRuta='VER RECETA' img={cocinaConHudson}/>
         <Card ruta='Consejo' left tittle='TRUCOS Y CONSEJOS' subTittle='Como conservar los nutrientes en el hervor' textRuta='LEER ARTICULO' img={trucosYConsejos} />
         {destacadaProducto?destacadaProducto:null}
-        {/* <Card  tittle='EL IMPERDIBLE' subTittle='Cafetera prensa francesa 350ml' textRuta='VER PRODUCTO' img={elImperdible} /> */}
       </div>
       
-      <VideoMobile/>
-      <VideoDesktop/>
+      <VideoMobile videoID={social?.youtube}/>
+      <VideoDesktop videoID={social?.youtube}/>
 
-      <CarrusellMobile items={items2}/>
-      <CarrusellDesktop items={items2}/>
+      <CarrusellMobile items={itemsxD}/>
+      <CarrusellDesktop items={itemsxD}/>
         
  
       <div className={styles.produDestacados}>
-        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
+        <Destacado productos={state?.Producto} leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       </div>
       <Conocenos/>
       
       
       <div className={styles.UltimasPublicaciones}>
-        <UltimasPublicaciones items={items3} />
+        <UltimasPublicaciones items={itemsIG} />
       </div>
       <Footer contacto/>
 
