@@ -14,13 +14,15 @@ export default function Boton (props){
       dispatch(activarMenuDesplegable(false))
     }else dispatch(activarMenuDesplegable(true))
   }
-
+  function hola(params) {
+    navigate(props?.ruta)
+  }
   return(
-    <a style={{textDecoration:'none'}} href={props.link?props.link:''} target="_blank">
+    <a style={{textDecoration:'none'}} href={props.link?props.link:''} target={props.actual?'':`_blank`}>
     <div className={styles.container} >
     <div className={props.relleno?`${styles.relleno} ${dropMenu?styles.adelante:''}`:`${styles.noRelleno} ${dropMenu?styles.adelante:''} ${props.masterChef?styles.masterChef:''}`} onClick={()=>{
       if(props.dropMenu)dropMenuFunction()
-      if (props.ruta)navigate(props?.ruta)
+      if (props.ruta)hola()
       if (props.click) props.click() 
     }}>
       <span className={styles.text}>{props.text}</span>

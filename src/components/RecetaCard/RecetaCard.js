@@ -1,5 +1,6 @@
 import { createRef, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import styles from './RecetaCard.module.css'
 //TAMAÑO DE LA IMAGEN = 1880x1253
 
@@ -13,9 +14,17 @@ export default function RecetaCard(props){
   useEffect(()=>{
     setAlturaReceta(receta.current?.offsetTop)
   },[])
-  
+  const navigate = useNavigate()
+  function navegar(tipo) {
+    if (tipo==='Receta') {
+      navigate(`../Receta/${props.title}`)
+    }
+    if (tipo==='Consejo') {
+      navigate(`../Consejo/${props.title}`)
+    }
+  }
   return(
-    <div>
+    <div style={{cursor:'pointer'}} onClick={e=>navegar(props.tipo)}>
 
       <div ref={receta} className={`${styles.containerMobile} 
       ${

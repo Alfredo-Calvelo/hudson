@@ -71,24 +71,25 @@ export default function Home(){
     }
   },[state])
   useEffect(()=>{
-    if (state?.SeccionesDestacadas) {
-      let rutaCatalogo = state?.SeccionesDestacadas[0]['catalogo'].title
-      let footerCatalogo = state?.SeccionesDestacadas[0]['catalogo'].footer
-      let imgCatalogo = state.SeccionesDestacadas[0]['catalogo'].image
+    if (state?.SeccionesDestacadas && state.SeccionesDestacadas.length>0) {
+      let rutaCatalogo = state?.SeccionesDestacadas[0]['catalogo']?.title
+      let footerCatalogo = state?.SeccionesDestacadas[0]['catalogo']?.footer
+      let imgCatalogo = state.SeccionesDestacadas[0]['catalogo']?.image
       let cardCatalogo = <Card left ruta={`../Catalogo/${rutaCatalogo}`} tittle={rutaCatalogo} subTittle={footerCatalogo} textRuta='VER PRODUCTOS' img={imgCatalogo}/>
       setDestacadaCatalogo(cardCatalogo)
-      let titleProducto = state?.SeccionesDestacadas[0]['producto'].title
-      let footerProducto = state?.SeccionesDestacadas[0]['producto'].footer
-      let imgProducto = state.SeccionesDestacadas[0]['producto'].image
-      let linkProducto = state.SeccionesDestacadas[0]['producto'].link
-      // console.log(linkProducto);
+      let titleProducto = state?.SeccionesDestacadas[0]['producto']?.title
+      let footerProducto = state?.SeccionesDestacadas[0]['producto']?.footer
+      let imgProducto = state.SeccionesDestacadas[0]['producto']?.image
+      let linkProducto = state.SeccionesDestacadas[0]['producto']?.link
       let cardProducto =<Card link={linkProducto} tittle={titleProducto} subTittle={footerProducto} textRuta='VER PRODUCTO' img={imgProducto} />
       setDestacadaProducto(cardProducto)
     }
   },[state])
 
 
-  
+  useEffect(()=>{
+    console.log(state);
+  },[state])
   const [items,setItems] = useState();
 
   const items2 =[

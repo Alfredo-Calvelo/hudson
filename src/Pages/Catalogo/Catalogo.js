@@ -33,9 +33,7 @@ export default function Catalogo(props){
   useEffect(()=>{
 
   },[params])
-  useEffect(()=>{
-    console.log(catalogoSeleccionado);
-  },[catalogoSeleccionado])
+
 
   let estilo ={
     backgroundImage:`url(${catalogoSeleccionado?.headerIMG})`
@@ -58,8 +56,7 @@ export default function Catalogo(props){
           <h2 className={styles.title} >{catalogoSeleccionado?.footer}</h2>
         </div>
         <div className={styles.descargarCatalogo}>
-        <a download={true} href={catalogoSeleccionado?.PDF}>hola</a>
-          <Boton text='DESCARGAR CATÁLOGO' masterChef  />
+          <Boton link={catalogoSeleccionado?.PDF} text='DESCARGAR CATÁLOGO' masterChef  />
         </div>
       </div>
       <div className={styles.Cards}>

@@ -7,9 +7,14 @@ import twitter from '../../imagenes/iconos/twitterGris.png'
 import youtube from '../../imagenes/iconos/youtubeGris.png'
 import SeparadorChico from '../SeparadorChico/SeparadorChico'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 export default function Footer(props){
-
+  const Catalogos = useSelector(state=>state)
+  useEffect(()=>{
+    console.log(Catalogos);
+  },[Catalogos])
   const navigate = useNavigate()
   return(
     <div className={styles.container}>
@@ -57,15 +62,17 @@ export default function Footer(props){
 
           <div className={styles.center}>
             <h3 className={styles.bottomTitle}>Catálogo</h3>
-            <span className={styles.links}>Línea Hudson Masterchef</span>
-            <span className={styles.links}>Línea Acero al Carbono</span>
+            {/* {Catalogos?.map((elem,index)=>{
+              return <span key={index} className={styles.links}>{elem.title}</span>
+            })} */}
+            {/* <span className={styles.links}>Línea Acero al Carbono</span>
             <span className={styles.links}>Línea Vidrio</span>
             <span className={styles.links}>Línea Vintage</span>
             <span className={styles.links}>Línea Acero al Carbono</span>
             <span className={styles.links}>Línea Vidrio</span>
             <span className={styles.links}>Línea Vintage</span>
             <span className={styles.links}>Línea Vidrio</span>
-            <span className={styles.links}>Línea Vintage</span>
+            <span className={styles.links}>Línea Vintage</span> */}
           </div>
 
 

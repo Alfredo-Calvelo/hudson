@@ -165,4 +165,12 @@
     display: block;
     margin-bottom: 30px;
   }
+  .inputBuscar{
+    background-color: var(--rojo);
+    border: none;
+    color: white;
+  }
+  .inputBuscar:focus{
+    outline: none;
+  }
 }

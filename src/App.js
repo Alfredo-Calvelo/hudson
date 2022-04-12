@@ -13,7 +13,7 @@ import Consejo from './Pages/Consejo/Consejo';
 import Nosotros from './Pages/Nosotros/Nosotros';
 import UsoYCuidados from './Pages/Uso y Cuidados/UsoYCuidados';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { typeBanner, typeCatalogo, typeCategorias, typeDestacadas, typeProducto } from './types';
+import { typeBanner, typeCatalogo, typeCategorias, typeConsejo, typeDestacadas, typeProducto, typeReceta } from './types';
 
 
 
@@ -46,11 +46,14 @@ function App(props) {
     dispatch(getData(typeDestacadas))
     dispatch(getData(typeProducto))
     dispatch(getData(typeCatalogo))
-    dispatch(getSocial())
+    dispatch(getData(typeReceta))
+    dispatch(getData(typeConsejo))
+    // dispatch(getSocial())
+
   },[])
   let state = useSelector(state=>state)
   useEffect(()=>{
-    console.log(state);
+    // console.log(state);
   },[state])
   return (
 
@@ -65,8 +68,8 @@ function App(props) {
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
               <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
               <Route exact path='/Contacto'element={<Contacto/>}/>
-              <Route exact path='/Receta'element={<Receta/>}/>
-              <Route exact path='/Consejo'element={<Consejo/>}/>
+              <Route exact path='/Receta/:selected'element={<Receta/>}/>
+              <Route exact path='/Consejo/:selected'element={<Consejo/>}/>
               <Route exact path='/Nosotros'element={<Nosotros/>}/>
               <Route exact path='/Uso_Y_Cuidados'element={<UsoYCuidados/>}/>
               <Route path='*' element={<div>404 | Not Found</div>}/>
