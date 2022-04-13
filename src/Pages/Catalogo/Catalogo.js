@@ -22,8 +22,18 @@ export default function Catalogo(props){
   const [catalogoSeleccionado, setCatalogoSeleccionado] = useState()
   useEffect(()=>{
     if (catalogos) {
+      let paramsSinEspacio = params.catalog.split(' ')
+      let paramsFinal = '' 
+      paramsSinEspacio.forEach(elem=>{
+        paramsFinal=paramsFinal + elem
+      })
       catalogos.map(elem=>{
-        if (elem.title === params.catalog) {
+        let titleSinEspacions = elem.title.split(' ')
+        let titleFinal = ''
+        titleSinEspacions.forEach(elem=>{
+          titleFinal=titleFinal + elem
+        })
+        if (titleFinal === paramsFinal) {
           setCatalogoSeleccionado(elem)
         }
       })
@@ -45,6 +55,7 @@ export default function Catalogo(props){
     return false
   }
   const masterChef = selectMasterChef()
+  console.log(catalogoSeleccionado);
   return(
     <div className={styles.container} >
       <div className={styles.header} style={estilo} >

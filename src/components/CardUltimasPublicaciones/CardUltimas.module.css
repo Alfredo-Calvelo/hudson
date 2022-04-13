@@ -2,7 +2,6 @@
   width: 150px;
   height: 150px;
   overflow: hidden;
-  /* padding: 20px; */
 }
 .imagen img{
   width: calc(100% - 10px);
@@ -19,8 +18,14 @@
   width: 100%;
 }
 @media (min-width:800px) {
+  .container{
+    overflow: visible;
+  }
   .imagen{
+    position: relative;
+    top: -54px;
     width: 100%;
-    height: auto;
+    height: 219px;
+    /* width={132} height={165} */
   }
 }

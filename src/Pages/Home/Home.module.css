@@ -189,4 +189,19 @@
     position: relative;
     bottom: 0;
   }
+  .visitar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .visitar:hover{
+    text-decoration: underline 2px solid var(--grisFuente);
+    text-underline-offset: 2px;
+  }
+  .visitarPerfil{
+    height: 28px;
+  }
 }

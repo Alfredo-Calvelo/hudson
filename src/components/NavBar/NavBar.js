@@ -64,13 +64,6 @@ export default function NavBar(){
     if (tipo === 'catalogo') {
       setVerMas('')
       setTitle('CATÁLOGO')
-      setLinks([
-        {title:'LINEA MASTER CHEF', ruta:'../Catalogo/Master Chef', masterChef:true},
-        {title:'LINEA ACERO AL CARBONO', ruta:''},
-        {title:'LINEA VINTAGE', ruta:''},
-        {title:'LINEA VIDRIO', ruta:''},
-        {title:'LINEA BRONCE', ruta:''},
-      ])
       setLinks(
         catalogosTitles?.map((elem)=>{
           console.log(elem);

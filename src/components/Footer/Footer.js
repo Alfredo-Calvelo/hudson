@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
 export default function Footer(props){
-  const Catalogos = useSelector(state=>state)
+  const Catalogos = useSelector(state=>state.Catalogo)
   useEffect(()=>{
     console.log(Catalogos);
   },[Catalogos])
@@ -62,9 +62,9 @@ export default function Footer(props){
 
           <div className={styles.center}>
             <h3 className={styles.bottomTitle}>Catálogo</h3>
-            {/* {Catalogos?.map((elem,index)=>{
-              return <span key={index} className={styles.links}>{elem.title}</span>
-            })} */}
+            {Catalogos?.map((elem,index)=>{
+              return <span onClick={e=>navigate(`../Catalogo/${elem.title}`)} key={index} className={styles.links}>{elem.title}</span>
+            })}
             {/* <span className={styles.links}>Línea Acero al Carbono</span>
             <span className={styles.links}>Línea Vidrio</span>
             <span className={styles.links}>Línea Vintage</span>

@@ -40,7 +40,7 @@ import CarrusellDesktop from '../../components/CarrusellDesktop/CarrusellDesktop
 import CarrusellMobile from '../../components/CarrusellMobile/CarrusellMobile';
 import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
 import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
-
+import instagramLogo from '../../imagenes/iconos/instagramGris.png'
 export default function Home(){
   document.title='Hudson | Home'
   useEffect(()=>{
@@ -110,11 +110,32 @@ export default function Home(){
     <CardUltimas image={image1}/>,
     <CardUltimas image={image6}/>,
   ]
-  const itemsIG = state?.social?.instagram.map((elem,index)=>{
-    if (index <=5) {
-      return <CardUltimas key={index} image={elem.node.display_resources[2].src} link={`https://www.instagram.com/p/${elem.shortcode}/`}/>
-    }
-  })
+  const [itemsIG,setItemsIG] = useState([
+    <CardUltimas key={1} id={'CbqeS0Wr295'}/>,
+    <CardUltimas key={2} id={'CbqeS0Wr295'}/>,
+    <CardUltimas key={3} id={'CbqeS0Wr295'}/>,
+    <CardUltimas key={4} id={'CbqeS0Wr295'}/>,
+    <CardUltimas key={5} id={'CbqeS0Wr295'}/>,
+    <CardUltimas key={6} id={'CbqeS0Wr295'}/>,
+  ])
+  // function mapearIG() {
+  //   if(state.social.instagram='Aun no se cargó ningun perfil'){
+  //     return state.social.instagram
+  //   }
+  //   return(
+  //     state?.social?.instagram.map((elem,index)=>{
+  //       if (index <=5) {
+        // return <CardUltimas key={index} id={elem.shortcode}/>
+  //     }
+  //   })
+  //   )
+  // }
+  // useEffect(()=>{
+  //   console.log(typeof state.social);
+  //   if (state?.social?.instagram && typeof state?.social === 'object') {
+  //     setItemsIG(mapearIG)
+  //   }
+  // },[state.social])
 
 
 
@@ -204,7 +225,15 @@ export default function Home(){
       
       
       <div className={styles.UltimasPublicaciones}>
-        <UltimasPublicaciones items={itemsIG} />
+        {/* {
+          itemsIG === 'Aun no se cargó ningun perfil'?
+          <a href='https://www.instagram.com/hudsonkitchenware/' target='_blank'   className={styles.visitar}>
+            <h3 className={styles.visitarPerfiltitle}>Visita nuestro Instagram</h3>
+            <img className={styles.visitarPerfil} src={instagramLogo}/>
+          </a>
+          :<UltimasPublicaciones items={itemsIG} />
+        } */}
+        :<UltimasPublicaciones items={itemsIG} />
       </div>
       <Footer contacto/>
 

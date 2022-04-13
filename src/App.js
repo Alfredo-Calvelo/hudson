@@ -48,7 +48,7 @@ function App(props) {
     dispatch(getData(typeCatalogo))
     dispatch(getData(typeReceta))
     dispatch(getData(typeConsejo))
-    // dispatch(getSocial())
+    dispatch(getSocial())
 
   },[])
   let state = useSelector(state=>state)
