@@ -30,7 +30,7 @@ import image5 from '../../imagenes/UltimasPublicaciones/5.png'
 import image6 from '../../imagenes/UltimasPublicaciones/6.png' 
 import CardUltimas from '../../components/CardUltimasPublicaciones/CardUltimas';
 import { createRef, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Conocenos from '../../components/Conocenos/Conocenos';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import FondoHome from '../../imagenes/FondoHome.jpg'
@@ -85,7 +85,10 @@ export default function Home(){
       setDestacadaProducto(cardProducto)
     }
   },[state])
-
+  const params = useParams()
+  if (params.homeID !=='342b5e2221e0f2587772acc90cd7b154') {
+    navigate('../construccion')
+  }
 
   useEffect(()=>{
     // console.log(state);

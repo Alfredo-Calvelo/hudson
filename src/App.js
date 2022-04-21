@@ -14,6 +14,7 @@ import Nosotros from './Pages/Nosotros/Nosotros';
 import UsoYCuidados from './Pages/Uso y Cuidados/UsoYCuidados';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { typeBanner, typeCatalogo, typeCategorias, typeConsejo, typeDestacadas, typeProducto, typeReceta } from './types';
+import Construccion from './Pages/Construccion/Construccion';
 
 
 
@@ -57,14 +58,14 @@ function App(props) {
   },[state])
   return (
 
-
     <BrowserRouter>
           <div className={styles.App}>
             {dropMenu || opciones?<div className={styles.tapaderaContainer} onClick={()=>apagarMenu()}><div className={styles.tapadera}></div></div>:null}
             <NavBar/>
             <MenuDesplegable/>
             <Routes>
-              <Route exact path='/'element={<Home/>}/>
+              <Route exact path='/:homeID'element={<Home/>}/>
+              <Route exact path='/construccion'element={<Construccion/>}/>
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
               <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
               <Route exact path='/Contacto'element={<Contacto/>}/>
