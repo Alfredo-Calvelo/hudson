@@ -356,6 +356,7 @@ function rootReducer(state=initialState, action){
       
   }
   if (action.type === GET_SOCIAL) {
+    console.log(action.payload);
         return{
           ...state,
           social:action.payload

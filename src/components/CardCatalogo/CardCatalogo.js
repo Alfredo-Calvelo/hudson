@@ -38,7 +38,12 @@ export default function CardCatalogo(props){
     styles.VisibleRight:
     styles.InvisibleRight
   }`
-  
+  useEffect(()=>{
+    console.log(Object.keys(props.elem.description[0]));
+    Object.keys(props.elem.description[0]).map((elem)=>{
+      console.log(props.elem.description[0][elem]);
+    })
+  })
   return (
     <div id={props.clave} ref={bloque} className={props.clave===0?clase2:clase}
     style={{
@@ -46,7 +51,7 @@ export default function CardCatalogo(props){
       marginRight:props.mobile?'':props.right? '10%' : '',
       marginLeft:props.mobile?'':props.left? '10%':'',
     }}>
-      <div className={styles.imgContainer}>
+      <div className={props.right?styles.imgContainerRight:props.left?styles.imgContainerLeft:null}>
         <div className={styles.imgVisible}>
           <img src={props.elem.imgPrincipal} className={`${styles.img}`} style={{
             left:props.mobile?'':props.right?'15%':'',
@@ -61,11 +66,11 @@ export default function CardCatalogo(props){
         </div>
       </div>
       <div className={styles.description}>
-        <h2 className={styles.title}>{props.elem.title}</h2>
+        <h2 className={props.masterChef?styles.titleMasterChef:styles.title}>{props.elem.title.toUpperCase()}</h2>
           <h3 className={styles.subtitle}>{props.elem.footer}</h3>
         <ul className={styles.lista}>
-          {props.elem.description.map((elem,index)=>{
-            return<li key={index}>{elem[index+1]}</li>
+          {Object.keys(props.elem.description[0]).map((elem,index)=>{
+            return<li key={index}>{props.elem.description[0][elem]}</li>
           })}
         </ul>
       </div>

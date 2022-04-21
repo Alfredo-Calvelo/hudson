@@ -15,7 +15,7 @@ export default function UltimasPublicaciones (props){
     setAlturaBloque(bloque.current.offsetTop)
   },[bloque])
   
-  
+  // console.log(props);
   return(
     <div  ref={bloque} className={`${styles.container} ${alturaPantalla + vieportHeight/1.4 >alturaBloque?styles.visible:styles.invisible}`}>
       <div className={styles.titles}>

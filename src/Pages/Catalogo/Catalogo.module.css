@@ -8,21 +8,24 @@
 .header img{
   width: 100%;
 }
-.subHeader{
+.subHeaderMasterCheff,.subHeader{
   margin: 0 15px 0 15px;
   align-items: center;
   background-color: var(--naranjaMasterChef);
+  display: flex;
+  position: relative;
+  top: -40px;
+}
+.subHeader{
+  height: 100px;
+  background-color: var(--rojo);
 }
 .logo{
   width: 50px;
   background-color: white;
   padding: 25px;
 }
-.subHeader{
-  display: flex;
-  position: relative;
-  top: -40px;
-}
+
 
 .title{
   display: inline;
@@ -79,11 +82,14 @@
     justify-content: space-between;
     margin-top: 20px;
   }
-  .subHeader{
+  .subHeader,.subHeaderMasterCheff{
     margin: 0;
     top: -85px;
     width: fit-content;
     height: 125px;
+  }
+  .subHeader{
+    width: 465px;
   }
   
   .descargarCatalogo{

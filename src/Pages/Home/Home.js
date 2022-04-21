@@ -88,7 +88,7 @@ export default function Home(){
 
 
   useEffect(()=>{
-    console.log(state);
+    // console.log(state);
   },[state])
   const [items,setItems] = useState();
 
@@ -98,9 +98,9 @@ export default function Home(){
     <CatalogCard tittle='VINTAGE' subTittle='Lucí tu cocina con colores y un estilo único.' textRuta='VER CATÁLOGO' img={lineaCobre}/>,
   ]
   const itemsxD = state?.Catalogo?.map((elem,index)=>{
-    if (index <= 2) {
+      // console.log(index);
+      // console.log(elem);
       return<CatalogCard key={index} tittle={elem.title} subTittle={elem.footer} textRuta='VER CATÁLOGO' img={elem.carrousellHomeIMG}/>
-    }
   })
   const items3=[
     <CardUltimas image={image1}/>,
@@ -111,31 +111,37 @@ export default function Home(){
     <CardUltimas image={image6}/>,
   ]
   const [itemsIG,setItemsIG] = useState([
-    <CardUltimas key={1} id={'CbqeS0Wr295'}/>,
-    <CardUltimas key={2} id={'CbqeS0Wr295'}/>,
-    <CardUltimas key={3} id={'CbqeS0Wr295'}/>,
-    <CardUltimas key={4} id={'CbqeS0Wr295'}/>,
-    <CardUltimas key={5} id={'CbqeS0Wr295'}/>,
-    <CardUltimas key={6} id={'CbqeS0Wr295'}/>,
+    // <CardUltimas key={1} id={'CbqeS0Wr295'}/>,
+    // <CardUltimas key={2} id={'CbqeS0Wr295'}/>,
+    // <CardUltimas key={3} id={'CbqeS0Wr295'}/>,
+    // <CardUltimas key={4} id={'CbqeS0Wr295'}/>,
+    // <CardUltimas key={5} id={'CbqeS0Wr295'}/>,
+    // <CardUltimas key={6} id={'CbqeS0Wr295'}/>,
   ])
-  // function mapearIG() {
-  //   if(state.social.instagram='Aun no se cargó ningun perfil'){
-  //     return state.social.instagram
-  //   }
-  //   return(
-  //     state?.social?.instagram.map((elem,index)=>{
-  //       if (index <=5) {
-        // return <CardUltimas key={index} id={elem.shortcode}/>
-  //     }
-  //   })
-  //   )
-  // }
-  // useEffect(()=>{
-  //   console.log(typeof state.social);
-  //   if (state?.social?.instagram && typeof state?.social === 'object') {
-  //     setItemsIG(mapearIG)
-  //   }
-  // },[state.social])
+  function mapearIG() {
+    console.log(state.social.instagram);
+    if(state.social.instagram==='Aun no se cargó ningun perfil'){
+      return state.social.instagram
+    }
+    let arr= []
+    state?.social?.instagram.forEach((elem,index)=>{
+      if (index <=5) {
+        console.log(elem.node.shortcode);
+        arr.push(<CardUltimas key={index} id={elem.node.shortcode}/>)
+      }
+    })
+        return arr
+  }
+  useEffect(()=>{
+    // console.log(typeof state.social);
+    // console.log(state.social);
+    if (state?.social?.instagram && typeof state?.social === 'object') {
+      setItemsIG(mapearIG())
+    }
+  },[state.social])
+  useEffect(()=>{
+    console.log(itemsIG);
+  },[itemsIG])
 
 
 
@@ -225,15 +231,14 @@ export default function Home(){
       
       
       <div className={styles.UltimasPublicaciones}>
-        {/* {
+        {
           itemsIG === 'Aun no se cargó ningun perfil'?
           <a href='https://www.instagram.com/hudsonkitchenware/' target='_blank'   className={styles.visitar}>
             <h3 className={styles.visitarPerfiltitle}>Visita nuestro Instagram</h3>
             <img className={styles.visitarPerfil} src={instagramLogo}/>
           </a>
           :<UltimasPublicaciones items={itemsIG} />
-        } */}
-        :<UltimasPublicaciones items={itemsIG} />
+        }
       </div>
       <Footer contacto/>
 

@@ -48,41 +48,64 @@ export default function Catalogo(props){
   let estilo ={
     backgroundImage:`url(${catalogoSeleccionado?.headerIMG})`
   }
-  function selectMasterChef(params) {
-  if (catalogoSeleccionado?.title.includes('mastercheff')) {
-      return true
+  const [masterChef,setMasterChef] = useState(false)
+  function selectMasterChef() {
+    let masterReal = false
+    console.log(catalogoSeleccionado?.title.toLowerCase().includes('masterchef'));
+    console.log(catalogoSeleccionado?.footer.toLowerCase().includes('masterchef'));
+    if (catalogoSeleccionado?.title.toLowerCase().includes('masterchef')) {
+      console.log('title correcto');
+        masterReal= true
+      }
+    else if (catalogoSeleccionado?.footer.toLowerCase().includes('masterchef')) {
+      console.log('footer correcto');
+      masterReal= true
     }
-    return false
+    setMasterChef(masterReal)
   }
-  const masterChef = selectMasterChef()
-  console.log(catalogoSeleccionado);
+  useEffect(()=>{
+    console.log(catalogoSeleccionado);
+    if (catalogoSeleccionado?.footer || catalogoSeleccionado?.title) {
+      selectMasterChef()
+    }
+  },[catalogoSeleccionado])
+  useEffect(()=>{
+    console.log(masterChef);
+  },[masterChef])
   return(
     <div className={styles.container} >
       <div className={styles.header} style={estilo} >
-        <h1 className={styles.desktopTitle}>{catalogoSeleccionado?.title}</h1>
+        <h1 className={styles.desktopTitle}>{catalogoSeleccionado?.footer.toUpperCase()}</h1>
       </div>
       <div className={styles.titulos}>
-        <div className={styles.subHeader} >
+        {masterChef
+        ?
+        <div className={styles.subHeaderMasterCheff} >
           <img src={logoMasterChef} className={styles.logo}/>
-          <h2 className={styles.title} >{catalogoSeleccionado?.footer}</h2>
+          <h2 className={styles.title} >{catalogoSeleccionado?.title.toUpperCase()}</h2>
         </div>
-        <div className={styles.descargarCatalogo}>
-          <Boton link={catalogoSeleccionado?.PDF} text='DESCARGAR CATÁLOGO' masterChef  />
+        :
+        <div className={styles.subHeader} >
+          <h2 className={styles.title} >{catalogoSeleccionado?.title.toUpperCase()}</h2>
+        </div>
+        }
+        <div className={masterChef? styles.descargarCatalogoMasterCheff:styles.descargarCatalogo}>
+          <Boton link={catalogoSeleccionado?.PDF} text='DESCARGAR CATÁLOGO' masterChef={masterChef?true:false}  />
         </div>
       </div>
       <div className={styles.Cards}>
         {catalogoSeleccionado?.bloques.map((elem, index)=>{
           if (index%2=== 1) {
-            return <CardCatalogo elem={elem}  mobile key={index} clave={index} left/>
-          }else return <CardCatalogo elem={elem}  mobile key={index} right  clave={index} />
+            return <CardCatalogo masterChef={masterChef} elem={elem}  mobile key={index} clave={index} left/>
+          }else return <CardCatalogo masterChef={masterChef} elem={elem}  mobile key={index} right  clave={index} />
           
         })}
       </div>
       <div className={styles.cardsDesktop}>
         {catalogoSeleccionado?.bloques.map((elem, index)=>{
           if (index%2=== 1) {
-            return <CardCatalogo elem={elem} key={index} clave={index} left/>
-          }else return <CardCatalogo elem={elem} key={index} clave={index}right reverse />
+            return <CardCatalogo masterChef={masterChef} elem={elem} key={index} clave={index} left/>
+          }else return <CardCatalogo masterChef={masterChef} elem={elem} key={index} clave={index}right reverse />
         })}
       </div>
       <SeparadorChico/>
