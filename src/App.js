@@ -73,7 +73,7 @@ function App(props) {
               <Route exact path='/Consejo/:selected'element={<Consejo/>}/>
               <Route exact path='/Nosotros'element={<Nosotros/>}/>
               <Route exact path='/Uso_Y_Cuidados'element={<UsoYCuidados/>}/>
-              <Route path='*' element={<div>404 | Not Found</div>}/>
+              <Route path='*' element={<Construccion/>}/>
 
             </Routes>
           </div>

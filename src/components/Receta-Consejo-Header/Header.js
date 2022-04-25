@@ -13,7 +13,7 @@ export default function Header(props){
         <img draggable={false} className={styles.headerImg} src={props.img}/>
       </div>
       <div className={styles.title}>
-        <h3>{props.title.toUpperCase()}</h3>
+        <h3>{props?.title?.toUpperCase()}</h3>
       </div>
     </div>
   )

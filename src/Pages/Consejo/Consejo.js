@@ -7,16 +7,16 @@ import Inspirado from '../../components/Inpirado/Inspirado'
 import Destacado from '../../components/destacados/Destacado'
 import Footer from '../../components/Footer/Footer'
 import fotoPersona from '../../imagenes/gastonDalmau.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useState} from 'react'
+import {useParams}from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getData } from '../../redux/actions'
+import { typeConsejo } from '../../types'
 export default function Consejo (){
   document.title='Hudson | Trucos y Consejos'
-  let text = "Lavar los vegetales enteros y cortarlos o pelarlos justo antes de utilizarlos para evitar la oxidación en contacto con el aire.\n\
-  Se deben agregar las verduras al agua hirviendo y no antes.\
-  Así, el tiempo de cocción se reduce y habrá menor contacto con el agua dónde pueden escaparse los nutrientes.\n\
-  Agregar vinagre o jugo de limón en el agua de cocción contribuye a la conservación de las vitaminas y a la absorción de algunos minerales como el hierro. Ademas, es una forma de mantener el color de las verduras como por ejemplo los alcauciles.\n\
-  Agregar bicarbonato de sodio en el agua de cocción para mantener el color de las verduras y disminuir su dureza, es una práctica poco recomendable ya que destruye algunos nutrientes como la vitamina C."
-
-  let cortado = text.split('\n')
+  const params = useParams()
+  const dispatch = useDispatch()
+  const Consejos = useSelector(state=>state.Consejo)
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
@@ -25,30 +25,69 @@ export default function Consejo (){
   useEffect(()=>{
     setVisible(true)
   })
+  useEffect(()=>{
+    dispatch(getData(typeConsejo))
+  },[])
+  
+  const [headerIMG,setHeaderIMG]=useState()
+  const [title,setTitle]=useState()
+  const [introduccion,setIntroduccion]=useState()
+  const [cocinero,setCocinero]=useState()
+  const [desarrollo,setDesarrollo]=useState()
+  const [subtitle, setSubtitle] = useState()
+  const [contenido, setContenido] = useState([])
+  useEffect(()=>{
+    if (Consejos && Consejos.length>0){
+      Consejos.forEach((elem,index)=>{
+        if (elem.title.replace(' ', '') === params.selected) {
+          console.log(elem);
+          setTitle(elem.title)
+          setIntroduccion(elem.introduccion)
+          setCocinero(elem.cocinero)
+          setDesarrollo(elem.desarrollo)
+          setHeaderIMG(elem.headerIMG)
+          setSubtitle(elem.subtitulo)
+          setContenido(elem.contenido)
+        }
+      })
+    }
+  },[Consejos])
 
   return(
     <div >
       <Gradient/>
-      <Header img={brocoli} title='como conservar los nutrientes durante el hervor'/>
+      <Header img={headerIMG} title={title}/>
       <div className={`${visible?styles.Visible:styles.Invisible}`}>
         <div className={styles.consejo}>
-          <p className={styles.parrafo}>Comer verduras frescas, sin pelar ni cocinar hace que su aporte nutricional permanezca intacto. Al hervirlas, hay que tener en cuenta algunas pautas para que los nutrientes no se pierdan durante la cocción.</p>
+          <p className={styles.parrafo}>{introduccion}</p>
         </div>
         <div className={styles.consejero}>
-            <img src={fotoPersona} className={styles.consejeroImg}/>
-            <div >
-              <h4 className={styles.consejeroTitle}>Hoy Cocina:{' '} Belu Lucius</h4>
-              <h4 className={styles.consejeroSubTitle}>ig @belulucius</h4>
-            </div>
-        </div>
+            <a href={cocinero?.link} target='_blank'>
+              <img src={cocinero?.img} className={styles.consejeroImg}/>
+            </a>
+            <a href={cocinero?.link} target='_blank'>
+              <h4 className={styles.consejeroTitle}>Hoy Cocina:{' '} {cocinero?.nombre}</h4>
+              <h4 className={styles.consejeroSubTitle}>ig {cocinero?.redSocial}</h4>
+            </a>
+
+          </div>
         <div className={styles.videoDesktop} >
-          <iframe width='100%'height='100%' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+          {desarrollo?.includes('cloudinary')
+            ?<img className={styles.fotoDesarrolloDesktop} src={desarrollo}/>
+            :<iframe width='100%'height='100%' src={`https://www.youtube.com/embed/${desarrollo}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+          }
         </div>
-          <iframe className={styles.videoMobile} width='100%'height='250px' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <div className={styles.desarrolloMobile}>
+        {
+          desarrollo?.includes('cloudinary')
+          ?<img className={styles.fotoDesarrolloMobile} src={desarrollo}/>
+          :<iframe className={styles.videoMobile} width='100%'height='250px' src={`https://www.youtube.com/embed/${desarrollo}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        }
+        </div>
         <div className={`${styles.consejo} ${styles.consejoDesktop}`}>
-          <h3 className={styles.title}>Algunos consejos</h3>
+          <h3 className={styles.title}>{subtitle}</h3>
           <ul className={styles.algunosConsejos}>
-            {cortado.map((elem, index)=><li key={index}>{elem}</li>)}
+            {contenido?.map((elem, index)=><li key={index}>{elem}</li>)}
           </ul>
         </div>
       </div>

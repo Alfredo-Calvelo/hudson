@@ -28,13 +28,22 @@ export default function NavBar(){
 
 
   const [catalogosTitles,setCatalogosTitles] = useState()
+  const [segundaColumnaTitles, setSegundaColumnaTitles] = useState()
   const Catalogos = useSelector(state=>state.Catalogo)
   useEffect(()=>{
     if (Catalogos) {
-      let titles = Catalogos.map((elem)=>{
-        return elem.title
+      let titles = []
+      let segundaColumna=[]
+      Catalogos.forEach((elem,index)=>{
+        if (index<8) {
+          titles = [...titles,elem.title]
+        }
+        else if(index> 7 && index<16){
+          segundaColumna=[...segundaColumna,elem.title]
+        }
       })
       setCatalogosTitles(titles)
+      setSegundaColumnaTitles(segundaColumna)
     }
   },[Catalogos])
 
@@ -66,7 +75,6 @@ export default function NavBar(){
       setTitle('CATÁLOGO')
       setLinks(
         catalogosTitles?.map((elem)=>{
-          console.log(elem);
           return{title:elem.toUpperCase(), ruta:`../Catalogo/${elem}`}
         })
       )
@@ -86,7 +94,7 @@ export default function NavBar(){
       setDesplegableActivo(false)
     }
   }
-  
+
   return(
     <div className={navBarActiva? styles.container:styles.containerInactivo} >
       <div className={styles.NavBar} >
@@ -143,7 +151,7 @@ export default function NavBar(){
             
           </div>
       </div>
-      <DesplegableDesktop links={links} verMas={verMas} activo={desplegableActivo} title={title}/>
+      <DesplegableDesktop segundaColumna={tipoMenu==='catalogo'?segundaColumnaTitles:false} links={links} verMas={verMas} activo={desplegableActivo} title={title}/>
     </div>
   )
 }

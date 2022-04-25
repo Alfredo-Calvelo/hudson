@@ -2,7 +2,7 @@ import styles from './DesplegableDesktop.module.css'
 import DesplegableDesktopCard from './DesplegableDesktopCard/DesplegableDesktopCard'
 import olla from '../../../imagenes/ollaMasterChef.png'
 import plato from '../../../imagenes/plato.png'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import masterchef from '../../../imagenes/iconos/masterChef.png'
 import { useDispatch, useSelector } from 'react-redux'
@@ -24,6 +24,9 @@ export default function DesplegableDesktop (props){
     function retraer(){
         dispatch(menuActivoMenu(false))
     }
+    useEffect(()=>{
+        // console.log(props);
+    })
     return(
         <div className={styles.desplegable} style={estilo} onMouseEnter={()=>desplegar()} onMouseLeave={()=>retraer()} >
             <div className={styles.container} ref={referencia}>
@@ -37,7 +40,7 @@ export default function DesplegableDesktop (props){
                     </span>
                     <div className={styles.rutas}>
                         {props.links?.map((elem, index)=>{
-                            if (elem?.masterChef) {
+                            if (elem?.title?.toLowerCase().includes('masterchef')) {
                                 return(
                                     <span 
                                     key={index} 
@@ -52,8 +55,27 @@ export default function DesplegableDesktop (props){
                             return <span key={index} onClick={()=>navigate(elem.ruta)} className={styles.link}>{elem?.title}</span>
                         })}
                     </div>
-                 
                 </div>
+                    {props.segundaColumna && props.segundaColumna.length>0?
+                    <div className={styles.segundaColumna}>
+                            {props.segundaColumna?.map((elem, index)=>{
+                                console.log(elem?.title);
+                            if (elem?.title?.toLowerCase().includes('masterchef')) {
+                                return(
+                                    <span 
+                                    key={index} 
+                                    onClick={()=>navigate(elem.ruta)} 
+                                    className={`${styles.link} ${styles.masterChef}`}
+                                    >
+                                        <img className={styles.masterChefImg} src={masterchef}/> 
+                                        {elem.title}
+                                    </span>
+                                )
+                            }
+                            return <span key={index} onClick={()=>navigate(`../Catalogo/${elem}`)} className={styles.link}>{elem.toUpperCase()}</span>
+                        })}
+                    </div>:null
+                    }
                 <div className={styles.cards}>
                     <DesplegableDesktopCard ruta='../Catalogo/Master Chef' img={olla} masterchef title='LÍNEA MASTERCHEF' subTitle='De la TV a tu cocina' rutaTitle='VER CATALOGO'/>
                     <DesplegableDesktopCard ruta='../Inspirate/1' img={plato} title='INSPÍRATE' subTitle='Las mejores recetas y consejos para deslumbrar en la cocina.' rutaTitle='VER MÁS'/>

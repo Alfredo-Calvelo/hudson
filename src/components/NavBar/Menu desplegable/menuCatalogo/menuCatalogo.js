@@ -12,6 +12,9 @@ export default function MenuCatalogo(){
   const navigate = useNavigate()
   const [titles,setTitles] = useState()
   let active=useSelector(state=>state.menuCatalgo)
+  useEffect(()=>{
+    console.log(active);
+  },[active])
   let obj = {
     hola:'hola',
     chau:'chau'

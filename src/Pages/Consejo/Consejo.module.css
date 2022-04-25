@@ -44,20 +44,26 @@
   bottom: 0;
   user-select: none;
 }
-
+.fotoDesarrolloDesktop,.fotoDesarrolloMobile{
+  height: 100%;
+}
 @media (min-width:800px) {
   .consejo{
     margin: var(--marginReceta);
     padding: 60px;
   }
+  .desarrolloMobile{
+    display: none;
+  }
   .videoMobile{
     display: none;
   }
   .videoDesktop{
-    display: block;
+    display: flex;
+    justify-content: center;
     margin: var(--marginReceta);
     padding: 0 60px 0 60px;
-    height: 600px;
+    height: 40vh;
     background-color: white;
   }
   .consejoDesktop{

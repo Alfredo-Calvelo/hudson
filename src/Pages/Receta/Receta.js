@@ -16,30 +16,68 @@ import Footer from '../../components/Footer/Footer'
 import DotButton from "../../components/DotButton/DotButton";
 import { useSelector } from "react-redux";
 import RecetaCarrusell from "./Carrusell/RecetaCarrusell";
+import { useParams } from "react-router-dom";
 export default function Receta(){
   document.title='Hudson | Receta'
-
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
   
-  let items =[
-  <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
- 
-]
+  const  [Dificultad,setDificultad] = useState('Baja')
+  const [estrellas,setEstrellas] = useState([])
+  const [items, setItems] = useState([
+  ])
+  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
+  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
+  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
+  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
+  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
+  // let items =[
+  // ]
 
-  
-  let Dificultad = 1
-  const estrellas =[]
-  for (let i = 0; i < 3; i++) {
-    if (Dificultad-1 >=i) {
-      estrellas.push(<img key={i} className={styles.estrella} src={estrella}/>)
-    }else estrellas.push(<img key={i} className={styles.estrellaApagada} src={estrella}/>)
-  }
+  const Recetas = useSelector(state=>state.Receta)
+  const RecetaSeleccionadaTitle= useParams().selected
+  const [RecetaSeleccionada,setRecetaSeleccionada] = useState()
+  useEffect(()=>{
+    if (Recetas && Recetas?.length>0) {
+      let receta
+      Recetas.forEach((elem,index)=>{
+        if (elem.title === RecetaSeleccionadaTitle) {
+          receta=elem
+        }
+      })
+      setRecetaSeleccionada(receta)
+    }
+  },[Recetas])
+  useEffect(()=>{
+    if (RecetaSeleccionada) {
+      console.log(typeof RecetaSeleccionada?.fechaCreacion);
+      console.log(Date.parse(RecetaSeleccionada?.fechaCreacion));
+
+      if (RecetaSeleccionada?.dificultad ==='baja') setDificultad('Baja')
+      if (RecetaSeleccionada?.dificultad ==='media') setDificultad('Media')
+      if (RecetaSeleccionada?.dificultad ==='alta') setDificultad('Alta')
+      let estrellas =[]
+      for (let i = 0; i < 3; i++) {
+        let dificultad = 0
+        RecetaSeleccionada?.dificultad ==='baja'? dificultad=1:RecetaSeleccionada?.dificultad ==='media'?dificultad=2:RecetaSeleccionada?.dificultad ==='alta'? dificultad=3:null
+        if (dificultad-1 >=i) {
+          estrellas.push(<img key={i} className={styles.estrella} src={estrella}/>)
+        }else {
+          estrellas.push(<img key={i} className={styles.estrellaApagada} src={estrella}/>)
+        }
+      }
+      setEstrellas(estrellas)
+      let items =[]
+      RecetaSeleccionada?.productos.forEach(elem=>{
+        if (elem.archivo && elem.archivoId) {
+          items =[...items, <RecetaCarrusellCard img={elem.archivo} title={elem.nombre} subTitle={elem.caracteristicas}/>]
+        }
+      })
+      setItems(items)
+
+    }
+  },[RecetaSeleccionada])
 
 
   
@@ -56,7 +94,6 @@ export default function Receta(){
     {
       setDesplegar(false)
     }
-    console.log(window.scrollY);
   }
   window.addEventListener('scroll',ponerAltura)
 
@@ -72,31 +109,33 @@ export default function Receta(){
   return(
     <div>
       <Gradient/>
-      <Header img={fideos} title='Pancakes de arándanos' ruta='ver receta'/>
+      <Header img={RecetaSeleccionada?.headerIMG} title={RecetaSeleccionada?.title} ruta='ver receta'/>
       <div className={clase}>
         <div className={styles.receta}>
           <div className={styles.recetaHeader}>
             <div className={styles.info}>
               <img src={Porcion} className={styles.icono}/>
-              <h4 className={styles.cortado}>Porciones:{' '}6</h4>
+              <h4 className={styles.cortado}>Porciones:{' '}{RecetaSeleccionada?.porciones}</h4>
             </div>
             <div className={styles.info}>
               <img src={reloj} className={styles.icono}/>
-              <h4 className={styles.cortado}>Preparación:{' '}15 min.</h4>
+              <h4 className={styles.cortado}>Preparación:{' '}{RecetaSeleccionada?.tiempoDePreparacion} min.</h4>
             </div>
             <div className={styles.info}>
               <div className={styles.estrellas}>
                 {estrellas}
               </div>
-              <h4 className={styles.cortado}>Dificultad:{' '}Baja.</h4>
+              <h4 className={styles.cortado}>Dificultad:{' '}{Dificultad}.</h4>
             </div>
           </div>
           <div className={styles.cocinero}>
-            <img src={fotoPersona} className={styles.cocineroImg}/>
-            <div >
-              <h4 className={styles.cocineroTitle}>Hoy Cocina:{' '} Belu Lucius</h4>
-              <h4 className={styles.cocineroSubTitle}>ig @belulucius</h4>
-            </div>
+            <a href={RecetaSeleccionada?.cocinero?.link} target='_blank'>
+              <img src={RecetaSeleccionada?.cocinero?.img} className={styles.cocineroImg}/>
+            </a>
+            <a href={RecetaSeleccionada?.cocinero?.link} target='_blank'>
+              <h4 className={styles.cocineroTitle}>Hoy Cocina:{' '} {RecetaSeleccionada?.cocinero?.nombre}</h4>
+              <h4 className={styles.cocineroSubTitle}>ig {RecetaSeleccionada?.cocinero?.redSocial}</h4>
+            </a>
 
           </div>
           <div className={styles.separadorLinea}>
@@ -107,17 +146,17 @@ export default function Receta(){
 
             <h3 className={styles.ingredientesTitle}>Ingredientes</h3>
             <ul className={styles.ingredientesList}>
-              <li> 1 taza de harina </li>
-              <li> 1 1/2 cucharada de polvo para hornear</li>
-              <li> 1 cucharada de azucar </li>
-              <li> 1 cucharadita de vainilla </li>
-              <li> 3/4 de taza de leche  </li>
-              <li> 1 1/2 cucharada de mantequilla derretida </li>
-              <li> 2 huevos</li>
+              {RecetaSeleccionada?.ingredientes.map(elem=>{
+                return <li>{elem}</li>
+              })}
             </ul>
             </div>
             <div className={styles.videoDesktop}>
-              <iframe  width='100%'height='100%' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              {
+                RecetaSeleccionada?.desarrollo.includes('cloudinary')
+                ?<img className={styles.FotoDesktop} src={RecetaSeleccionada?.desarrollo}/>
+                :<iframe  className={styles.iframeDesktop} src={`https://www.youtube.com/embed/${RecetaSeleccionada?.desarrollo}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              }
             </div>
           </div>
         </div>
@@ -125,14 +164,12 @@ export default function Receta(){
         <div className={`${styles.receta} ${styles.preparacion}`}>
           <h3 className={styles.ingredientesTitle}>Preparación</h3>
           <ol className={styles.preparacionList}>
-            <li>1- Mezclar el harina, polvo para hornear y azucar</li>
-            <li>2- Agregar la leche, yemas de los huevos, mantequilla derretida, extracto de vainilla.</li>
-            <li>3- Levantar las 2 claras a punto nieve  y agregarlas a la mezcla de forma envolvente.</li>
-            <li>4- Cocinar en un sartén y agregar los arándanos en cada pancake.</li>
-            <li>5- Servir con miel y más arándanos de topping.</li>
+          {RecetaSeleccionada?.preparacion.map(elem=>{
+                return <li>{elem}</li>
+              })}
           </ol>
           <h3 className={styles.ingredientesTitle}>Consejo</h3>
-          <span className={styles.consejo}> Se pueden mantener en el horno para que no se enfríen, ya que se cocinan por tandas.</span>
+          <span className={styles.consejo}>{RecetaSeleccionada?.consejo}</span>
         </div>
       </div>
       <div className={styles.separador}></div>
@@ -153,7 +190,11 @@ export default function Receta(){
             </span>
 
         </div>
-            <RecetaCarrusell items={items}/>
+        {
+          items.length>0?
+          <RecetaCarrusell items={items}/>
+          :null
+        }
         </div>
         
 

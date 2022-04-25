@@ -18,6 +18,7 @@ export default function CarrusellMobile(props){
   useEffect(()=>{
     setAlturaCarrusell(carrusell.current?.offsetTop)
   })
+  console.log(props);
   return(
 
         <div ref={carrusell} className={`${styles.catalogCarrusellMobile} 
@@ -34,7 +35,7 @@ export default function CarrusellMobile(props){
             autoWidth
             disableButtonsControls
             disableDotsControls
-            autoPlay
+            // autoPlay
             autoPlayInterval={tiempoCarrusell}
             infinite
             controlsStrategy='alternate'

@@ -4,7 +4,7 @@
 }
 
 .container{
-  height: 400px;
+  height: 450px;
   background-color: white;
   width: fit-content;
   overflow: visible;
@@ -29,12 +29,19 @@
   display: grid;
   padding: 20px;
   gap: 10px;
+  margin-top: -20px;
   align-self: end;
 }
 
 .flecha{
   display: flex;
   gap: 20px;
+  width: fit-content;
+  align-items: center;
+  cursor: pointer;
+}
+.flecha:hover{
+  gap: 10px;
 }
 .flecha svg{
   font-size: 8pt;

@@ -16,7 +16,7 @@ export default function CatalogCard(props){
           <img alt='' draggable={false} className={styles.img} src={props.img}/>
         </div>
         <div className={styles.bottom} >
-          <h1 className={styles.tittle} >LÍNEA {props.tittle}</h1>
+          <h1 className={styles.tittle} >{props.tittle}</h1>
           
           <h3 className={styles.subTittle}>{props.subTittle}</h3>
           <div className={styles.flecha} onClick={()=>navigate(`./Catalogo/${props.tittle}`)} >

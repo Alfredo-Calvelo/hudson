@@ -24,7 +24,7 @@
     font-family: 'Bold';
     font-size: 20pt;
     color: var(--rojo);
-    height: fit-content;
+    height: 34px;
 }
 .verMas{
     font-family: 'Medium';
@@ -37,6 +37,14 @@
     font-size: 10pt;
     height: fit-content; 
     cursor: pointer;
+}
+.segundaColumna{
+    padding: 74px 0 0 0 ;
+    display: grid;
+    margin: 0 50px 0 0;
+}
+.link{
+    white-space: nowrap;
 }
 .masterChef{
     color: var(--naranjaMasterChef);

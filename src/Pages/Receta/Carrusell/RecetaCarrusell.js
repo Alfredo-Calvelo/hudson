@@ -7,7 +7,6 @@ import styles from './RecetaCarrusell.module.css'
 export default function RecetaCarrusell(props){
 
   
-  
   return(
     <div  >
       <div className={styles.containerxD}>
@@ -21,7 +20,6 @@ export default function RecetaCarrusell(props){
               autoWidth
               activeIndex={2}
               renderDotsItem={DotButton}
-              
               />
           </div>
         </div>

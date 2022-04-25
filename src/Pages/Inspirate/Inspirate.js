@@ -98,12 +98,15 @@ export default function Inspirate(){
   },[cosas])
   useEffect(()=>{
     let arr = cosas?.map(elem=>{
-      if (elem?.text?.includes(filtroBuscar) || filtroBuscar==='') {
-        console.log('hola');
+      let filtro = filtroBuscar.toLowerCase()
+      let elementoLower = elem.text.toLowerCase()
+      if (elementoLower.includes(filtro) || filtroBuscar==='') {
+        console.log(filtro);
+        console.log(elementoLower);
+        console.log(elem);
         return elem
       }
     })
-    console.log(arr);
     setCosasMostrar(arr)
   },[filtroBuscar])
   return(
