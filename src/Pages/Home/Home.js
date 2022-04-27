@@ -41,6 +41,7 @@ import CarrusellMobile from '../../components/CarrusellMobile/CarrusellMobile';
 import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
 import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
 import instagramLogo from '../../imagenes/iconos/instagramGris.png'
+import headerGrande from '../../imagenes/foto header grande.jpg'
 export default function Home(){
   document.title='Hudson | Home'
   useEffect(()=>{
@@ -152,7 +153,7 @@ export default function Home(){
 
   const itemsHeader= HeaderBanner?.map((elem,index)=>{
     return(
-      <div key={index} className={styles.top} style={{backgroundImage:`url(${elem?.image})`}} >
+      <div key={index} className={styles.top} style={{backgroundImage:`url(${headerGrande})`}} >
         <h1 className={styles.tittle}>{`${elem?.title}`}</h1>
         <h3 className={styles.subTittle}>{`${elem?.description}`}</h3>
         <h5 className={styles.aclaracion}>{`${elem?.footer}`}</h5>
