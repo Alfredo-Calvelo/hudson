@@ -18,7 +18,7 @@ export default function Boton (props){
     navigate(props?.ruta)
   }
   return(
-    <a style={{textDecoration:'none'}} href={props.link?props.link:''} download='hola' target={props.actual?'':`_blank`}>
+    <a style={{textDecoration:'none'}} href={props.link?props.link:null} download={props.download?props.download:false} target={props.actual?'':`_blank`}>
     <div className={styles.container} >
     <div className={props.relleno?`${styles.relleno} ${dropMenu?styles.adelante:''}`:`${styles.noRelleno} ${dropMenu?styles.adelante:''} ${props.masterChef?styles.masterChef:''}`} onClick={()=>{
       if(props.dropMenu)dropMenuFunction()

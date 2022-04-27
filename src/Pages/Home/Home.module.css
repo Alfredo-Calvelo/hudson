@@ -128,8 +128,7 @@
     overflow-y: visible;
     display: grid;
     align-content: center;
-    background-size: contain;
-    background-image: url(../../imagenes/headerChico.jpg);
+    background-size: auto 568px ;
   }
   .tittle{
     font-size: 35pt;

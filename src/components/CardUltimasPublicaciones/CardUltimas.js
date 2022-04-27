@@ -4,28 +4,10 @@ import './iframe.css'
 export default function CardUltimas (props){
   const [style, setStyle] = useState({height:'calc(100% + 54px)'})
   let ref = createRef()
-  useEffect(()=>{
-    if (ref.current) {
-      // let miIframe = document.getElementById('iframeIG')
-      // let hola = miIframe.contentWindow
-      // console.log(hola.top.outerHeight);
-      // console.log(ref.current.clientHeight);
-      // console.log(ref);
-      // if (ref.current.clientHeight !== 0 && `${ref.current.clientHeight}px` !== style.height) {
-      //   let altura = ref.current.scrollHeight
-      //   setStyle({
-      //     height: `${altura}px`
-      //   })
-      // }
-      // console.log(ref);
-    }
-  },[ref])
-  useEffect(()=>{
-    // console.log(style);
-  },[style])
+  
+ 
   const[estado, setEstado] = useState(0)
   
-  console.log(props);
   return(
     <div className={styles.container}>
 

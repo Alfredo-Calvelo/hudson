@@ -123,14 +123,12 @@ export default function Home(){
     // <CardUltimas key={6} id={'CbqeS0Wr295'}/>,
   ])
   function mapearIG() {
-    console.log(state.social.instagram);
     if(state.social.instagram==='Aun no se cargó ningun perfil'){
       return state.social.instagram
     }
     let arr= []
     state?.social?.instagram.forEach((elem,index)=>{
       if (index <=5) {
-        console.log(elem.node.shortcode);
         arr.push(<CardUltimas key={index} id={elem.node.shortcode}/>)
       }
     })
@@ -143,23 +141,28 @@ export default function Home(){
       setItemsIG(mapearIG())
     }
   },[state.social])
-  useEffect(()=>{
-    console.log(itemsIG);
-  },[itemsIG])
+
 
 
 
   
 
   const itemsHeader= HeaderBanner?.map((elem,index)=>{
+    
+    let CTA = JSON.parse(elem?.CTA);
+    console.log(elem)
     return(
-      <div key={index} className={styles.top} style={{backgroundImage:`url(${headerGrande})`}} >
+      <div key={index} className={styles.top} style={{backgroundImage:`url(${elem.image})`}} >
         <h1 className={styles.tittle}>{`${elem?.title}`}</h1>
         <h3 className={styles.subTittle}>{`${elem?.description}`}</h3>
         <h5 className={styles.aclaracion}>{`${elem?.footer}`}</h5>
-        <div className={styles.boton} >
-          <Boton link={elem.CTA.linkBoton} text={`${elem?.CTA.textoBoton}`} relleno />
+        {
+          CTA.textoBoton?
+          <div className={styles.boton} >
+          <Boton link={CTA?.linkBoton} text={`${CTA?.textoBoton}`} relleno />
         </div>
+        :null  
+      }
       </div>
     )
   })
