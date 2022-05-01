@@ -21,14 +21,21 @@ export default function Inspirate(){
   const dispatch = useDispatch()
   const [filtroBuscar, setFiltroBuscar] = useState('')
   const [cosasMostrar, setCosasMostrar] = useState()
+  const [cantidadDulces, setCantidadDulces] = useState(0)
+  const [cantidadSaladas, setCantidadSaladas] = useState(0)
+  const [cantidadConsejos, setCantidadConsejos] = useState(0)
+  const [filtroDulce,setFiltroDulce] = useState(false)
+  const [filtroSalado, setFiltroSalado] = useState(false)
+  const [filtrosConsejos, setFiltrosConsejos] = useState(false)
+  const [cosasFiltradas, setCosasFiltradas] = useState([])
+
   
   useEffect(()=>{
     window.scrollTo(0,0)
     dispatch(getData(typeReceta))
     dispatch(getData(typeConsejo))
   },[])
-
-
+  
   const state = useSelector(state=>state)
   const [cosas,setCosas] = useState()
   useEffect(()=>{
@@ -44,13 +51,38 @@ export default function Inspirate(){
         return{img:elem.desarrollo, text:elem.title,tipo:elem.tipo}
       })
     }
-
+    
     if (Recetas && Consejos) {
       let cosas = [...Recetas,...Consejos]
       setCosas(cosas)
     }
   },[state])
   
+  useEffect(()=>{
+    console.log(cosas);
+    let dulces =0
+    let saladas =0
+    let consejos = 0
+    let recetas = 0
+    if (cosas?.length>0) {
+      cosas.map((elem,index)=>{
+        console.log(elem);
+        if (elem) { 
+          if (elem?.tipo==='Consejo') {consejos++}
+          else if(elem.tipo === 'Receta Dulce'){dulces++}
+          else if (elem.tipo==='Receta Salada'){saladas++}
+          else if (elem.tipo === 'Receta'){recetas++}
+        }
+      })
+      setCantidadDulces(dulces)
+      setCantidadSaladas(saladas)
+      setCantidadConsejos(consejos)
+      console.log(saladas);
+      console.log(dulces);
+      console.log(consejos);
+      console.log(recetas);
+    }
+  },[cosas])
 
 
   let page = useParams().page -1 
@@ -81,34 +113,48 @@ export default function Inspirate(){
   function scrollTop(){
     window.scrollTo(0,0)
   }
-  function check(ref){
-    let hola = ref.current.checked
-    if(hola === true){
-      ref.current.checked = false
-      
-      return
-    }else{
-      
-      ref.current.checked = true
-    }
-  }
+ 
   let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
   useEffect(()=>{
     setCosasMostrar(cosas)
   },[cosas])
   useEffect(()=>{
+    if (setCosasFiltradas) {
+      setCosasMostrar(cosasFiltradas)
+    }
+  })
+  useEffect(()=>{
+    // let arr = []
+    if (cosasFiltradas.length>0) {
+      
+    }
     let arr = cosas?.map(elem=>{
       let filtro = filtroBuscar.toLowerCase()
       let elementoLower = elem.text.toLowerCase()
-      if (elementoLower.includes(filtro) || filtroBuscar==='') {
-        console.log(filtro);
-        console.log(elementoLower);
-        console.log(elem);
+      if (filtroBuscar ==='') {
+        return
+      }else if (elementoLower.includes(filtro)) {
         return elem
       }
     })
     setCosasMostrar(arr)
   },[filtroBuscar])
+
+  function filtrar() {
+    if (filtroSalado == false && filtroDulce==false && filtrosConsejos==false){
+      setCosasMostrar(cosas)
+    }else{
+      let cosas=[]
+      cosasMostrar.forEach((elem,index)=>{
+        
+         
+        if (filtroSalado && elem.tipo==='Receta Salada') {cosas.push(elem)}
+        if (filtroDulce && elem.tipo==='Receta Dulce') {cosas.push(elem)}
+        if (filtrosConsejos && elem.tipo==='Consejo') {cosas.push(elem)}
+      })
+      setCosasFiltradas(cosas);
+    }
+  }
   return(
     <div>
         <Gradient/>
@@ -172,27 +218,27 @@ export default function Inspirate(){
         <div className={styles.filtrosCategorias}>
 
           <div>
-            <input type='checkbox' ref={ref1} className={styles.filtroCheck}/>
-            <label  className={styles.check} onClick={()=>check(ref1)}>RECETAS DULCES</label>
-            <span className={styles.filtroNumber}>(6)</span>
+            <input checked={filtroDulce} onChange={e=>setFiltroDulce(e.target.checked)} type='checkbox' id='filtro1' ref={ref1} className={styles.filtroCheck}/>
+            <label htmlFor='filtro1' className={styles.check}>RECETAS DULCES</label>
+            <span className={styles.filtroNumber}>({cantidadDulces})</span>
           </div>
           <div>
-            <input type='checkbox' ref={ref2} className={styles.filtroCheck}/>
-            <label  className={styles.check} onClick={()=>check(ref2)}>RECETAS SALADAS</label>
+            <input checked={filtroSalado} onChange={e=>setFiltroSalado(e.target.checked)} type='checkbox' id='filtro2' ref={ref2} className={styles.filtroCheck}/>
+            <label htmlFor='filtro2' className={styles.check}>RECETAS SALADAS</label>
+            <span className={styles.filtroNumber}>({cantidadSaladas})</span>
+          </div>
+          <div>
+            <input  type='checkbox' id='filtro3' ref={ref3} className={styles.filtroCheck}/>
+            <label htmlFor='filtro3' className={styles.check}   >USO Y CUIDADOS</label>
             <span className={styles.filtroNumber}>(12)</span>
           </div>
           <div>
-            <input type='checkbox' ref={ref3} className={styles.filtroCheck}/>
-            <label  className={styles.check} onClick={()=>check(ref3)}>USO Y CUIDADOS</label>
-            <span className={styles.filtroNumber}>(12)</span>
-          </div>
-          <div>
-            <input type='checkbox' ref={ref4} className={styles.filtroCheck}/>
-            <label  className={styles.check} onClick={()=>check(ref4)}>TRUCOS Y CONSEJOS</label>
-            <span className={styles.filtroNumber}>(15)</span>
+            <input checked={filtrosConsejos} onChange={e=>setFiltrosConsejos(e.target.checked)} type='checkbox' id='filtro4' ref={ref4} className={styles.filtroCheck}/>
+            <label htmlFor='filtro4' className={styles.check} >TRUCOS Y CONSEJOS</label>
+            <span className={styles.filtroNumber}>({cantidadConsejos})</span>
           </div>
         </div>
-        <button className={styles.boton}>
+        <button className={styles.boton} onClick={()=>filtrar()}>
           APLICAR
         </button>
 
