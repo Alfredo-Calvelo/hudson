@@ -6,7 +6,7 @@ import RecetaCard from '../../components/RecetaCard/RecetaCard'
 import fideos from '../../imagenes/fideos.jfif'
 import { useParams } from 'react-router-dom'
 import Boton from '../../components/Boton/Boton'
-import {createRef, useEffect, useState} from 'react'
+import {createRef, useEffect, useRef, useState} from 'react'
 import Footer from '../../components/Footer/Footer'
 import Gradient from '../../components/Gradient/Gradient'
 import InspirateCard from '../../components/InspirateCard/InspirateCard'
@@ -27,9 +27,9 @@ export default function Inspirate(){
   const [filtroDulce,setFiltroDulce] = useState(false)
   const [filtroSalado, setFiltroSalado] = useState(false)
   const [filtrosConsejos, setFiltrosConsejos] = useState(false)
-  const [cosasFiltradas, setCosasFiltradas] = useState([])
-
-  
+  const [filtrosMobile, setFiltrosMobile] = useState(false)
+  const filtrosMobileRef = useRef()
+  const [cardsHeader, setCardsHeader]= useState([])
   useEffect(()=>{
     window.scrollTo(0,0)
     dispatch(getData(typeReceta))
@@ -43,30 +43,33 @@ export default function Inspirate(){
     let Consejos
     if (state.Receta) {
       Recetas = state?.Receta?.map(elem=>{
-        return {img:elem.desarrollo, text:elem.title,tipo:elem.tipo}
+        return {img:elem.desarrollo, text:elem.title,tipo:elem.tipo,fecha:elem.fechaCreacion,headerImg:elem.headerIMG}
       })
     }
     if (state.Consejo) {
       Consejos =state?.Consejo?.map((elem,index)=>{
-        return{img:elem.desarrollo, text:elem.title,tipo:elem.tipo}
+        return{img:elem.desarrollo, text:elem.title,tipo:elem.tipo,fecha:elem.fechaCreacion,headerImg:elem.headerIMG}
       })
     }
     
     if (Recetas && Consejos) {
       let cosas = [...Recetas,...Consejos]
+      cosas = cosas.sort(function (a,b) {
+        if (Date?.parse(a.fecha) > Date?.parse(b.fecha)) {return -1}
+        if (Date?.parse(a.fecha) < Date?.parse(b.fecha)) {return 1}
+        if (Date?.parse(a.fecha) === Date?.parse(b.fecha)) {return 0}
+      });
       setCosas(cosas)
     }
   },[state])
   
   useEffect(()=>{
-    console.log(cosas);
     let dulces =0
     let saladas =0
     let consejos = 0
     let recetas = 0
     if (cosas?.length>0) {
       cosas.map((elem,index)=>{
-        console.log(elem);
         if (elem) { 
           if (elem?.tipo==='Consejo') {consejos++}
           else if(elem.tipo === 'Receta Dulce'){dulces++}
@@ -77,10 +80,6 @@ export default function Inspirate(){
       setCantidadDulces(dulces)
       setCantidadSaladas(saladas)
       setCantidadConsejos(consejos)
-      console.log(saladas);
-      console.log(dulces);
-      console.log(consejos);
-      console.log(recetas);
     }
   },[cosas])
 
@@ -104,7 +103,8 @@ export default function Inspirate(){
   
   
   
-  let items= [<InspirateCard/>,<InspirateCard/>,<InspirateCard/>]
+  
+  
   let ref1 = createRef()
   let ref2 = createRef()
   let ref3 = createRef()
@@ -115,46 +115,59 @@ export default function Inspirate(){
   }
  
   let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
-  useEffect(()=>{
-    setCosasMostrar(cosas)
-  },[cosas])
-  useEffect(()=>{
-    if (setCosasFiltradas) {
-      setCosasMostrar(cosasFiltradas)
-    }
-  })
-  useEffect(()=>{
-    // let arr = []
-    if (cosasFiltradas.length>0) {
-      
-    }
-    let arr = cosas?.map(elem=>{
-      let filtro = filtroBuscar.toLowerCase()
-      let elementoLower = elem.text.toLowerCase()
-      if (filtroBuscar ==='') {
-        return
-      }else if (elementoLower.includes(filtro)) {
-        return elem
-      }
-    })
-    setCosasMostrar(arr)
-  },[filtroBuscar])
+  
+  
 
-  function filtrar() {
+  function filtrar(arr) {
     if (filtroSalado == false && filtroDulce==false && filtrosConsejos==false){
-      setCosasMostrar(cosas)
+      return arr
     }else{
       let cosas=[]
-      cosasMostrar.forEach((elem,index)=>{
-        
-         
+      arr.forEach((elem,index)=>{
         if (filtroSalado && elem.tipo==='Receta Salada') {cosas.push(elem)}
         if (filtroDulce && elem.tipo==='Receta Dulce') {cosas.push(elem)}
         if (filtrosConsejos && elem.tipo==='Consejo') {cosas.push(elem)}
       })
-      setCosasFiltradas(cosas);
+      return cosas
     }
   }
+
+  function filtrarBusquedaBuscar(arr) {
+    let arrDevuelta = []
+    arr.forEach((elem,index)=>{
+      if (elem.text.toLowerCase().includes(filtroBuscar.toLowerCase())) {
+        arrDevuelta=[...arrDevuelta,elem]
+      }
+    })
+    return arrDevuelta
+  }
+  useEffect(()=>{
+    if (cosas?.length > 0) {
+      let cosasMostrar=cosas
+      if (filtroDulce || filtroSalado || filtrosConsejos) {
+        cosasMostrar=filtrar(cosas)
+      }
+      
+      if (filtroBuscar.length>0) {
+        cosasMostrar = filtrarBusquedaBuscar(cosasMostrar)
+      }
+      setCosasMostrar(cosasMostrar)
+    }
+
+  },[cosas,filtroBuscar,filtroDulce,filtroSalado,filtrosConsejos])
+  useEffect(()=>{
+    if (cosas?.length>0) {
+      let cards = []
+      cosas.forEach((elem,index)=>{
+        if (index<3) {
+          console.log(elem);
+          cards=[...cards,<InspirateCard img={elem.headerImg}title={elem.text} tipo={elem.tipo}/>]
+        }
+      })
+      setCardsHeader(cards)
+    }
+  },[cosas])
+
   return(
     <div>
         <Gradient/>
@@ -163,7 +176,7 @@ export default function Inspirate(){
           <AliceCarousel
             touchTracking
             mouseTracking
-            items={items}
+            items={cardsHeader}
             controlsStrategy="alternate"
             disableDotsControls
             disableButtonsControls
@@ -174,7 +187,7 @@ export default function Inspirate(){
         </div>
         <div className={styles.headerDesktop}>
           <AliceCarousel
-            items={items}
+            items={cardsHeader}
             controlsStrategy="alternate"
             paddingLeft={10}
             paddingRight={10}
@@ -191,8 +204,44 @@ export default function Inspirate(){
         </div>
       </div>
       <div className={styles.filterMobile} id='filtros' >
-        <div className={styles.filterBlock}><CgOptions/>  <h6>Filtrar</h6></div>
-        <div className={styles.filterBlock}><FiSearch />  <h6>Buscar</h6></div>
+        <div className={`${styles.filterBlock} ${styles.filterBlockFiltros}`} onClick={e=>{setFiltrosMobile(!filtrosMobile)}}>
+          <div className={styles.filtrosDesplegablesContainer}>
+            <div className={styles.filtrosDesplegables}>
+              <ul ref={filtrosMobileRef}  className={styles.listaFiltros} style={{
+                height :filtrosMobile? `80px` : '0px',
+                padding:filtrosMobile?'10px 10px 10px 10px':'0px 10px 0px 10px' 
+              }}>
+                <li>
+                  <input checked={filtroDulce} onChange={e=>setFiltroDulce(e.target.checked)} type='checkbox' id='filtro1' ref={ref1} className={styles.filtroCheckMobile}/>
+                  <label htmlFor='filtro1' className={styles.checkMobile}>RECETAS DULCES</label>
+                  <span className={styles.filtroNumberMobile}>({cantidadDulces})</span>
+                </li>
+                <li>
+                  <input checked={filtroSalado} onChange={e=>setFiltroSalado(e.target.checked)} type='checkbox' id='filtro2' ref={ref2} className={styles.filtroCheckMobile}/>
+                  <label htmlFor='filtro2' className={styles.checkMobile}>RECETAS SALADAS</label>
+                  <span className={styles.filtroNumberMobile}>({cantidadSaladas})</span>
+                </li>
+                <li>
+                  <input  type='checkbox' id='filtro3' ref={ref3} className={styles.filtroCheckMobile}/>
+                  <label htmlFor='filtro3' className={styles.checkMobile}   >USO Y CUIDADOS</label>
+                  <span className={styles.filtroNumberMobile}>(12)</span>
+                </li>
+                <li>
+                  <input checked={filtrosConsejos} onChange={e=>setFiltrosConsejos(e.target.checked)} type='checkbox' id='filtro4' ref={ref4} className={styles.filtroCheckMobile}/>
+                  <label htmlFor='filtro4' className={styles.checkMobile} >TRUCOS Y CONSEJOS</label>
+                  <span className={styles.filtroNumberMobile}>({cantidadConsejos})</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className={styles.textsFiltros}>
+            <CgOptions/>  
+            <h6>Filtrar</h6>
+          </div>
+        </div>
+        <div className={styles.filterBlock}><FiSearch />
+          <input className={styles.inputBuscarMobile} onChange={e=>setFiltroBuscar(e.target.value)} placeholder='Buscar'/>
+        </div>
       </div>
       <div className={styles.filterDesktop}>
         <div className={styles.rutaDesktop}>
@@ -200,13 +249,11 @@ export default function Inspirate(){
         </div>
         <div className={styles.filterBlock}><FiSearch />  <h6>Buscar</h6> <input onChange={e=>setFiltroBuscar(e.target.value)} className={styles.inputBuscar}/></div>
       </div>
-        <div className={styles.otrasRecetasMobile} >
+        <div className={styles.otrasRecetasMobile}>
           {cosasMostrar?.map((elem, index)=>{
             if (index>=bloque.inicio && index <=bloque.final) {
-              if (elem && elem?.text?.includes(filtroBuscar) || filtroBuscar==='' ) {
-                return(<RecetaCard  link={elem?.tipo} img={elem?.img} key={index} title={elem?.text}/>)
+              return(<RecetaCard  link={elem?.tipo} img={elem?.img} key={index} title={elem?.text}/>)
                 
-              }
             }
             return[]
           })}
@@ -238,18 +285,14 @@ export default function Inspirate(){
             <span className={styles.filtroNumber}>({cantidadConsejos})</span>
           </div>
         </div>
-        <button className={styles.boton} onClick={()=>filtrar()}>
-          APLICAR
-        </button>
 
 
         </div>
         <div className={styles.otrasRecetasDesktop}>
           {cosasMostrar?.map((elem, index)=>{
             if (index>=bloqueDesktop.inicio && index <=bloqueDesktop.final) {
-              if (elem && elem?.text?.includes(filtroBuscar) || filtroBuscar==='' ) {
-                return(<RecetaCard tipo={elem?.tipo} img={elem?.img} key={index} title={elem?.text}/>)
-              }
+              return(<RecetaCard tipo={elem?.tipo} img={elem?.img} key={index} title={elem?.text}/>)
+              
               
             }
             return[]

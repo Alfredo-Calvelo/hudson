@@ -1,6 +1,6 @@
 import styles from './Contacto.module.css'
 import Gradient from "../../components/Gradient/Gradient";
-import ContactoImg from '../../imagenes/Contacto.jfif'
+import ContactoImg from '../../imagenes/HEADER BANNER CONTACTO.jpg'
 import Input from '../../components/input/Input';
 import { useEffect, useState } from 'react';
 import {AiOutlineCheck} from 'react-icons/ai'
@@ -38,7 +38,6 @@ export default function Contacto (){
         <div className={styles.header}>
           <h2 className={styles.title}>CONTACTO</h2>
           <div className={styles.headerImgDesktop}>
-            <img className={styles.headerImg} src={ContactoImg}/>
           </div>
         </div>
         <div className={styles.desktopInputs}>

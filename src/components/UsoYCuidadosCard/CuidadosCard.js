@@ -103,7 +103,7 @@ export default function CuidadosCard(props){
         <h4 className={styles.subTitle}>{item.subTitle}</h4>
       </div>
       <div className={styles.cuerpoMobile}>
-          <img className={styles.img} src={ollaConCosas}/>
+          <img className={styles.img} src={item.foto}/>
         <div className={styles.fondoImagen}>
           <div className={styles.fondoImagen1}>
           </div>
@@ -164,21 +164,24 @@ export default function CuidadosCard(props){
         <div className={styles.visibleDesktop}>
 
           <div className={styles.headerDesktop}>
-            <img className={styles.imgDesktop} src={ollaConCosas}/>
+            <img className={styles.imgDesktop} src={item.foto}/>
           </div>
-          <ul className={styles.itemsDesktop}>
-              {item.recomendacionesGenerales.map((elem,index)=>{
-                return(
-                  <div key={index} className={styles.li}>
-                    <div className={styles.punto}>
-                      <VscDebugBreakpointData/>
+          <div className={styles.liContainerDesktop}>
+            <ul className={styles.itemsDesktop}>
+                {item.recomendacionesGenerales.map((elem,index)=>{
+                  return(
+                    <div key={index} className={styles.li}>
+                      <div className={styles.punto}>
+                        <VscDebugBreakpointData/>
+                      </div>
+                      <li>{elem} </li>
                     </div>
-                    <li>{elem} </li>
-                  </div>
 
-              )
-              })}
-            </ul> 
+                )
+                })}
+              </ul> 
+          </div>
+
         </div>
         <div className={styles.referenciaDesktop} ref={referenciaDesktop}>
             <div className={styles.segundaParte} ref={referencia2Desktop}>

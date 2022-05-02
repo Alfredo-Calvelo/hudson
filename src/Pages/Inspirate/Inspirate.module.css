@@ -15,6 +15,17 @@
   gap: 10px;
   padding: 15px;
 }
+.filterBlockFiltros{
+  justify-content: normal;
+  padding: 15px 15px 15px 15px ;
+  
+}
+.textsFiltros{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
 .filterBlock path ,.filterBlock line ,.filterBlock circle{
   color: white;
 }
@@ -55,6 +66,89 @@
 }
 .recetasDesktop{
   display: none;
+}
+.inputBuscar{
+  background-color: var(--rojo);
+  border: none;
+  color: white;
+}
+.inputBuscar::placeholder{
+  color: white;
+  font-size: 10pt;
+  font-weight: 100;
+  font-family: 'Light';
+}
+.inputBuscar:focus{
+  outline: none;
+}
+.inputBuscarMobile{
+  width: 100%;
+  border: none;
+  color: white;
+  background-color: var(--rojo);
+}
+.inputBuscarMobile::placeholder{
+  color: white;
+  font-size: 10pt;
+  font-weight: 100;
+  font-family: 'Light';
+}
+.inputBuscarMobile:focus{
+  outline: none;
+}
+.filtrosDesplegablesContainer{
+  width: 0px;
+  height: 0px;
+  display: flex;
+  justify-items: left;
+}
+.filtrosDesplegables{
+  
+  margin: 22px 0 0 -15px;
+  width: 50vw ;
+  height: fit-content;
+  justify-self: left;
+  background-color: var(--rojo);
+  z-index: 999999;
+  overflow: visible;
+  transition: var(--transitionCorta);
+  
+}
+.filtroCheckMobile{
+  cursor: pointer; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  height:10px;
+  width: 10px;
+  border: 5px solid var(--grisCheck);
+  transition: var(--transitionCorta);
+  margin-right: 5px;
+  background-color: var(--rojo);
+  position: relative;
+}
+.filtroCheckMobile:checked{
+  border: 2px solid var(--grisCheck);
+}
+.checkMobile{
+  cursor: pointer;
+  font-size: 9.5pt;
+}
+.filtroNumberMobile{
+  font-size: 9.5pt;
+  color: var(--grisNumerosFiltros);
+  margin-left: 5px;
+  color: white;
+}
+.listaFiltros{
+  width: 50vw;
+  transition: var(--transitionCorta);
+  overflow: hidden;
+  list-style: none;
+}
+.checkMobile{
+  color: white;
 }
 @media (min-width:800px) {
   .paginacionMobile{
@@ -115,6 +209,30 @@
     font-family: 'Bold';
     font-size: 16px;
   }
+  
+  .filtrosCategorias{
+    margin-top: 20px;
+    display: grid;
+    gap: 5px;
+  }
+  
+  
+  .boton{
+    cursor: pointer;
+    margin-top: 30px;
+    background-color: var(--rojo);
+    color: white;
+    border: none;
+    padding: 10px 60px 10px 60px;
+    font-family: 'Bold';
+  }
+  .headerMobile{
+    display: none;
+  }
+  .headerDesktop{
+    display: block;
+    margin-bottom: 30px;
+  }
   .filtroCheck{
     cursor: pointer; 
     -webkit-appearance: none;
@@ -137,40 +255,11 @@
   .filtroCheck:checked{
     border: 2px solid var(--grisCheck);
   }
-  .filtrosCategorias{
-    margin-top: 20px;
-    display: grid;
-    gap: 5px;
+  .check{
+    cursor: pointer;
   }
   .filtroNumber{
     color: var(--grisNumerosFiltros);
     margin-left: 5px;
-  }
-  .check{
-    cursor: pointer;
-  }
-  .boton{
-    cursor: pointer;
-    margin-top: 30px;
-    background-color: var(--rojo);
-    color: white;
-    border: none;
-    padding: 10px 60px 10px 60px;
-    font-family: 'Bold';
-  }
-  .headerMobile{
-    display: none;
-  }
-  .headerDesktop{
-    display: block;
-    margin-bottom: 30px;
-  }
-  .inputBuscar{
-    background-color: var(--rojo);
-    border: none;
-    color: white;
-  }
-  .inputBuscar:focus{
-    outline: none;
   }
 }

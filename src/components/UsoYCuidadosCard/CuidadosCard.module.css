@@ -148,9 +148,6 @@
   .cuerpoMobile{
     display: none;
   }
-  .cuerpoDesktop{
-    display: block;
-  }
   .izquierdaDesktop{
     margin: var(--marginIzquierda);
   }
@@ -158,15 +155,21 @@
     margin: var(--marginDerecha);
   }
   .cuerpoDesktop{
+    display: block;
     margin-top: 50px;
-
   }
   .itemsDesktop{
     padding: 20px;
     display: grid;
-    gap: 20px;
+    gap: 30px;
+    align-items: stretch;
     background-color: white;
     padding-bottom: 20px;
+    padding: 30px;
+  }
+  .liContainerDesktop{
+    height: 100%;
+    background-color: white;
   }
   .headerDesktop{
     width: 75%;
@@ -186,7 +189,8 @@
   .visibleDesktop{
     display: grid;
     grid-template-columns: 40% 60%;
-    width: fit-content;
+    /* width: fit-content; */
+
   }
   .header{
     padding-left: 0;

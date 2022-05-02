@@ -21,7 +21,7 @@ export default function UsoYCuidados(){
   function mapear(){
     let elements = UsosYCuidados.map((item,index)=>{
       if (index===cardActiva) {
-        return<CuidadosCard left={index%2===0?true:false} right={index%2===1?true:false} active={true} item={item} clave={index} key = {index} />
+        return<CuidadosCard  left={index%2===0?true:false} right={index%2===1?true:false} active={true} item={item} clave={index} key = {index} />
       }else{
         return<CuidadosCard left={index%2===0?true:false} right={index%2===1?true:false} active={false} item={item} clave={index} key = {index} />
       }

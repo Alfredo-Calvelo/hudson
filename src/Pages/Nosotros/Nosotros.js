@@ -12,12 +12,15 @@ import { useSelector } from 'react-redux'
 export default function Nosotros(){
   document.title='Hudson | Conocenos'
   useEffect(()=>{
-    window.scrollTo(0,0)
+    // window.scrollTo(0,0)
   },[])
 
   let imagen1 = createRef()
   let imagen2 = createRef()
   let imagen3 = createRef()
+  let imagen4 = createRef()
+  let imagen5 = createRef()
+  
 
 
   let alturaPantalla = useSelector(state=>state.alturaPantalla)
@@ -26,16 +29,19 @@ export default function Nosotros(){
   const [bloque1, setBloque1] = useState(false)
   const [alturaImagen2, setAlturaImagen2] = useState(0)
   const [alturaImagen3, setAlturaImagen3] = useState(0)
+  const [alturaImagen4, setAlturaImagen4] = useState(0)
+  const [alturaImagen5, setAlturaImagen5] = useState(0)
 
   
   useEffect(()=>{
-    setAlturaImagen2(imagen2.current.offsetHeight);
+    setAlturaImagen2(imagen2.current.offsetTop);
     setAlturaImagen3(imagen3.current.offsetTop);
+    setAlturaImagen4(imagen4.current.offsetTop);
+    setAlturaImagen5(imagen4.current.offsetTop);
+    
     setBloque1(true)
   })
-  useEffect(()=>{
-    console.log(alturaImagen2);
-  },[alturaImagen2])
+
   
   return(
     <div >
@@ -50,47 +56,89 @@ export default function Nosotros(){
         <div className={styles.header }>
           <h2 className={styles.headerTitle}>SOBRE NOSOTROS</h2>
           <div className={styles.imgDesktop}>
-            <img className={styles.imgHeader} ref={imagen1}/>
           </div>
         </div>
         <div className={styles.bajada} >
           <h3 className={styles.title}>CONOCENOS</h3>
-          <h5 className={styles.subTitle}>Somos más que una marca, somos familia</h5>
+          <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo}>
-            Sed donec ipsum vestibulum lacus. Dolor nisi, massa diam mauris. Lacus lorem nec feugiat pharetra, id elit aliquet sit. 
-            Ut id elit consectetur purus orci enim, amet commodo mollis. 
-            Mauris a viverra augue pharetra suspendisse pharetra senectus. 
-            At netus massa, mauris mattis ut magna lectus mauris arcu. 
-            Et ut tristique ullamcorper pretium sem sit ultrices massa proin. Sed lorem ornare interdum donec.
-            A congue viverra donec faucibus eget quis nunc, neque. 
-            Odio aliquam est faucibus ipsum eros, integer tristique cursus mauris. 
-            Vitae ipsum tincidunt aliquet a, adipiscing mi sit. Tempor ut sagittis non maecenas ut. 
-            Vel etiam elit diam quis et vel, sociis. Rhoncus ut elit vitae elit ut lorem pulvinar. 
-            Mi sit lorem consequat quam sodales odio. Lacus a quis.
+          Con capitales mexicanos y estadounidenses, Generation International Marketing S.A. es una empresa orientada a las nuevas tendencias en diseño y comercialización de artículos para la cocina y el hogar.
+          <br></br>
+          <br></br>
+          Buscamos liderar el mercado trabajando con profesionalismo, creatividad y confianza, haciendo de nuestra empresa un lugar atractivo para el crecimiento y desarrollo de nuestra gente.
+          </p>
+        </div>
+      </div>
+      <div className={`${styles.bloque} 
+      ${
+        alturaPantalla + vieportHeight <= alturaImagen4
+        ?styles.Invisible
+        :styles.Visible
+        }
+        `}ref={imagen4}>
+        
+        <div className={styles.imgDesktop}></div>
+        <div className={styles.bajada} >
+          <h3 className={styles.title}>NUESTRA PRESENCIA</h3>
+          <h5 className={styles.subTitle}></h5>
+          <p className={styles.parrafo}>
+          En 2010 iniciamos nuestra operación en Argentina y hoy somos líderes comercializando artículos de cocción como Baterías, Ollas, Sartenes, Woks y Utensilios.
+          En otras categorías como por ejemplo moldes para repostería, cafeteras, vajilla para mesa y pavas continuamos en constante crecimiento acompañados por el reconocimiento de nuestra marca.
+          <br></br>
+          <br></br>
+          Desde 2020 estamos presentes en el mercado uruguayo y en 2022 nos hemos propuesto ingresar al mercado estadounidense.
+          </p>
+        </div>
+      </div>
+      <div className={`${styles.bloque} 
+      ${
+        alturaPantalla- 100 <= alturaImagen5
+        ?styles.Invisible
+        :styles.Visible
+        }
+        `}ref={imagen5}>
+        
+        <div className={styles.imgDesktop}></div>
+        <div className={styles.bajada} >
+          <h3 className={styles.title}>VISIÓN, MISÍON Y VALORES</h3>
+          <h5 className={styles.subTitleCard}>Nuestra visión</h5>
+          <p className={styles.parrafoCard}>
+          Ser líderes y generadores de tendencia en el desarrollo de productos para la cocina y el hogar.
+          </p>
+          <h5 className={styles.subTitleCard}>Nuestra misión</h5>
+          <p className={styles.parrafoCard}>
+          Innovar con usos, formas y colores para que la cocina y el hogar evolucionen como espacios creativos y de disfrute permanente.
+          </p>
+          <h5 className={styles.subTitleCard}>Nuestros valores</h5>
+          <p className={styles.parrafoCard}>
+          <ul>
+            <li className={styles.liCard}>Pasión para agregar valor a lo que hacemos.</li>
+            <li className={styles.liCard}>Creatividad en el desarrollo de nuestras ideas y procesos.</li>
+            <li className={styles.liCard}>Confianza en nuestros equipos de trabajo, clientes, proveedores y accionistas.</li>
+            <li className={styles.liCard}>Efectividad en la administración de nuestros recursos para el cumplimiento de objetivos y resultados.</li>
+            <li className={styles.liCard}>Integridad y credibilidad en nuestras acciones y decisiones.</li>
+          </ul>
           </p>
         </div>
       </div>
       <div className={` 
       ${
-        alturaPantalla + vieportHeight <= alturaImagen2
+        alturaPantalla +700  <= alturaImagen2
         ?styles.Invisible
         :styles.Visible
         }
         `} ref={imagen2}>
-        <div className={`${styles.header} ${styles.headerDesktop}`} ref={imagen2}>
-          <img src={grupoGente} className={styles.imgHeader}  />
-        </div>
+        <div className={styles.imgDesktop}>
+          </div>
         <div className={styles.bajada}  >
-          <h3 className={styles.title}>HISTORIA</h3>
-          <h5 className={styles.subTitle}>El camino que construimos</h5>
+          <h3 className={styles.title}>LA MARCA HUDSON</h3>
+          <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo2}>
-          Sed donec ipsum vestibulum lacus. Dolor nisi, massa diam mauris. 
-          Lacus lorem nec feugiat pharetra, id elit aliquet sit. 
+          En Hudson creemos que cocinar es un acto creativo. Una mezcla especial de amor e imaginación en la que cada cocinero pone el sabor para sus afectos. Admiramos a quienes reinventan cada plato y se siente artistas del sabor. Nuestra marca inspira robustez y confianza, cuando uno toma un producto Hudson adquiere la sensación de contacto con un artículo durable. Trabajamos para lograr productos únicos con el balance justo de innovación y funcionalidad.<br></br><br></br>
+          Ansiamos que la cocina se transforme en un espacio de encuentro y creatividad, como un estallido de colores, formas y sabores.<br></br><br></br>
+          Buscamos revolucionar la gastronomía, y te invitamos a sumarte. Porque la mesa está servida. Y porque el próximo plato siempre es el mejor.
+
           </p>
-          <HistoriaCard año='2005' text='Ut id elit consectetur purus orci enim, amet commodo mollis. Mauris a viverra augue pharetra suspendisse pharetra senectus. At netus massa, mauris mattis ut magna lectus mauris arcu.'/>
-          <HistoriaCard año='2007' text='Et ut tristique ullamcorper pretium sem sit ultrices massa proin. Sed lorem ornare interdum donec.'/>
-          <HistoriaCard año='2012' text='A congue viverra donec faucibus eget quis nunc, neque. Odio aliquam est faucibus ipsum eros, integer tristique cursus mauris. Vitae ipsum tincidunt aliquet a, adipiscing mi sit. Tempor ut sagittis non maecenas ut.'/>
-          <HistoriaCard año='2017' text ='Vel etiam elit diam quis et vel, sociis. Rhoncus ut elit vitae elit ut lorem pulvinar. Mi sit lorem consequat quam sodales odio. Lacus a quis.'/>
         </div>
       </div>
       <div className={` 
@@ -100,15 +148,16 @@ export default function Nosotros(){
         :styles.Visible
         }
         `} ref={imagen3}>
-        <div className={`${styles.header} ${styles.headerDesktop}`}>
-          <img src={grupoGente} className={styles.imgHeader}  />
-        </div>
+        <div className={styles.imgDesktop}>
+          </div>
         <div className={styles.bajada} >
-          <h3 className={styles.title}>ORIGEN</h3>
-          <h5 className={styles.subTitle}>De dónde provienen nuestras piezas</h5>
+          <h3 className={styles.title}>NUESTRO ABASTECIMIENTO</h3>
+          <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo}>
-            Sed donec ipsum vestibulum lacus. Dolor nisi, massa diam mauris. Lacus lorem nec feugiat pharetra, id elit aliquet sit. Ut id elit consectetur purus orci enim, amet commodo mollis. Mauris a viverra augue pharetra suspendisse pharetra senectus. At netus massa, mauris mattis ut magna lectus mauris arcu. Et ut tristique ullamcorper pretium sem sit ultrices massa proin. Sed lorem ornare interdum donec.
-            A congue viverra donec faucibus eget quis nunc, neque. Odio aliquam est faucibus ipsum eros, integer tristique cursus mauris.
+          Desde hace más de 10 años mantenemos relaciones comerciales con fábricas en Asia, Europa, México y Argentina lo que permite asegurar el sostenimiento de la calidad y el cumplimiento de las entregas.<br></br><br></br>
+          Nuestra oferta se constituye de artículos de cocción producidos en diferentes materiales como aluminio, acero inoxidable, vidrio para horno. Son parte de nuestro portfolio la vajilla de origen Portugal junto con una gama extensa de utensilios de cocina y artículos plásticos, entre otros.<br></br><br></br>
+          Nuestra estrategia principal es comercializar productos atractivos, elaborados con las últimas tecnologías asegurando buena calidad a precios convenientes.
+
           </p>
         </div>
       </div>

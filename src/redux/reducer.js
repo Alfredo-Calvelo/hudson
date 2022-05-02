@@ -11,6 +11,16 @@ import {
   GET_DATA,
   GET_SOCIAL
 } from "./actions"
+import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
+import fotoAluminio from '../imagenes/U Y C ALUMINIO.png'
+import fotoPavas from '../imagenes/U Y C PAVAS Y CAFETERAS.png'
+import fotoNilon from '../imagenes/U Y C UT NYLON SILICONA.png'
+import fotoInox from '../imagenes/U Y C ACERO INOX.png'
+import fotoInoxUtensilios from '../imagenes/U Y C UT ACERO.png'
+import fotoVidrio from '../imagenes/U Y C VIDRIO HORNO.png'
+import fotoMolderia from '../imagenes/U Y C MOLDERIA.png'
+
+
 
 
 //-----------MODELO DE DATOS DE USOS Y CUIDADOS-----------
@@ -57,6 +67,7 @@ const initialState={
   tiempoCarrusell:4000,
   UsosYCuidados:[
     {
+      foto:fotoAluminio,
       title:'Piezas de Aluminio',
       subTitle:'Con Antiadherente',
       recomendacionesGenerales:[
@@ -91,8 +102,8 @@ const initialState={
       ]
     },
 
-
     {
+      foto:fotoCarbono,
       title:'Piezas de acero al carbono',
       subtitle:'Con Antiadherente',
       recomendacionesGenerales:[
@@ -129,6 +140,7 @@ const initialState={
 
 
     {
+      foto:fotoPavas,
       title:'Pavas y Cafeteras',
       subtitle:'',
       recomendacionesGenerales:[
@@ -157,6 +169,7 @@ const initialState={
 
 
     {
+      foto:fotoNilon,
       title:'Utensilios de Nylon y Silicona',
       subtitle:'',
       recomendacionesGenerales:[
@@ -185,6 +198,7 @@ const initialState={
 
 
     {
+      foto:fotoInoxUtensilios,
       title:'Utensilios de Acero Inoxidable',
       subtitle:'',
       recomendacionesGenerales:[
@@ -213,6 +227,7 @@ const initialState={
 
 
     {
+      foto:fotoVidrio,
       title:'Piezas de vidrio para horno',
       subtitle:'',
       recomendacionesGenerales:[
@@ -241,6 +256,7 @@ const initialState={
 
 
     {
+      foto:fotoInox,
       title:'Piezas de Acero Inoxidable',
       subtitle:'',
       recomendacionesGenerales:[
@@ -276,6 +292,7 @@ const initialState={
 
 
     {
+      foto:fotoMolderia,
       title:'Piezas de Moldería',
       subtitle:'Con Antiadherente',
       recomendacionesGenerales:[

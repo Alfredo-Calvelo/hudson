@@ -76,6 +76,7 @@
   }
   .title{
     padding: 20px;
+    font-size: 26pt;
   }
   .titulos{
     display: flex;
@@ -98,10 +99,7 @@
   .logo{
     width: 75px;
   }
-  .title{
-    font-size: 26pt;
-    width: 300px;
-  }
+ 
   .cardsDesktop{
     display: grid;
     justify-items: center;

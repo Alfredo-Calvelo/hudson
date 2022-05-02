@@ -8,7 +8,22 @@
   margin-bottom: 15px;
 }
 .headerImg{
-  width: 100%;
+  /* height: 50%; */
+  /* display: flex;
+  justify-content: center; */
+  object-fit: cover;
+  /* height: 100%; */
+  height: 100%;
+}
+.headerImgDesktop{
+  width: 100vw;
+  /* height: 300px; */
+  background-image: url(../../imagenes/HEADER\ BANNER\ CONTACTO.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+  /* display: grid; */
+  /* height: fit-content; */
 }
 .info{
   display: grid;
