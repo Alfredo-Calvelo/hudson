@@ -15,9 +15,9 @@
 .top{
   background-repeat: no-repeat;
   padding: 60px 20px 0 20px;
-  background-size:  auto 100%; 
+  background-size: auto 100% ;
   background-position: center;
-
+  height: 150px;
 
 }
 .tittle{
