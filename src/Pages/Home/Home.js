@@ -91,9 +91,7 @@ export default function Home(){
     navigate('../construccion')
   }
 
-  useEffect(()=>{
-    // console.log(state);
-  },[state])
+
   const [items,setItems] = useState();
 
   const items2 =[
@@ -102,8 +100,6 @@ export default function Home(){
     <CatalogCard tittle='VINTAGE' subTittle='Lucí tu cocina con colores y un estilo único.' textRuta='VER CATÁLOGO' img={lineaCobre}/>,
   ]
   const itemsxD = state?.Catalogo?.map((elem,index)=>{
-      // console.log(index);
-      // console.log(elem);
       return<CatalogCard key={index} tittle={elem.title} subTittle={elem.footer} textRuta='VER CATÁLOGO' img={elem.carrousellHomeIMG}/>
   })
   const items3=[
@@ -135,14 +131,14 @@ export default function Home(){
         return arr
   }
   useEffect(()=>{
-    // console.log(typeof state.social);
-    // console.log(state.social);
     if (state?.social?.instagram && typeof state?.social === 'object') {
       setItemsIG(mapearIG())
     }
   },[state.social])
 
-
+  useEffect(()=>{
+    console.log(state);
+  },[state])
 
 
   
@@ -150,7 +146,6 @@ export default function Home(){
   const itemsHeader= HeaderBanner?.map((elem,index)=>{
     
     let CTA = JSON.parse(elem?.CTA);
-    console.log(elem)
     return(
       <div key={index} className={styles.top} style={{backgroundImage:`url(${elem.image})`}} >
         <h1 className={styles.tittle}>{`${elem?.title}`}</h1>
