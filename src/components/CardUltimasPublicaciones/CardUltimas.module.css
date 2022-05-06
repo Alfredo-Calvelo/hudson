@@ -1,7 +1,14 @@
+.container{
+  width: fit-content;
+  padding: 0 5px 0 5px;
+  display: flex;
+}
 .imagen{
   width: 150px;
-  height: 150px;
+  height: 204px;
   overflow: hidden;
+  margin-top: -54px;
+
 }
 .imagen img{
   width: calc(100% - 10px);
@@ -22,6 +29,7 @@
     overflow: hidden;
     /* display: flex; */
     justify-content: center;
+    padding: 0;
     /* height: 25000%; */
     /* background-color: red; */
   }

@@ -11,14 +11,31 @@ export default function Inspirado(props){
     568: { items: 2 },
     1024: { items: 3 },
   };
-    let items= [
-    <RecetaCard img={fideos} title='Pasta mediterranea express'/>,
-    <RecetaCard img={fideos} title='Pasta mediterranea express'/>,
-    <RecetaCard img={fideos} title='Pasta mediterranea express'/>,
-    <RecetaCard img={fideos} title='Pasta mediterranea express'/>,
-    <RecetaCard img={fideos} title='Pasta mediterranea express'/>,
-    <RecetaCard img={fideos} title='Pasta mediterranea express'/>,
-  ]
+  let Recetas = useSelector(state=>state.Receta)
+  const [recetasOrdenadas, setRecetasOrdenadas] = useState()
+  const [items, setItems] = useState()
+  useEffect(()=>{
+    if (Recetas) {
+      let recetasOrdenadas = Recetas.sort(function (a,b) {
+        if (Date?.parse(a.fechaCreacion) > Date?.parse(b.fechaCreacion)) {return -1}
+        if (Date?.parse(a.fechaCreacion) < Date?.parse(b.fechaCreacion)) {return 1}
+        if (Date?.parse(a.fechaCreacion) === Date?.parse(b.fechaCreacion)) {return 0}
+      });
+      let arr =[]
+      recetasOrdenadas.forEach((elem,index)=>{
+        if (index<6) {
+          console.log(elem);
+          arr =[...arr,<RecetaCard tipo={elem.tipo} key={index} img={elem.headerIMG} title={elem.title}/>,]
+        }
+      })
+
+      setItems(arr)
+    }
+  },[Recetas])
+  useEffect(()=>{
+    console.log(recetasOrdenadas);
+  },[recetasOrdenadas])
+
   let alturaPantalla = useSelector(state=>state.alturaPantalla)
   let vieportHeight = useSelector(state=>state.vieportHeight)
   let bloque = createRef()
@@ -32,10 +49,10 @@ export default function Inspirado(props){
     <div ref={bloque} className={`${styles.inspirado} ${alturaPantalla + vieportHeight/1.6 >alturaBloque?styles.visible:styles.invisible}`}>
         <div className={styles.titles}>
           <h3>{props.title}</h3>
-          <h5>VER MÁS</h5>
+          <h5 style={{cursor:'pointer'}}>VER MÁS</h5>
         </div>
         <div className={styles.mobile}>
-          <AliceCarousel
+          {<AliceCarousel
             items={items}
             touchTracking
             mouseTracking
@@ -45,7 +62,7 @@ export default function Inspirado(props){
             responsive={responsive}
             paddingLeft={10}
             paddingRight={10}
-            />
+            />}
         </div>
         <div className={styles.desktop}>
           {items}

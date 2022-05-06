@@ -28,7 +28,7 @@ export default function UltimasPublicaciones (props){
         mouseTracking
         items={props.items}
         controlsStrategy="alternate"
-        autoWidth 
+        autoWidth
         disableDotsControls
         disableButtonsControls
         paddingLeft={10}

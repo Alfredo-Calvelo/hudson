@@ -10,7 +10,7 @@ export default function CardUltimas (props){
   return(
     <div className={styles.container}>
 
-      <iframe id='iframeIG' className={styles.imagen} src={`https://www.instagram.com/p/${props.id}/embed`} frameborder="0"><div className={styles.infiltrado} ref={ref}>holaaa</div></iframe>
+      <iframe draggable='false' id='iframeIG' className={styles.imagen} src={`https://www.instagram.com/p/${props.id}/embed`} frameborder="0"><div className={styles.infiltrado} ref={ref}>holaaa</div></iframe>
       
     </div>
   )
