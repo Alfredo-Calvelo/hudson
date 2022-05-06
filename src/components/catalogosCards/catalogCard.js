@@ -19,7 +19,7 @@ export default function CatalogCard(props){
           <h1 className={styles.tittle} >{props.tittle}</h1>
           
           <h3 className={styles.subTittle}>{props.subTittle}</h3>
-          <div className={styles.flecha} onClick={()=>navigate(`./Catalogo/${props.tittle}`)} >
+          <div className={styles.flecha} onClick={()=>navigate(`../Catalogo/${props.tittle}`)} >
             <h5 className={styles.textRuta} >{props.textRuta}</h5>
             <BsChevronRight/>
           </div>

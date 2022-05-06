@@ -1,4 +1,10 @@
-
+*{
+  margin: 0;
+}
+.container{
+  /* display: inline-block; */
+  width: fit-content;
+}
 .relleno,.noRelleno{
   background-color: var(--rojo);
   border: var(--rojo) 1px solid;
@@ -12,10 +18,11 @@
   cursor: pointer;
   position: relative;
   letter-spacing: 1.5px;
+  width: fit-content;
+
 }
 .adelante{
   z-index: 200;
-
 }
 .noRelleno{
   border: var(--rojo) 1px solid;

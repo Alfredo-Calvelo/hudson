@@ -48,6 +48,12 @@ export default function CuidadosCard(props){
       dispatch(activarCard(props.clave))
     }
   }
+  useEffect(()=>{
+    if (props.seleccionado.toLowerCase() === item.title.toLowerCase()) {
+      props.setAltura(bloque.current.offsetTop)
+    }
+  },[])
+
 
   let referencia = createRef()
   let referencia2 = createRef()

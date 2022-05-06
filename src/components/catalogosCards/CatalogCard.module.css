@@ -75,7 +75,7 @@
     display: grid;
     width: fit-content;
     grid-template-columns: 50% 50%;
-    height: 300px;
+    height: 350px;
   }
   .top{
    width: 100%;

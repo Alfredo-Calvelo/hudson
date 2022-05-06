@@ -19,10 +19,20 @@
   grid-template-columns: 40% 40%;
   justify-content: space-between;
   gap: 20px;
-  width: 100%;
-  margin-bottom: 90px;
+  width: calc(100% + 40px);
+  margin: 0 0 90px -20px;
 }
-
+.verMas{
+  font-family: 'Light';
+  font-size: 0.83em;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
 .title{
   font-size: 11.5pt;
   margin-bottom: 2px;

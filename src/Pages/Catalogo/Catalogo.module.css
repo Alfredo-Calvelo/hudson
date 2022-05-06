@@ -33,9 +33,12 @@
   padding: 0 0 0 25px;
   color: white;
 }
-.descargarCatalogo{
+.descargarCatalogo,.descargarCatalogoMasterCheff{
   padding: 0 20% 0 20%;
+  display: flex;
+  justify-content: center;
 }
+
 .Cards{
   padding: 0 20px 0 20px;
 }

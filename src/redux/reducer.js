@@ -67,6 +67,7 @@ const initialState={
   tiempoCarrusell:4000,
   UsosYCuidados:[
     {
+      tipo:'usosYCuidados',
       foto:fotoAluminio,
       title:'Piezas de Aluminio',
       subTitle:'Con Antiadherente',
@@ -102,7 +103,9 @@ const initialState={
       ]
     },
 
+    
     {
+      tipo:'usosYCuidados',
       foto:fotoCarbono,
       title:'Piezas de acero al carbono',
       subtitle:'Con Antiadherente',
@@ -140,6 +143,7 @@ const initialState={
 
 
     {
+      tipo:'usosYCuidados',
       foto:fotoPavas,
       title:'Pavas y Cafeteras',
       subtitle:'',
@@ -169,6 +173,7 @@ const initialState={
 
 
     {
+      tipo:'usosYCuidados',
       foto:fotoNilon,
       title:'Utensilios de Nylon y Silicona',
       subtitle:'',
@@ -198,6 +203,7 @@ const initialState={
 
 
     {
+      tipo:'usosYCuidados',
       foto:fotoInoxUtensilios,
       title:'Utensilios de Acero Inoxidable',
       subtitle:'',
@@ -227,6 +233,7 @@ const initialState={
 
 
     {
+      tipo:'usosYCuidados',
       foto:fotoVidrio,
       title:'Piezas de vidrio para horno',
       subtitle:'',
@@ -256,6 +263,7 @@ const initialState={
 
 
     {
+      tipo:'usosYCuidados',
       foto:fotoInox,
       title:'Piezas de Acero Inoxidable',
       subtitle:'',
@@ -292,6 +300,7 @@ const initialState={
 
 
     {
+      tipo:'usosYCuidados',
       foto:fotoMolderia,
       title:'Piezas de Moldería',
       subtitle:'Con Antiadherente',

@@ -16,13 +16,17 @@ export default function RecetaCard(props){
   },[])
   const navigate = useNavigate()
   function navegar(tipo) {
-    if (tipo==='Receta') {
+    if (tipo === 'usosYCuidados') {
+      navigate(`../Uso_Y_Cuidados/${props.title}`)
+    }
+    else if (tipo==='Receta') {
       navigate(`../Receta/${props.title}`)
     }
-    if (tipo==='Consejo') {
+    else if (tipo==='Consejo') {
       navigate(`../Consejo/${props.title}`)
     }
   }
+
   return(
     <div style={{cursor:'pointer'}} onClick={e=>navegar(props.tipo)}>
 

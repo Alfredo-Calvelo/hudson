@@ -18,8 +18,8 @@ export default function Boton (props){
     navigate(props?.ruta)
   }
   return(
-    <a style={{textDecoration:'none'}} href={props.link?props.link:null} download={props.download?props.download:false} target={props.actual?'':`_blank`}>
-    <div className={styles.container} >
+    <a className={styles.containerLink} style={{textDecoration:'none'}} href={props.link?props.link:null} download={props.download?props.download:false} target={props.actual?'':`_blank`}>
+    <div className={styles.container}>
     <div className={props.relleno?`${styles.relleno} ${dropMenu?styles.adelante:''}`:`${styles.noRelleno} ${dropMenu?styles.adelante:''} ${props.masterChef?styles.masterChef:''}`} onClick={()=>{
       if(props.dropMenu)dropMenuFunction()
       if (props.ruta)hola()
@@ -35,6 +35,7 @@ export default function Boton (props){
     </div>
         
 {/* ------------------ DROP MENU------------------------------- */}
+      {props.dropMenu?
         <ul className={`${styles.lista}`}>
           <div className={`${styles.listContainer} ${dropMenu?styles.listaActiva:styles.listaInactiva}`}>
             <span className={`${styles.text} ${styles.li}`}>ARGENTINA</span>
@@ -42,6 +43,8 @@ export default function Boton (props){
             <span className={`${styles.text} ${styles.li}`}>USA</span>
           </div>
         </ul>
+      :null  
+    }
         
         
 

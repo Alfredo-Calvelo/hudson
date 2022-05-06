@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux'
 export default function Nosotros(){
   document.title='Hudson | Conocenos'
   useEffect(()=>{
-    // window.scrollTo(0,0)
+    window.scrollTo(0,0)
   },[])
 
   let imagen1 = createRef()

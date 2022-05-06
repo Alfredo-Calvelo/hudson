@@ -51,6 +51,8 @@ export default function Home(){
   const dispatch = useDispatch()
   const [destacadaCatalogo, setDestacadaCatalogo] = useState()
   const [destacadaProducto, setDestacadaProducto] = useState()
+  const [destacadaReceta, setDestacadaReceta] = useState()
+  const [destacadaConsejo, setDestacadaConsejo] = useState()
   const responsive={
     0:{
       items:1
@@ -82,8 +84,29 @@ export default function Home(){
       let footerProducto = state?.SeccionesDestacadas[0]['producto']?.footer
       let imgProducto = state.SeccionesDestacadas[0]['producto']?.image
       let linkProducto = state.SeccionesDestacadas[0]['producto']?.link
+      console.log(linkProducto);
       let cardProducto =<Card link={linkProducto} tittle={titleProducto} subTittle={footerProducto} textRuta='VER PRODUCTO' img={imgProducto} />
       setDestacadaProducto(cardProducto)
+    }
+    if (state?.Receta) {
+      let recetasOrdenadas = state.Receta.sort(function (a,b) {
+        if (Date?.parse(a.fechaCreacion) > Date?.parse(b.fechaCreacion)) {return -1}
+        if (Date?.parse(a.fechaCreacion) < Date?.parse(b.fechaCreacion)) {return 1}
+        if (Date?.parse(a.fechaCreacion) === Date?.parse(b.fechaCreacion)) {return 0}
+      });
+      let ultimaReceta = recetasOrdenadas[0]
+      let cardReceta = <Card ruta={`../Receta/${ultimaReceta.title}`} tittle='COCINÁ CON HUDSON' subTittle={`${ultimaReceta.title}`} textRuta='VER RECETA' img={ultimaReceta.headerIMG}/>
+      setDestacadaReceta(cardReceta)
+    }
+    if (state?.Consejo) {
+      let consejosOrdenados =  state.Consejo.sort(function (a,b) {
+        if (Date?.parse(a.fechaCreacion) > Date?.parse(b.fechaCreacion)) {return -1}
+        if (Date?.parse(a.fechaCreacion) < Date?.parse(b.fechaCreacion)) {return 1}
+        if (Date?.parse(a.fechaCreacion) === Date?.parse(b.fechaCreacion)) {return 0}
+      });
+      let ultimoConsejo = consejosOrdenados[0]
+      let cardConsejo = <Card ruta={`../Consejo/${ultimoConsejo.title}`} left tittle='TRUCOS Y CONSEJOS' subTittle={`${ultimoConsejo.title}`} textRuta='LEER ARTICULO' img={ultimoConsejo.headerIMG} />
+      setDestacadaConsejo(cardConsejo)
     }
   },[state])
   const params = useParams()
@@ -213,8 +236,8 @@ export default function Home(){
       </div>
       <div className={styles.cards}>
         {destacadaCatalogo?destacadaCatalogo:null}
-        <Card ruta='Receta' tittle='COCINÁ CON HUDSON' subTittle='Pancakes con arándanos' textRuta='VER RECETA' img={cocinaConHudson}/>
-        <Card ruta='Consejo' left tittle='TRUCOS Y CONSEJOS' subTittle='Como conservar los nutrientes en el hervor' textRuta='LEER ARTICULO' img={trucosYConsejos} />
+        {destacadaReceta?destacadaReceta:null}
+        {destacadaConsejo?destacadaConsejo:null}
         {destacadaProducto?destacadaProducto:null}
       </div>
       
@@ -226,7 +249,7 @@ export default function Home(){
         
  
       <div className={styles.produDestacados}>
-        <Destacado productos={state?.Producto} leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
+        <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado'
         rightDescription='Antiadherente Cerámico' rightTitle='Bifera 26cm' />
       </div>
       <Conocenos/>

@@ -10,19 +10,8 @@ import { getData } from '../../redux/actions'
 import { typeProducto } from '../../types'
 
 export default function Destacado(props){
-  // const dispatch = useDispatch()
-  // useEffect(()=>{
-  //   dispatch(getData(typeProducto))
-  // },[])
-  let items= [
-    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
-    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
-    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
-    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
-    <DestacadoCard img={imgIzquierda} title={props.leftTitle} subTitle={props.leftDescription}/>,
-  ]
-  let itemsReales = props.productos?.map((elem,index)=>{
-    
+  let productos = useSelector(state=>state?.Producto)
+  let itemsReales = productos?.map((elem,index)=>{
     return<DestacadoCard key={index} img={elem.archivo} title={elem.nombre} subTitle={elem.caracteristicas} enlace={elem.link}/>
   })
   let responsive={
@@ -42,13 +31,15 @@ export default function Destacado(props){
     <div ref={bloque} className={`${styles.container} ${alturaPantalla + vieportHeight/1.4 >alturaBloque?styles.visible:styles.invisible}`}>
       <div className={styles.titles}>
         <h3>Productos destacados</h3>
-        <h5>VER MÁS</h5>
+        <a className={styles.verMas}>VER MÁS</a>
       </div>
       <div className={`${styles.bottom} ${styles.bottomMobile}`}>
           <AliceCarousel
           responsive={responsive}
           touchTracking
           mouseTracking
+          paddingLeft={5}
+          paddingRight={5}
           items={itemsReales}
           controlsStrategy="alternate"
           disableDotsControls
@@ -57,10 +48,8 @@ export default function Destacado(props){
           />
         </div>
         <div className={`${styles.bottom} ${styles.bottomDesktop}`}>
-          {itemsReales?.map((elem,index)=>{
-            return(
-              elem
-            )
+          {productos?.map((elem,index)=>{
+            return<DestacadoCard key={index} img={elem.archivo} title={elem.nombre} subTitle={elem.caracteristicas} enlace={elem.link}/>
           })}
         </div>
         <div className={styles.tiendaOnline}>

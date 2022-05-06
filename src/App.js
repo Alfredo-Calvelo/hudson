@@ -72,7 +72,7 @@ function App(props) {
               <Route exact path='/Receta/:selected'element={<Receta/>}/>
               <Route exact path='/Consejo/:selected'element={<Consejo/>}/>
               <Route exact path='/Nosotros'element={<Nosotros/>}/>
-              <Route exact path='/Uso_Y_Cuidados'element={<UsoYCuidados/>}/>
+              <Route exact path='/Uso_Y_Cuidados/:seleccionado'element={<UsoYCuidados/>}/>
               <Route path='*' element={<Construccion/>}/>
 
             </Routes>

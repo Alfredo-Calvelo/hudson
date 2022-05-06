@@ -1,9 +1,11 @@
 .right{
   padding: 10px;
   cursor: pointer;
+  display: grid;
 }
 .img{
   width: 100%;
+  max-width: 400px;
   margin: 90px 0 90px 0;
   filter: var(--centerShadow);
 }

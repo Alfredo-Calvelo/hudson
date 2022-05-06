@@ -6,34 +6,27 @@ import SeparadorChico from '../../components/SeparadorChico/SeparadorChico'
 import Destacado from '../../components/destacados/Destacado'
 import Footer from '../../components/Footer/Footer'
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { createRef, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 export default function UsoYCuidados(){
   document.title='Hudson | Uso y Cuidados'
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
-  
+  let params = useParams()
   
   let UsosYCuidados = useSelector(state=> state.UsosYCuidados)
   let cardActiva = useSelector(state=>state.cardActiva)
   const [elements, setElements]= useState([])
+  const [alturaRef, setAlturaRef] = useState()
+  let alturaPantalla = useSelector(state=>state)
 
-  function mapear(){
-    let elements = UsosYCuidados.map((item,index)=>{
-      if (index===cardActiva) {
-        return<CuidadosCard  left={index%2===0?true:false} right={index%2===1?true:false} active={true} item={item} clave={index} key = {index} />
-      }else{
-        return<CuidadosCard left={index%2===0?true:false} right={index%2===1?true:false} active={false} item={item} clave={index} key = {index} />
-      }
-    })
-    return elements
-  }
+  let hola = createRef()
   
-
   useEffect(()=>{
-    setElements(mapear())
-  },[cardActiva])
-
+    window.scrollTo(0,alturaRef + hola.current.offsetTop - 120)
+    
+  },[alturaRef])
   return(
     <div>
       <div className={styles.header}>
@@ -44,8 +37,14 @@ export default function UsoYCuidados(){
             <h2 className={styles.title}>¿YA RECIBISTE TU PRODUCTO HUDSON?</h2>
             <h3 className={styles.subTitle}>Aprendé como utilizarlo correctamente para aprovechar al máximo y extender la vida útil.</h3>
           </div>
-        <div className={styles.cards}>
-          {elements}
+        <div ref={hola} className={styles.cards}>
+          {UsosYCuidados.map((item,index)=>{
+            if (index===cardActiva) {
+              return<CuidadosCard seleccionado={params.seleccionado} setAltura={setAlturaRef} left={index%2===0?true:false} right={index%2===1?true:false} active={true} item={item} clave={index} key = {index} />
+            }else{
+              return<CuidadosCard seleccionado={params.seleccionado} setAltura={setAlturaRef} left={index%2===0?true:false} right={index%2===1?true:false} active={false} item={item} clave={index} key = {index} />
+            }
+          })}
         </div>
         <SeparadorChico/>
         <Inspirado title='Hudson te inspira'/>

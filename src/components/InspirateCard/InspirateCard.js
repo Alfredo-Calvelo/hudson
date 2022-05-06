@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 
 export default function InspirateCard(props){
   const navigate = useNavigate()
-  console.log(props);
   return(
     <div className={styles.container} >
       <div className={styles.imgContainer}>

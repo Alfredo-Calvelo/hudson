@@ -72,7 +72,7 @@ export default function Contacto (){
               <Input placeholder='Empresa (opcional)'/>
             </div>
             <textarea placeholder='Mensaje' className={styles.mensaje}/>
-              <Boton dropMenu={false} text='ENVIAR' relleno/>
+              <Boton text='ENVIAR' relleno/>
           </div>
         </div>
       </div>

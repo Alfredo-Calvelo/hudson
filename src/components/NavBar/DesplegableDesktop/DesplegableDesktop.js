@@ -24,9 +24,7 @@ export default function DesplegableDesktop (props){
     function retraer(){
         dispatch(menuActivoMenu(false))
     }
-    useEffect(()=>{
-        // console.log(props);
-    })
+
     return(
         <div className={styles.desplegable} style={estilo} onMouseEnter={()=>desplegar()} onMouseLeave={()=>retraer()} >
             <div className={styles.container} ref={referencia}>
@@ -59,7 +57,6 @@ export default function DesplegableDesktop (props){
                     {props.segundaColumna && props.segundaColumna.length>0?
                     <div className={styles.segundaColumna}>
                             {props.segundaColumna?.map((elem, index)=>{
-                                console.log(elem?.title);
                             if (elem?.title?.toLowerCase().includes('masterchef')) {
                                 return(
                                     <span 

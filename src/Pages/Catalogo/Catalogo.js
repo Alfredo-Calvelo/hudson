@@ -51,20 +51,15 @@ export default function Catalogo(props){
   const [masterChef,setMasterChef] = useState(false)
   function selectMasterChef() {
     let masterReal = false
-    console.log(catalogoSeleccionado?.title.toLowerCase().includes('masterchef'));
-    console.log(catalogoSeleccionado?.footer.toLowerCase().includes('masterchef'));
     if (catalogoSeleccionado?.title.toLowerCase().includes('masterchef')) {
-      console.log('title correcto');
         masterReal= true
       }
     else if (catalogoSeleccionado?.footer.toLowerCase().includes('masterchef')) {
-      console.log('footer correcto');
       masterReal= true
     }
     setMasterChef(masterReal)
   }
   useEffect(()=>{
-    console.log(catalogoSeleccionado);
     if (catalogoSeleccionado?.footer || catalogoSeleccionado?.title) {
       selectMasterChef()
     }
