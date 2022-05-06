@@ -32,6 +32,7 @@ export default function Inspirate(){
   const [filtrosMobile, setFiltrosMobile] = useState(false)
   const filtrosMobileRef = useRef()
   const [cardsHeader, setCardsHeader]= useState([])
+  
   useEffect(()=>{
     window.scrollTo(0,0)
     dispatch(getData(typeReceta))
@@ -84,8 +85,12 @@ export default function Inspirate(){
       setCantidadUYC(state?.UsosYCuidados.length)
     }
   },[cosas])
-
-
+  let buscador = useParams().buscador
+  useEffect(()=>{
+    if (buscador) {
+      setFiltroBuscar(buscador)
+    }
+  },[])
   let page = useParams().page -1 
   //-------------------MOBILE-------------------
   let bloque = {inicio:0 + 10*page, final:9+ 10*page}
@@ -248,14 +253,14 @@ export default function Inspirate(){
           </div>
         </div>
         <div className={styles.filterBlock}><FiSearch />
-          <input className={styles.inputBuscarMobile} onChange={e=>setFiltroBuscar(e.target.value)} placeholder='Buscar'/>
+          <input value={filtroBuscar} className={styles.inputBuscarMobile} onChange={e=>setFiltroBuscar(e.target.value)} placeholder='Buscar'/>
         </div>
       </div>
       <div className={styles.filterDesktop}>
         <div className={styles.rutaDesktop}>
           <span className={styles.ruta}>Inicio </span> <BsChevronRight/> <span className={styles.ruta}> INSPIRATE </span>  <BsChevronRight/> <span className={styles.nroPublicaciones}>({cosas?.length} publicaciones)</span>
         </div>
-        <div className={styles.filterBlock}><FiSearch />  <h6>Buscar</h6> <input onChange={e=>setFiltroBuscar(e.target.value)} className={styles.inputBuscar}/></div>
+        <div className={styles.filterBlock}><FiSearch />  <h6>Buscar</h6> <input value={filtroBuscar} onChange={e=>setFiltroBuscar(e.target.value)} className={styles.inputBuscar}/></div>
       </div>
         <div className={styles.otrasRecetasMobile}>
           {cosasMostrar?.map((elem, index)=>{

@@ -13,6 +13,7 @@ import { useEffect } from 'react'
 export default function Footer(props){
   const Catalogos = useSelector(state=>state.Catalogo)
   const navigate = useNavigate()
+  const instagramUser = useSelector(state=>state?.social?.instagramUser)
   return(
     <div className={styles.container}>
       {props.contacto?<div className={styles.top}>
@@ -37,10 +38,10 @@ export default function Footer(props){
           <input  placeholder='Su email, por favor' autoComplete='false' className={styles.input}/>
           <Boton text='SUSCRIBIRME' relleno />
           <div className={styles.linksLogos}>
-            <img src={instagram} className={styles.linkLogo}/>
-            <img src={facebook} className={styles.linkLogo}/>
-            <img src={twitter} className={styles.linkLogo}/>
-            <img src={youtube} className={styles.linkLogo}/>
+            <a href={`https://www.instagram.com/${instagramUser}/`} target='_blank'><img src={instagram} className={styles.linkLogo}/></a>
+            <a href='https://www.facebook.com/HudsonKitchenware/' target='_blank'><img src={facebook} className={styles.linkLogo}/></a>
+            <a href='https://twitter.com/HudsonKitchen_' target='_blank'><img src={twitter} className={styles.linkLogo}/></a>
+            <a href='https://www.youtube.com/channel/UCmATVdmApr3S6W-rGrxyitQ' target='_blank'><img src={youtube} className={styles.linkLogo}/></a>
           </div>
         </div>
         <div className={styles.bottomFondo}>

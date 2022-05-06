@@ -8,6 +8,7 @@
   height: fit-content;
   transition: var(--transitionCorta);
   align-items: center;
+  
 }
 .SearchBarActivo{
   background-color: rgba(142, 142, 141 ,1);
@@ -17,6 +18,14 @@
   font-size: 20px;
   position: relative;
   top: 2px;
+}
+.SearchBarActivo svg circle, .SearchBarActivo svg line {
+  transition: var(--transitionCorta);
+  color: white;
+}
+.SearchBar svg circle,.SearchBar svg line{
+  color: var(--grisFuente);
+  transition: var(--transitionCorta);
 }
 
 .input,.inputDesktop{
@@ -31,7 +40,9 @@
   padding: 5px;
   width: 100%;
 }
-
+.SearchBarActivo input{
+  color: white;
+}
 .inputDesktop{
   padding: 5px;
   width: 50px;

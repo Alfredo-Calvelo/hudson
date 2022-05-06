@@ -120,9 +120,9 @@
   .desktopLinks{
     justify-content: space-between;  
     display: flex;
-    flex-wrap: wrap;
     white-space: nowrap;
     width: 100%;
+    gap: 5px;
   }
   .logos{
     margin-right: 35px;

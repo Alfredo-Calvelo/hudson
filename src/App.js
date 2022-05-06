@@ -64,6 +64,7 @@ function App(props) {
               <Route exact path='/construccion'element={<Construccion/>}/>
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
               <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
+              <Route exact path='/Inspirate/:page/:buscador'element={<Inspirate/>}/>
               <Route exact path='/Contacto'element={<Contacto/>}/>
               <Route exact path='/Receta/:selected'element={<Receta/>}/>
               <Route exact path='/Consejo/:selected'element={<Consejo/>}/>

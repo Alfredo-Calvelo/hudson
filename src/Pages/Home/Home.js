@@ -128,14 +128,7 @@ export default function Home(){
     <CardUltimas image={image1}/>,
     <CardUltimas image={image6}/>,
   ]
-  const [itemsIG,setItemsIG] = useState([
-    // <CardUltimas key={1} id={'CbqeS0Wr295'}/>,
-    // <CardUltimas key={2} id={'CbqeS0Wr295'}/>,
-    // <CardUltimas key={3} id={'CbqeS0Wr295'}/>,
-    // <CardUltimas key={4} id={'CbqeS0Wr295'}/>,
-    // <CardUltimas key={5} id={'CbqeS0Wr295'}/>,
-    // <CardUltimas key={6} id={'CbqeS0Wr295'}/>,
-  ])
+  const [itemsIG,setItemsIG] = useState([])
   function mapearIG() {
     if(state.social.instagram==='Aun no se cargó ningun perfil'){
       return state.social.instagram
@@ -153,7 +146,6 @@ export default function Home(){
       setItemsIG(mapearIG())
     }
   },[state.social])
-
 
   const itemsHeader= HeaderBanner?.map((elem,index)=>{
     
