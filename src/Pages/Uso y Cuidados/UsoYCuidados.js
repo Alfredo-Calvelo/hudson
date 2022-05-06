@@ -34,8 +34,8 @@ export default function UsoYCuidados(){
           <img className={styles.headerImg} src={header}></img>
         </div>
           <div className={styles.titles}>
-            <h2 className={styles.title}>¿YA RECIBISTE TU PRODUCTO HUDSON?</h2>
-            <h3 className={styles.subTitle}>Aprendé como utilizarlo correctamente para aprovechar al máximo y extender la vida útil.</h3>
+            <h2 className={styles.title}>{'Have you received your Hudson product yet?'.toLocaleUpperCase()}</h2>
+            <h3 className={styles.subTitle}>Learn how to use it correctly to get the most out of it and extend its useful life.</h3>
           </div>
         <div ref={hola} className={styles.cards}>
           {UsosYCuidados.map((item,index)=>{

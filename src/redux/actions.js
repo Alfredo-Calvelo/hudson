@@ -11,7 +11,6 @@ export const ALTURA_PANTALLA = 'ALTURA_PANTALLA'
 export const GET_DATA = "GET_DATA";
 export const GET_SOCIAL = "GET_SOCIAL";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
 }

@@ -87,14 +87,14 @@ export default function Home(){
       let cardProducto =<Card link={linkProducto} tittle={titleProducto} subTittle={footerProducto} textRuta='VER PRODUCTO' img={imgProducto} />
       setDestacadaProducto(cardProducto)
     }
-    if (state?.Receta) {
+    if (state.Receta && state.Receta.length>0) {
       let recetasOrdenadas = state.Receta.sort(function (a,b) {
         if (Date?.parse(a.fechaCreacion) > Date?.parse(b.fechaCreacion)) {return -1}
         if (Date?.parse(a.fechaCreacion) < Date?.parse(b.fechaCreacion)) {return 1}
         if (Date?.parse(a.fechaCreacion) === Date?.parse(b.fechaCreacion)) {return 0}
       });
       let ultimaReceta = recetasOrdenadas[0]
-      let cardReceta = <Card ruta={`../Receta/${ultimaReceta.title}`} tittle='COCINÁ CON HUDSON' subTittle={`${ultimaReceta.title}`} textRuta='VER RECETA' img={ultimaReceta.headerIMG}/>
+      let cardReceta = <Card ruta={`../Receta/${ultimaReceta?.title}`} tittle='COCINÁ CON HUDSON' subTittle={`${ultimaReceta?.title}`} textRuta='VER RECETA' img={ultimaReceta?.headerIMG}/>
       setDestacadaReceta(cardReceta)
     }
     if (state?.Consejo) {
@@ -146,7 +146,9 @@ export default function Home(){
       setItemsIG(mapearIG())
     }
   },[state.social])
-
+useEffect(()=>{
+  // console.log(destacadaReceta);
+},[destacadaReceta])
   const itemsHeader= HeaderBanner?.map((elem,index)=>{
     
     let CTA = JSON.parse(elem?.CTA);
