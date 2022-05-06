@@ -84,7 +84,6 @@ export default function Home(){
       let footerProducto = state?.SeccionesDestacadas[0]['producto']?.footer
       let imgProducto = state.SeccionesDestacadas[0]['producto']?.image
       let linkProducto = state.SeccionesDestacadas[0]['producto']?.link
-      console.log(linkProducto);
       let cardProducto =<Card link={linkProducto} tittle={titleProducto} subTittle={footerProducto} textRuta='VER PRODUCTO' img={imgProducto} />
       setDestacadaProducto(cardProducto)
     }
@@ -109,10 +108,6 @@ export default function Home(){
       setDestacadaConsejo(cardConsejo)
     }
   },[state])
-  const params = useParams()
-  if (params.homeID !=='342b5e2221e0f2587772acc90cd7b154') {
-    navigate('../construccion')
-  }
 
 
   const [items,setItems] = useState();
@@ -159,12 +154,6 @@ export default function Home(){
     }
   },[state.social])
 
-  useEffect(()=>{
-    console.log(state);
-  },[state])
-
-
-  
 
   const itemsHeader= HeaderBanner?.map((elem,index)=>{
     

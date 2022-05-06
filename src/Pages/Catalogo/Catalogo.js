@@ -64,9 +64,7 @@ export default function Catalogo(props){
       selectMasterChef()
     }
   },[catalogoSeleccionado])
-  useEffect(()=>{
-    console.log(masterChef);
-  },[masterChef])
+
   return(
     <div className={styles.container} >
       <div className={styles.header} style={estilo} >

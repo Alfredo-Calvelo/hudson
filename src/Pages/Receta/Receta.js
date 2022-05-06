@@ -51,9 +51,6 @@ export default function Receta(){
   },[Recetas])
   useEffect(()=>{
     if (RecetaSeleccionada) {
-      console.log(typeof RecetaSeleccionada?.fechaCreacion);
-      console.log(Date.parse(RecetaSeleccionada?.fechaCreacion));
-
       if (RecetaSeleccionada?.dificultad ==='baja') setDificultad('Baja')
       if (RecetaSeleccionada?.dificultad ==='media') setDificultad('Media')
       if (RecetaSeleccionada?.dificultad ==='alta') setDificultad('Alta')

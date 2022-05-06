@@ -9,7 +9,6 @@ export default function Card(props){
   const navigate = useNavigate()
   function ejecutable(){
       navigate(props.ruta)
-      console.log('hola');
   }
 
   let alturaPantalla = useSelector(state=>state.alturaPantalla)

@@ -9,18 +9,7 @@ import store from './redux/store';
 import CambiarNavBar from './CambiarNavBar';
 
 let scroll  =0 
-function NavBarChange (e){
-  scroll = window.scrollY
-  // console.log(scroll);
-}
-// window.addEventListener('scroll',e=>ReactDOM.render(ReactDOM.render(
-//   <React.StrictMode>
-//     <Provider store={store}>
-//       <App scroll={scroll}/>
-//     </Provider>
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// )))
+
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>

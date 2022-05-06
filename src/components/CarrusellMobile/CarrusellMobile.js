@@ -18,7 +18,6 @@ export default function CarrusellMobile(props){
   useEffect(()=>{
     setAlturaCarrusell(carrusell.current?.offsetTop)
   })
-  console.log(props);
   return(
 
         <div ref={carrusell} className={`${styles.catalogCarrusellMobile} 

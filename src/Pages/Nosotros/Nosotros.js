@@ -35,7 +35,6 @@ export default function Nosotros(){
   
   useEffect(()=>{
     setAlturaImagen2(imagen2.current.offsetTop);
-    setAlturaImagen3(imagen3.current.offsetTop);
     setAlturaImagen4(imagen4.current.offsetTop);
     setAlturaImagen5(imagen4.current.offsetTop);
     
@@ -77,7 +76,7 @@ export default function Nosotros(){
         }
         `}ref={imagen4}>
         
-        <div className={styles.imgDesktop}></div>
+        <div className={styles.imgDesktop1}></div>
         <div className={styles.bajada} >
           <h3 className={styles.title}>NUESTRA PRESENCIA</h3>
           <h5 className={styles.subTitle}></h5>
@@ -98,7 +97,7 @@ export default function Nosotros(){
         }
         `}ref={imagen5}>
         
-        <div className={styles.imgDesktop}></div>
+        <div className={styles.imgDesktop2}></div>
         <div className={styles.bajada} >
           <h3 className={styles.title}>VISIÓN, MISÍON Y VALORES</h3>
           <h5 className={styles.subTitleCard}>Nuestra visión</h5>
@@ -128,7 +127,7 @@ export default function Nosotros(){
         :styles.Visible
         }
         `} ref={imagen2}>
-        <div className={styles.imgDesktop}>
+        <div className={styles.imgDesktop3}>
           </div>
         <div className={styles.bajada}  >
           <h3 className={styles.title}>LA MARCA HUDSON</h3>
@@ -137,19 +136,8 @@ export default function Nosotros(){
           En Hudson creemos que cocinar es un acto creativo. Una mezcla especial de amor e imaginación en la que cada cocinero pone el sabor para sus afectos. Admiramos a quienes reinventan cada plato y se siente artistas del sabor. Nuestra marca inspira robustez y confianza, cuando uno toma un producto Hudson adquiere la sensación de contacto con un artículo durable. Trabajamos para lograr productos únicos con el balance justo de innovación y funcionalidad.<br></br><br></br>
           Ansiamos que la cocina se transforme en un espacio de encuentro y creatividad, como un estallido de colores, formas y sabores.<br></br><br></br>
           Buscamos revolucionar la gastronomía, y te invitamos a sumarte. Porque la mesa está servida. Y porque el próximo plato siempre es el mejor.
-
           </p>
         </div>
-      </div>
-      <div className={` 
-      ${
-        alturaPantalla +700  <= alturaImagen3
-        ?styles.Invisible
-        :styles.Visible
-        }
-        `} ref={imagen3}>
-        <div className={styles.imgDesktop}>
-          </div>
         <div className={styles.bajada} >
           <h3 className={styles.title}>NUESTRO ABASTECIMIENTO</h3>
           <h5 className={styles.subTitle}></h5>
@@ -157,10 +145,10 @@ export default function Nosotros(){
           Desde hace más de 10 años mantenemos relaciones comerciales con fábricas en Asia, Europa, México y Argentina lo que permite asegurar el sostenimiento de la calidad y el cumplimiento de las entregas.<br></br><br></br>
           Nuestra oferta se constituye de artículos de cocción producidos en diferentes materiales como aluminio, acero inoxidable, vidrio para horno. Son parte de nuestro portfolio la vajilla de origen Portugal junto con una gama extensa de utensilios de cocina y artículos plásticos, entre otros.<br></br><br></br>
           Nuestra estrategia principal es comercializar productos atractivos, elaborados con las últimas tecnologías asegurando buena calidad a precios convenientes.
-
           </p>
         </div>
       </div>
+      
       <SeparadorChico/>
       <Inspirado title='Hudson te inspira'/>
       <Destacado leftTitle='Fuente Cuadrada' leftDescription='Vidrio templado' 

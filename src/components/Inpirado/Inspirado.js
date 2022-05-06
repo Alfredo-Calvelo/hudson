@@ -24,7 +24,6 @@ export default function Inspirado(props){
       let arr =[]
       recetasOrdenadas.forEach((elem,index)=>{
         if (index<6) {
-          console.log(elem);
           arr =[...arr,<RecetaCard tipo={elem.tipo} key={index} img={elem.headerIMG} title={elem.title}/>,]
         }
       })
@@ -32,9 +31,6 @@ export default function Inspirado(props){
       setItems(arr)
     }
   },[Recetas])
-  useEffect(()=>{
-    console.log(recetasOrdenadas);
-  },[recetasOrdenadas])
 
   let alturaPantalla = useSelector(state=>state.alturaPantalla)
   let vieportHeight = useSelector(state=>state.vieportHeight)

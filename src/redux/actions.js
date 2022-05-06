@@ -22,7 +22,6 @@ export function cambiarNavBar(payload){
     return{type:CAMBIAR_NAV_BAR, payload}
 }
 export function cambiarMenuCatalogo(payload){
-    // console.log('holas');
     return{type:CAMBIAR_MENU_CATALOGO, payload}
 }
 export function cerrarTodo(payload){
@@ -52,7 +51,6 @@ export function getData(propiedadName) {  //prop es el tipo (string) de coleccio
             
             return dispatch({ type: GET_DATA, payload: json.data, propiedadName });
         } catch (error) {
-        console.log(error);
         }
     };
 }
@@ -65,11 +63,8 @@ export function getSocial() {  //prop es el tipo (string) de coleccion a traer (
                 Credentials: "includes",
                 url: BASE_URL + "/social",
             });
-            console.log('hola');
-            console.log(json);
             return dispatch({ type: GET_SOCIAL, payload: json.data });
         } catch (error) {
-        console.log(error);
         }
     };
 }

@@ -10,10 +10,10 @@ export default function SearchBar(props){
     <div className={props.activo?styles.SearchBar:styles.SearchBarActivo}>
       <div className={styles.mobile}>
         <FiSearch/>
-        <input className={styles.input}/>
+        <input  className={styles.input}/>
       </div>
       <div className={styles.desktop}>
-        <input className={styles.inputDesktop}/>
+        <input onKeyPress={e=>console.log(e.key)} className={styles.inputDesktop}/>
         <FiSearch/>
       </div>
     </div>

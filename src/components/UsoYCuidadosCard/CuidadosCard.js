@@ -49,7 +49,7 @@ export default function CuidadosCard(props){
     }
   }
   useEffect(()=>{
-    if (props.seleccionado.toLowerCase() === item.title.toLowerCase()) {
+    if (props.seleccionado && props.seleccionado.toLowerCase() === item.title.toLowerCase()) {
       props.setAltura(bloque.current.offsetTop)
     }
   },[])

@@ -52,10 +52,6 @@ function App(props) {
     dispatch(getSocial())
 
   },[])
-  let state = useSelector(state=>state)
-  useEffect(()=>{
-    // console.log(state);
-  },[state])
   return (
 
     <BrowserRouter>
@@ -64,7 +60,7 @@ function App(props) {
             <NavBar/>
             <MenuDesplegable/>
             <Routes>
-              <Route exact path='/:homeID'element={<Home/>}/>
+              <Route exact path='/'element={<Home/>}/>
               <Route exact path='/construccion'element={<Construccion/>}/>
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
               <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
@@ -73,6 +69,7 @@ function App(props) {
               <Route exact path='/Consejo/:selected'element={<Consejo/>}/>
               <Route exact path='/Nosotros'element={<Nosotros/>}/>
               <Route exact path='/Uso_Y_Cuidados/:seleccionado'element={<UsoYCuidados/>}/>
+              <Route exact path='/Uso_Y_Cuidados'element={<UsoYCuidados/>}/>
               <Route path='*' element={<Construccion/>}/>
 
             </Routes>

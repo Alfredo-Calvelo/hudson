@@ -13,7 +13,7 @@
   z-index: -1;
   content: url('../../imagenes/HEADER\ BANNER\ NOSOTROS.jpg');
 }
-.imgDesktop{
+.imgDesktop,.imgDesktop3,.imgDesktop2,.imgDesktop1{
   height: 200px;
   overflow: hidden;
   display: grid;   
@@ -21,6 +21,15 @@
   background-image: url(../../imagenes/HEADER\ BANNER\ NOSOTROS.jpg);
   background-position: center;
   background-size: cover;
+}
+.imgDesktop1,.imgDesktop2,.imgDesktop3{
+  background-image: url(../../imagenes/FOTO\ NOSOTROS\ PASTAS.jpg);
+}
+.imgDesktop2{
+  background-image: url(../../imagenes/FOTO\ NOSOTROS\ CAMARONES.jpg);
+}
+.imgDesktop3{
+  background-image: url(../../imagenes/FOTO\ NOSOTROS\ FIDEOS.jpg);
 }
 .bajada{
   background-color: white;
@@ -99,6 +108,11 @@
     display: grid;
     align-content: center;   
     width: 100%;
+  }
+  .imgDesktop1,.imgDesktop2,.imgDesktop3{
+    height: 500px;
+    margin: var(--marginCatalogo);
+    width: auto;
   }
   .imgHeader{
     position: relative;

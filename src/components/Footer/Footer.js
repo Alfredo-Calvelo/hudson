@@ -12,9 +12,6 @@ import { useEffect } from 'react'
 
 export default function Footer(props){
   const Catalogos = useSelector(state=>state.Catalogo)
-  useEffect(()=>{
-    console.log(Catalogos);
-  },[Catalogos])
   const navigate = useNavigate()
   return(
     <div className={styles.container}>
@@ -65,14 +62,6 @@ export default function Footer(props){
             {Catalogos?.map((elem,index)=>{
               return <span onClick={e=>navigate(`../Catalogo/${elem.title}`)} key={index} className={styles.links}>{elem.title}</span>
             })}
-            {/* <span className={styles.links}>Línea Acero al Carbono</span>
-            <span className={styles.links}>Línea Vidrio</span>
-            <span className={styles.links}>Línea Vintage</span>
-            <span className={styles.links}>Línea Acero al Carbono</span>
-            <span className={styles.links}>Línea Vidrio</span>
-            <span className={styles.links}>Línea Vintage</span>
-            <span className={styles.links}>Línea Vidrio</span>
-            <span className={styles.links}>Línea Vintage</span> */}
           </div>
 
 

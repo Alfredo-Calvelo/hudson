@@ -40,7 +40,6 @@ export default function Consejo (){
     if (Consejos && Consejos.length>0){
       Consejos.forEach((elem,index)=>{
         if (elem.title.replace(' ', '') === params.selected) {
-          console.log(elem);
           setTitle(elem.title)
           setIntroduccion(elem.introduccion)
           setCocinero(elem.cocinero)

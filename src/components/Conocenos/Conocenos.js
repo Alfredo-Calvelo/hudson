@@ -9,9 +9,9 @@ import styles from './Conocenos.module.css'
 export default function Conocenos (){
 
   let items =[
-  <ConocenosCard title = 'conocenos' subTitle='Somos más que una marca, somos familia'/>,
-  <ConocenosCard title = 'historia' subTitle='El camino que construimos'/>,
-  <ConocenosCard title = 'orígen' subTitle='De dónde provienen nuestras piezas'/>,
+  <ConocenosCard key={1} title = 'conocenos' subTitle='Somos más que una marca, somos familia'/>,
+  <ConocenosCard key={2} title = 'historia' subTitle='El camino que construimos'/>,
+  <ConocenosCard key={3} title = 'orígen' subTitle='De dónde provienen nuestras piezas'/>,
 ]
   let responsive={
     0:{
