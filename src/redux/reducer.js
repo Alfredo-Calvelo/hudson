@@ -364,13 +364,11 @@ function rootReducer(state=initialState, action){
       }
   }
   if (action.type === CERRAR_TODO) {
-      
-        return{
-          ...state,
-          menuCatalgo:false,
-          opciones:false,
-        }
-      
+      return{
+        ...state,
+        menuCatalgo:false,
+        opciones:false,
+      }
   }
   if (action.type === CARD_ACTIVA) {
       

@@ -113,10 +113,10 @@ export default function NavBar(){
             <span className={ruta[1]==='Inspirate'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo}>INSPÍRATE</span>
           </div>
           <div className={styles.Full} onClick={()=>navegar('../Uso_Y_Cuidados')}>
-            <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >{'Uses and care'.toUpperCase()}</span>
+            <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >{'usos y cuidados'.toUpperCase()}</span>
           </div>
           <div className={styles.Full} onClick={()=>navegar('Nosotros')}>
-            <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >ABOUT US</span>
+            <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >NOSOTROS</span>
           </div>
           <div className={styles.Full} onClick={()=>navegar('Contacto')}>
             <span className={ruta[1]==='Contacto'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >CONTACTO</span>
