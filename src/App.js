@@ -60,7 +60,8 @@ function App(props) {
             <NavBar/>
             <MenuDesplegable/>
             <Routes>
-              <Route exact path='/'element={<Home/>}/>
+            {/* https://www.hudsoncocina.com/342b5e2221e0f2587772acc90cd7b154 */}
+              <Route exact path='/342b5e2221e0f2587772acc90cd7b154'element={<Home/>}/>
               <Route exact path='/construccion'element={<Construccion/>}/>
               <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
               <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>
