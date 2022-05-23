@@ -40,14 +40,14 @@ export default function DesplegableDesktop (props){
                         {props.links?.map((elem, index)=>{
                             if (elem?.title?.toLowerCase().includes('masterchef')) {
                                 return(
-                                    <span 
+                                    <a 
                                     key={index} 
                                     onClick={()=>navigate('https://www.youtube.com/')} 
                                     className={`${styles.link} ${styles.masterChef}`}
                                     >
                                         <img className={styles.masterChefImg} src={masterchef}/> 
                                         {elem.title}
-                                    </span>
+                                    </a>
                                 )
                             }
                             return <span key={index} onClick={()=>navigate(elem.ruta)} className={styles.link}>{elem?.title}</span>
