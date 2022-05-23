@@ -17,6 +17,7 @@ export default function MenuDesplegable(){
   const dispatch = useDispatch()
   let active=useSelector(state=>state.opciones)
   const navigate = useNavigate()
+
   function navegar(ruta){
     navigate(ruta)
     dispatch(cerrarTodo())

@@ -25,7 +25,8 @@ export default function NavBar(){
   const [verMas , setVerMas] = useState()
   const [title, setTitle] = useState()
   const [links , setLinks] = useState([])
-
+  const Productos = useSelector(state=>state.Producto)
+  const [productosFinales, setProductosFinales]= useState([])
 
   const [catalogosTitles,setCatalogosTitles] = useState()
   const [segundaColumnaTitles, setSegundaColumnaTitles] = useState()
@@ -47,6 +48,24 @@ export default function NavBar(){
     }
   },[Catalogos])
 
+  useEffect(()=>{
+    if (Productos && Productos.length > 0) {
+      let prodOrdenados = Productos.sort(function(a,b){
+        if (a.ID > b.ID) {
+          return 1
+        }
+        if(a.ID < b.ID){
+          return -1
+        }
+      })
+      console.log(prodOrdenados);
+      let prodFinales =[]
+      prodOrdenados.map((elem)=>{
+        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.ruta})
+      })
+      setProductosFinales(prodFinales)
+    }
+  },[Productos])
 
   function navegar(ruta){
     navigate(ruta)
@@ -61,14 +80,7 @@ export default function NavBar(){
     if (tipo==='productos') {
       setTitle('PRODUCTOS')
       setVerMas('VER TODOS')
-      setLinks([
-        {title:'COCCION Y HORNEADO', ruta:''},
-        {title:'CAFÉ, TÉ Y MATE', ruta:''},
-        {title:'UTENSILIOS', ruta:''},
-        {title:'VAJILLA', ruta:''},
-        {title:'ORGANIZADORES', ruta:''},
-        {title:'REPOSTERÍA',ruta:''}
-      ])
+      setLinks(productosFinales)
     }else
     if (tipo === 'catalogo') {
       setVerMas('')
