@@ -42,7 +42,7 @@ export default function DesplegableDesktop (props){
                                 return(
                                     <span 
                                     key={index} 
-                                    onClick={()=>navigate(elem.ruta)} 
+                                    onClick={()=>navigate('https://www.youtube.com/')} 
                                     className={`${styles.link} ${styles.masterChef}`}
                                     >
                                         <img className={styles.masterChefImg} src={masterchef}/> 
