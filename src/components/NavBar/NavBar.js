@@ -61,7 +61,7 @@ export default function NavBar(){
       console.log(prodOrdenados);
       let prodFinales =[]
       prodOrdenados.map((elem)=>{
-        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.ruta})
+        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.ruta, nueva:true})
       })
       setProductosFinales(prodFinales)
     }

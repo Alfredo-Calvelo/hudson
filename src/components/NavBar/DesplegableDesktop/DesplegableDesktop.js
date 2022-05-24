@@ -42,7 +42,14 @@ export default function DesplegableDesktop (props){
                                 return(
                                     <span 
                                     key={index} 
-                                    onClick={()=>navigate(elem.ruta)} 
+                                    onClick={()=>{
+                                        if (elem.nueva) {
+                                            window.open(elem.ruta, '_blank');
+                                        }
+                                        else{
+                                            navigate(elem.ruta)
+                                        }
+                                    }} 
                                     className={`${styles.link} ${styles.masterChef}`}
                                     >
                                         <img className={styles.masterChefImg} src={masterchef}/> 
@@ -61,7 +68,13 @@ export default function DesplegableDesktop (props){
                                 return(
                                     <span 
                                     key={index} 
-                                    onClick={()=>navigate(elem.ruta)} 
+                                    onClick={()=>{
+                                        if (elem.nueva) {
+                                        }
+                                        else{
+                                            navigate(elem.ruta)
+                                        }
+                                    }}
                                     className={`${styles.link} ${styles.masterChef}`}
                                     >
                                         <img className={styles.masterChefImg} src={masterchef}/> 
