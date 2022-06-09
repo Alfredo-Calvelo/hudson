@@ -10,8 +10,6 @@ export const MENU_ACTIVO_MENU = 'MENU_ACTIVO_MENU'
 export const ALTURA_PANTALLA = 'ALTURA_PANTALLA'
 export const GET_DATA = "GET_DATA";
 export const GET_SOCIAL = "GET_SOCIAL";
-// const https = require('https')
-// import https from 'http'
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
@@ -40,8 +38,6 @@ export function menuActivoMenu(payload){
 export function alturaPantalla(payload){
     return{type:ALTURA_PANTALLA,payload}
 }
-
-
 export function getData(propiedadName) {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
     return async function (dispatch) {
         try {
@@ -49,8 +45,7 @@ export function getData(propiedadName) {  //prop es el tipo (string) de coleccio
                 method: "GET",
                 withCredentials: true,
                 Credentials: "includes",
-                baseURL :'http://45.227.161.194:3000',
-                url:`/getData/${propiedadName}`,
+                url: BASE_URL + "/getData/" + propiedadName,
             });
             
             return dispatch({ type: GET_DATA, payload: json.data, propiedadName });
@@ -65,8 +60,7 @@ export function getSocial() {  //prop es el tipo (string) de coleccion a traer (
                 method: "GET",
                 withCredentials: true,
                 Credentials: "includes",
-                baseURL :'http://45.227.161.194:3000',
-                url:`/social`,
+                url: BASE_URL + "/social",
             });
             return dispatch({ type: GET_SOCIAL, payload: json.data });
         } catch (error) {

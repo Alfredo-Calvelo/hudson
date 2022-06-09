@@ -38,18 +38,12 @@ export default function DesplegableDesktop (props){
                     </span>
                     <div className={styles.rutas}>
                         {props.links?.map((elem, index)=>{
+                            console.log(elem);
                             if (elem?.title?.toLowerCase().includes('masterchef')) {
                                 return(
                                     <span 
                                     key={index} 
-                                    onClick={()=>{
-                                        if (elem.nueva) {
-                                            window.open(elem.ruta, '_blank');
-                                        }
-                                        else{
-                                            navigate(elem.ruta)
-                                        }
-                                    }} 
+                                    onClick={()=>navigate(elem.ruta)} 
                                     className={`${styles.link} ${styles.masterChef}`}
                                     >
                                         <img className={styles.masterChefImg} src={masterchef}/> 
@@ -57,7 +51,7 @@ export default function DesplegableDesktop (props){
                                     </span>
                                 )
                             }
-                            return <span key={index} onClick={()=>navigate('https://www.youtube.com/')} className={styles.link}>{elem?.title}</span>
+                            return <span key={index} onClick={()=>navigate(elem.ruta)} className={styles.link}>{elem?.title}</span>
                         })}
                     </div>
                 </div>
@@ -68,13 +62,7 @@ export default function DesplegableDesktop (props){
                                 return(
                                     <span 
                                     key={index} 
-                                    onClick={()=>{
-                                        if (elem.nueva) {
-                                        }
-                                        else{
-                                            navigate(elem.ruta)
-                                        }
-                                    }}
+                                    onClick={()=>navigate(elem.ruta)} 
                                     className={`${styles.link} ${styles.masterChef}`}
                                     >
                                         <img className={styles.masterChefImg} src={masterchef}/> 
