@@ -226,22 +226,22 @@ export default function Inspirate(){
               }}>
                 <li>
                   <input checked={filtroDulce} onChange={e=>setFiltroDulce(e.target.checked)} type='checkbox' id='filtro1' ref={ref1} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro1' className={styles.checkMobile}>RECETAS DULCES</label>
+                  <label htmlFor='filtro1' className={styles.checkMobile}>SWEET RECIPE</label>
                   <span className={styles.filtroNumberMobile}>({cantidadDulces})</span>
                 </li>
                 <li>
                   <input checked={filtroSalado} onChange={e=>setFiltroSalado(e.target.checked)} type='checkbox' id='filtro2' ref={ref2} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro2' className={styles.checkMobile}>RECETAS SALADAS</label>
+                  <label htmlFor='filtro2' className={styles.checkMobile}>SALTY RECIPE</label>
                   <span className={styles.filtroNumberMobile}>({cantidadSaladas})</span>
                 </li>
                 <li>
                 <input checked={filtroUYC} onChange={e=>setFiltroUYC(e.target.checked)} type='checkbox' id='filtro3' ref={ref3} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro3' className={styles.checkMobile}   >USO Y CUIDADOS</label>
+                  <label htmlFor='filtro3' className={styles.checkMobile}   >USES AND CARE</label>
                   <span className={styles.filtroNumberMobile}>({cantidadUYC})</span>
                 </li>
                 <li>
                   <input checked={filtrosConsejos} onChange={e=>setFiltrosConsejos(e.target.checked)} type='checkbox' id='filtro4' ref={ref4} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro4' className={styles.checkMobile} >TRUCOS Y CONSEJOS</label>
+                  <label htmlFor='filtro4' className={styles.checkMobile} >TRICKS AND TIPS</label>
                   <span className={styles.filtroNumberMobile}>({cantidadConsejos})</span>
                 </li>
               </ul>
@@ -249,11 +249,11 @@ export default function Inspirate(){
           </div>
           <div className={styles.textsFiltros}>
             <CgOptions/>  
-            <h6>Filtrar</h6>
+            <h6>Filter</h6>
           </div>
         </div>
         <div className={styles.filterBlock}><FiSearch />
-          <input value={filtroBuscar} className={styles.inputBuscarMobile} onChange={e=>setFiltroBuscar(e.target.value)} placeholder='Buscar'/>
+          <input value={filtroBuscar} className={styles.inputBuscarMobile} onChange={e=>setFiltroBuscar(e.target.value)} placeholder='Search'/>
         </div>
       </div>
       <div className={styles.filterDesktop}>

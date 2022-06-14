@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import styles from './DesplegableDesktopCard.module.css'
-import olla from '../../../../imagenes/ollaMasterChef.png'
 import { BsChevronRight } from "react-icons/bs"
 
 export default function DesplegableDesktopCard(props){

@@ -11,7 +11,7 @@ export default function InspirateCard(props){
       <div className={styles.imgContainer}>
         <img draggable={false} className={styles.headerImg} src={props.img}/>
       </div>
-      <div className={styles.title} onClick={()=>navigate(`../${props.tipo.toLowerCase().includes('receta')?'Receta':props.tipo.toLowerCase().includes('consejo')?'Consejo' :''}/${props.title}`)}>
+      <div className={styles.title} onClick={()=>navigate(`../${props.tipo.toLowerCase().includes('receta')?'Receta':props.tipo.toLowerCase().includes('consejo')?'Consejo' :''}/${props.title.replace('?','').replace('¿','')}`)}>
         <h3>{`${props.title}`}</h3>
         <h6 className={styles.verReceta}> {props.tipo.toLowerCase().includes('receta')?'VER RECETA':props.tipo.toLowerCase().includes('consejo')?'VER CONSEJO' :''}  <BsChevronRight/></h6>
       </div>

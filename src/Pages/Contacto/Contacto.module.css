@@ -2,7 +2,7 @@
   display: grid;
   width: 100%;
   justify-items: center;
-  margin-top: 20px;
+  margin-top: -10px;
 }
 .title{
   margin-bottom: 15px;

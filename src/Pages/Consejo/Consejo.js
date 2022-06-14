@@ -39,7 +39,7 @@ export default function Consejo (){
   useEffect(()=>{
     if (Consejos && Consejos.length>0){
       Consejos.forEach((elem,index)=>{
-        if (elem.title.replace(' ', '') === params.selected) {
+        if (elem.title.replace('?','').replace('¿','')=== params.selected) {
           setTitle(elem.title)
           setIntroduccion(elem.introduccion)
           setCocinero(elem.cocinero)

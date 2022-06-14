@@ -17,13 +17,32 @@ export default function MenuDesplegable(){
   const dispatch = useDispatch()
   let active=useSelector(state=>state.opciones)
   const navigate = useNavigate()
+  const Productos = useSelector(state=>state.Producto)
+  const [prodFinales, setProductosFinales] = useState()
 
   function navegar(ruta){
     navigate(ruta)
     dispatch(cerrarTodo())
     window.scrollTo(0,0)
   }
-
+  useEffect(()=>{
+    if (Productos && Productos.length > 0) {
+      let prodOrdenados = Productos.sort(function(a,b){
+        if (a.ID > b.ID) {
+          return 1
+        }
+        if(a.ID < b.ID){
+          return -1
+        }
+      })
+      // console.log(prodOrdenados);
+      let prodFinales =[]
+      prodOrdenados.map((elem)=>{
+        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.link, nueva:true, tipo:'producto'})
+      })
+      setProductosFinales(prodFinales)
+    }
+  },[Productos])
 
   return(
     <div className={active?styles.containerActivo:styles.containerInActivo}>
@@ -34,12 +53,13 @@ export default function MenuDesplegable(){
         <Separador/>
       </div>
       <h5 className={styles.subBloque} onClick={()=>{dispatch(cambiarMenuCatalogo(true))}} >CATÁLOGO <BsChevronRight/> </h5>
-      <h5 className={styles.subBloque}  >COCCIÓN Y HORNEADO <BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >CAFÉ, TÉ Y MATE <BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >UTENSILIOS <BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >VAJILLA <BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >REPOSTERÍA <BsChevronRight/></h5>
-      <h5 className={styles.subBloque}  >ORGANIZADORES <BsChevronRight/></h5>
+      {
+        prodFinales?.map((elem,index)=>{
+          return(
+            <a className={styles.subBloque} target='_blank' href={elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` }>{elem.title} <BsChevronRight/></a>
+          )
+        })
+      }
       <div className={styles.separador}>
         <Separador/>
       </div>

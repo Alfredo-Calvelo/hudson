@@ -104,7 +104,7 @@ export default function Home(){
         if (Date?.parse(a.fechaCreacion) === Date?.parse(b.fechaCreacion)) {return 0}
       });
       let ultimoConsejo = consejosOrdenados[0]
-      let cardConsejo = <Card ruta={`../Consejo/${ultimoConsejo.title}`} left tittle='TRUCOS Y CONSEJOS' subTittle={`${ultimoConsejo.title}`} textRuta='LEER ARTICULO' img={ultimoConsejo.headerIMG} />
+      let cardConsejo = <Card ruta={`../Consejo/${ultimoConsejo?.title}`} left tittle='TRUCOS Y CONSEJOS' subTittle={`${ultimoConsejo?.title}`} textRuta='LEER ARTICULO' img={ultimoConsejo?.headerIMG} />
       setDestacadaConsejo(cardConsejo)
     }
   },[state])

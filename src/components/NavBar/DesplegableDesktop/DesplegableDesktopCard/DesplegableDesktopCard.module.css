@@ -27,8 +27,13 @@
     align-items: center;
     font-family: 'Regular';
     font-size: 11pt;
-    gap: 15px;
+    gap: 17px;
+    transition: var(--transitionCorta);
 }
+.container:hover .rutaTitle {
+    gap: 7px;
+}
+
 .rutaTitle svg{
     font-size: 9pt;
 }

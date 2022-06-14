@@ -6,14 +6,34 @@ import facebook from '../../imagenes/iconos/facebookGris.png'
 import twitter from '../../imagenes/iconos/twitterGris.png'
 import youtube from '../../imagenes/iconos/youtubeGris.png'
 import SeparadorChico from '../SeparadorChico/SeparadorChico'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Footer(props){
   const Catalogos = useSelector(state=>state.Catalogo)
   const navigate = useNavigate()
   const instagramUser = useSelector(state=>state?.social?.instagramUser)
+  const Productos = useSelector(state=>state.Producto)
+  const [prodFinales, setProductosFinales] = useState()
+  useEffect(()=>{
+    if (Productos && Productos.length > 0) {
+      let prodOrdenados = Productos.sort(function(a,b){
+        if (a.ID > b.ID) {
+          return 1
+        }
+        if(a.ID < b.ID){
+          return -1
+        }
+      })
+      let prodFinales =[]
+      prodOrdenados.map((elem)=>{
+        prodFinales.push({title:elem.nombre,ruta:elem.link, nueva:true, tipo:'producto'})
+      })
+      setProductosFinales(prodFinales)
+    }
+  },[Productos])
+
   return(
     <div className={styles.container}>
       {props.contacto?<div className={styles.top}>
@@ -49,19 +69,20 @@ export default function Footer(props){
         <div className={styles.bottomDesktop}>
           <div className={styles.left}>
             <h3 className={styles.bottomTitle}>Productos</h3>
-            <span className={styles.links}>Coccion y horneado</span>
-            <span className={styles.links}>Cafe, te y mate</span>
-            <span className={styles.links}>Utensilios</span>
-            <span className={styles.links}>Vajilla</span>
-            <span className={styles.links}>Reposteria</span>
-            <span className={styles.links}>Organizadores</span>
+            {
+              prodFinales?.map((elem,index)=>{
+                return(
+                    <a target='_blank' href={elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` } className={styles.links}>{elem.title}</a>
+                )
+              })
+            }
           </div>
 
 
           <div className={styles.center}>
             <h3 className={styles.bottomTitle}>Catálogo</h3>
             {Catalogos?.map((elem,index)=>{
-              return <span onClick={e=>navigate(`../Catalogo/${elem.title}`)} key={index} className={styles.links}>{elem.title}</span>
+              return <Link to={`../Catalogo/${elem.title}`} key={index} className={styles.links}>{elem.title}</Link>
             })}
           </div>
 
@@ -70,10 +91,10 @@ export default function Footer(props){
 
             <div className={styles.containers}>
               <h3 className={styles.bottomTitle}>Hudson</h3>
-              <span className={styles.links} onClick={()=>navigate('../Inspirate/1')}>Inspirate</span>
-              <span className={styles.links} onClick={()=>navigate('../Uso_Y_Cuidados')}>Uso y cuidados</span>
-              <span className={styles.links} onClick={()=>navigate('../Nosotros')}>Nosotros</span>
-              <span className={styles.links}>Contacto</span>
+              <Link className={styles.links} to={'../Inspirate/1'}>Inspirate</Link>
+              <Link className={styles.links} to={'../Uso_Y_Cuidados'}>Uso y cuidados</Link>
+              <Link className={styles.links} to={'../Nosotros'}>Nosotros</Link>
+              <Link className={styles.links} to={'../Contacto'}>Contacto</Link>
             </div>
 
             <div className={`${styles.containers} ${styles.containerBottom}`}>

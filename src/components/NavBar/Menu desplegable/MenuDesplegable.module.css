@@ -30,6 +30,10 @@
   display: flex;
   justify-content: space-between;
 }
+.subBloque{
+  font-size: 0.83em;
+  font-weight: bold;
+}
 .subBloqueInicio{
   background-color: white;
   margin-top: 5px;

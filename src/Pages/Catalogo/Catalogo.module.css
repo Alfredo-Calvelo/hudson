@@ -65,12 +65,13 @@
   .desktopTitle{
     display: block;
     font-family: 'ExtraBold';
-    font-size: 96px;
+    font-size: 85px;
     color: white;
     filter: var(--centerShadow);
     padding: 70px;
     width: 50%;
     margin-left: 5%;
+    min-width:700px ;
   }
   .header{
     height: 568px;

@@ -10,7 +10,6 @@
 }
 .links:hover{
   text-decoration: underline;
-  
 }
 .top{
   display: flex;
@@ -96,6 +95,7 @@
     grid-template-columns: 33.33% 33.33% 33.33%;
     justify-items: center;
     padding: 30px;  
+    gap: 20px;
     background-color: white;
     margin: var(--marginDesktop);
   }

@@ -6,7 +6,7 @@ import styles from './NavBar.module.css'
 import {AiOutlineMenu} from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { cambiarOpciones, menuActivoNavBar} from '../../redux/actions'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useEffect, useState,useRef } from 'react'
 import DesplegableDesktop from './DesplegableDesktop/DesplegableDesktop'
 
@@ -58,10 +58,10 @@ export default function NavBar(){
           return -1
         }
       })
-      console.log(prodOrdenados);
+      // console.log(prodOrdenados);
       let prodFinales =[]
       prodOrdenados.map((elem)=>{
-        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.ruta, nueva:true})
+        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.link, nueva:true, tipo:'producto'})
       })
       setProductosFinales(prodFinales)
     }
@@ -110,10 +110,10 @@ export default function NavBar(){
   return(
     <div className={navBarActiva? styles.container:styles.containerInactivo} >
       <div className={styles.NavBar} >
-        <div className={styles.logos} onClick={()=>{navigate('/');window.scrollTo(0,0)}}>
+        <Link className={styles.logos} to={'../342b5e2221e0f2587772acc90cd7b154'}>
           <img alt='' className={navBarActiva? styles.logoActivo:styles.logo} src={logoNegro} />
           <img alt='' className={navBarActiva?styles.logo:styles.logoActivo} src={logoBlanco} />
-        </div>
+        </Link>
         <div className={styles.desktopLinks} >
           <div className={styles.Full} onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('productos')}>
             <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >PRODUCTOS</span>
@@ -121,21 +121,21 @@ export default function NavBar(){
           <div className={styles.Full} onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('catalogo')}>
             <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo}  >CÁTALOGO</span>
           </div>
-          <div className={styles.Full}  onClick={()=>navegar('../Inspirate/1')}>
+          <Link className={styles.Full}  to={'../Inspirate/1'}>
             <span className={ruta[1]==='Inspirate'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo}>INSPÍRATE</span>
-          </div>
-          <div className={styles.Full} onClick={()=>navegar('../Uso_Y_Cuidados')}>
-            <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >{'usos y cuidados'.toUpperCase()}</span>
-          </div>
-          <div className={styles.Full} onClick={()=>navegar('Nosotros')}>
-            <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >NOSOTROS</span>
-          </div>
-          <div className={styles.Full} onClick={()=>navegar('Contacto')}>
-            <span className={ruta[1]==='Contacto'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >CONTACTO</span>
-          </div>
-          <div className={styles.Full} onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('tiendaOnline')}>
+          </Link>
+          <Link className={styles.Full} to={'../Uso_Y_Cuidados'}>
+            <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >{'Uses and care'.toUpperCase()}</span>
+          </Link>
+          <Link className={styles.Full} to={'Nosotros'}>
+            <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >ABOUT US</span>
+          </Link>
+          <Link className={styles.Full} to={'Contacto'}>
+            <span className={ruta[1]==='Contacto'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >CONTACT</span>
+          </Link>
+          <a className={styles.Full} target='_blank' href='https://www.hudsoncocina.com.ar/?mshops-cookie-isguest=false&mshops-redirection-timestamp=1654803684039&mshops-cookie-cp=1430' onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('tiendaOnline')}>
             <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >TIENDA ONLINE</span>
-          </div>
+          </a>
         </div>
 
           <div className={styles.cambiarIdiomaDesktop}>

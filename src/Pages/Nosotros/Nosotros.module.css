@@ -84,6 +84,7 @@
   position: relative;
   bottom: -100px;
   user-select: none;
+  margin-top: 20px;
 }
 .Visible{
   opacity: 1;

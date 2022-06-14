@@ -44,14 +44,13 @@ export default function Contacto (){
 
           <div className={styles.preguntas}>
             <div>
-              <h3>Dejanos tu mensaje</h3>
-              <p>¿Tenés consultas o tuviste un problema con nuestros productos? Queremos escucharte</p>
+              <h3>¿How can we help you?</h3>
+              <p>At Hudson we want to listen to you, send us any questions, comments or observations about our products or services and we will respond as soon as possible.</p>
             </div>
             <div>
-              <h4>¿Querés vender productos Hudson?</h4>
+              <h4>Are you interested in reselling Hudson products?</h4>
               <p>
-                Baterías, Cacerolas, Sartenes, Woks y demás productos de cocina al por mayor.
-                Escribínos para enterarte de las condiciones para ser revendedor de nuestros productos.
+                Write us to find out about the conditions to be a reseller of our Set, Casseroles, Frying Pans, Woks and other kitchen products.
               </p>
             </div>
           </div>
