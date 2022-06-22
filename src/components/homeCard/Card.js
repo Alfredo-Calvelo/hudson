@@ -8,7 +8,7 @@ import styles from './Card.module.css'
 export default function Card(props){
   const navigate = useNavigate()
   function ejecutable(){
-      navigate(props.ruta)
+    navigate(`${props.ruta.replace('?','').replace('¿','')}`)
   }
 
   let alturaPantalla = useSelector(state=>state.alturaPantalla)
@@ -21,7 +21,7 @@ export default function Card(props){
   },[bloque])
   
 
-
+  console.log(props)
   return(
     <div ref={bloque} className={`${alturaPantalla + vieportHeight/1.4 >alturaBloque
       ?props.left?styles.visibleLeft:styles.visibleRight
@@ -29,7 +29,8 @@ export default function Card(props){
     
     }`}>
       <div className={styles.mobile}>
-
+        {
+          props.ruta?
         <div className={props.left? styles.containerLeft:styles.containerRight} onClick={()=>ejecutable()}>
           <div className={props.left? styles.imagenLeft:styles.imagenRight}>
             <img alt='' src={props.img} />
@@ -45,6 +46,27 @@ export default function Card(props){
             </div>
           </div>
         </div>
+        :props.link?
+        <a href={props.link.includes('https') || props.link.includes('http')?props.link:`https://${props.link}` } target='_blank' className={props.left? styles.containerLeft:styles.containerRight} onClick={()=>ejecutable()}>
+          <div className={props.left? styles.imagenLeft:styles.imagenRight}>
+            <img alt='' src={props.img} />
+          </div>
+          <div className={props.left?styles.subCardLeft:styles.subCardRight}>
+            <div>
+              <h2 className={`${styles.tittle}  ${styles.espacios}`}>{props.tittle}</h2>
+              <h3 className={`${styles.subTittle}  ${styles.espacios}`} >{props.subTittle}</h3>
+            </div>
+            <div className={styles.flecha}>
+              <h5 className={`${styles.textRuta} ${styles.espacios}`} >{props.textRuta}</h5>
+              <BsChevronRight/>
+            </div>
+          </div>
+        </a>
+        :null
+        }
+
+        
+
       </div>
       {/* ----------DESKTOP---------- */}
       <div className={styles.desktop}  style={{backgroundImage:`url(${props.img})`}}>
@@ -61,7 +83,7 @@ export default function Card(props){
           </div>
         </div>
         :props.link?
-        <a target='_blank' style={{textDecoration:'none'}} className={props.left?styles.subCardLeft:styles.subCardRight} href={props.link} >
+        <a target='_blank' style={{textDecoration:'none'}} className={props.left?styles.subCardLeft:styles.subCardRight} href={props.link.includes('https') || props.link.includes('http')?props.link:`https://${props.link}` } >
           <div>
             <h2 className={`${styles.tittle}  ${styles.espacios}`}>{props.tittle}</h2>
             <h3 className={`${styles.subTittle}  ${styles.espacios}`} >{props.subTittle}</h3>

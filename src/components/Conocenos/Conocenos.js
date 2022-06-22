@@ -9,9 +9,9 @@ import styles from './Conocenos.module.css'
 export default function Conocenos (){
 
   let items =[
-  <ConocenosCard key={1} title = 'conocenos' subTitle='Somos más que una marca, somos familia'/>,
-  <ConocenosCard key={2} title = 'historia' subTitle='El camino que construimos'/>,
-  <ConocenosCard key={3} title = 'orígen' subTitle='De dónde provienen nuestras piezas'/>,
+  <ConocenosCard pastas key={1} title = 'conocenos' subTitle='Con capitales mexicanos y estadounidenses, Generation International Marketing S.A. es una empresa orientada a las nuevas tendencias en diseño y comercialización de artículos para la cocina y el hogar.'/>,
+  <ConocenosCard fideos key={2} title = 'nuestra presencia' subTitle='En 2010 iniciamos nuestra operación en Argentina y hoy somos líderes comercializando artículos de cocción como Baterías, Ollas, Sartenes, Woks y Utensilios. En otras categorías como por ejemplo moldes para repostería, cafeteras, vajilla para mesa y pavas continuamos en constante crecimiento acompañados por el reconocimiento de nuestra marca.'/>,
+  <ConocenosCard camarones key={3} title = 'la marca hudson' subTitle='En Hudson creemos que cocinar es un acto creativo. Una mezcla especial de amor e imaginación en la que cada cocinero pone el sabor para sus afectos. Admiramos a quienes reinventan cada plato y se siente artistas del sabor. Nuestra marca inspira robustez y confianza, cuando uno toma un producto Hudson adquiere la sensación de contacto con un artículo durable. Trabajamos para lograr productos únicos con el balance justo de innovación y funcionalidad.'/>,
 ]
   let responsive={
     0:{

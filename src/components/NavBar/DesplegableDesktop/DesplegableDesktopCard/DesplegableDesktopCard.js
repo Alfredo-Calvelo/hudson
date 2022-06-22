@@ -12,7 +12,6 @@ export default function DesplegableDesktopCard(props){
                 <span className={styles.subTitle}>{props.subTitle}</span>
                 <span className={styles.rutaTitle}>{props.rutaTitle} <BsChevronRight/></span>
             </div>
-            
             <img className={styles.img} src={props.img}/>
         </div>
     )

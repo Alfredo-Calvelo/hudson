@@ -2,6 +2,7 @@
   margin-top: 80px;
   background-color: white;
   padding: 0 20px 20px 20px;
+  transition: var(--transitionCorta);
 }
 
 
@@ -72,11 +73,16 @@
   left: 0;
   user-select: none;
 }
+.imgVisible{
+  display: flex;
+  justify-content: center;
+}
 @media (min-width:800px) {
   .imgVisible,.imgOculta{
     position: relative;
     transition: var(--transitionCorta);
     height: max-content;
+    display: block;
   }
   .imgOculta{
     left: calc(-50%);
@@ -99,7 +105,7 @@
     background-color: white;
     position: relative;
     gap: 50px;
-    width: 80%;
+    width: 70%;
     padding: 0 20px 20px 20px;
   }
 
@@ -122,12 +128,41 @@
     max-width: none;
   }
   .title,.titleMasterChef{
-    font-size: 32pt;
+    font-size: 30pt;
   }
   .subtitle{
-    font-size: 16pt;
+    font-size: 14pt;
   }
   .lista{
-    font-size: 14.5pt;
+    font-size: 12.5pt;
   }
+}
+@media (min-width: 800px) and (max-width: 1300px){
+  .title{
+    font-size: 20pt;
+  }
+  .subtitle{
+    font-size: 13pt;
+  }
+  .lista{
+    font-size: 11pt;
+  }
+}
+@media (min-width: 900px) and (max-width: 1200px){
+  .container{
+    width: 100%;
+  }
+ 
+}
+@media (min-width: 800px) and (max-width: 900px){
+  .container{
+    width: 110%;
+  }
+ 
+}
+@media (min-width: 1200px) and (max-width: 1700px){
+  .container{
+    width: 90%;
+  }
+  
 }

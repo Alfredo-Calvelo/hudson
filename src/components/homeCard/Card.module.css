@@ -99,14 +99,19 @@ gap: 10px;
 
 
 
-@media (min-width: 370px) and (max-width: 408px){
+@media (min-width: 200px) and (max-width: 390px){
   .subCardLeft,.subCardRight{
-    height: 125px;
+    height: 170px;
   }
 }
-@media (min-width: 409px) and (max-width: 500px){
+@media (min-width: 390px) and (max-width: 408px){
   .subCardLeft,.subCardRight{
-    height: 110px;
+    height: 145px;
+  }
+}
+@media (min-width: 409px) and (max-width: 800px){
+  .subCardLeft,.subCardRight{
+    height: 125px;
   }
 }
 @media (min-width:800px) {

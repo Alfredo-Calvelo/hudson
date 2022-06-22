@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer'
 import { useSelector } from 'react-redux'
 
 export default function Nosotros(){
-  document.title='Hudson | Conocenos'
+  document.title='Hudson | Nosotros'
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
@@ -53,18 +53,18 @@ export default function Nosotros(){
         }
         `}>
         <div className={styles.header }>
-          <h2 className={styles.headerTitle}>{'About us'.toUpperCase()}</h2>
+          <h2 className={styles.headerTitle}>SOBRE NOSOTROS</h2>
           <div className={styles.imgDesktop}>
           </div>
         </div>
         <div className={styles.bajada} >
-          <h3 className={styles.title}>{'know us'.toUpperCase()}</h3>
+          <h3 className={styles.title}>CONOCENOS</h3>
           <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo}>
-          Hudson BK LLC is oriented to new trends in the design and marketing of products for the kitchen and home.
+          Con capitales mexicanos y estadounidenses, Generation International Marketing S.A. es una empresa orientada a las nuevas tendencias en diseño y comercialización de artículos para la cocina y el hogar.
           <br></br>
           <br></br>
-          We seek to lead the market by working with professionalism, creativity and confidence, making our company an attractive place for the growth and development of our people.
+          Buscamos liderar el mercado trabajando con profesionalismo, creatividad y confianza, haciendo de nuestra empresa un lugar atractivo para el crecimiento y desarrollo de nuestra gente.
           </p>
         </div>
       </div>
@@ -78,14 +78,14 @@ export default function Nosotros(){
         
         <div className={styles.imgDesktop1}></div>
         <div className={styles.bajada} >
-          <h3 className={styles.title}>{'Our presence'.toUpperCase()}</h3>
+          <h3 className={styles.title}>NUESTRA PRESENCIA</h3>
           <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo}>
-          In 2010 we began to sell our products in Argentina and actually we are leaders selling kitchen products such as pots, pans, woks, sets and utensils.
-          In other categories, such as bakeware, coffe makers, tableware and teapots, we continue to grow steadily accompanied by the recognition of our Brand.
+          En 2010 iniciamos nuestra operación en Argentina y hoy somos líderes comercializando artículos de cocción como Baterías, Ollas, Sartenes, Woks y Utensilios.
+          En otras categorías como por ejemplo moldes para repostería, cafeteras, vajilla para mesa y pavas continuamos en constante crecimiento acompañados por el reconocimiento de nuestra marca.
           <br></br>
           <br></br>
-          Since 2020 we are present in the Uruguyan market and during 2022, we have proposed to enter the North American market.
+          Desde 2020 estamos presentes en el mercado uruguayo y en 2022 nos hemos propuesto ingresar al mercado estadounidense.
           </p>
         </div>
       </div>
@@ -99,23 +99,23 @@ export default function Nosotros(){
         
         <div className={styles.imgDesktop2}></div>
         <div className={styles.bajada} >
-          <h3 className={styles.title}>{'Vision, mision y values.'.toUpperCase()}</h3>
-          <h5 className={styles.subTitleCard}>Our vision</h5>
+          <h3 className={styles.title}>VISIÓN, MISÍON Y VALORES</h3>
+          <h5 className={styles.subTitleCard}>Nuestra visión</h5>
           <p className={styles.parrafoCard}>
-          Be leaders and trends producers developing  kitchen and home products.
+          Ser líderes y generadores de tendencia en el desarrollo de productos para la cocina y el hogar.
           </p>
-          <h5 className={styles.subTitleCard}>Our mision</h5>
+          <h5 className={styles.subTitleCard}>Nuestra misión</h5>
           <p className={styles.parrafoCard}>
-          Innovate with uses, shapes and colors to make the kitchen and home evolve as a creative space of continuos pleasure.
+          Innovar con usos, formas y colores para que la cocina y el hogar evolucionen como espacios creativos y de disfrute permanente.
           </p>
-          <h5 className={styles.subTitleCard}>Our values</h5>
+          <h5 className={styles.subTitleCard}>Nuestros valores</h5>
           <p className={styles.parrafoCard}>
           <ul>
-            <li className={styles.liCard}>We use passion to add value to what we do.</li>
-            <li className={styles.liCard}>Creativity in the development of our ideas and precesses.</li>
-            <li className={styles.liCard}>Trust in our teams, customers, suppliers and shareholders.</li>
-            <li className={styles.liCard}>Efficiency in the management of our resources to achieve our objectives and results.</li>
-            <li className={styles.liCard}>Integrity and Credibility in pur actions and decisions.</li>
+            <li className={styles.liCard}>Pasión para agregar valor a lo que hacemos.</li>
+            <li className={styles.liCard}>Creatividad en el desarrollo de nuestras ideas y procesos.</li>
+            <li className={styles.liCard}>Confianza en nuestros equipos de trabajo, clientes, proveedores y accionistas.</li>
+            <li className={styles.liCard}>Efectividad en la administración de nuestros recursos para el cumplimiento de objetivos y resultados.</li>
+            <li className={styles.liCard}>Integridad y credibilidad en nuestras acciones y decisiones.</li>
           </ul>
           </p>
         </div>
@@ -130,31 +130,21 @@ export default function Nosotros(){
         <div className={styles.imgDesktop3}>
           </div>
         <div className={styles.bajada}  >
-          <h3 className={styles.title}>{'Hudson Brand'.toUpperCase()}</h3>
+          <h3 className={styles.title}>LA MARCA HUDSON</h3>
           <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo2}>
-          Our Brand inspires strenght and confidence. When tou pick up a Hudson producto, yo have the feeling of being in contact with a durable item.
-          <br></br><br></br>
-          We work to achieve unique products with the right balance betweem innovation and functionality.
-          <br></br><br></br>
-          We admire chefs who dare to reinvent each dish and explore new flavors for their affections.<br></br>
-          We want the kitchen to become a space of encounter and creativity.<br></br>
-          We seek to revolutionize gastronomy, and we invete you to join us.<br></br>
-          Beacause the table is set. <br></br>
-          And because the next dish is always the best.<br></br>
+          En Hudson creemos que cocinar es un acto creativo. Una mezcla especial de amor e imaginación en la que cada cocinero pone el sabor para sus afectos. Admiramos a quienes reinventan cada plato y se siente artistas del sabor. Nuestra marca inspira robustez y confianza, cuando uno toma un producto Hudson adquiere la sensación de contacto con un artículo durable. Trabajamos para lograr productos únicos con el balance justo de innovación y funcionalidad.<br></br><br></br>
+          Ansiamos que la cocina se transforme en un espacio de encuentro y creatividad, como un estallido de colores, formas y sabores.<br></br><br></br>
+          Buscamos revolucionar la gastronomía, y te invitamos a sumarte. Porque la mesa está servida. Y porque el próximo plato siempre es el mejor.
           </p>
         </div>
         <div className={styles.bajada} >
-          <h3 className={styles.title}>{'Our Sourcing'.toUpperCase()}</h3>
+          <h3 className={styles.title}>NUESTRO ABASTECIMIENTO</h3>
           <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo}>
-          For more tan ten years, we have mainteined comercial relationships with factories in Asia, Europe, Mexico and Argentina, wich allows us to ensure the maintence of quality and the fulfillment of deliveries.
-          <br></br><br></br>
-          Our offer is composed of kitchenware ítems, produced in different materials such as aluminum, stainless Steel, oven glass.
-          <br></br><br></br>
-          Portuguese table ware is parto f our protfolio, together with a wide range of kitchen utensils and plastic ítems, among others.
-          <br></br><br></br>
-          Our strategy is to sell attractive products made with the latest technologies ensuring good quality at a competitive price.
+          Desde hace más de 10 años mantenemos relaciones comerciales con fábricas en Asia, Europa, México y Argentina lo que permite asegurar el sostenimiento de la calidad y el cumplimiento de las entregas.<br></br><br></br>
+          Nuestra oferta se constituye de artículos de cocción producidos en diferentes materiales como aluminio, acero inoxidable, vidrio para horno. Son parte de nuestro portfolio la vajilla de origen Portugal junto con una gama extensa de utensilios de cocina y artículos plásticos, entre otros.<br></br><br></br>
+          Nuestra estrategia principal es comercializar productos atractivos, elaborados con las últimas tecnologías asegurando buena calidad a precios convenientes.
           </p>
         </div>
       </div>

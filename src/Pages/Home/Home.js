@@ -42,35 +42,31 @@ import VideoMobile from '../../components/Video/VideoMobile/VideoMobile';
 import VideoDesktop from '../../components/Video/VideoDesktop/VideoDesktop';
 import instagramLogo from '../../imagenes/iconos/instagramGris.png'
 import headerGrande from '../../imagenes/foto header grande.jpg'
+import CarrusellArrowRight from '../../components/CarrusellArrow/Rigth/CarrusellArrowRight';
+import CarrusellArrowLeft from '../../components/CarrusellArrow/Left/CarrusellArrowLeft';
+import CarrusellHeaderDesktrop from './CarrusellHeaderDesktop/CarrusellHeaderDesktrop';
 export default function Home(){
   document.title='Hudson | Home'
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
   const [destacadaCatalogo, setDestacadaCatalogo] = useState()
   const [destacadaProducto, setDestacadaProducto] = useState()
   const [destacadaReceta, setDestacadaReceta] = useState()
   const [destacadaConsejo, setDestacadaConsejo] = useState()
-  const responsive={
-    0:{
-      items:1
-    },
-    800:{
-      items:3
-    }
-  }
+
   const HeaderBanner = useSelector(state=>state.HeaderBanner)
   const state = useSelector(state=>state)
   const social = useSelector(state=>state?.social)
   useEffect(()=>{
 
     if (state?.CategoriasHome) {
-      let items = state.CategoriasHome.map((elem,index)=>{
-        return<Circulo key ={index} srcImg={elem.image} label={elem.title}/>
+      let itemsLocales = state.CategoriasHome.map((elem,index)=>{
+        return<Circulo ruta={elem.link} key ={index} srcImg={elem.image} label={elem.title}/>
       })
-      setItems(items)
+      if (items.length <=0) {
+        setItems(itemsLocales)
+      }
     }
   },[state])
   useEffect(()=>{
@@ -107,28 +103,23 @@ export default function Home(){
       let cardConsejo = <Card ruta={`../Consejo/${ultimoConsejo?.title}`} left tittle='TRUCOS Y CONSEJOS' subTittle={`${ultimoConsejo?.title}`} textRuta='LEER ARTICULO' img={ultimoConsejo?.headerIMG} />
       setDestacadaConsejo(cardConsejo)
     }
+    
   },[state])
 
 
-  const [items,setItems] = useState();
-
-  const items2 =[
-    <CatalogCard tittle='VINTAGE' subTittle='Lucí tu cocina con colores y un estilo único.' textRuta='VER CATÁLOGO' img={lineaVintage}/>,
-    <CatalogCard tittle='CARBON STEEL' subTittle='Productos profesionales para usar en el hogar.' textRuta='VER CATÁLOGO' img={carbonSteel}/>,
-    <CatalogCard tittle='VINTAGE' subTittle='Lucí tu cocina con colores y un estilo único.' textRuta='VER CATÁLOGO' img={lineaCobre}/>,
-  ]
-  const itemsxD = state?.Catalogo?.map((elem,index)=>{
-      return<CatalogCard key={index} tittle={elem.title} subTittle={elem.footer} textRuta='VER CATÁLOGO' img={elem.carrousellHomeIMG}/>
-  })
-  const items3=[
-    <CardUltimas image={image1}/>,
-    <CardUltimas image={image2}/>,
-    <CardUltimas image={image3}/>,
-    <CardUltimas image={image4}/>,
-    <CardUltimas image={image1}/>,
-    <CardUltimas image={image6}/>,
-  ]
+  const [items,setItems] = useState([]);
+  const [itemsxD, setItemsxD] = useState([])
   const [itemsIG,setItemsIG] = useState([])
+  useEffect(()=>{
+    if (state?.Catalogo) {
+      let itemsCarrusellDebajo =state?.Catalogo?.map((elem,index)=>{
+        return<CatalogCard key={index} tittle={elem.title} subTittle={elem.footer} textRuta='VER CATÁLOGO' img={elem.carrousellHomeIMG}/>
+      })
+      if (itemsxD.length <= 0) {
+        setItemsxD(itemsCarrusellDebajo)
+      }
+    }
+  }, [state])
   function mapearIG() {
     if(state.social.instagram==='Aun no se cargó ningun perfil'){
       return state.social.instagram
@@ -146,9 +137,7 @@ export default function Home(){
       setItemsIG(mapearIG())
     }
   },[state.social])
-useEffect(()=>{
-  // console.log(destacadaReceta);
-},[destacadaReceta])
+
   const itemsHeader= HeaderBanner?.map((elem,index)=>{
     
     let CTA = JSON.parse(elem?.CTA);
@@ -168,37 +157,18 @@ useEffect(()=>{
     )
   })
   let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
+
+  function flechaDerecha() {
+    return CarrusellArrowRight(568)
+  }
+  function flechaIzquierda() {
+    return CarrusellArrowLeft(568)
+  }
   return(
     
     <div className={styles.Home}>
 
-      <div className={styles.headerCarusellMobile}>
-        <AliceCarousel
-        touchTracking
-        mouseTracking
-        items={itemsHeader}
-        autoWidth
-        renderDotsItem={DotButton}
-        disableButtonsControls
-        disableDotsControls
-        autoPlay
-        autoPlayInterval={tiempoCarrusell}
-        infinite
-        />
-      </div>
-      <div className={styles.headerCarusellDesktop}>
-        <AliceCarousel
-        touchTracking
-        mouseTracking
-        items={itemsHeader}
-        autoWidth
-        renderDotsItem={DotButton}
-        disableButtonsControls
-        autoPlay
-        autoPlayInterval={tiempoCarrusell}
-        infinite
-        />
-      </div>
+      <CarrusellHeaderDesktrop items={itemsHeader}/>
 
       <div className={styles.productosDesktop}>
         {items}

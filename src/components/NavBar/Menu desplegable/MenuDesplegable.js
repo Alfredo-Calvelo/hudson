@@ -17,8 +17,8 @@ export default function MenuDesplegable(){
   const dispatch = useDispatch()
   let active=useSelector(state=>state.opciones)
   const navigate = useNavigate()
-  const Productos = useSelector(state=>state.Producto)
-  const [prodFinales, setProductosFinales] = useState()
+  const CategoriasHome = useSelector(state=>state.CategoriasHome)
+  const [categoriasFinales, setCategoriasFinales]= useState([])
 
   function navegar(ruta){
     navigate(ruta)
@@ -26,23 +26,14 @@ export default function MenuDesplegable(){
     window.scrollTo(0,0)
   }
   useEffect(()=>{
-    if (Productos && Productos.length > 0) {
-      let prodOrdenados = Productos.sort(function(a,b){
-        if (a.ID > b.ID) {
-          return 1
-        }
-        if(a.ID < b.ID){
-          return -1
-        }
+    if (CategoriasHome){
+      let categoriasFinales =[]
+      CategoriasHome.map((elem)=>{
+        categoriasFinales.push({title:elem.title.toUpperCase(),ruta:elem.link, nueva:true, tipo:'producto'})
       })
-      // console.log(prodOrdenados);
-      let prodFinales =[]
-      prodOrdenados.map((elem)=>{
-        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.link, nueva:true, tipo:'producto'})
-      })
-      setProductosFinales(prodFinales)
+      setCategoriasFinales(categoriasFinales)
     }
-  },[Productos])
+  },[CategoriasHome])
 
   return(
     <div className={active?styles.containerActivo:styles.containerInActivo}>
@@ -54,9 +45,9 @@ export default function MenuDesplegable(){
       </div>
       <h5 className={styles.subBloque} onClick={()=>{dispatch(cambiarMenuCatalogo(true))}} >CATÁLOGO <BsChevronRight/> </h5>
       {
-        prodFinales?.map((elem,index)=>{
+        categoriasFinales?.map((elem,index)=>{
           return(
-            <a className={styles.subBloque} target='_blank' href={elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` }>{elem.title} <BsChevronRight/></a>
+            <a key={index} className={styles.subBloque} target='_blank' href={elem.ruta==='undefined'?null:elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` }>{elem.title} <BsChevronRight/></a>
           )
         })
       }

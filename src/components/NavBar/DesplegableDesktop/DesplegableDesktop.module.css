@@ -9,7 +9,7 @@
 }
 .container{
     display: flex;
-    height: 300px;
+    height: 320px;
 }
 .links{
     padding: 20px 0 20px 50px;
@@ -47,6 +47,11 @@
 }
 .link{
     white-space: nowrap;
+}
+.linkContainer{
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
 .masterChef{
     color: var(--naranjaMasterChef);

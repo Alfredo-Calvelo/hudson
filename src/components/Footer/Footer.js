@@ -14,25 +14,17 @@ export default function Footer(props){
   const Catalogos = useSelector(state=>state.Catalogo)
   const navigate = useNavigate()
   const instagramUser = useSelector(state=>state?.social?.instagramUser)
-  const Productos = useSelector(state=>state.Producto)
-  const [prodFinales, setProductosFinales] = useState()
+  const CategoriasHome = useSelector(state=>state.CategoriasHome)
+  const [categoriasFinales, setCategoriasFinales]= useState([])
   useEffect(()=>{
-    if (Productos && Productos.length > 0) {
-      let prodOrdenados = Productos.sort(function(a,b){
-        if (a.ID > b.ID) {
-          return 1
-        }
-        if(a.ID < b.ID){
-          return -1
-        }
+    if (CategoriasHome){
+      let categoriasFinales =[]
+      CategoriasHome.map((elem)=>{
+        categoriasFinales.push({title:elem.title,ruta:elem.link, nueva:true, tipo:'producto'})
       })
-      let prodFinales =[]
-      prodOrdenados.map((elem)=>{
-        prodFinales.push({title:elem.nombre,ruta:elem.link, nueva:true, tipo:'producto'})
-      })
-      setProductosFinales(prodFinales)
+      setCategoriasFinales(categoriasFinales)
     }
-  },[Productos])
+  },[CategoriasHome])
 
   return(
     <div className={styles.container}>
@@ -70,9 +62,9 @@ export default function Footer(props){
           <div className={styles.left}>
             <h3 className={styles.bottomTitle}>Productos</h3>
             {
-              prodFinales?.map((elem,index)=>{
+              categoriasFinales?.map((elem,index)=>{
                 return(
-                    <a target='_blank' href={elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` } className={styles.links}>{elem.title}</a>
+                    <a key={index} target='_blank' href={elem.ruta==="undefined"?null:elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` } className={styles.links}>{elem.title}</a>
                 )
               })
             }

@@ -29,7 +29,6 @@ function App(props) {
   let opciones= useSelector(state=>state.opciones)
   
   useEffect(()=>{
-
     dispatch(alturaPantalla(window.scrollY))
     if (window.scrollY >=25) {
       dispatch(cambiarNavBar(false))

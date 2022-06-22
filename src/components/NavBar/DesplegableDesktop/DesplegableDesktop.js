@@ -25,14 +25,6 @@ export default function DesplegableDesktop (props){
         dispatch(menuActivoMenu(false))
     }
     const [rutaMasterChef, setRutaMasterChef] =useState()
-    useEffect(()=>{
-        props.links?.map((elem, index)=>{
-            if(elem?.title?.toLowerCase().includes('masterchef')){
-                if (elem && elem.ruta) {
-                }
-            }
-        })
-    })
     return(
         <div className={styles.desplegable} style={estilo} onMouseEnter={()=>desplegar()} onMouseLeave={()=>retraer()} >
             <div className={styles.container} ref={referencia}>
@@ -46,22 +38,21 @@ export default function DesplegableDesktop (props){
                     </span>
                     <div className={styles.rutas}>
                         {props.links?.map((elem, index)=>{
-                            if (elem?.title?.toLowerCase().includes('masterchef')) {
-                                return(
-                                    <Link 
-                                    key={index} 
-                                    to={elem.ruta} 
-                                    className={`${styles.link} ${styles.masterChef}`}
-                                    >
-                                        <img className={styles.masterChefImg} src={masterchef}/> 
-                                        {elem.title}
-                                    </Link>
-                                )
-                            }
+                            
                             if (elem.tipo && elem.tipo==='producto') {
-                                return<a key={index} style={{textDecoration:'none'}} target='_blank' className={styles.link} href={elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` }>{elem.title}</a>
+                                return<a key={index} style={{textDecoration:'none'}} target='_blank' className={styles.link} href={elem.link==='undefined'?null:elem.link.includes('https') || elem.link.includes('http')?elem.link:`https://${elem.link}` }>{elem.title}</a>
                             }else{
-                                return <Link key={index} to={elem.ruta} className={styles.link}>{elem?.title}</Link>
+                                console.log(elem);
+                                return(
+                                <Link key={index} to={elem.ruta} className={styles.link}>
+                                    <div className={styles.linkContainer}>
+                                    {elem.icono && elem.iconoId?
+                                    <img className={styles.masterChefImg} src={elem.icono}/> 
+                                    :null}
+                                    <span style={{color:elem.color==='Negro'?'':elem.color}} className={styles.link}>{elem.title.toUpperCase()}</span>
+                                    </div>
+                                </Link>
+                                )
                             }
                         })}
                     </div>
@@ -69,20 +60,18 @@ export default function DesplegableDesktop (props){
                     {props.segundaColumna && props.segundaColumna.length>0?
                     <div className={styles.segundaColumna}>
                             {props.segundaColumna?.map((elem, index)=>{
-                            if (elem?.title?.toLowerCase().includes('masterchef')) {
-                                return(
-                                    <Link 
-                                    key={index} 
-                                    to={elem.ruta} 
-                                    className={`${styles.link} ${styles.masterChef}`}
-                                    >
-                                        <img className={styles.masterChefImg} src={masterchef}/> 
-                                        {elem.title}
-                                    </Link>
+                            let ruta = `../Catalogo/${elem.title}`
+                            console.log(elem);
+                            return (
+                                <Link key={index} to={ruta} className={styles.link}>
+                                    <div className={styles.linkContainer}>
+                                        {elem.icono && elem.iconoId?
+                                        <img className={styles.masterChefImg} src={elem.icono}/> 
+                                            :null}
+                                        <span style={{color:elem.color!=='Negro'?elem.color:''}} className={styles.link}>{elem.title.toUpperCase()}</span>
+                                    </div>
+                                </Link>
                                 )
-                            }
-                            let ruta = `../Catalogo/${elem}`
-                            return <Link key={index} to={ruta} className={styles.link}>{elem.toUpperCase()}</Link>
                         })}
                     </div>:null
                     }

@@ -17,7 +17,12 @@ export default function CardCatalogo(props){
 
 
   const [visible, setVisible] = useState(false)
-
+  const [color, setColor] = useState()
+  useEffect(()=>{
+    if (props.color) {
+      setColor(props.color)
+    }
+  },[props.color])
   useEffect(()=>{
     setVisible(true)
   })
@@ -38,7 +43,9 @@ export default function CardCatalogo(props){
     styles.VisibleRight:
     styles.InvisibleRight
   }`
-
+  useEffect(()=>{
+    console.log(color);
+  },[color])
   return (
     <div id={props.clave} ref={bloque} className={props.clave===0?clase2:clase}
     style={{
@@ -61,8 +68,8 @@ export default function CardCatalogo(props){
         </div>
       </div>
       <div className={styles.description}>
-        <h2 className={props.masterChef?styles.titleMasterChef:styles.title}>{props.elem.title.toUpperCase()}</h2>
-          <h3 className={styles.subtitle}>{props.elem.footer}</h3>
+        <h2 style={{color:`${color}`}} className={styles.title}>{props.elem.title.toUpperCase()}</h2>
+        <h3  className={styles.subtitle}>{props.elem.footer}</h3>
         <ul className={styles.lista}>
           {Object.keys(props.elem.description[0]).map((elem,index)=>{
             return<li key={index}>{props.elem.description[0][elem]}</li>

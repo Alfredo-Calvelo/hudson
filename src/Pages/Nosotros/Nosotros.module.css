@@ -95,6 +95,10 @@
 }
 
 @media (min-width:800px) {
+  .parrafoCard{
+    margin: 0px 0 0px 30px;
+    width: 100%;
+  }
   .headerTitle{
     font-size: 34px;
     margin: 20px 0 25px 0;

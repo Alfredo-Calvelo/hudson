@@ -17,18 +17,18 @@ export default function RecetaCard(props){
   const navigate = useNavigate()
   function navegar(tipo) {
     if (tipo === 'usosYCuidados') {
-      navigate(`../Uso_Y_Cuidados/${props.title}`)
+      navigate(`../Uso_Y_Cuidados/${props.title.replace('?','').replace('¿','')}`)
     }
-    else if (tipo==='Receta') {
-      navigate(`../Receta/${props.title}`)
+    else if (tipo.includes('Receta')) {
+      navigate(`../Receta/${props.title.replace('?','').replace('¿','')}`)
     }
     else if (tipo==='Consejo') {
-      navigate(`../Consejo/${props.title}`)
+      navigate(`../Consejo/${props.title.replace('?','').replace('¿','')}`)
     }
   }
 
   return(
-    <div style={{cursor:'pointer'}} onClick={e=>navegar(props.tipo)}>
+      <div style={{cursor:'pointer'}} onClick={e=>navegar(props.tipo)}>
 
       <div ref={receta} className={`${styles.containerMobile} 
       ${

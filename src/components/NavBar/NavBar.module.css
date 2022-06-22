@@ -98,11 +98,12 @@
   .container, .containerInactivo{
     height: 80px;
   }
+
   .NavBar{
     margin: var(--marginDesktop);
   }
   .logo,.logoActivo{
-    width: 90px;
+    width: 140px;
   }
   .menu,.menuActivo{
     display: none; 

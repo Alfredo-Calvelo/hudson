@@ -69,34 +69,35 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoAluminio,
-      title:'Aluminum Products with Non-Stick',
-      subTitle:'Avoid the use of maximum fires. Use your product centered on the burner. The flame must not exceed the base of the piece to avoid burns and/or discoloration on the coating or on the handles.',
+      title:'Piezas de Aluminio',
+      subTitle:'Con Antiadherente',
       recomendacionesGenerales:[
-        'Do not leave empty utensils on a heat source (unless you need to heat it for a few seconds before adding the oil).',
-        'Never use this type of piece in kitchen ovens, microwaves, direct coals.',
-        'Do not use it as a food container.',
-        'Avoid the use of salt cooking techniques as they discolor and wear down the surface.',
-        'For pieces with non-stick coating, avoid the use of metallic and/or sharp utensils, as they can damage the coating. We recommend the use of the Hudson Steel and Nylon Utensils Set of 6.'
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+        'No dejes los utensilios vacíos sobre una fuente de calor (a menos que requieras calentarlo durante unos pocos segundos antes de incorporar el aceite).',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que decoloran y desgastan la superficie.',
+        'Para piezas con recubrimiento antiadherente, evitar el uso de utensilios metálicos y/o cortantes, ya que pueden dañar el recubrimiento. Aconsejamos el uso del Set 6 Utensilios Nylon Y Acero Hudson'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the shelf life of your products',
+          title:'Cuidado en el lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'Before its first use, wash with plenty of hot water and neutral detergent if possible, then dry with a dry cloth.',
-            'After using the piece, leave it to cool on the stove for a few minutes and then proceed to wash it. Sudden temperature changes are not recommended.',
-            'If food remains adhere during cooking, add a small amount of water when the piece is cold. Moisture will cause the remains to detach. It is recommended to support the piece on a grid cloth at the time of washing, to avoid scratches.',
-            'Always wash your pots and pans with soft sponges and detergents and dry them with a soft cloth. Avoid the use of abrasive or metal sponges as this will affect the non-stick coating and the external coating of your piece.',
-            'Do not leave food in pots and pans for a long time, because the salt they contain can leave stains.'
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Siempre lava tus ollas y sartenes con esponjas suaves y detergentes y sécalas con un repasador suave. Evitar el uso de esponjas abrasivas o de metal ya que esto afectará al antiadherente y al recubrimiento externo de tu pieza.',
+            'No dejes alimentos en las sartenes y ollas durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.'
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep yout products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place (well dry, uncovered or partially covered) to preserve the enamel coating on the handles and knobs, avoid scratches and bumps.',
-            'When storing pieces with non-stick coating on the inside, do not turn the lids inside of them as the knobs can scratch the inside. To store the stacked pieces, place a cloth or towel between one and the other.',
-            'Warning: do not keep the pieces in their original boxes for a long period of time. The cardboard can moisten the piece.'
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes. ',
+            'Al guardar piezas revestidas interiormente con antiadherente, no dar vuelta las tapas dentro de las mismas ya que las perillas pueden rayar su interior. Para guardar las piezas apiladas, colocar entre una y otra un paño o repasador.',
+            'Advertencia: no guardar las piezas en sus cajas originales por un largo período de tiempo. El cartón puede humedecer la pieza.'
           ]
         }
       ]
@@ -106,35 +107,35 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoCarbono,
-      title:'Carbon Steel Products',
-      subtitle:'With Non-Stick',
+      title:'Piezas de acero al carbono',
+      subtitle:'Con Antiadherente',
       recomendacionesGenerales:[
-        'Avoid the use of maximum fires. Use your product centered on the burner. The flame must not exceed the base of the piece to avoid burns and/or discoloration on the coating or on the handles.',
-        'Do not leave empty utensils on a heat source (unless you need to heat it for a few seconds before adding the oil).',
-        'Never use this type of piece in kitchen ovens, microwaves, direct coals.',
-        'Do not use it as a food container.',
-        'Avoid the use of salt cooking techniques as they discolor and wear down the surface.',
-        'For pieces with non-stick coating, avoid the use of metallic and/or sharp utensils, as they can damage the coating. We recommend the use of the Hudson Steel and Nylon Utensils Set of 6 pieces.'
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+        'No dejes los utensilios vacíos sobre una fuente de calor (a menos que requieras calentarlo durante unos pocos segundos antes de incorporar el aceite).',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que decoloran y desgastan la superficie.',
+        'Para piezas con recubrimiento antiadherente, evitar el uso de utensilios metálicos y/o cortantes, ya que pueden dañar el recubrimiento. Aconsejamos el uso del Set 6 Utensilios Nylon Y Acero Hudson'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the shelf life of your products',
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'Before its first use, wash with plenty of hot water and neutral detergent if possible, then dry with a dry cloth.',
-            'After using the piece, leave it to cool on the stove for a few minutes and then proceed to wash it. Sudden temperature changes are not recommended.',
-            'If food remains adhere during cooking, add a small amount of water when the piece is cold. Moisture will cause the remains to detach. It is recommended to support the piece on a grid cloth at the time of washing, to avoid scratches.',
-            'Always wash your pots and pans with soft sponges and detergents and dry them with a soft cloth. Avoid the use of abrasive or metal sponges as this will affect the non-stick coating and the external coating of your piece.',
-            'Do not leave food in pots and pans for a long time, because the salt they contain can leave stains.'
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Siempre lava tus ollas y sartenes con esponjas suaves y detergentes y sécalas con un repasador suave. Evitar el uso de esponjas abrasivas o de metal ya que esto afectará al antiadherente y al recubrimiento externo de tu pieza.',
+            'No dejes alimentos en las sartenes y ollas durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.'
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep your products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place (well dry, uncovered or partially covered) to preserve the enamel coating on the handles and knobs, avoid scratches and bumps.',
-            'When storing pieces with non-stick coating on the inside, do not turn the lids inside of them as the knobs can scratch the inside. To store the stacked pieces, place a cloth or towel between one and the other.',
-            'Warning: do not keep the pieces in their original boxes for a long period of time. The cardboard can moisten the piece.'
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes.',
+            'Al guardar piezas revestidas interiormente con antiadherente, no dar vuelta las tapas dentro de las mismas ya que las perillas pueden rayar su interior. Para guardar las piezas apiladas, colocar entre una y otra un paño o repasador. ',
+            'Advertencia: no guardar las piezas en sus cajas originales por un largo período de tiempo. El cartón puede humedecer la pieza.'
           ]
         }
       ]
@@ -144,27 +145,27 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoPavas,
-      title:'Kettles and Coffee Pots',
+      title:'Pavas y Cafeteras',
       subtitle:'',
       recomendacionesGenerales:[
-        'Avoid the use of maximum fires. Use your product centered on the burner. The flame must not exceed the base of the piece to avoid burns and/or discoloration on the Cuidado en el Lavadocoating or on the handles.',
-        'Never use this type of piece in kitchen ovens, microwaves, direct coals.',
-        'Do not use it as a food container.'
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the shelf life of your products',
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'To wash your kettle or coffee pot and make it last much longer, do it with a soft sponge so as not to damage the color.',
-            'If you have tartar inside, you can remove it by boiling a little water with vinegar for at least 5 minutes.',
+            'Para lavar tu pava o cafetera y que dure mucho más tiempo hacerlo con una esponja suave para no dañar el color.',
+            'Si por dentro tiene sarro, podes sacárselo hirviendo un poco de agua con vinagre por al menos 5 minutos.',
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep your products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place to preserve the enamel coating on the handles and knobs, avoid friction and knocks.'
+            'Guardá las piezas en un lugar seco para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes.'
           ]
         }
       ]
@@ -174,27 +175,27 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoNilon,
-      title:'Nylon and Silicone Utensils',
+      title:'Utensilios de Nylon y Silicona',
       subtitle:'',
       recomendacionesGenerales:[
-        'Avoid using direct fire on nylon or silicone.',
-        'Never use this type of piece in kitchen ovens, microwaves, direct coals.',
-        'Use your non-stick products with nylon or silicone utensils to avoid scratching the surface and to last much longer: In addition, it is a very stable material that resists high temperatures.'
+        'Evitar el uso de fuegos directo sobre el nylon o silicona.',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'Usa tus productos con antiadherente con utensilios de nylon o silicona para no rayar la superficie y que te duren mucho más tiempo: Además, es un material muy estable que resiste altas temperaturas.'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the shelf life of your products',
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'Silicone and Nylon utensils, although they are easy to clean. You have to take into account: Soft sponges should be used; they should be washed with hot water and should not be soaked for a long time with cleaning products because they could absorb their aromas.',
-            'If you wash it in the dishwasher, you must take into account that it should not be put in with food remains and that non-abrasive detergents should be used.i lo lavas en lavavajillas se debe tener en cuenta que no se deben meter con restos de comida y se deben usar detergentes que no sean abrasivos',
+            'Los utensilios de Silicona y Nylon si bien son fáciles de limpiar Tenes que tener en cuenta: Se deben usar esponjas suaves; se deben lavar con agua caliente y no se deben dejar mucho tiempo en remojo con productos de limpieza porque podrían absorber los aromas de los mismos.',
+            'Si lo lavas en lavavajillas se debe tener en cuenta que no se deben meter con restos de comida y se deben usar detergentes que no sean abrasivos',
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep your products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place'
+            'Guardá las piezas en un lugar seco. '
           ]
         }
       ]
@@ -204,27 +205,27 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoInoxUtensilios,
-      title:'Stainless Steel Utensils',
+      title:'Utensilios de Acero Inoxidable',
       subtitle:'',
       recomendacionesGenerales:[
-        'Avoid using direct fire on these utensils.',
-        'Never use this type of piece in kitchen ovens, microwaves, direct coals.',
-        'Use your stainless steel products with this type of cookware. Avoid using it on non-stick products.'
+        'Evitar el uso de fuegos directo sobre estos utensilios',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'Usa tus productos de acero inoxidable con este tipo de utensilios. Evitar utilizarlo sobre productos con antiadherente.'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the life of your products',
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'Cleaning stainless steel utensils requires only water, detergent and a cloth.',
-            'If you wash it in the dishwasher, you must take into account that it should not be put in with food remains and that non-abrasive detergents should be used.',
+            'Para limpiar los utensilios de acero inoxidable solo se necesita agua, detergente y un paño.',
+            'Si lo lavas en lavavajillas se debe tener en cuenta que no se deben meter con restos de comida y se deben usar detergentes que no sean abrasivos',
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep your products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place.',
+            'Guardá las piezas en un lugar seco. ',
           ]
         }
       ]
@@ -234,27 +235,27 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoVidrio,
-      title:'Oven Glass',
+      title:'Piezas de vidrio para horno',
       subtitle:'',
       recomendacionesGenerales:[
-        'Avoid the use of direct fire on this type of product.',
-        'These pieces are suitable for gas and electric ovens and microwaves.',
-        'These pieces are also suitable for refrigerators and freezers.'
+        'Evitar el uso de fuegos directo sobre este tipo de productos. ',
+        'Estas piezas son aptas hornos a gas y eléctricos y microondas.',
+        'Estas piezas también son aptas heladera y freezer.'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the life of your products',
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'Our oven glass products require only water, detergent and a cloth.',
-            'If you wash it in the dishwasher, keep in mind that it should not be put in with food remains and that you should use non-abrasive detergents.',
+            'Para nuestros productos de vidrio para horno solo se necesita agua, detergente y un paño.',
+            'Si lo lavas en lavavajillas se debe tener en cuenta que no se deben meter con restos de comida y se deben usar detergentes que no sean abrasivos.',
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep your products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place.',
+            'Guardá las piezas en un lugar seco. ',
           ]
         }
       ]
@@ -264,34 +265,34 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoInox,
-      title:'Stainless steel products',
+      title:'Piezas de Acero Inoxidable',
       subtitle:'',
       recomendacionesGenerales:[
-        'Avoid the use of maximum fires. Use your product centered on the burner. The flame must not exceed the base of the piece to avoid burns and/or discoloration on the outside or on the handles.',
-        'Do not leave empty utensils on a heat source (unless you need to heat it for a few seconds before adding the oil).',
-        'Never use this type of piece in kitchen ovens, microwaves, direct coals.',
-        'Do not use it as a food container.',
-        'Avoid the use of salt cooking techniques as they can cause stains and wear out the surface.',
-        'For pieces that are type of pieces without non-stick coating, you can use Stainless Steel utensils, however, we recommend the use of sharp products, as they can damage the coating.'
+        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en el exterior o en los mangos.',
+        'No dejes los utensilios vacíos sobre una fuente de calor (a menos que requieras calentarlo durante unos pocos segundos antes de incorporar el aceite).',
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que pueden generar manchas y desgastar la superficie.',
+        'Para piezas es tipo de piezas sin recubrimiento antiadherente, puede utilizar utensilios de Acero Inoxidable, de todas formas, recomendamos el uso de productos cortantes., ya que pueden dañar el recubrimiento.'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the life of your products',
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'Before its first use, wash with plenty of hot water and neutral detergent if possible, then dry with a dry cloth.',
-            'After using the piece, leave it to cool on the stove for a few minutes and then proceed to wash it. Sudden temperature changes are not recommended.',
-            'If food remains adhere during cooking, add a small amount of water when the piece is cold. Moisture will cause the remains to detach. It is recommended to support the piece on a grid cloth at the time of washing, to avoid scratches.',
-            'Wash them with neutral soap and lukewarm water and always use a soft cloth so as not to scratch them and prevent stains from forming.',
-            'Do not leave food in pots and pans for a long time, because the salt they contain can leave stains.'
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Lávalas con jabón neutro y agua tibia y siempre usa un paño suave para no rallarlas y evitar que se formen manchas.',
+            'No dejes alimentos en las sartenes y ollas durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.'
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep your products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place (well dry, uncovered or partially covered) to preserve the enamel coating on the handles and knobs, avoid scratches and bumps.',
-            'Warning: do not keep the pieces in their original boxes for a long period of time. The cardboard can moisten the piece.',
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes. ',
+            'Advertencia: no guardar las piezas en sus cajas originales por un largo período de tiempo. El cartón puede humedecer la pieza.',
           ]
         }
       ]
@@ -301,33 +302,33 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoMolderia,
-      title:'Bakeware ',
-      subtitle:'With Non-Stick',
+      title:'Piezas de Moldería',
+      subtitle:'Con Antiadherente',
       recomendacionesGenerales:[
-        'Avoid using on burners, hot coals and microwaves.',
-        'All our pieces are suitable for gas and electric ovens.',
-        'Do not use it as a food container.',
-        'Avoid the use of salt cooking techniques as they can cause stains and wear out the surface.',
-        'For pieces with non-stick coating, avoid the use of metallic and/or sharp utensils, as they can damage the coating. We recommend the use of the Hudson Steel and Nylon Utensils Set of 6 pieces'
+        'Evitar el uso sobre hornallas, brasas directas y microondas.',
+        'Todas nuestras piezas son aptas hornos a gas y eléctricos.',
+        'No usarlo como contenedor de alimentos.',
+        'Evitar el uso de técnicas de cocción a la sal ya que pueden generar manchas y desgastar la superficie.',
+        'Para piezas con recubrimiento antiadherente, evitar el uso de utensilios metálicos y/o cortantes, ya que pueden dañar el recubrimiento. Aconsejamos el uso del Set 6 Utensilios Nylon Y Acero Hudson'
       ],
       extras:[
         {
-          title:'Wash Care',
-          subTitle:'Extend the life of your products',
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
           items:[
-            'Before its first use, wash with plenty of hot water and neutral detergent if possible, then dry with a dry cloth.',
-            'After using the piece, leave it to cool on the stove for a few minutes and then proceed to wash it. Sudden temperature changes are not recommended.',
-            'If food remains adhere during cooking, add a small amount of water when the piece is cold. Moisture will cause the remains to detach. It is recommended to support the piece on a grid cloth at the time of washing, to avoid scratches.',
-            'Always wash your pieces with soft sponges and detergents and dry them with a soft cloth. Avoid the use of abrasive or metal sponges as this will affect the non-stick coating and the external coating of your piece.',
-            'Do not leave food in the molds for a long time, because the salt they contain can leave stains.',
+            'Antes de su primer uso, lavar con abundante agua caliente y detergente neutro en lo ser posible, luego secar con trapo seco.',
+            'Luego de utilizar la pieza, dejar enfriar sobre la cocina por algunos minutos y después proceder a su lavado. Los cambios bruscos de temperatura no son recomendables.',
+            'Si se adhieren restos de comida durante la cocción, agregar una pequeña cantidad de agua cuando la pieza esté fría. La humedad provocará que se despeguen los restos. Se recomienda apoyar la pieza sobre un trapo rejilla en el momento del lavado, para evitar ralladuras.',
+            'Siempre lava tus piezas con esponjas suaves y detergentes y sécalas con un repasador suave. Evitar el uso de esponjas abrasivas o de metal ya que esto afectará al antiadherente y al recubrimiento externo de tu pieza.',
+            'No dejes alimentos en los moldes durante mucho tiempo, porque la sal que los mismos contienen pueden dejar manchas.',
           ]
         },
         {
-          title:'Care in Storage',
-          subTitle:'Keep your products impeccable.',
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
           items:[
-            'Store the pieces in a dry place (well dry, uncovered or partially covered) to preserve the enamel coating on the handles and knobs, avoid scratches and bumps.',
-            'When storing pieces with non-stick coating on the inside, do not turn the lids inside of them as the knobs can scratch the inside. To store the stacked pieces, place a cloth or towel between one and the other.',
+            'Guardá las piezas en un lugar seco (bien secas, destapadas o semi tapadas) para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes.',
+            'Al guardar piezas revestidas interiormente con antiadherente, no dar vuelta las tapas dentro de las mismas ya que las perillas pueden rayar su interior. Para guardar las piezas apiladas, colocar entre una y otra un paño o repasador.',
           ]
         }
       ]

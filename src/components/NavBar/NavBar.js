@@ -25,8 +25,8 @@ export default function NavBar(){
   const [verMas , setVerMas] = useState()
   const [title, setTitle] = useState()
   const [links , setLinks] = useState([])
-  const Productos = useSelector(state=>state.Producto)
-  const [productosFinales, setProductosFinales]= useState([])
+  const CategoriasHome = useSelector(state=>state.CategoriasHome)
+  const [categoriasFinales, setCategoriasFinales]= useState([])
 
   const [catalogosTitles,setCatalogosTitles] = useState()
   const [segundaColumnaTitles, setSegundaColumnaTitles] = useState()
@@ -37,10 +37,10 @@ export default function NavBar(){
       let segundaColumna=[]
       Catalogos.forEach((elem,index)=>{
         if (index<8) {
-          titles = [...titles,elem.title]
+          titles= [...titles,elem]
         }
         else if(index> 7 && index<16){
-          segundaColumna=[...segundaColumna,elem.title]
+          segundaColumna=[...segundaColumna,elem]
         }
       })
       setCatalogosTitles(titles)
@@ -49,27 +49,15 @@ export default function NavBar(){
   },[Catalogos])
 
   useEffect(()=>{
-    if (Productos && Productos.length > 0) {
-      let prodOrdenados = Productos.sort(function(a,b){
-        if (a.ID > b.ID) {
-          return 1
-        }
-        if(a.ID < b.ID){
-          return -1
-        }
+    if (CategoriasHome){
+      let categoriasFinaleslocal =[]
+      CategoriasHome.map((elem)=>{
+        categoriasFinaleslocal.push({title:elem.title.toUpperCase(),link:elem.link, nueva:true, tipo:'producto'})
       })
-      // console.log(prodOrdenados);
-      let prodFinales =[]
-      prodOrdenados.map((elem)=>{
-        prodFinales.push({title:elem.nombre.toUpperCase(),ruta:elem.link, nueva:true, tipo:'producto'})
-      })
-      setProductosFinales(prodFinales)
+      setCategoriasFinales(categoriasFinaleslocal)
     }
-  },[Productos])
+  },[CategoriasHome])
 
-  function navegar(ruta){
-    navigate(ruta)
-  }
   function apagar(){
     dispatch(menuActivoNavBar(false))
 
@@ -80,14 +68,15 @@ export default function NavBar(){
     if (tipo==='productos') {
       setTitle('PRODUCTOS')
       setVerMas('VER TODOS')
-      setLinks(productosFinales)
+      setLinks(categoriasFinales)
     }else
     if (tipo === 'catalogo') {
       setVerMas('')
       setTitle('CATÁLOGO')
       setLinks(
         catalogosTitles?.map((elem)=>{
-          return{title:elem.toUpperCase(), ruta:`../Catalogo/${elem}`}
+          
+          return{title:elem.title.toUpperCase(), ruta:`../Catalogo/${elem.title}`,icono:elem?.icono,iconoId:elem?.iconoId,color:elem.colorMenu}
         })
       )
     }else
@@ -125,13 +114,13 @@ export default function NavBar(){
             <span className={ruta[1]==='Inspirate'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo}>INSPÍRATE</span>
           </Link>
           <Link className={styles.Full} to={'../Uso_Y_Cuidados'}>
-            <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >{'Uses and care'.toUpperCase()}</span>
+            <span className={ruta[1]==='Uso_Y_Cuidados'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >{'Usos y cuidados'.toUpperCase()}</span>
           </Link>
           <Link className={styles.Full} to={'Nosotros'}>
-            <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >ABOUT US</span>
+            <span className={ruta[1]==='Nosotros'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >NOSOTROS</span>
           </Link>
           <Link className={styles.Full} to={'Contacto'}>
-            <span className={ruta[1]==='Contacto'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >CONTACT</span>
+            <span className={ruta[1]==='Contacto'?styles.desktopLinkRojo:navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >CONTACTO</span>
           </Link>
           <a className={styles.Full} target='_blank' href='https://www.hudsoncocina.com.ar/?mshops-cookie-isguest=false&mshops-redirection-timestamp=1654803684039&mshops-cookie-cp=1430' onMouseLeave={()=>apagar()} onMouseEnter={()=>desplegar('tiendaOnline')}>
             <span className={navBarActiva? styles.desktopLink :styles.desktopLinkActivo} >TIENDA ONLINE</span>

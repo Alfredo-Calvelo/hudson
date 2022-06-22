@@ -21,28 +21,28 @@ export default function Catalogo(props){
   let catalogos = useSelector(state=>state.Catalogo)
   const [catalogoSeleccionado, setCatalogoSeleccionado] = useState()
   useEffect(()=>{
-    if (catalogos) {
-      let paramsSinEspacio = params.catalog.split(' ')
-      let paramsFinal = '' 
-      paramsSinEspacio.forEach(elem=>{
-        paramsFinal=paramsFinal + elem
-      })
-      catalogos.map(elem=>{
-        let titleSinEspacions = elem.title.split(' ')
-        let titleFinal = ''
-        titleSinEspacions.forEach(elem=>{
-          titleFinal=titleFinal + elem
+    if (catalogoSeleccionado?._id === undefined || catalogoSeleccionado.title!== params.catalog) {
+      if (catalogos) {
+        let paramsSinEspacio = params.catalog.split(' ')
+        let paramsFinal = '' 
+        paramsSinEspacio.forEach(elem=>{
+          paramsFinal=paramsFinal + elem
         })
-        if (titleFinal === paramsFinal) {
-          setCatalogoSeleccionado(elem)
-        }
-      })
+        catalogos.map(elem=>{
+          let titleSinEspacions = elem.title.split(' ')
+          let titleFinal = ''
+          titleSinEspacions.forEach(elem=>{
+            titleFinal=titleFinal + elem
+          })
+          if (titleFinal === paramsFinal) {
+            setCatalogoSeleccionado(elem)
+          }
+        })
+      }
     }
     window.scrollTo(0,0)
+    console.log(params.catalog);
   },[catalogos,params.catalog])
-  useEffect(()=>{
-
-  },[params])
 
 
   let estilo ={
@@ -71,34 +71,34 @@ export default function Catalogo(props){
         <h1 className={styles.desktopTitle}>{catalogoSeleccionado?.footer.toUpperCase()}</h1>
       </div>
       <div className={styles.titulos}>
-        {masterChef
-        ?
-        <div className={styles.subHeaderMasterCheff} >
-          <img src={logoMasterChef} className={styles.logo}/>
-          <h2 className={styles.title} >{catalogoSeleccionado?.title.toUpperCase()}</h2>
+        <div className={styles.tituloYFoto}>
+
+            {catalogoSeleccionado?.icono?
+            <img src={catalogoSeleccionado?.icono} className={styles.logo}/>
+            :null  
+          }
+          <div className={styles.subHeader} style={{backgroundColor:catalogoSeleccionado?.colorFondo}} >
+            <h2 className={styles.title} style={{color:catalogoSeleccionado?.colorTitulo}} >{catalogoSeleccionado?.title.toUpperCase()}</h2>
+          </div>
         </div>
-        :
-        <div className={styles.subHeader} >
-          <h2 className={styles.title} >{catalogoSeleccionado?.title.toUpperCase()}</h2>
-        </div>
-        }
-        <div className={masterChef? styles.descargarCatalogoMasterCheff:styles.descargarCatalogo}>
-          <Boton link={catalogoSeleccionado?.PDF} text='DESCARGAR CATÁLOGO' masterChef={masterChef?true:false}  />
+        
+        <div className={styles.descargarCatalogo}>
+          <Boton link={catalogoSeleccionado?.PDF} text='DESCARGAR CATÁLOGO' color={catalogoSeleccionado?.colorFondo}  />
         </div>
       </div>
       <div className={styles.Cards}>
         {catalogoSeleccionado?.bloques.map((elem, index)=>{
           if (index%2=== 1) {
-            return <CardCatalogo masterChef={masterChef} elem={elem}  mobile key={index} clave={index} left/>
-          }else return <CardCatalogo masterChef={masterChef} elem={elem}  mobile key={index} right  clave={index} />
+            return <CardCatalogo elem={elem} color={catalogoSeleccionado?.colorFondo} mobile key={index} clave={index} left/>
+          }else return <CardCatalogo elem={elem} color={catalogoSeleccionado?.colorFondo}  mobile key={index} right  clave={index} />
           
         })}
       </div>
       <div className={styles.cardsDesktop}>
         {catalogoSeleccionado?.bloques.map((elem, index)=>{
           if (index%2=== 1) {
-            return <CardCatalogo masterChef={masterChef} elem={elem} key={index} clave={index} left/>
-          }else return <CardCatalogo masterChef={masterChef} elem={elem} key={index} clave={index}right reverse />
+            return <CardCatalogo color={catalogoSeleccionado?.colorFondo} masterChef={masterChef} elem={elem} key={index} clave={index} left/>
+          }else return <CardCatalogo color={catalogoSeleccionado?.colorFondo} masterChef={masterChef} elem={elem} key={index} clave={index}right reverse />
         })}
       </div>
       <SeparadorChico/>

@@ -215,13 +215,13 @@
   .li{
     font-family: 'SemiBold';
     list-style: none;
-    font-size: 15pt;
+    font-size: 14pt;
   }
   .subTitleBajo{
-    font-size: 20pt;
+    font-size: 18pt;
   }
   .subTitleGris{
-    font-size: 18pt;
+    font-size: 16pt;
   }
 
 }

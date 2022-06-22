@@ -47,7 +47,6 @@ export function getData(propiedadName) {  //prop es el tipo (string) de coleccio
                 Credentials: "includes",
                 url: BASE_URL + "/getData/" + propiedadName,
             });
-            
             return dispatch({ type: GET_DATA, payload: json.data, propiedadName });
         } catch (error) {
         }
