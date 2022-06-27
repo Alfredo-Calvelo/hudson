@@ -131,7 +131,8 @@ export default function Receta(){
             </a>
             <a href={RecetaSeleccionada?.cocinero?.link} target='_blank'>
               <h4 className={styles.cocineroTitle}>Hoy Cocina:{' '} {RecetaSeleccionada?.cocinero?.nombre}</h4>
-              <h4 className={styles.cocineroSubTitle}>ig {RecetaSeleccionada?.cocinero?.redSocial}</h4>
+              <h4 className={styles.cocineroSubTitle}>Instagram </h4>
+              <h4 className={styles.cocineroSubTitle}>{RecetaSeleccionada?.cocinero?.redSocial} </h4>
             </a>
 
           </div>

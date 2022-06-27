@@ -13,7 +13,7 @@ import Consejo from './Pages/Consejo/Consejo';
 import Nosotros from './Pages/Nosotros/Nosotros';
 import UsoYCuidados from './Pages/Uso y Cuidados/UsoYCuidados';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { typeBanner, typeCatalogo, typeCategorias, typeConsejo, typeDestacadas, typeProducto, typeReceta } from './types';
+import { typeBanner, typeCatalogo, typeCategorias, typeConsejo, typeDestacadas, typeProducto, typeReceta, typeTiendas } from './types';
 import Construccion from './Pages/Construccion/Construccion';
 
 
@@ -48,6 +48,7 @@ function App(props) {
     dispatch(getData(typeCatalogo))
     dispatch(getData(typeReceta))
     dispatch(getData(typeConsejo))
+    dispatch(getData(typeTiendas))
     dispatch(getSocial())
 
   },[])

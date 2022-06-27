@@ -9,7 +9,9 @@ import {
   MENU_ACTIVO_NAVBAR,
   ALTURA_PANTALLA,
   GET_DATA,
-  GET_SOCIAL
+  GET_SOCIAL,
+  BUSQUEDA
+  
 } from "./actions"
 import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
 import fotoAluminio from '../imagenes/U Y C ALUMINIO.png'
@@ -65,6 +67,7 @@ const initialState={
   alturaPantalla:0,
   vieportHeight: window.innerHeight,
   tiempoCarrusell:4000,
+  busqueda:'',
   UsosYCuidados:[
     {
       tipo:'usosYCuidados',
@@ -410,6 +413,13 @@ function rootReducer(state=initialState, action){
     return {
       ...state,
       [action.propiedadName]: action.payload,
+    }
+  }
+  if (action.type === BUSQUEDA){
+
+    return {
+      ...state,
+      busqueda: action.payload,
     }
   }
   

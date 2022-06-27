@@ -26,6 +26,20 @@ export default function Footer(props){
     }
   },[CategoriasHome])
 
+  const Tiendas = useSelector(state=>state.Tiendas)
+  const [tiendasFinales, setTiendasFinales] = useState([])
+  useEffect(()=>{
+    if (Tiendas && Tiendas[0].tiendas) {
+      let copiaTiendas =[] 
+      Tiendas[0].tiendas.map((elem, index)=>{
+        console.log(elem);
+        copiaTiendas.push({title:elem.title, link:elem.URL, tipo:'producto'})
+      })
+      
+      setTiendasFinales(copiaTiendas)
+    }
+  },[Tiendas])
+
   return(
     <div className={styles.container}>
       {props.contacto?<div className={styles.top}>
@@ -91,9 +105,9 @@ export default function Footer(props){
 
             <div className={`${styles.containers} ${styles.containerBottom}`}>
               <h3 className={styles.bottomTitle}>Tiendas Online</h3>
-              <span className={styles.links}>Argentina</span>
-              <span className={styles.links}>Uruguay</span>
-              <span className={styles.links}>USA</span>
+              {tiendasFinales.map((elem, index)=>{
+                return(<a target='_blank' key={index} href={elem.link==='undefined'?null:elem.link.includes('https') || elem.link.includes('http')?elem.link:`https://${elem.link}` } className={styles.links}> {elem.title} </a>)
+              })}
             </div>
           </div>
 

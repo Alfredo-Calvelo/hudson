@@ -32,7 +32,7 @@ export default function Inspirate(){
   const [filtrosMobile, setFiltrosMobile] = useState(false)
   const filtrosMobileRef = useRef()
   const [cardsHeader, setCardsHeader]= useState([])
-  
+  let busqueda = useSelector(state=>state.busqueda)
   useEffect(()=>{
     window.scrollTo(0,0)
     dispatch(getData(typeReceta))
@@ -87,10 +87,8 @@ export default function Inspirate(){
   },[cosas])
   let buscador = useParams().buscador
   useEffect(()=>{
-    if (buscador) {
-      setFiltroBuscar(buscador)
-    }
-  },[])
+      setFiltroBuscar(busqueda)
+  },[busqueda])
   let page = useParams().page -1 
   //-------------------MOBILE-------------------
   let bloque = {inicio:0 + 10*page, final:9+ 10*page}

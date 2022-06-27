@@ -40,13 +40,16 @@
   align-items: center;
   cursor: pointer;
 }
-.flecha:hover{
-  gap: 10px;
+.flecha svg{
+  transition: var(--transitionCorta);
+}
+.flecha:hover svg{
+  transform: translateX(-10px);
 }
 .flecha svg{
   font-size: 8pt;
   position: relative;
-  top: 1.2px;
+  top: 1px;
 }
 .subTittle{
   font-size: 12pt;
@@ -105,9 +108,8 @@
   .flecha{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    justify-self: flex-end;
+    justify-content: end;
     margin-top: 30px;
-    width: fit-content;
+    width: 100%;
   }
 }

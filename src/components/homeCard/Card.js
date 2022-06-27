@@ -21,7 +21,6 @@ export default function Card(props){
   },[bloque])
   
 
-  console.log(props)
   return(
     <div ref={bloque} className={`${alturaPantalla + vieportHeight/1.4 >alturaBloque
       ?props.left?styles.visibleLeft:styles.visibleRight

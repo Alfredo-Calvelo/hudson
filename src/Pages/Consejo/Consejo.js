@@ -65,8 +65,10 @@ export default function Consejo (){
               <img src={cocinero?.img} className={styles.consejeroImg}/>
             </a>
             <a href={cocinero?.link} target='_blank'>
-              <h4 className={styles.consejeroTitle}>Hoy Cocina:{' '} {cocinero?.nombre}</h4>
-              <h4 className={styles.consejeroSubTitle}>ig {cocinero?.redSocial}</h4>
+              <h4 className={styles.consejeroTitle}>Hoy Cocina</h4>
+              <h4 className={styles.consejeroTitle}> {cocinero?.nombre}</h4>
+              <h4 className={styles.consejeroSubTitle}>Instagram</h4>
+              <h4 className={styles.consejeroSubTitle}> {cocinero?.redSocial} </h4>
             </a>
 
           </div>

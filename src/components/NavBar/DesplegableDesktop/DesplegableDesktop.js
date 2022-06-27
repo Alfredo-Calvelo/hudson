@@ -49,7 +49,7 @@ export default function DesplegableDesktop (props){
                                     {elem.icono && elem.iconoId?
                                     <img className={styles.masterChefImg} src={elem.icono}/> 
                                     :null}
-                                    <span style={{color:elem.color==='Negro'?'':elem.color}} className={styles.link}>{elem.title.toUpperCase()}</span>
+                                    <span style={{color:elem.color==='Negro'?'':elem.color}} className={styles.link}>{elem.title?.toUpperCase()}</span>
                                     </div>
                                 </Link>
                                 )
@@ -61,14 +61,13 @@ export default function DesplegableDesktop (props){
                     <div className={styles.segundaColumna}>
                             {props.segundaColumna?.map((elem, index)=>{
                             let ruta = `../Catalogo/${elem.title}`
-                            console.log(elem);
                             return (
                                 <Link key={index} to={ruta} className={styles.link}>
                                     <div className={styles.linkContainer}>
                                         {elem.icono && elem.iconoId?
                                         <img className={styles.masterChefImg} src={elem.icono}/> 
                                             :null}
-                                        <span style={{color:elem.color!=='Negro'?elem.color:''}} className={styles.link}>{elem.title.toUpperCase()}</span>
+                                        <span style={{color:elem.color!=='Negro'?elem.color:''}} className={styles.link}>{elem.title?.toUpperCase()}</span>
                                     </div>
                                 </Link>
                                 )

@@ -29,21 +29,15 @@
 @media (min-width:800px) {
   .container{
     overflow: hidden;
-    /* display: flex; */
     justify-content: center;
     padding: 0;
-    
-    /* height: 25000%; */
-    /* background-color: red; */
   }
   .imagen{
     position: relative;
     margin-top: -54px;
-    width: 150px;
-    height: 200px;
+    width: 100%;
+    height: calc(12.47vw + 54px);
     overflow: visible;
-
-    /* width={132} height={165} */
   }
   .infiltrado{
     display: block;
@@ -52,4 +46,21 @@
     background-color: red;
   }
 }
-/* 153 */
+/* @media (min-width:1240px) {
+  .imagen{
+    width: 200px;
+    height: 250px;
+  }
+}
+@media (min-width:1540px) {
+  .imagen{
+    width: 250px;
+    height: 300px;
+  }
+}
+@media (min-width:1850px) {
+  .imagen{
+    width: 250px;
+    height: 300px;
+  }
+} */

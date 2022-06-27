@@ -35,6 +35,20 @@ export default function MenuDesplegable(){
     }
   },[CategoriasHome])
 
+  const Tiendas = useSelector(state=>state.Tiendas)
+  const [tiendasFinales, setTiendasFinales] = useState([])
+  useEffect(()=>{
+    if (Tiendas && Tiendas[0].tiendas) {
+      let copiaTiendas =[] 
+      Tiendas[0].tiendas.map((elem, index)=>{
+        console.log(elem);
+        copiaTiendas.push({title:elem.title, link:elem.URL, tipo:'producto'})
+      })
+      
+      setTiendasFinales(copiaTiendas)
+    }
+  },[Tiendas])
+
   return(
     <div className={active?styles.containerActivo:styles.containerInActivo}>
       <MenuCatalogo/>
@@ -56,9 +70,9 @@ export default function MenuDesplegable(){
       </div>
       <div className={styles.tiendas}>
         <h5>TIENDAS ONLINE</h5>
-        <h6>Argentina</h6>
-        <h6>Uruguay</h6>
-        <h6>USA</h6>
+        {tiendasFinales.map((elem, index)=>{
+          return (<a key={index} href={elem.link==='undefined'?null:elem.link.includes('https') || elem.link.includes('http')?elem.link:`https://${elem.link}`} target='_blank' className={styles.linksTiendas} > {elem.title}</a>)
+        })}
       </div>
       <div className={styles.separador}>
         <Separador/>

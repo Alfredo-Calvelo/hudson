@@ -10,6 +10,8 @@ export const MENU_ACTIVO_MENU = 'MENU_ACTIVO_MENU'
 export const ALTURA_PANTALLA = 'ALTURA_PANTALLA'
 export const GET_DATA = "GET_DATA";
 export const GET_SOCIAL = "GET_SOCIAL";
+export const BUSQUEDA = "BUSQUEDA";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
@@ -38,6 +40,10 @@ export function menuActivoMenu(payload){
 export function alturaPantalla(payload){
     return{type:ALTURA_PANTALLA,payload}
 }
+export function busqueda(payload){
+    return{type:BUSQUEDA,payload}
+}
+
 export function getData(propiedadName) {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
     return async function (dispatch) {
         try {

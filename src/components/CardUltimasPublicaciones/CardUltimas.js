@@ -1,15 +1,20 @@
 import { createRef, useEffect, useState } from 'react'
 import styles from './CardUltimas.module.css'
 export default function CardUltimas (props){
-  const [style, setStyle] = useState({height:'calc(100% + 54px)'})
   let ref = createRef()
+  const[height, setHeight ] = useState()
   
- 
-  const[estado, setEstado] = useState(0)
+  useEffect(()=>{
+    console.log(ref.current.clientWidth);
+    if (ref.current.clientWidth) {
+      setHeight(ref.current.clientWidth)
+    }
+  },[ref])
   
+
   return(
     <a className={styles.container} href={`https://www.instagram.com/p/${props.id}/`} target='_blank'>
-      <iframe id='iframeIG' className={styles.imagen} src={`https://www.instagram.com/p/${props.id}/embed`} frameBorder="0"><div className={styles.infiltrado} ref={ref}>holaaa</div></iframe>
+      <iframe height={height*2} ref={ref} id='iframeIG' className={styles.imagen} src={`https://www.instagram.com/p/${props.id}/embed`} frameBorder="0"></iframe>
     </a>
   )
 

@@ -27,7 +27,22 @@ export default function NavBar(){
   const [links , setLinks] = useState([])
   const CategoriasHome = useSelector(state=>state.CategoriasHome)
   const [categoriasFinales, setCategoriasFinales]= useState([])
-
+  const Tiendas = useSelector(state=>state.Tiendas)
+  const [tiendasFinales, setTiendasFinales] = useState([])
+  useEffect(()=>{
+    if (Tiendas && Tiendas[0].tiendas) {
+      let copiaTiendas =[] 
+      Tiendas[0].tiendas.map((elem, index)=>{
+        console.log(elem);
+        copiaTiendas.push({title:elem.title.toUpperCase(), link:elem.URL, tipo:'producto'})
+      })
+      
+      setTiendasFinales(copiaTiendas)
+    }
+  },[Tiendas])
+  useEffect(()=>{
+    console.log(tiendasFinales);
+  },[tiendasFinales])
   const [catalogosTitles,setCatalogosTitles] = useState()
   const [segundaColumnaTitles, setSegundaColumnaTitles] = useState()
   const Catalogos = useSelector(state=>state.Catalogo)
@@ -83,11 +98,8 @@ export default function NavBar(){
     if (tipo==='tiendaOnline') {
       setVerMas('')
       setTitle('TIENDA ONLINE')
-      setLinks([
-        {title:'ARGENTINA', ruta:''},
-        {title:'URUGUAY', ruta:''},
-        {title:'USA', ruta:''}
-      ])
+      console.log(tiendasFinales);
+      setLinks(tiendasFinales)
     }
     
     setDesplegableActivo(true)

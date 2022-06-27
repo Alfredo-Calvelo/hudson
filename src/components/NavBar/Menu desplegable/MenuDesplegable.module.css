@@ -70,6 +70,11 @@
 .clases{
   cursor: pointer;
 }
+.linksTiendas{
+  font-family: 'ExtraLight';
+  font-size: 0.67em;
+  font-weight: bold;
+}
 @media (min-width: 800px) {
   .containerActivo,.containerInActivo{
     display: none;
