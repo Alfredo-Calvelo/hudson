@@ -12,6 +12,7 @@ export const GET_DATA = "GET_DATA";
 export const GET_SOCIAL = "GET_SOCIAL";
 export const BUSQUEDA = "BUSQUEDA";
 export const GET_CARD_CATALOGO = "GET_CARD_CATALOGO";
+export const SEND_EMAIL = 'SEND_EMAIL'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 export function activarMenuDesplegable(payload){
@@ -44,7 +45,20 @@ export function alturaPantalla(payload){
 export function busqueda(payload){
     return{type:BUSQUEDA,payload}
 }
-
+export function EnviarMail(params) {
+    return async function (dispatch) {
+        try {
+            const json = await axios({
+                method: "POST",
+                withCredentials: true,
+                Credentials: "includes",
+                url: BASE_URL + "/sendEmail"
+            });
+            return dispatch({ type: SEND_EMAIL, payload: json.data});
+        } catch (error) {
+        }
+    }
+}
 export function getData(propiedadName) {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
     return async function (dispatch) {
         try {

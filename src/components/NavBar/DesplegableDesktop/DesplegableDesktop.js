@@ -32,7 +32,7 @@ export default function DesplegableDesktop (props){
                     <span className={styles.title}>
                         {props.title} 
                         {props.verMas
-                        ?<span className={styles.verMas}>{props.verMas}</span>
+                        ?<a href='https://www.hudsoncocina.com.ar/' target='_blank' className={styles.verMas}>{props.verMas}</a>
                         :null
                     }
                     </span>
