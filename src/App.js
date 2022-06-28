@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home/Home';
 import { useDispatch, useSelector } from 'react-redux';
-import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo, getData, getSocial } from './redux/actions';
+import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo, getCardCatalogo, getData, getSocial } from './redux/actions';
 import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 import Inspirate from './Pages/Inspirate/Inspirate';
@@ -49,6 +49,7 @@ function App(props) {
     dispatch(getData(typeReceta))
     dispatch(getData(typeConsejo))
     dispatch(getData(typeTiendas))
+    dispatch(getCardCatalogo())
     dispatch(getSocial())
 
   },[])

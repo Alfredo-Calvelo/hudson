@@ -5,7 +5,6 @@ export default function CardUltimas (props){
   const[height, setHeight ] = useState()
   
   useEffect(()=>{
-    console.log(ref.current.clientWidth);
     if (ref.current.clientWidth) {
       setHeight(ref.current.clientWidth)
     }
@@ -14,7 +13,7 @@ export default function CardUltimas (props){
 
   return(
     <a className={styles.container} href={`https://www.instagram.com/p/${props.id}/`} target='_blank'>
-      <iframe height={height*2} ref={ref} id='iframeIG' className={styles.imagen} src={`https://www.instagram.com/p/${props.id}/embed`} frameBorder="0"></iframe>
+      <iframe  ref={ref} id='iframeIG' className={styles.imagen} src={`https://www.instagram.com/p/${props.id}/embed`} frameBorder="0"></iframe>
     </a>
   )
 

@@ -41,7 +41,6 @@ export default function MenuDesplegable(){
     if (Tiendas && Tiendas[0].tiendas) {
       let copiaTiendas =[] 
       Tiendas[0].tiendas.map((elem, index)=>{
-        console.log(elem);
         copiaTiendas.push({title:elem.title, link:elem.URL, tipo:'producto'})
       })
       
@@ -71,7 +70,7 @@ export default function MenuDesplegable(){
       <div className={styles.tiendas}>
         <h5>TIENDAS ONLINE</h5>
         {tiendasFinales.map((elem, index)=>{
-          return (<a key={index} href={elem.link==='undefined'?null:elem.link.includes('https') || elem.link.includes('http')?elem.link:`https://${elem.link}`} target='_blank' className={styles.linksTiendas} > {elem.title}</a>)
+          return (<a key={index} href={elem.link==='undefined'?null:elem.link?.includes('https') || elem.link?.includes('http')?elem.link:`https://${elem.link}`} target='_blank' className={styles.linksTiendas} > {elem.title}</a>)
         })}
       </div>
       <div className={styles.separador}>

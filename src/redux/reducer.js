@@ -10,7 +10,8 @@ import {
   ALTURA_PANTALLA,
   GET_DATA,
   GET_SOCIAL,
-  BUSQUEDA
+  BUSQUEDA,
+  GET_CARD_CATALOGO
   
 } from "./actions"
 import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
@@ -420,6 +421,13 @@ function rootReducer(state=initialState, action){
     return {
       ...state,
       busqueda: action.payload,
+    }
+  }
+  if (action.type === GET_CARD_CATALOGO){
+    console.log('hola');
+    return {
+      ...state,
+      CardCatalogo: action.payload,
     }
   }
   

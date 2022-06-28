@@ -11,6 +11,7 @@ export const ALTURA_PANTALLA = 'ALTURA_PANTALLA'
 export const GET_DATA = "GET_DATA";
 export const GET_SOCIAL = "GET_SOCIAL";
 export const BUSQUEDA = "BUSQUEDA";
+export const GET_CARD_CATALOGO = "GET_CARD_CATALOGO";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 export function activarMenuDesplegable(payload){
@@ -58,6 +59,21 @@ export function getData(propiedadName) {  //prop es el tipo (string) de coleccio
         }
     };
 }
+export function getCardCatalogo() {
+    return async function (dispatch) {
+        try {
+        const json = await axios({
+          method: "GET",
+          withCredentials: true,
+          Credentials: "includes",
+          url: BASE_URL + "/card",
+        });
+        console.log(json);
+        return dispatch({ type: GET_CARD_CATALOGO, payload: json.data.cards });
+      } catch (error) {
+      }
+    };
+  }
 export function getSocial() {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
     return async function (dispatch) {
         try {

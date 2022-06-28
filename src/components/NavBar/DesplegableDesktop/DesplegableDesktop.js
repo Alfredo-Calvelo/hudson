@@ -40,9 +40,8 @@ export default function DesplegableDesktop (props){
                         {props.links?.map((elem, index)=>{
                             
                             if (elem.tipo && elem.tipo==='producto') {
-                                return<a key={index} style={{textDecoration:'none'}} target='_blank' className={styles.link} href={elem.link==='undefined'?null:elem.link.includes('https') || elem.link.includes('http')?elem.link:`https://${elem.link}` }>{elem.title}</a>
+                                return<a key={index} style={{textDecoration:'none'}} target='_blank' className={styles.link} href={elem.link==='undefined'?null:elem.link?.includes('https') || elem.link?.includes('http')?elem.link:`https://${elem.link}` }>{elem.title}</a>
                             }else{
-                                console.log(elem);
                                 return(
                                 <Link key={index} to={elem.ruta} className={styles.link}>
                                     <div className={styles.linkContainer}>
@@ -75,7 +74,7 @@ export default function DesplegableDesktop (props){
                     </div>:null
                     }
                 <div className={styles.cards}>
-                    <DesplegableDesktopCard ruta={rutaMasterChef} img={olla} masterchef title='LÍNEA MASTERCHEF' subTitle='De la TV a tu cocina' rutaTitle='VER CATALOGO'/>
+                    <DesplegableDesktopCard  img={olla} masterchef title='LÍNEA MASTERCHEF' subTitle='De la TV a tu cocina' rutaTitle='VER CATALOGO'/>
                     <DesplegableDesktopCard ruta='../Inspirate/1' img={plato} title='INSPÍRATE' subTitle='Las mejores recetas y consejos para deslumbrar en la cocina.' rutaTitle='VER MÁS'/>
                 </div>
             </div>
