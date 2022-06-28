@@ -16,6 +16,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { typeBanner, typeCatalogo, typeCategorias, typeConsejo, typeDestacadas, typeProducto, typeReceta, typeTiendas } from './types';
 import Construccion from './Pages/Construccion/Construccion';
 import FaltaCompletar from './components/FaltaCompletar/FaltaCompletar';
+import CargandoMail from './components/CargandoMail/CargandoMail';
 
 
 
@@ -60,6 +61,7 @@ function App(props) {
           <div className={styles.App}>
             {dropMenu || opciones?<div className={styles.tapaderaContainer} onClick={()=>apagarMenu()}><div className={styles.tapadera}></div></div>:null}
             <FaltaCompletar/>
+            <CargandoMail/>
             <NavBar/>
             <MenuDesplegable/>
             <Routes>

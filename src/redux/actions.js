@@ -14,6 +14,7 @@ export const BUSQUEDA = "BUSQUEDA";
 export const GET_CARD_CATALOGO = "GET_CARD_CATALOGO";
 export const SEND_EMAIL = 'SEND_EMAIL'
 export const FALTA_COMPLETAR = 'FALTA_COMPLETAR'
+export const CARGANDO_MAIL = 'CARGANDO_MAIL'
 
 // const BASE_URL = process.env.REACT_APP_BASE_URL;
 const BASE_URL = 'http://localhost:4000';
@@ -51,22 +52,29 @@ export function busqueda(payload){
 export function faltaCompletarCartel(params) {
     return{type: FALTA_COMPLETAR, payload:params}
 }
-export function EnviarMail(params) {
-    return async function (dispatch) {
+export function cargandoMail(params) {
+    return{type: CARGANDO_MAIL, payload:params}
+}
+
+export  function EnviarMail(info) {
+    return async function(dispatch) {
+        console.log(info);
         try {
+            dispatch({type:CARGANDO_MAIL ,payload:'Por Favor Aguarde, estamos enviando sus datos'})
             const json = await axios({
                 method: "POST",
                 withCredentials: true,
                 Credentials: "includes",
-                data: params,
+                data: info,
                 url: BASE_URL + "/sendEmail"
             });
             return dispatch({ type: SEND_EMAIL, payload: json.data});
         } catch (error) {
-            console.log(err);
-        }
+                console.log(error);
+            }
     }
 }
+
 export function getData(propiedadName) {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
     return async function (dispatch) {
         try {

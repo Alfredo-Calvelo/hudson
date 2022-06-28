@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer';
 import SeparadorChico from '../../components/SeparadorChico/SeparadorChico';
 import Inspirado from '../../components/Inpirado/Inspirado';
 import { useDispatch } from 'react-redux';
-import { faltaCompletarCartel } from '../../redux/actions';
+import { EnviarMail, faltaCompletarCartel } from '../../redux/actions';
 import AsteriscoObligatorio from '../../components/AsteriscoObligatorio/AsteriscoObligatorio';
 
 
@@ -34,7 +34,7 @@ export default function Contacto (){
     setVisible(true)
   })
 
-  function enviarMail(params) {
+  function dispatchMail(params) {
     if (!nombre || !email || !telefono || !pais || !mensaje ) {
       dispatch(faltaCompletarCartel(true))
     }else{
@@ -45,12 +45,13 @@ export default function Contacto (){
         provincia,
         empresa,
         revendedor,
-        mensaje
+        mensaje,
+        tipo:'Contacto'
       }
+      dispatch(EnviarMail(info))
       console.log(info);
-      dispatch(enviarMail())
-
-  }}
+    }
+}
 
   return(
     <div>
@@ -101,7 +102,8 @@ export default function Contacto (){
               <textarea value={mensaje} onChange={e=>setMensaje(e.target.value)} placeholder='Mensaje' className={styles.mensaje}/>
               <AsteriscoObligatorio/>
             </div>
-              <Boton click={enviarMail}  text='ENVIAR' relleno/>
+            
+              <Boton click={dispatchMail}  text='ENVIAR' relleno/>
           </div>
         </div>
       </div>

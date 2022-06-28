@@ -7,8 +7,10 @@ import twitter from '../../imagenes/iconos/twitterGris.png'
 import youtube from '../../imagenes/iconos/youtubeGris.png'
 import SeparadorChico from '../SeparadorChico/SeparadorChico'
 import { Link, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import { EnviarMail, faltaCompletarCartel } from '../../redux/actions'
+import AsteriscoObligatorio from '../AsteriscoObligatorio/AsteriscoObligatorio'
 
 export default function Footer(props){
   const Catalogos = useSelector(state=>state.Catalogo)
@@ -16,6 +18,8 @@ export default function Footer(props){
   const instagramUser = useSelector(state=>state?.social?.instagramUser)
   const CategoriasHome = useSelector(state=>state.CategoriasHome)
   const [categoriasFinales, setCategoriasFinales]= useState([])
+  const [email, setEmail] = useState()
+  const dispatch = useDispatch()
   useEffect(()=>{
     if (CategoriasHome){
       let categoriasFinales =[]
@@ -38,7 +42,12 @@ export default function Footer(props){
       setTiendasFinales(copiaTiendas)
     }
   },[Tiendas])
-
+  function dispatchMail(params) {
+    if (!email) {
+      dispatch(faltaCompletarCartel(true))
+    }
+    dispatch(EnviarMail({email:email, tipo:'Subscripcion'}))
+  }
   return(
     <div className={styles.container}>
       {props.contacto?<div className={styles.top}>
@@ -51,8 +60,8 @@ export default function Footer(props){
           <h3 className={styles.recibirMail}>Recibe en tu email las novedades sobre nuevos productos, recetas y consejos culinarios.</h3>
         </div>
         <div className={styles.bottom}>
-          <Input placeholder='Su email, por favor'/>
-          <Boton text='SUSCRIBIRME' relleno />
+          <Input obligatorio value={email} setValue={setEmail} placeholder='Email'/>
+          <Boton text='SUSCRIBIRME' click={dispatchMail} relleno />
         </div>
         <h5 className={styles.copyright}>Copyright © 2022 Hudson Kitchenware.</h5>
       </div>
@@ -60,8 +69,11 @@ export default function Footer(props){
       <div className={styles.Desktop}>
         <div className={styles.topDesktop}>
           <h3 className={`${styles.subscription} ${styles.subscriptionDesktop}`}>¡RECIBE LAS NOVEDADES!</h3>
-          <input  placeholder='Su email, por favor' autoComplete='false' className={styles.input}/>
-          <Boton text='SUSCRIBIRME' relleno />
+          <div className={styles.inputMail}>
+            <input value={email}  onChange={e=>setEmail(e.target.value)}  placeholder='Email' autoComplete='false' className={styles.input}/>
+            <AsteriscoObligatorio/>
+          </div>
+          <Boton text='SUSCRIBIRME' click={dispatchMail} relleno />
           <div className={styles.linksLogos}>
             <a href={`https://www.instagram.com/${instagramUser}/`} target='_blank'><img src={instagram} className={styles.linkLogo}/></a>
             <a href='https://www.facebook.com/HudsonKitchenware/' target='_blank'><img src={facebook} className={styles.linkLogo}/></a>

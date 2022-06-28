@@ -12,7 +12,8 @@ import {
   GET_SOCIAL,
   BUSQUEDA,
   GET_CARD_CATALOGO,
-  FALTA_COMPLETAR
+  FALTA_COMPLETAR,
+  CARGANDO_MAIL
   
 } from "./actions"
 import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
@@ -436,6 +437,12 @@ function rootReducer(state=initialState, action){
     return {
       ...state,
       CardCatalogo: action.payload,
+    }
+  }
+  if (action.type === CARGANDO_MAIL){
+    return {
+      ...state,
+      cargandoMail: action.payload,
     }
   }
   
