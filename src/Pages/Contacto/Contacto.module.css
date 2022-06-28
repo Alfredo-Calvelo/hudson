@@ -71,6 +71,7 @@
   margin-bottom: 10px;
   background-color: transparent;
   font-size: 12pt;
+  width: 100%;
   
 }
 .preguntas{
@@ -103,7 +104,9 @@
   bottom: 0;
   user-select: none;
 }
-
+.textArea{
+  display: flex;
+}
 
 @media (min-width:800px) {
   .header{

@@ -11,7 +11,8 @@ import {
   GET_DATA,
   GET_SOCIAL,
   BUSQUEDA,
-  GET_CARD_CATALOGO
+  GET_CARD_CATALOGO,
+  FALTA_COMPLETAR
   
 } from "./actions"
 import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
@@ -68,6 +69,7 @@ const initialState={
   alturaPantalla:0,
   vieportHeight: window.innerHeight,
   tiempoCarrusell:4000,
+  faltaCompletar:false,
   busqueda:'',
   UsosYCuidados:[
     {
@@ -401,6 +403,12 @@ function rootReducer(state=initialState, action){
     return{
       ...state,
       menuActivoMenu:action.payload
+    }
+  }
+  if (action.type === FALTA_COMPLETAR){
+    return{
+      ...state,
+      faltaCompletar:action.payload
     }
   }
   if (action.type === ALTURA_PANTALLA){

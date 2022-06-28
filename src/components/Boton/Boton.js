@@ -21,9 +21,9 @@ export default function Boton (props){
     <a className={styles.containerLink} style={{textDecoration:'none'}} href={props.link?props.link:null} download={props.download?props.download:false} target={props.actual?'':`_blank`}>
     <div className={styles.container}>
     <div style={{border:props.color?`1px solid ${props.color}`:''}} className={props.relleno?`${styles.relleno} ${dropMenu?styles.adelante:''}`:`${styles.noRelleno} ${dropMenu?styles.adelante:''}`} onClick={()=>{
-      if(props.dropMenu)dropMenuFunction()
-      if (props.ruta)hola()
-      if (props.click) props.click() 
+      if(props.dropMenu){dropMenuFunction()}
+      if (props.ruta){hola()}
+      if (props.click) {props.click()} 
     }}>
       <span style={{color:props.color?props.color:''}} className={styles.text}>{props.text}</span>
         {props.dropMenu?

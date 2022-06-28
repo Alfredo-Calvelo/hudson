@@ -13,8 +13,11 @@ export const GET_SOCIAL = "GET_SOCIAL";
 export const BUSQUEDA = "BUSQUEDA";
 export const GET_CARD_CATALOGO = "GET_CARD_CATALOGO";
 export const SEND_EMAIL = 'SEND_EMAIL'
+export const FALTA_COMPLETAR = 'FALTA_COMPLETAR'
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = 'http://localhost:4000';
+
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
 }
@@ -45,6 +48,9 @@ export function alturaPantalla(payload){
 export function busqueda(payload){
     return{type:BUSQUEDA,payload}
 }
+export function faltaCompletarCartel(params) {
+    return{type: FALTA_COMPLETAR, payload:params}
+}
 export function EnviarMail(params) {
     return async function (dispatch) {
         try {
@@ -52,10 +58,12 @@ export function EnviarMail(params) {
                 method: "POST",
                 withCredentials: true,
                 Credentials: "includes",
+                data: params,
                 url: BASE_URL + "/sendEmail"
             });
             return dispatch({ type: SEND_EMAIL, payload: json.data});
         } catch (error) {
+            console.log(err);
         }
     }
 }

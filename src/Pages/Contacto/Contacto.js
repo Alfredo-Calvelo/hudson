@@ -9,6 +9,9 @@ import Destacado from '../../components/destacados/Destacado';
 import Footer from '../../components/Footer/Footer';
 import SeparadorChico from '../../components/SeparadorChico/SeparadorChico';
 import Inspirado from '../../components/Inpirado/Inspirado';
+import { useDispatch } from 'react-redux';
+import { faltaCompletarCartel } from '../../redux/actions';
+import AsteriscoObligatorio from '../../components/AsteriscoObligatorio/AsteriscoObligatorio';
 
 
 export default function Contacto (){
@@ -16,14 +19,38 @@ export default function Contacto (){
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
+  const dispatch = useDispatch()
   const [revendedor, setRevendedor]=useState(false)
-  
+  const [nombre, setNombre] = useState()
+  const [email, setEmail] = useState()
+  const [telefono, setTelefono] = useState()
+  const [pais, setPais] = useState()
+  const [provincia, setProvincia] = useState()
+  const [empresa, setEmpresa] = useState()
+  const [mensaje, setMensaje] = useState()
   
   const [visible, setVisible ] = useState(false)
   useEffect(()=>{
     setVisible(true)
   })
 
+  function enviarMail(params) {
+    if (!nombre || !email || !telefono || !pais || !mensaje ) {
+      dispatch(faltaCompletarCartel(true))
+    }else{
+      let info = {
+        nombre,
+        email,
+        pais,
+        provincia,
+        empresa,
+        revendedor,
+        mensaje
+      }
+      console.log(info);
+      dispatch(enviarMail())
+
+  }}
 
   return(
     <div>
@@ -55,23 +82,26 @@ export default function Contacto (){
             </div>
           </div>
           <div className={styles.info}>
-            <Input placeholder='Nombre'/>
-            <Input placeholder='email'/>
-            <Input placeholder='Teléfono'/>
-            <Input placeholder='País' />
-            <Input placeholder='Provincia (opcional)'/>
+            <Input value={nombre} setValue={setNombre} placeholder='Nombre' obligatorio/>
+            <Input value={email} setValue={setEmail} placeholder='email' obligatorio/>
+            <Input value={telefono} setValue={setTelefono} placeholder='Teléfono' obligatorio/>
+            <Input value={pais} setValue={setPais} placeholder='País' obligatorio/>
+            <Input value={provincia} setValue={setProvincia} placeholder='Provincia (opcional)'/>
             <div className={styles.empresa}>
-              <input id='Empresa' type='checkbox' className={styles.input} onChange={(e)=>{setRevendedor(e.target.checked)}}/>
+              <input  id='Empresa' type='checkbox' className={styles.input} onChange={(e)=>{setRevendedor(e.target.checked)}}/>
               <div className={styles.revendedor}>
                 <label className={styles.label} htmlFor='Empresa'> 
                 {revendedor?<div className={styles.paloma}><AiOutlineCheck/></div>:null}
                 </label>
                 <h5 className={styles.revendedorText}>Soy revendedor</h5>
               </div>
-              <Input placeholder='Empresa (opcional)'/>
+              <Input value={empresa} setValue={setEmpresa} placeholder='Empresa (opcional)'/>
             </div>
-            <textarea placeholder='Mensaje' className={styles.mensaje}/>
-              <Boton text='ENVIAR' relleno/>
+            <div className={styles.textArea}>
+              <textarea value={mensaje} onChange={e=>setMensaje(e.target.value)} placeholder='Mensaje' className={styles.mensaje}/>
+              <AsteriscoObligatorio/>
+            </div>
+              <Boton click={enviarMail}  text='ENVIAR' relleno/>
           </div>
         </div>
       </div>

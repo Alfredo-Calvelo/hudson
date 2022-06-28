@@ -15,6 +15,7 @@ import UsoYCuidados from './Pages/Uso y Cuidados/UsoYCuidados';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { typeBanner, typeCatalogo, typeCategorias, typeConsejo, typeDestacadas, typeProducto, typeReceta, typeTiendas } from './types';
 import Construccion from './Pages/Construccion/Construccion';
+import FaltaCompletar from './components/FaltaCompletar/FaltaCompletar';
 
 
 
@@ -58,6 +59,7 @@ function App(props) {
     <BrowserRouter>
           <div className={styles.App}>
             {dropMenu || opciones?<div className={styles.tapaderaContainer} onClick={()=>apagarMenu()}><div className={styles.tapadera}></div></div>:null}
+            <FaltaCompletar/>
             <NavBar/>
             <MenuDesplegable/>
             <Routes>

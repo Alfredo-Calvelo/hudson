@@ -1,0 +1,10 @@
+.asterisco{
+    color: var(--rojo);
+    font-size: 20pt;
+    margin: 0 0 0 10px;
+}
+.asteriscoTransparente{
+    font-size: 20pt;
+    margin: 0 0 0 10px;
+    color: transparent;
+}
