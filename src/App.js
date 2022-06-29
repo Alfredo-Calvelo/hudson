@@ -24,7 +24,7 @@ import ContactarAlfredo from './Pages/Construccion/Construccion';
 
 function App(props) {
   const [altura,setAltura]=useState()
-  const BASE_URL = 'http://localhost:4000';
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   function scroll(params) {
     setAltura(window.scrollY)
   }
@@ -100,7 +100,7 @@ function App(props) {
                   <Route path='*' element={<Construccion/>}/>
                 </Routes>
               </div>
-            : activo === false?<ContactarAlfredo/> :null  
+            : activo === false?<ContactarAlfredo/> :null
           }
     </BrowserRouter>
   );
