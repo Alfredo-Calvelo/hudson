@@ -18,7 +18,7 @@ import { typeBanner, typeCatalogo, typeCategorias, typeConsejo, typeDestacadas, 
 import Construccion from './Pages/Construccion/Construccion';
 import FaltaCompletar from './components/FaltaCompletar/FaltaCompletar';
 import CargandoMail from './components/CargandoMail/CargandoMail';
-import ContactarAlfredo from './Pages/Construccion/Construccion';
+import ContactarAlfredo from './Pages/Contactar Alfredo/ContactarAlfredo';
 
 
 
