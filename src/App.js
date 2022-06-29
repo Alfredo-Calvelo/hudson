@@ -76,9 +76,10 @@ function App(props) {
   return (
 
     <BrowserRouter>
-            {activo
-            
-            ? <div className={styles.App}>
+            {activo === false
+            ?<ContactarAlfredo/>
+
+            : <div className={styles.App}>
                 {dropMenu || opciones?<div className={styles.tapaderaContainer} onClick={()=>apagarMenu()}><div className={styles.tapadera}></div></div>:null}
                 <FaltaCompletar/>
                 <CargandoMail/>
@@ -100,7 +101,6 @@ function App(props) {
                   <Route path='*' element={<Construccion/>}/>
                 </Routes>
               </div>
-            : activo === false?<ContactarAlfredo/> :null
           }
     </BrowserRouter>
   );
