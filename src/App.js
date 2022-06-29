@@ -76,7 +76,7 @@ function App(props) {
   return (
 
     <BrowserRouter>
-            {activo === false
+            {activo
             ?<ContactarAlfredo/>
 
             : <div className={styles.App}>
