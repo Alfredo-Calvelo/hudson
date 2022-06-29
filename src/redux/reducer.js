@@ -13,7 +13,8 @@ import {
   BUSQUEDA,
   GET_CARD_CATALOGO,
   FALTA_COMPLETAR,
-  CARGANDO_MAIL
+  CARGANDO_MAIL,
+  SEND_EMAIL
   
 } from "./actions"
 import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
@@ -433,7 +434,6 @@ function rootReducer(state=initialState, action){
     }
   }
   if (action.type === GET_CARD_CATALOGO){
-    console.log('hola');
     return {
       ...state,
       CardCatalogo: action.payload,
@@ -445,6 +445,13 @@ function rootReducer(state=initialState, action){
       cargandoMail: action.payload,
     }
   }
+  if (action.type === SEND_EMAIL){
+    return {
+      ...state,
+      cargandoMail: 'Email cargado correctamente',
+    }
+  }
+
   
   
   return state

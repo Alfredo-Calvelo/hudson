@@ -41,8 +41,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 .asterisco{
   color: var(--rojo);
+}
+.loader circle{
+  color: var(--rojo);
+}
+.seguirNavegando{
+  display: grid;
+  gap: 20px;
+  justify-items: center;
 }

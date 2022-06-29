@@ -16,8 +16,8 @@ export const SEND_EMAIL = 'SEND_EMAIL'
 export const FALTA_COMPLETAR = 'FALTA_COMPLETAR'
 export const CARGANDO_MAIL = 'CARGANDO_MAIL'
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL;
-const BASE_URL = 'http://localhost:4000';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = 'http://localhost:4000';
 
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
@@ -58,7 +58,6 @@ export function cargandoMail(params) {
 
 export  function EnviarMail(info) {
     return async function(dispatch) {
-        console.log(info);
         try {
             dispatch({type:CARGANDO_MAIL ,payload:'Por Favor Aguarde, estamos enviando sus datos'})
             const json = await axios({
@@ -70,7 +69,7 @@ export  function EnviarMail(info) {
             });
             return dispatch({ type: SEND_EMAIL, payload: json.data});
         } catch (error) {
-                console.log(error);
+                dispatch({type:CARGANDO_MAIL ,payload:'Hubo un error al cargar su email, por favor vuelva a intentarlo mas tarde.'})
             }
     }
 }
@@ -98,7 +97,6 @@ export function getCardCatalogo() {
           Credentials: "includes",
           url: BASE_URL + "/card",
         });
-        console.log(json);
         return dispatch({ type: GET_CARD_CATALOGO, payload: json.data.cards });
       } catch (error) {
       }

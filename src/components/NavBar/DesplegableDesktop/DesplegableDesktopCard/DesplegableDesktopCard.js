@@ -16,11 +16,9 @@ export default function DesplegableDesktopCard(props){
         if (CardCatalogo && CardCatalogo.length > 0 && Catalogos && Catalogos.length > 0) {
             Catalogos.map((elem,index) => {
                 if (elem.title === CardCatalogo[0].title) {
-                    console.log(elem)
                     setColorTitle(elem.colorFondo)
                 }
             })
-            console.log(CardCatalogo[0]);
             setTitle(CardCatalogo[0].title)
             setSubTitle(CardCatalogo[0].subtitle)
             setFoto(CardCatalogo[0].image)

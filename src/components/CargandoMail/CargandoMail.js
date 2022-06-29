@@ -2,26 +2,37 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styles from './CargandoMail.module.css'
 import { cargandoMail} from "../../redux/actions";
+import {CircularProgress} from '@mui/material';
 
 
 export default function CargandoMail(props) {
 
-  const cargandoMail = useSelector(state=>state.cargandoMail)
+  const cargandoMailInfo = useSelector(state=>state.cargandoMail)
   const dispatch = useDispatch()
   function cerrar() {
     dispatch(cargandoMail(false))
   }
   const state = useSelector(state=>state)
   return(
-    <div className={cargandoMail?styles.containerVisible:styles.containerInvisible}>
+    <div className={cargandoMailInfo?styles.containerVisible:styles.containerInvisible}>
       <div className={styles.cuadroCentro}>
         {
-          cargandoMail?
+          cargandoMailInfo?
           <div className={styles.errorMessage}>
             <div className={styles.titles}>
-            <h3>{cargandoMail} </h3><h3 className={styles.asterisco}>*</h3>
+              {
+                cargandoMailInfo==='Por Favor Aguarde, estamos enviando sus datos'?
+                <>
+                  <h3>{cargandoMailInfo} </h3>
+                  <CircularProgress className={styles.loader} />
+                </>
+              :<div className={styles.seguirNavegando}>
+                <h3>{cargandoMailInfo}</h3>
+                <div onClick={e=>window.location.reload()} className={styles.volverIntentar}> {cargandoMailInfo === 'Email cargado correctamente'?'Seguir Navegando':'Volver a intentar'}</div>
+              </div>
+              }
             </div>
-            <div onClick={e=>cerrar()} className={styles.volverIntentar}> Volver a intentarlo</div>
+            <div onClick={e=>cerrar()} className={styles.volverIntentar}> </div>
           </div>
           :null
         }
