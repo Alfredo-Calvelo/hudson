@@ -19,6 +19,7 @@ import Construccion from './Pages/Construccion/Construccion';
 import FaltaCompletar from './components/FaltaCompletar/FaltaCompletar';
 import CargandoMail from './components/CargandoMail/CargandoMail';
 import ContactarAlfredo from './Pages/Contactar Alfredo/ContactarAlfredo';
+import Cargando from './components/Cargando/Cargando';
 
 
 
@@ -73,10 +74,14 @@ function App(props) {
   }
 
   },[])
+  useEffect(()=>{
+    console.log(activo);
+  },[activo])
   return (
 
     <BrowserRouter>
-            {activo
+            {activo=== undefined?<Cargando/>:
+            !activo
             ?<ContactarAlfredo/>
 
             : <div className={styles.App}>
@@ -85,7 +90,6 @@ function App(props) {
                 <CargandoMail/>
                 <NavBar />
                 <MenuDesplegable />
-                {/* https://www.hudsoncocina.com/342b5e2221e0f2587772acc90cd7b154 */}
                 <Routes>
                   <Route exact path='/342b5e2221e0f2587772acc90cd7b154'element={<Home/>}/>
                   <Route exact path='/construccion'element={<Construccion/>}/>

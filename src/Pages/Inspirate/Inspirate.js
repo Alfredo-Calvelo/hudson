@@ -24,8 +24,6 @@ export default function Inspirate(){
   const [cantidadDulces, setCantidadDulces] = useState(0)
   const [cantidadSaladas, setCantidadSaladas] = useState(0)
   const [cantidadConsejos, setCantidadConsejos] = useState(0)
-  const [cantidadUYC, setCantidadUYC] = useState(0)
-  const [filtroUYC, setFiltroUYC] = useState(false)
   const [filtroDulce,setFiltroDulce] = useState(false)
   const [filtroSalado, setFiltroSalado] = useState(false)
   const [filtrosConsejos, setFiltrosConsejos] = useState(false)
@@ -62,7 +60,7 @@ export default function Inspirate(){
         if (Date?.parse(a.fecha) < Date?.parse(b.fecha)) {return 1}
         if (Date?.parse(a.fecha) === Date?.parse(b.fecha)) {return 0}
       });
-      cosas=[...cosas,...state?.UsosYCuidados]
+      cosas=[...cosas]
       setCosas(cosas)
     }
   },[state])
@@ -82,7 +80,6 @@ export default function Inspirate(){
       setCantidadDulces(dulces)
       setCantidadSaladas(saladas)
       setCantidadConsejos(consejos)
-      setCantidadUYC(state?.UsosYCuidados.length)
     }
   },[cosas])
   let buscador = useParams().buscador
@@ -124,7 +121,7 @@ export default function Inspirate(){
   
 
   function filtrar(arr) {
-    if (filtroSalado == false && filtroDulce==false && filtrosConsejos==false && filtroUYC==false){
+    if (filtroSalado == false && filtroDulce==false && filtrosConsejos==false){
       return arr
     }else{
       let cosas=[]
@@ -132,7 +129,6 @@ export default function Inspirate(){
         if (filtroSalado && elem.tipo==='Receta Salada') {cosas.push(elem)}
         if (filtroDulce && elem.tipo==='Receta Dulce') {cosas.push(elem)}
         if (filtrosConsejos && elem.tipo==='Consejo') {cosas.push(elem)}
-        if (filtroUYC && elem.tipo==='usosYCuidados') {cosas.push(elem)}
       })
       return cosas
     }
@@ -155,7 +151,7 @@ export default function Inspirate(){
   useEffect(()=>{
     if (cosas?.length > 0) {
       let cosasMostrar=cosas
-      if (filtroDulce || filtroSalado || filtrosConsejos || filtroUYC) {
+      if (filtroDulce || filtroSalado || filtrosConsejos) {
         cosasMostrar=filtrar(cosas)
       }
       
@@ -165,7 +161,7 @@ export default function Inspirate(){
       setCosasMostrar(cosasMostrar)
     }
     
-  },[cosas,filtroBuscar,filtroDulce,filtroSalado,filtrosConsejos,filtroUYC])
+  },[cosas,filtroBuscar,filtroDulce,filtroSalado,filtrosConsejos])
 
   useEffect(()=>{
     if (cosas?.length>0) {
@@ -219,27 +215,23 @@ export default function Inspirate(){
           <div className={styles.filtrosDesplegablesContainer}>
             <div className={styles.filtrosDesplegables}>
               <ul ref={filtrosMobileRef}  className={styles.listaFiltros} style={{
-                height :filtrosMobile? `80px` : '0px',
+                height :filtrosMobile? `60px` : '0px',
                 padding:filtrosMobile?'10px 10px 10px 10px':'0px 10px 0px 10px' 
               }}>
                 <li>
                   <input checked={filtroDulce} onChange={e=>setFiltroDulce(e.target.checked)} type='checkbox' id='filtro1' ref={ref1} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro1' className={styles.checkMobile}>SWEET RECIPE</label>
+                  <label htmlFor='filtro1' className={styles.checkMobile}>RECETAS DULCES</label>
                   <span className={styles.filtroNumberMobile}>({cantidadDulces})</span>
                 </li>
                 <li>
                   <input checked={filtroSalado} onChange={e=>setFiltroSalado(e.target.checked)} type='checkbox' id='filtro2' ref={ref2} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro2' className={styles.checkMobile}>SALTY RECIPE</label>
+                  <label htmlFor='filtro2' className={styles.checkMobile}>RECETAS SALADAS</label>
                   <span className={styles.filtroNumberMobile}>({cantidadSaladas})</span>
                 </li>
-                <li>
-                <input checked={filtroUYC} onChange={e=>setFiltroUYC(e.target.checked)} type='checkbox' id='filtro3' ref={ref3} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro3' className={styles.checkMobile}   >USES AND CARE</label>
-                  <span className={styles.filtroNumberMobile}>({cantidadUYC})</span>
-                </li>
+
                 <li>
                   <input checked={filtrosConsejos} onChange={e=>setFiltrosConsejos(e.target.checked)} type='checkbox' id='filtro4' ref={ref4} className={styles.filtroCheckMobile}/>
-                  <label htmlFor='filtro4' className={styles.checkMobile} >TRICKS AND TIPS</label>
+                  <label htmlFor='filtro4' className={styles.checkMobile} >TRUCOS Y CONSEJOS</label>
                   <span className={styles.filtroNumberMobile}>({cantidadConsejos})</span>
                 </li>
               </ul>
@@ -286,11 +278,6 @@ export default function Inspirate(){
             <input checked={filtroSalado} onChange={e=>setFiltroSalado(e.target.checked)} type='checkbox' id='filtro2' ref={ref2} className={styles.filtroCheck}/>
             <label htmlFor='filtro2' className={styles.check}>RECETAS SALADAS</label>
             <span className={styles.filtroNumber}>({cantidadSaladas})</span>
-          </div>
-          <div>
-            <input checked={filtroUYC} onChange={e=>setFiltroUYC(e.target.checked)} type='checkbox' id='filtro3' ref={ref3} className={styles.filtroCheck}/>
-            <label htmlFor='filtro3' className={styles.check}>USO Y CUIDADOS</label>
-            <span className={styles.filtroNumber}>({cantidadUYC})</span>
           </div>
           <div>
             <input checked={filtrosConsejos} onChange={e=>setFiltrosConsejos(e.target.checked)} type='checkbox' id='filtro4' ref={ref4} className={styles.filtroCheck}/>
