@@ -27,13 +27,7 @@ export default function Receta(){
   const [estrellas,setEstrellas] = useState([])
   const [items, setItems] = useState([
   ])
-  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  // <RecetaCarrusellCard title='Sartén Vintage 20 cm' subTitle='Antiadherente Cerámico'/>,
-  // let items =[
-  // ]
+
 
   const Recetas = useSelector(state=>state.Receta)
   const RecetaSeleccionadaTitle= useParams().selected
@@ -47,8 +41,9 @@ export default function Receta(){
         }
       })
       setRecetaSeleccionada(receta)
+      window.scrollTo(0,0)
     }
-  },[Recetas])
+  },[Recetas,RecetaSeleccionadaTitle])
   useEffect(()=>{
     if (RecetaSeleccionada) {
       if (RecetaSeleccionada?.dificultad ==='baja') setDificultad('Baja')
