@@ -46,6 +46,8 @@ export default function Receta(){
   },[Recetas,RecetaSeleccionadaTitle])
   useEffect(()=>{
     if (RecetaSeleccionada) {
+      console.log(RecetaSeleccionada);
+      console.log(RecetaSeleccionada?.desarrollo.includes('cloudinary'));
       if (RecetaSeleccionada?.dificultad ==='baja') setDificultad('Baja')
       if (RecetaSeleccionada?.dificultad ==='media') setDificultad('Media')
       if (RecetaSeleccionada?.dificultad ==='alta') setDificultad('Alta')

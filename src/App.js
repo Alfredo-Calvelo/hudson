@@ -77,6 +77,10 @@ function App(props) {
   useEffect(()=>{
     console.log(activo);
   },[activo])
+  // while (true) {
+  //   console.clear()
+  // }
+  console.clear()
   return (
 
     <BrowserRouter>
