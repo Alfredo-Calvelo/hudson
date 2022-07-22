@@ -120,6 +120,7 @@
     align-items: center;
     gap: 10px;
     margin-left: 35px;
+
   }
 
   .desktopLinks{
@@ -134,8 +135,6 @@
     font-size: 8pt;
     padding: 0;
   }
-}
-@media (min-width:800px) {
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 5.5pt;
   }
@@ -154,6 +153,7 @@
   .cambiarIdiomaDesktop{
     margin-left: 10px;
     gap: 5px;
+    font-size: 8pt;
   }
   .logos{
     margin-right: 10px;
@@ -203,10 +203,18 @@
   .logo,.logoActivo{
     width: 140px;
   }
+  .cambiarIdiomaDesktop{
+    font-size: 11pt;
+  }
 }
+
+
 @media (min-width:1261px)  {
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 10pt;
+  }
+  .cambiarIdiomaDesktop{
+    font-size: 12pt;
   }
 }
 @media (min-width:1360px)  {
@@ -214,11 +222,12 @@
     margin-left: 30px;
   }
   .linkLogo,.linkLogoActivo{
-    width: 30px;
+    width: 25px;
   }
   .linkLogoImgContainer{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+    padding-bottom: 0;
   }
 
 }
