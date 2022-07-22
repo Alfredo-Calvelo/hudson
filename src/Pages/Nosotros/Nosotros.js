@@ -78,14 +78,21 @@ export default function Nosotros(){
         
         <div className={styles.imgDesktop1}></div>
         <div className={styles.bajada} >
-          <h3 className={styles.title}>NUESTRA PRESENCIA</h3>
+          <h3 className={styles.title}>NUESTRA TRAYECTORIA</h3>
           <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo}>
-          En 2010 iniciamos nuestra operación en Argentina y hoy somos líderes comercializando artículos de cocción como Baterías, Ollas, Sartenes, Woks y Utensilios.
-          En otras categorías como por ejemplo moldes para repostería, cafeteras, vajilla para mesa y pavas continuamos en constante crecimiento acompañados por el reconocimiento de nuestra marca.
+          En 2010 iniciamos nuestra operación en Argentina y hoy somos
+          líderes comercializando artículos de cocción como Baterías, Ollas,
+          Sartenes, Woks y Utensilios.          
           <br></br>
           <br></br>
-          Desde 2020 estamos presentes en el mercado uruguayo y en 2022 nos hemos propuesto ingresar al mercado estadounidense.
+          En otras categorías como por ejemplo moldes para repostería,
+          cafeteras, vajilla para mesa y pavas continuamos en constante
+          crecimiento acompañados por el reconocimiento de nuestra
+          marca.          
+          <br></br>
+          <br></br>
+          Actualmente operamos en otros países de LATAM y Estados Unidos.
           </p>
         </div>
       </div>
@@ -133,9 +140,10 @@ export default function Nosotros(){
           <h3 className={styles.title}>LA MARCA HUDSON</h3>
           <h5 className={styles.subTitle}></h5>
           <p className={styles.parrafo2}>
-          En Hudson creemos que cocinar es un acto creativo. Una mezcla especial de amor e imaginación en la que cada cocinero pone el sabor para sus afectos. Admiramos a quienes reinventan cada plato y se siente artistas del sabor. Nuestra marca inspira robustez y confianza, cuando uno toma un producto Hudson adquiere la sensación de contacto con un artículo durable. Trabajamos para lograr productos únicos con el balance justo de innovación y funcionalidad.<br></br><br></br>
-          Ansiamos que la cocina se transforme en un espacio de encuentro y creatividad, como un estallido de colores, formas y sabores.<br></br><br></br>
-          Buscamos revolucionar la gastronomía, y te invitamos a sumarte. Porque la mesa está servida. Y porque el próximo plato siempre es el mejor.
+          Nuestra marca inspira robustez y confianza, cuando uno toma un
+          producto Hudson adquiere la sensación de contacto con un artículo
+          durable.<br></br><br></br>Trabajamos para lograr productos únicos con el balance justo
+          de innovación y funcionalidad.
           </p>
         </div>
         <div className={styles.bajada} >

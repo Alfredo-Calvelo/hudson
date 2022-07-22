@@ -94,17 +94,21 @@
   display: flex;
   align-items: center;
 }
+.linksLogos{
+  display: none;
+}
 @media (min-width: 800px) {
   .container, .containerInactivo{
     height: 80px;
   }
-
+  .linksLogosContainer{
+    width: 0px;
+    overflow: visible;
+  }
   .NavBar{
     margin: var(--marginDesktop);
   }
-  .logo,.logoActivo{
-    width: 140px;
-  }
+  
   .menu,.menuActivo{
     display: none; 
   }
@@ -125,9 +129,7 @@
     width: 100%;
     gap: 5px;
   }
-  .logos{
-    margin-right: 35px;
-  }
+  
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 8pt;
     padding: 0;
@@ -137,16 +139,86 @@
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 5.5pt;
   }
+  .linkLogo,.linkLogoActivo{
+    width: 13px;
+    /* transition: var(--transitionCorta); */
+  }
+  .linksLogos{
+    /* transition: var(--transitionCorta); */
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    gap: 5px;
+    margin: 0 10px 0 10px;
+  }
+  .cambiarIdiomaDesktop{
+    margin-left: 10px;
+    gap: 5px;
+  }
+  .logos{
+    margin-right: 10px;
+  }
+  .logo,.logoActivo{
+    width: 90px;
+  }
 }
 
 
-@media (min-width:1040px) {
+@media (min-width:870px) {
+  .logo,.logoActivo{
+    width: 120px;
+  }
+  .linksLogos{
+    gap: 15px;
+  }
+  .linkLogoImgContainer{
+    width: 15px;
+    height: 15px;
+    padding-bottom: 5px;
+  }
+  .linkLogo,.linkLogoActivo{
+    width: 20px;
+    transition: var(--transitionCorta);
+    opacity: 0;
+    position: absolute;
+  }
+
+  .linkLogoActivo{
+    opacity: 1;
+  }
+}
+
+
+@media (min-width:1124px) {
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 8pt;
   }
+  .cambiarIdiomaDesktop{
+    gap: 10px;
+    margin-left: 35px;
+  }
+  .logos{
+    margin-right: 35px;
+  }
+  .logo,.logoActivo{
+    width: 140px;
+  }
 }
-@media (min-width:1200px)  {
+@media (min-width:1261px)  {
   .desktopLink,.desktopLinkRojo,.desktopLinkActivo{
     font-size: 10pt;
   }
+}
+@media (min-width:1360px)  {
+  .linksLogos{
+    margin-left: 30px;
+  }
+  .linkLogo,.linkLogoActivo{
+    width: 30px;
+  }
+  .linkLogoImgContainer{
+    width: 30px;
+    height: 30px;
+  }
+
 }

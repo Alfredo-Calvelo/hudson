@@ -25,8 +25,8 @@ export default function Contacto (){
   const [email, setEmail] = useState()
   const [telefono, setTelefono] = useState()
   const [pais, setPais] = useState()
-  const [provincia, setProvincia] = useState()
-  const [empresa, setEmpresa] = useState()
+  const [provincia, setProvincia] = useState('')
+  const [empresa, setEmpresa] = useState('')
   const [mensaje, setMensaje] = useState()
   
   const [visible, setVisible ] = useState(false)
@@ -75,12 +75,7 @@ export default function Contacto (){
               <h3>¿Cómo podemos ayudarte?</h3>
               <p>En Hudson queremos escucharte, envianos cualquier consulta, comentario u observación a cerca de nuestros productos o servicios y te responderemos a la brevedad.</p>
             </div>
-            <div>
-              <h4>¿Estas interesado en revender productos Hudson?</h4>
-              <p>
-              Escribanos para enterarte de las condiciones para ser revendedor de nuestras Baterías, Cacerolas, Sartenes, Woks y demás productos de cocina.
-              </p>
-            </div>
+            
           </div>
           <div className={styles.info}>
             <Input value={nombre} setValue={setNombre} placeholder='Nombre' obligatorio/>
@@ -88,16 +83,7 @@ export default function Contacto (){
             <Input value={telefono} setValue={setTelefono} placeholder='Teléfono' obligatorio/>
             <Input value={pais} setValue={setPais} placeholder='País' obligatorio/>
             <Input value={provincia} setValue={setProvincia} placeholder='Provincia (opcional)'/>
-            <div className={styles.empresa}>
-              <input  id='Empresa' type='checkbox' className={styles.input} onChange={(e)=>{setRevendedor(e.target.checked)}}/>
-              <div className={styles.revendedor}>
-                <label className={styles.label} htmlFor='Empresa'> 
-                {revendedor?<div className={styles.paloma}><AiOutlineCheck/></div>:null}
-                </label>
-                <h5 className={styles.revendedorText}>Soy revendedor</h5>
-              </div>
-              <Input value={empresa} setValue={setEmpresa} placeholder='Empresa (opcional)'/>
-            </div>
+            <Input value={empresa} setValue={setEmpresa} placeholder='Empresa (opcional)'/>
             <div className={styles.textArea}>
               <textarea value={mensaje} onChange={e=>setMensaje(e.target.value)} placeholder='Mensaje' className={styles.mensaje}/>
               <AsteriscoObligatorio/>

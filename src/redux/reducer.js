@@ -19,7 +19,8 @@ import {
 } from "./actions"
 import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
 import fotoAluminio from '../imagenes/U Y C ALUMINIO.png'
-import fotoPavas from '../imagenes/U Y C PAVAS Y CAFETERAS.png'
+import fotoPavas from '../imagenes/U Y C PAVA SIL.png'
+import fotoCafeteras from '../imagenes/U Y C CAFETERAS.png'
 import fotoNilon from '../imagenes/U Y C UT NYLON SILICONA.png'
 import fotoInox from '../imagenes/U Y C ACERO INOX.png'
 import fotoInoxUtensilios from '../imagenes/U Y C UT ACERO.png'
@@ -153,12 +154,12 @@ const initialState={
     {
       tipo:'usosYCuidados',
       foto:fotoPavas,
-      title:'Pavas y Cafeteras',
+      title:'Pavas',
       subtitle:'',
       recomendacionesGenerales:[
-        'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
-        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
-        'No usarlo como contenedor de alimentos.'
+      'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+      'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+      'No usarlo como contenedor de alimentos.'
       ],
       extras:[
         {
@@ -166,6 +167,36 @@ const initialState={
           subTitle:'Extendé la vida útil de tus productos',
           items:[
             'Para lavar tu pava o cafetera y que dure mucho más tiempo hacerlo con una esponja suave para no dañar el color.',
+            'Si por dentro tiene sarro, podes sacárselo hirviendo un poco de agua con vinagre por al menos 5 minutos.',
+          ]
+        },
+        {
+          title:'Cuidado en el Guardado',
+          subTitle:'Mantené impecable tus productos.',
+          items:[
+            'Guardá las piezas en un lugar seco para preservar el recubrimiento del esmalte de mangos y perillas, evitar roces y golpes.'
+          ]
+        }
+      ]
+    },
+
+    
+    {
+      tipo:'usosYCuidados',
+      foto:fotoCafeteras,
+      title:'Cafeteras',
+      subtitle:'',
+      recomendacionesGenerales:[
+      'Evitar el uso de fuegos máximos. Usa tu producto centrado en la hornalla. La llama no debe superar la base de la pieza para evitar quemaduras y/o decoloraciones en revestimiento o en los mangos.',
+      'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
+      'No usarlo como contenedor de alimentos.'
+      ],
+      extras:[
+        {
+          title:'Cuidado en el Lavado',
+          subTitle:'Extendé la vida útil de tus productos',
+          items:[
+            'Para lavar tu cafetera o cafetera y que dure mucho más tiempo hacerlo con una esponja suave para no dañar el color.',
             'Si por dentro tiene sarro, podes sacárselo hirviendo un poco de agua con vinagre por al menos 5 minutos.',
           ]
         },
@@ -217,8 +248,9 @@ const initialState={
       subtitle:'',
       recomendacionesGenerales:[
         'Evitar el uso de fuegos directo sobre estos utensilios',
-        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
-        'Usa tus productos de acero inoxidable con este tipo de utensilios. Evitar utilizarlo sobre productos con antiadherente.'
+        'Nunca utilizar este tipo de piezas en hornos de cocina, microondas,brasas directas.',
+        'Usa tus productos de acero inoxidable con este tipo de utensilios.',
+        'No utilizar este tipo de utensilios sobre productos con antiadherente porque su filo y dureza agreden al mismo.'
       ],
       extras:[
         {
@@ -246,9 +278,10 @@ const initialState={
       title:'Piezas de vidrio para horno',
       subtitle:'',
       recomendacionesGenerales:[
-        'Evitar el uso de fuegos directo sobre este tipo de productos. ',
+        'Evitar el uso de fuegos directo sobre este tipo de productos.',
         'Estas piezas son aptas hornos a gas y eléctricos y microondas.',
-        'Estas piezas también son aptas heladera y freezer.'
+        'Estas piezas también son aptas heladera y freezer.',
+        'Evitar el choque térmico. Tanto del freezer al horno o viceversa aguardar a que el producto este a temperatura ambiente.'
       ],
       extras:[
         {
@@ -281,7 +314,7 @@ const initialState={
         'Nunca utilizar este tipo de piezas en hornos de cocina, microondas, brasas directas.',
         'No usarlo como contenedor de alimentos.',
         'Evitar el uso de técnicas de cocción a la sal ya que pueden generar manchas y desgastar la superficie.',
-        'Para piezas es tipo de piezas sin recubrimiento antiadherente, puede utilizar utensilios de Acero Inoxidable, de todas formas, recomendamos el uso de productos cortantes., ya que pueden dañar el recubrimiento.'
+        'Para piezas es tipo de piezas sin recubrimiento antiadherente, puede utilizar utensilios de Acero Inoxidable, de todas formas, no recomendamos el uso de productos cortantes., ya que pueden dañar el recubrimiento.'
       ],
       extras:[
         {
@@ -313,7 +346,8 @@ const initialState={
       title:'Piezas de Moldería',
       subtitle:'Con Antiadherente',
       recomendacionesGenerales:[
-        'Evitar el uso sobre hornallas, brasas directas y microondas.',
+        'Nuestros moldes fueron concebidos para uso dentro del horno, para cocinar tortas, postres, tartas, pizzas, panes, etc.',
+        'No usarlos sobre hornallas en fuego directo, brasas directas y microondas.',
         'Todas nuestras piezas son aptas hornos a gas y eléctricos.',
         'No usarlo como contenedor de alimentos.',
         'Evitar el uso de técnicas de cocción a la sal ya que pueden generar manchas y desgastar la superficie.',

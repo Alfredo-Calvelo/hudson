@@ -3,6 +3,13 @@ import logoNegro from '../../imagenes/logoNegro.png'
 import SearchBar from '../SearchBar/SearchBar'
 import CambiarIdioma from './CambiarIdioma/CambiarIdioma'
 import styles from './NavBar.module.css'
+import instagram from '../../imagenes/iconos/instagramGris.png'
+import instagramBlanco from '../../imagenes/iconos/instagramBlanco.png'
+import facebook from '../../imagenes/iconos/facebookGris.png'
+import facebookBlanco from '../../imagenes/iconos/facebookBlanco.png'
+import youtube from '../../imagenes/iconos/youtubeGris.png'
+import youtubeBlanco from '../../imagenes/iconos/youtubeBlanco.png'
+
 import {AiOutlineMenu} from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { cambiarOpciones, menuActivoNavBar} from '../../redux/actions'
@@ -29,6 +36,7 @@ export default function NavBar(){
   const [categoriasFinales, setCategoriasFinales]= useState([])
   const Tiendas = useSelector(state=>state.Tiendas)
   const [tiendasFinales, setTiendasFinales] = useState([])
+  const instagramUser = useSelector(state=>state?.social?.instagramUser)
   useEffect(()=>{
     if (Tiendas && Tiendas[0].tiendas) {
       let copiaTiendas =[] 
@@ -158,6 +166,20 @@ export default function NavBar(){
             </div>
             
             
+          </div>
+          <div className={styles.linksLogos}>
+            <a className={styles.linkLogoImgContainer} href={`https://www.instagram.com/${instagramUser}/`} target='_blank'>
+              <img src={instagramBlanco} className={navBarActiva? styles.linkLogo : styles.linkLogoActivo} />
+              <img src={instagram} className={navBarActiva? styles.linkLogoActivo : styles.linkLogo} />
+            </a>
+            <a className={styles.linkLogoImgContainer} href='https://www.facebook.com/HudsonKitchenware/' target='_blank'>
+              <img src={facebookBlanco} className={navBarActiva?  styles.linkLogo : styles.linkLogoActivo} />
+              <img src={facebook} className={navBarActiva? styles.linkLogoActivo : styles.linkLogo}  />
+            </a>
+            <a className={styles.linkLogoImgContainer} href='https://www.youtube.com/channel/UCmATVdmApr3S6W-rGrxyitQ' target='_blank'>
+              <img src={youtubeBlanco} className={navBarActiva? styles.linkLogo : styles.linkLogoActivo} />
+              <img src={youtube} className={navBarActiva? styles.linkLogoActivo : styles.linkLogo}  />
+            </a>
           </div>
       </div>
       <DesplegableDesktop segundaColumna={tipoMenu==='catalogo'?segundaColumnaTitles:false} links={links} verMas={verMas} activo={desplegableActivo} title={title}/>
