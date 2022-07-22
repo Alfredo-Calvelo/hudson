@@ -1,0 +1,66 @@
+
+.headerImg{
+  padding: 0 20px 0 20px;
+  width: calc(100% - 40px);
+}
+.title{
+  background-color: white;
+  width: 55%;
+  margin: auto;
+  padding: 25px;
+  position: relative;
+  top: -40px;
+  display: grid;
+  gap: 10px;
+}
+.title h3{
+  line-height: 23px;
+  font-family: 'Bold';
+  font-size: 15pt;
+}
+.verReceta{
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  transition: var(--transitionCorta);
+  font-family: 'Regular' ;
+  letter-spacing: 2px;
+}
+.title:hover .verReceta{
+  gap: 30px;
+}
+
+@media (min-width:800px) {
+  .container{
+    display: grid;
+    margin-bottom: -70px;
+  }
+  
+  .imgContainer{
+    height: 488px;
+    display: grid;
+    align-content: center;
+    overflow: hidden;
+  }
+  .title{
+    display: block;
+    margin-left: calc(15vw - 10px);
+    padding: 20px;
+    font-family: 'Bold';
+    width: fit-content;
+    top: -70px;
+    cursor: pointer;
+  }
+  .title h3{
+    font-size: 30px;
+    padding: 20px;
+    line-height: 30px;
+  }
+  .title h6{
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .verReceta{
+    padding: 10px 20px;
+  }
+}

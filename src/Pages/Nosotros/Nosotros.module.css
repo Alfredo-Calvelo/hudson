@@ -1,0 +1,138 @@
+.header{
+
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+.headerTitle{
+  margin-bottom: 20px;
+}
+.imgHeader{
+  /* width: 100%; */
+  height: 150px;
+  z-index: -1;
+  content: url('../../imagenes/HEADER\ BANNER\ NOSOTROS.jpg');
+}
+.imgDesktop,.imgDesktop3,.imgDesktop2,.imgDesktop1{
+  height: 200px;
+  overflow: hidden;
+  display: grid;   
+  width: 100%;
+  background-image: url(../../imagenes/HEADER\ BANNER\ NOSOTROS.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.imgDesktop1,.imgDesktop2,.imgDesktop3{
+  background-image: url(../../imagenes/FOTO\ NOSOTROS\ PASTAS.jpg);
+}
+.imgDesktop2{
+  background-image: url(../../imagenes/FOTO\ NOSOTROS\ CAMARONES.jpg);
+}
+.imgDesktop3{
+  background-image: url(../../imagenes/FOTO\ NOSOTROS\ FIDEOS.jpg);
+}
+.bajada{
+  background-color: white;
+  margin: 0px 20px 0 20px ;
+  position: relative;
+  top: -30px;
+  display: grid;
+  justify-items: center;
+  padding: 20px;
+  
+}
+.title{
+  color: var(--rojo);
+  font-family: 'ExtraBold';
+  font-size: 15pt;
+  margin-bottom: 7px;
+}
+.subTitle{
+  font-family: 'Bold';
+  font-size: 13pt;
+  text-align: center;
+}
+.subTitleCard{
+  font-family: 'Bold';
+  font-size: 13pt;
+  width: 100%;
+  text-align: left;
+  margin: 10px 0 10px 30px;
+}
+.liCard{
+  margin: 5px 0 5px 10px;
+}
+.parrafoCard{
+  padding: 0 30px 30px 30px;
+  font-family: 'Regular';
+  font-size: 10pt;
+}
+.parrafo,.parrafo2{
+  padding: 30px;
+  font-family: 'Regular';
+  font-size: 10pt;
+}
+.parrafo2{
+  padding: 30px 30px 15px 30px;
+}
+.destacado{
+  margin: 0 20px 0 20px;
+}
+.Invisible{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: -100px;
+  user-select: none;
+  margin-top: 20px;
+}
+.Visible{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  user-select: none;
+  margin-top: -30px;
+}
+
+@media (min-width:800px) {
+  .parrafoCard{
+    margin: 0px 0 0px 30px;
+    width: 100%;
+  }
+  .headerTitle{
+    font-size: 34px;
+    margin: 20px 0 25px 0;
+  }
+  .header{
+    display: grid;
+    
+  }
+  .imgDesktop{
+    height: 400px;
+    overflow: hidden;
+    display: grid;
+    align-content: center;   
+    width: 100%;
+  }
+  .imgDesktop1,.imgDesktop2,.imgDesktop3{
+    height: 500px;
+    margin: var(--marginCatalogo);
+    width: auto;
+  }
+  .imgHeader{
+    position: relative;
+    transition: var(--transitionCorta);
+  }
+  .bajada{
+    width: 50%;
+    margin: -30px auto 0 auto ;
+    padding: 40px;
+  }
+  .headerDesktop{
+    margin: var(--marginCatalogo);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: calc( var(--marginCatalogo));
+  }
+}

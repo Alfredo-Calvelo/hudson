@@ -1,0 +1,13 @@
+
+.container{
+  display: flex;
+  width: 1000;
+}
+.input{
+  border: var(--rojo) 1px solid;
+  background-color: var(--grisFondo);
+  padding: 15px;
+  outline: none;
+  display: inline;
+  width: 100%;
+}

@@ -1,0 +1,28 @@
+.videoDesktop{
+  display: flex;
+  justify-content: center;
+  margin: var(--marginDesktop);
+  padding: 20px;
+  height: 600px;
+  margin-top: 100px;
+}
+
+.videoInvisible{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: -100px;
+  user-select: none;
+}
+.videoVisible{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: 0;
+  user-select: none;
+}
+@media (max-width:800px) {
+  .videoDesktop{
+    display: none;
+  }
+}

@@ -1,0 +1,82 @@
+.containerActivo,.containerInActivo{
+  position: fixed;
+  background-color: white;
+  width: 80%;
+  margin-left: 20%;
+  height: 100%;
+  z-index: 2000;
+  transition: var(--transitionCorta);
+  transform: translateX(0%);
+  top: 0px;
+  overflow-y: scroll;
+}
+.containerInActivo{
+  align-self: right;
+  transform: translateX(100%);
+}
+.bloque,.subBloque,.subBloqueInicio{
+  background-color: var(--rojo);
+  color: white;
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  font-family: 'ExtraLight';
+  cursor: pointer;
+}
+.subBloque,.subBloqueInicio{
+  background-color: white;
+  color: var(--grisFuente);
+  padding: 15px 30px 15px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.subBloque{
+  font-size: 0.83em;
+  font-weight: bold;
+}
+.subBloqueInicio{
+  background-color: white;
+  margin-top: 5px;
+}
+
+.bloque svg{
+  position: relative;
+  font-size: 11pt;
+}
+.bloque path{
+  color: white;
+
+}
+.separador1{
+  margin: 5px 0 5px 0;
+}
+.separador{
+  margin-top: 20px;
+}
+.tiendas{
+  margin: 20px 20px 20px 20px;
+  display: grid;
+  gap: 5px;
+}
+.redes{
+  display:  flex;
+  align-items: center;
+  gap: 10px;
+}
+.redes img{
+  height: 10px;
+  width: 10px;
+}
+.clases{
+  cursor: pointer;
+}
+.linksTiendas{
+  font-family: 'ExtraLight';
+  font-size: 0.67em;
+  font-weight: bold;
+}
+@media (min-width: 800px) {
+  .containerActivo,.containerInActivo{
+    display: none;
+  }
+}

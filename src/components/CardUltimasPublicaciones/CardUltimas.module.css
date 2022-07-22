@@ -1,0 +1,66 @@
+.container{
+  width: fit-content;
+  padding: 0 5px 0 5px;
+  display: flex;
+  text-decoration: none;
+}
+.imagen{
+  z-index: -1;
+  width: 150px;
+  height: 204px;
+  overflow: hidden;
+  margin-top: -54px;
+
+}
+.imagen img{
+  width: calc(100% - 10px);
+}
+.img{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+@media (min-width:800px) {
+  .container{
+    overflow: hidden;
+    justify-content: center;
+    padding: 0;
+  }
+  .imagen{
+    position: relative;
+    margin-top: -54px;
+    width: 100%;
+    height: calc(12.47vw + 54px);
+    overflow: visible;
+  }
+  .infiltrado{
+    display: block;
+    width: 500px;
+    height: 500px ;
+    background-color: red;
+  }
+}
+/* @media (min-width:1240px) {
+  .imagen{
+    width: 200px;
+    height: 250px;
+  }
+}
+@media (min-width:1540px) {
+  .imagen{
+    width: 250px;
+    height: 300px;
+  }
+}
+@media (min-width:1850px) {
+  .imagen{
+    width: 250px;
+    height: 300px;
+  }
+} */

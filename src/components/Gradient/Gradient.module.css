@@ -1,0 +1,10 @@
+.gradient{
+  height: 75px;
+  width: 100%;
+  background:var(--gradient);
+}
+@media (min-width:800px) {
+  .gradient{
+    height: 80px;
+  }
+}

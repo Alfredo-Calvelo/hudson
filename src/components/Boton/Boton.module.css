@@ -1,0 +1,104 @@
+*{
+  margin: 0;
+}
+.container{
+  /* display: inline-block; */
+  width: fit-content;
+}
+.relleno,.noRelleno{
+  background-color: var(--rojo);
+  border: var(--rojo) 1px solid;
+  color: transparent;
+  font-family: 'Medium';
+  font-size: 11pt;
+  padding: 10px 15px 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 1.5px;
+  width: fit-content;
+
+}
+.adelante{
+  z-index: 200;
+}
+.noRelleno{
+  border: var(--rojo) 1px solid;
+  background-color: transparent;
+  padding: 9px 15px 9px 15px;
+}
+.masterChef{
+  border: var(--naranjaMasterChef) 1px solid;
+}
+.noRelleno span{
+  color: var(--rojo);
+  font-family: 'Bold';
+  font-size: 12pt;
+  letter-spacing: 0;
+}
+.masterChef span{
+  color: var(--naranjaMasterChef);
+
+}
+.text{
+  color: white;
+  font-family: 'Bold';
+  font-size: 12pt;
+  white-space: nowrap;
+}
+.text path, .text svg{
+  color: var(--rojo);
+  position: relative;
+  top: 1px;
+  margin: -2px -10px -2px -6px;
+}
+.flecha{
+  display: flex;
+  margin: 0 0 0 13px;
+
+}
+.flecha path{
+  color: white;
+
+}
+.lista{
+  height: max-content;
+  display: grid;
+}
+.listaActiva{
+  height: max-content;
+  display: grid;
+  z-index: 20000;
+  /* opacity: 1; */
+  transition: var(--transitionCorta);
+  max-height: 200px;
+  margin-bottom: 20px;
+}
+
+.listaInactiva{
+  max-height: 0px;
+  transition: var(--transitionCorta);
+  opacity: 0;
+  background-color: red;
+}
+.listContainer{
+  background-color: var(--grisMedio);
+  width: 100%;
+  display: grid;
+  gap: 2px;
+  z-index: 200;
+}
+.li{
+  color: var(--grisFuente);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 10px 0 10px 15px;
+  background-color: white;
+  z-index: 200;
+  font-size: 10pt;
+  font-family: 'ExtraBold';
+
+}

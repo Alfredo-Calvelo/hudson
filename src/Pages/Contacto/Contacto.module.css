@@ -1,0 +1,136 @@
+.header{
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  margin-top: -10px;
+}
+.title{
+  margin-bottom: 15px;
+}
+.headerImg{
+  /* height: 50%; */
+  /* display: flex;
+  justify-content: center; */
+  object-fit: cover;
+  /* height: 100%; */
+  height: 100%;
+}
+.headerImgDesktop{
+  width: 100vw;
+  /* height: 300px; */
+  background-image: url(../../imagenes/HEADER\ BANNER\ CONTACTO.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+  /* display: grid; */
+  /* height: fit-content; */
+}
+.info{
+  display: grid;
+  padding: 20px;
+  padding-bottom: 0;
+  gap: 10px;
+}
+.empresa{
+  display: grid;
+  grid-template-columns: 45% 55%;
+  align-items: center;
+  /* padding-left: 15px; */
+}
+.input{
+  display: none;
+}
+.label{
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  border: var(--rojo) solid 1px;
+  align-items: center;
+  justify-content: center;
+}
+.label path{
+  color: var(--rojo);
+}
+.revendedor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.enviar{
+  width: fit-content;
+  margin: auto;
+}
+.mensaje{
+  border: var(--rojo) solid 1px;
+  outline: none;
+  padding: 15px;
+  font-family: 'Regular';
+  height: 100px;
+  resize: none;
+  margin-bottom: 10px;
+  background-color: transparent;
+  font-size: 12pt;
+  width: 100%;
+  
+}
+.preguntas{
+  margin-top: 20px;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+.preguntas h3,.preguntas h4{
+  color: var(--rojo);
+}
+.preguntas p{
+  margin-top: 7px;
+  font-family: 'Regular';
+}
+.destacado{
+  padding: 0 20px 0 20px;
+}
+.Invisible{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: -100px;
+  user-select: none;
+}
+.Visible{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: 0;
+  user-select: none;
+}
+.textArea{
+  display: flex;
+}
+
+@media (min-width:800px) {
+  .header{
+    margin: 0;
+  }
+  .title{
+    font-size: 34px;
+    margin: 20px 0 25px 0;
+  }
+  .headerImgDesktop{
+    height: 400px;
+    display: grid;
+    align-content: center;
+    overflow: hidden;
+    width: 100%;
+  }
+  .desktopInputs{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: var(--marginCatalogo);
+  }
+  .preguntas{
+    display: grid;
+    height: fit-content;
+
+  }
+}

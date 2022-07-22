@@ -1,0 +1,85 @@
+.desplegable{
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    transition: var(--transitionCorta);
+    display: none;
+}
+.container{
+    display: flex;
+    height: 320px;
+}
+.links{
+    padding: 20px 0 20px 50px;
+    margin-right: 20px;
+    width: 280px;
+    display: grid;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 20px;
+}
+.title{
+    font-family: 'Bold';
+    font-size: 20pt;
+    color: var(--rojo);
+    height: 34px;
+}
+.verMas{
+    font-family: 'Medium';
+    font-size: 12pt;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+.verMas:hover{
+    text-decoration: underline;
+}
+.link,.masterChef{
+    font-family: 'ExtraBold';
+    font-size: 10pt;
+    height: fit-content; 
+    cursor: pointer;
+}
+.segundaColumna{
+    padding: 77px 0 0 0 ;
+    display: grid;
+    margin: 0 50px 0 0;
+    gap: 10px;
+    height: fit-content;
+}
+.link{
+    white-space: nowrap;
+}
+.linkContainer{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.masterChef{
+    color: var(--naranjaMasterChef);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.masterChefImg{
+    width: 20px;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    width: fit-content;
+}
+.rutas{
+    display: grid;
+    height: fit-content;
+    gap: 10px;
+
+}
+@media (min-width:800px)  {
+    .desplegable{
+        display: block;
+    }
+}

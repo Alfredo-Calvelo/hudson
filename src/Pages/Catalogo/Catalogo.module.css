@@ -1,0 +1,136 @@
+.header{
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+.header img{
+  width: 100%;
+}
+.subHeaderMasterCheff,.subHeader{
+  margin: 0 15px 0 15px;
+  align-items: center;
+  background-color: var(--naranjaMasterChef);
+  display: flex;
+  position: relative;
+  top: -40px;
+}
+.subHeader{
+  height: 100px;
+  background-color: var(--rojo);
+  width: 100%;
+  margin: 0;
+  top: 0;
+}
+.logo{
+  width: 50px;
+  background-color: white;
+  padding: 25px;
+}
+
+
+.title{
+  display: inline;
+  width: fit-content;
+  padding: 0 0 0 25px;
+  color: white;
+}
+.descargarCatalogo,.descargarCatalogoMasterCheff{
+  padding: 0 20% 0 20%;
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.Cards{
+  padding: 0 20px 0 20px;
+}
+.prodDestacados{
+  padding: 0 20px 0 20px;
+}
+.desktopTitle{
+  display: none;
+}
+.cardsDesktop{
+  display: none;
+}
+.container{
+  overflow-x: hidden;
+}
+.tituloYFoto{
+  display: flex;
+  margin: 0 15px 20px 15px;
+  position: relative;
+  top:-40px;
+}
+.titulos{
+  display: grid;
+}
+@media (min-width:800px) {
+  .Cards{
+    display: none;
+  }
+  .titulos{
+    margin: var(--marginCatalogo);
+  }
+  
+  .desktopTitle{
+    display: block;
+    font-family: 'ExtraBold';
+    font-size: 85px;
+    color: white;
+    filter: var(--centerShadow);
+    padding: 70px;
+    width: 50%;
+    margin-left: 5%;
+    min-width:700px ;
+  }
+  .header{
+    height: 568px;
+    display: flex;
+    align-items: center;
+  }
+  .title{
+    padding: 20px;
+    font-size: 26pt;
+    min-width: 430px;
+  }
+  .titulos{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .subHeader,.subHeaderMasterCheff{
+    margin: 0;
+    top: -85px;
+    height: 125px;
+  }
+  .subHeader{
+    width: calc(465px + 125px);
+    width: 465px;
+  }
+  .tituloYFoto{
+    display: flex;
+    top: 0;
+  }
+  .descargarCatalogo{
+    padding: 0;
+    height: fit-content;
+    top: 20px;
+    position: relative;
+  }
+  .logo{
+    width: 75px;
+    height: 75px;
+    position: relative;
+    top: -85px;
+  }
+ 
+  .cardsDesktop{
+    display: grid;
+    justify-items: center;
+    margin: var(--marginCatalogo);
+
+  }
+}

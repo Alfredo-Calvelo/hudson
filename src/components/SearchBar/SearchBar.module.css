@@ -1,0 +1,75 @@
+
+
+.SearchBar,.SearchBarActivo{
+  display: inline-flex;
+  width: 100%;
+  background-color: rgba(142, 142, 141 ,.3);
+  padding: 6px;
+  height: fit-content;
+  transition: var(--transitionCorta);
+  align-items: center;
+  
+}
+.SearchBarActivo{
+  background-color: rgba(142, 142, 141 ,1);
+  
+}
+.SearchBar svg, .SearchBarActivo svg{
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+}
+.SearchBarActivo svg circle, .SearchBarActivo svg line {
+  transition: var(--transitionCorta);
+  color: white;
+}
+.SearchBar svg circle,.SearchBar svg line{
+  color: var(--grisFuente);
+  transition: var(--transitionCorta);
+}
+
+.input,.inputDesktop{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  height: 100%;
+  transition: .5s;
+}
+.input{
+  padding: 5px;
+  width: 100%;
+}
+.SearchBarActivo input{
+  color: white;
+}
+.inputDesktop{
+  padding: 5px;
+  width: 50px;
+  background-color: rgba(142, 142, 141 ,.3);
+}
+.desktop:hover >.inputDesktop{
+  width: 110px;
+}
+.mobile{
+  width: 100%;
+}
+.mobile,.desktop{
+  display: flex;
+}
+.desktop{
+  display: none;
+}
+@media (min-width:800px) {
+  .desktop{
+    display: flex;
+    gap: 10px;
+  }
+  .mobile{
+    display: none
+  }
+  .SearchBar,.SearchBarActivo{
+    background-color: transparent;
+  }
+
+}

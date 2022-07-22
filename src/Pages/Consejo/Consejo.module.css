@@ -1,0 +1,110 @@
+.consejo{
+  background-color: white;
+  margin: 0 20px 0 20px;
+  padding: 40px 55px 30px 55px;
+  display: grid;
+  justify-items: center;
+}
+.parrafo{
+  font-size: 13pt;
+}
+.title{
+  color: var(--rojo);
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+.algunosConsejos{
+  display: grid;
+  gap: 15px;
+}
+.algunosConsejos li{
+  font-size: 13pt;
+  font-family: 'SemiBold';
+}
+.destacado{
+  margin: 0 20px 0 20px;
+}
+.videoDesktop{
+  display: none;
+}
+.consejero{
+  display: none;
+}
+.Invisible{
+  opacity: 0;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: -100px;
+  user-select: none;
+}
+.Visible{
+  opacity: 1;
+  transition: var(--transitionCorta);
+  position: relative;
+  bottom: 0;
+  user-select: none;
+}
+.desarrolloMobile{
+  background-color: white;
+  margin: 0 20px 0 20px;
+}
+.fotoDesarrolloDesktop,.fotoDesarrolloMobile{
+  height: 100%;
+  width: 100%;
+}
+@media (min-width:800px) {
+  .consejo{
+    margin: var(--marginReceta);
+    padding: 60px;
+  }
+  .desarrolloMobile{
+    display: none;
+  }
+  .videoMobile{
+    display: none;
+  }
+  .videoDesktop{
+    display: flex;
+    justify-content: center;
+    margin: var(--marginReceta);
+    padding: 0 60px 0 60px;
+    height: 40vh;
+    background-color: white;
+  }
+  .consejoDesktop{
+    display: grid;
+    justify-items: left;
+  }
+  .algunosConsejos{
+    width: 60%;
+    padding-left: 22px;
+  }
+  .consejero{
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:var(--marginReceta);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
+    gap: 35px;
+  }
+  .consejeroImg{
+    width: 200px;
+  }
+
+  .consejeroTitle,.consejeroSubTitle{
+    font-family: 'Bold';
+    font-size: 20px;
+    width: 150px;
+    text-align: left;
+  }
+  .parrafo{
+    font-size: 24px;
+    /* padding: 0 60px 0 60px; */
+  }
+  .title{
+    font-size: 20px;
+  }
+}

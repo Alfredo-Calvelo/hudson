@@ -1,0 +1,54 @@
+.Circulo{
+  background-color: white;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+} 
+.label{
+  font-size: 9pt;
+  margin-top: 15px;
+  font-family: 'Regular';
+  font-weight: 600;
+  text-align: center;
+}
+
+.Img{
+  height: 80%;
+}
+.subContainer{
+  text-decoration: none;
+  width: fit-content;
+  display: grid;
+  justify-items: center;
+  color: black;
+}
+.container{
+  width: fit-content;
+  padding: 15px 10px 15px 10px ;
+}
+
+@media (min-width:800px) {
+  .Img{
+    height: 100%;
+    width: 100%;
+  }
+  .Circulo{
+    padding: 2vw;
+    width: 7vw;
+    height: 7vw;
+    transition: var(--transitionCorta);
+  }
+  .Circulo:hover{
+    filter: var(--strongShadow);
+  }
+  .label{
+    font-family: 'SemiBold';
+    font-size: 13pt;
+  }
+}
