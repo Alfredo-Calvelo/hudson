@@ -38,7 +38,7 @@ export default function MenuDesplegable(){
   const Tiendas = useSelector(state=>state.Tiendas)
   const [tiendasFinales, setTiendasFinales] = useState([])
   useEffect(()=>{
-    if (Tiendas && Tiendas[0].tiendas) {
+    if (Tiendas && Tiendas[0]?.tiendas) {
       let copiaTiendas =[] 
       Tiendas[0].tiendas.map((elem, index)=>{
         copiaTiendas.push({title:elem.title, link:elem.URL, tipo:'producto'})

@@ -239,11 +239,11 @@ export default function Inspirate(){
           </div>
           <div className={styles.textsFiltros}>
             <CgOptions/>  
-            <h6>Filter</h6>
+            <h6>Filtros</h6>
           </div>
         </div>
         <div className={styles.filterBlock}><FiSearch />
-          <input value={filtroBuscar} className={styles.inputBuscarMobile} onChange={e=>setFiltroBuscar(e.target.value)} placeholder='Search'/>
+          <input value={filtroBuscar} className={styles.inputBuscarMobile} onChange={e=>setFiltroBuscar(e.target.value)} placeholder='Buscar'/>
         </div>
       </div>
       <div className={styles.filterDesktop}>

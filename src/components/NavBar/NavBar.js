@@ -38,7 +38,7 @@ export default function NavBar(){
   const [tiendasFinales, setTiendasFinales] = useState([])
   const instagramUser = useSelector(state=>state?.social?.instagramUser)
   useEffect(()=>{
-    if (Tiendas && Tiendas[0].tiendas) {
+    if (Tiendas && Tiendas[0]?.tiendas) {
       let copiaTiendas =[] 
       Tiendas[0].tiendas.map((elem, index)=>{
         copiaTiendas.push({title:elem?.title?.toUpperCase(), link:elem.URL, tipo:'producto'})

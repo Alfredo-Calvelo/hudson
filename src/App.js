@@ -56,7 +56,6 @@ function App(props) {
           url: BASE_URL + "/getActivo"
       });
       if (json?.data.length > 0) {
-        console.log(json.data[0].activo);
         setActivo(json.data[0].activo)
       }
       dispatch(getData(typeBanner))
@@ -70,18 +69,12 @@ function App(props) {
       dispatch(getCardCatalogo())
       dispatch(getSocial())
   } catch (error) {
-    console.log(error);
   }
 
   },[])
-  useEffect(()=>{
-    console.log(activo);
-  },[activo])
-  // while (true) {
-  //   console.clear()
-  // }
-  console.clear()
-  return (
+
+console.clear()
+    return (
 
     <BrowserRouter>
             {activo=== undefined?<Cargando/>:

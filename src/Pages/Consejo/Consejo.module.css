@@ -11,7 +11,8 @@
 .title{
   color: var(--rojo);
   margin-bottom: 20px;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
 }
 .algunosConsejos{
   display: grid;
@@ -48,9 +49,12 @@
   background-color: white;
   margin: 0 20px 0 20px;
 }
-.fotoDesarrolloDesktop,.fotoDesarrolloMobile{
+.fotoDesarrolloMobile{
   height: 100%;
   width: 100%;
+}
+.imagenDesktop{
+  display: none;
 }
 @media (min-width:800px) {
   .consejo{
@@ -70,6 +74,24 @@
     padding: 0 60px 0 60px;
     height: 40vh;
     background-color: white;
+  }
+  .imagenDesktop{
+    background-color: white;
+    margin: var(--marginReceta);
+    padding-left: 60px;
+    padding-right: 60px;
+    display: block;
+    overflow: hidden;
+    
+  }
+  .marginImagenDesktop{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .fotoDesarrolloDesktop{
+    height: 40vh;
+
   }
   .consejoDesktop{
     display: grid;
@@ -102,9 +124,10 @@
   }
   .parrafo{
     font-size: 24px;
-    /* padding: 0 60px 0 60px; */
   }
   .title{
     font-size: 20px;
+    white-space:nowrap;
+    
   }
 }

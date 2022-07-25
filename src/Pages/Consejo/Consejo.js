@@ -72,12 +72,22 @@ export default function Consejo (){
             </a>
 
           </div>
-        <div className={styles.videoDesktop} >
-          {desarrollo?.includes('cloudinary')
-            ?<img className={styles.fotoDesarrolloDesktop} src={desarrollo}/>
-            :<iframe width='100%'height='100%' src={`https://www.youtube.com/embed/${desarrollo}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-          }
-        </div>
+          <div>
+            {
+              desarrollo?.includes('cloudinary')
+              ?
+              <div className={styles.imagenDesktop} >
+                <div className={styles.marginImagenDesktop}>
+                  <img className={styles.fotoDesarrolloDesktop} src={desarrollo}/>
+                </div>
+              </div>
+              :
+              <div className={styles.videoDesktop} >
+                  <iframe width='100%'height='100%' src={`https://www.youtube.com/embed/${desarrollo}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              </div>
+            }
+
+          </div>
         <div className={styles.desarrolloMobile}>
         {
           desarrollo?.includes('cloudinary')
