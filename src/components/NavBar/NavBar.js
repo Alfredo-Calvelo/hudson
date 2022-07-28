@@ -115,7 +115,7 @@ export default function NavBar(){
   return(
     <div className={navBarActiva? styles.container:styles.containerInactivo} >
       <div className={styles.NavBar} >
-        <Link className={styles.logos} to={'../342b5e2221e0f2587772acc90cd7b154'}>
+        <Link className={styles.logos} to={'../'}>
           <img alt='' className={navBarActiva? styles.logoActivo:styles.logo} src={logoNegro} />
           <img alt='' className={navBarActiva?styles.logo:styles.logoActivo} src={logoBlanco} />
         </Link>

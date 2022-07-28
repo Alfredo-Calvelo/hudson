@@ -15,9 +15,10 @@ export const GET_CARD_CATALOGO = "GET_CARD_CATALOGO";
 export const SEND_EMAIL = 'SEND_EMAIL'
 export const FALTA_COMPLETAR = 'FALTA_COMPLETAR'
 export const CARGANDO_MAIL = 'CARGANDO_MAIL'
+export const GET_ACTIVO = 'GET_ACTIVO'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-// const BASE_URL = 'http://localhost:4000';
+// const BASE_URL = 'http://localhost:4000'
 
 export function activarMenuDesplegable(payload){
     return{type:ACTIVAR_MENU_DESPLEGABLE, payload}
@@ -113,6 +114,22 @@ export function getSocial() {  //prop es el tipo (string) de coleccion a traer (
             });
             return dispatch({ type: GET_SOCIAL, payload: json.data });
         } catch (error) {
+        }
+    };
+}
+export function getActivo() {  //prop es el tipo (string) de coleccion a traer (headerbanner, productos, etc).
+    return async function (dispatch) {
+        try {
+            const json = await axios({
+                method: "GET",
+                withCredentials: true,
+                Credentials: "includes",
+                url: BASE_URL + "/getActivo",
+            });
+            console.log(json);
+            return dispatch({ type: GET_ACTIVO, payload: json.data });
+        } catch (error) {
+            console.log(error);
         }
     };
 }

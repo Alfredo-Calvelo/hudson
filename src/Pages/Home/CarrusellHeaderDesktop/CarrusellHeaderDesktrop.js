@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import AliceCarousel from "react-alice-carousel"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import CarrusellArrowLeft from "../../../components/CarrusellArrow/Left/CarrusellArrowLeft"
 import CarrusellArrowRight from "../../../components/CarrusellArrow/Rigth/CarrusellArrowRight"
 import DotButton from "../../../components/DotButton/DotButton"
@@ -8,32 +8,31 @@ import { typeBanner } from "../../../types"
 import axios from 'axios'
 import styles from './CarrusellHeaderDesktrop.module.css'
 import Boton from "../../../components/Boton/Boton"
+import { getData } from "../../../redux/actions"
 
 
 
 
 export default function CarrusellHeaderDesktrop(props){
   let tiempoCarrusell = useSelector(state=>state.tiempoCarrusell)
-  const [headers, setHeaders]= useState()
+  const [headers, setHeaders]= useState([])
   const [headersFinales, setHeadersFinales] = useState()
-
-  
+  const dispatch = useDispatch()
+  const headersState = useSelector(state=>state.HeaderBanner)
   function flechaDerecha() {
     return CarrusellArrowRight(568)
   }
   function flechaIzquierda() {
     return CarrusellArrowLeft(568)
   }
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
-  async function obtenerHeaders() {
-    try{
-      const json = await axios({
-        method: "GET",
-        withCredentials: true,
-        Credentials: "includes",
-        url: BASE_URL + "/getData/" + typeBanner,
-      });
-      const itemsHeader= json?.data.map((elem,index)=>{
+
+  useEffect(()=>{
+    dispatch(getData(typeBanner))
+  },[])
+  useEffect(()=>{
+    console.log(headersState);
+    if (headersState && headers.length<1) {
+      let itemsHeader = headersState.map((elem,index)=>{
     
         let CTA = JSON.parse(elem?.CTA);
         return(
@@ -52,14 +51,10 @@ export default function CarrusellHeaderDesktrop(props){
         )
       })
       setHeaders(itemsHeader)
-
-    }catch(error){
-
     }
-  }
-  useEffect(()=>{
-    obtenerHeaders()
-  },[])
+  },[headersState])
+
+
 
   
   return(

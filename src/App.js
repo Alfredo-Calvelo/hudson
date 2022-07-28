@@ -4,7 +4,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home/Home';
 import { useDispatch, useSelector } from 'react-redux';
-import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo, getCardCatalogo, getData, getSocial } from './redux/actions';
+import { activarMenuDesplegable, alturaPantalla, cambiarMenuCatalogo, cambiarNavBar, cambiarOpciones, cerrarTodo, getActivo, getCardCatalogo, getData, getSocial } from './redux/actions';
 import Catalogo from './Pages/Catalogo/Catalogo';
 import MenuDesplegable from './components/NavBar/Menu desplegable/MenuDesplegable';
 import Inspirate from './Pages/Inspirate/Inspirate';
@@ -34,6 +34,7 @@ function App(props) {
   let dropMenu= useSelector(state=>state.menuDesplegable)
   let opciones= useSelector(state=>state.opciones)
   const [activo, setActivo] = useState()
+  const activoState = useSelector(state=>state.activo)
   
   useEffect(()=>{
     dispatch(alturaPantalla(window.scrollY))
@@ -47,17 +48,8 @@ function App(props) {
   function apagarMenu(){
     dispatch(cerrarTodo())
   }
-  useEffect(async ()=>{
-    try {
-      const json = await axios({
-          method: "GET",
-          withCredentials: true,
-          Credentials: "includes",
-          url: BASE_URL + "/getActivo"
-      });
-      if (json?.data.length > 0) {
-        setActivo(json.data[0].activo)
-      }
+  useEffect( ()=>{
+      dispatch(getActivo())
       dispatch(getData(typeBanner))
       dispatch(getData(typeCategorias))
       dispatch(getData(typeDestacadas))
@@ -68,12 +60,17 @@ function App(props) {
       dispatch(getData(typeTiendas))
       dispatch(getCardCatalogo())
       dispatch(getSocial())
-  } catch (error) {
-  }
-
   },[])
 
-console.clear()
+  useEffect(()=>{
+    console.log(activoState);
+    if (activoState!== undefined) {
+      setActivo(activoState)
+    }
+  },[activoState])
+
+
+// console.clear()
     return (
 
     <BrowserRouter>
@@ -88,7 +85,7 @@ console.clear()
                 <NavBar />
                 <MenuDesplegable />
                 <Routes>
-                  <Route exact path='/342b5e2221e0f2587772acc90cd7b154'element={<Home/>}/>
+                  <Route exact path='/'element={<Home/>}/>
                   <Route exact path='/construccion'element={<Construccion/>}/>
                   <Route exact path='/Catalogo/:catalog'element={<Catalogo/>}/>
                   <Route exact path='/Inspirate/:page'element={<Inspirate/>}/>

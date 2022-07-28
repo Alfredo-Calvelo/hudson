@@ -60,7 +60,7 @@ export default function MenuDesplegable(){
       {
         categoriasFinales?.map((elem,index)=>{
           return(
-            <a key={index} className={styles.subBloque} target='_blank' href={elem.ruta==='undefined'?null:elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` }>{elem.title} <BsChevronRight/></a>
+            <a key={index} className={styles.subBloque} target='_blank' href={!elem.ruta || elem.ruta === 'undefined'?null:elem.ruta?.includes('https') || elem.ruta?.includes('http')?elem.ruta:`https://${elem.ruta}` }>{elem.title} <BsChevronRight/></a>
           )
         })
       }
@@ -70,7 +70,7 @@ export default function MenuDesplegable(){
       <div className={styles.tiendas}>
         <h5>TIENDAS ONLINE</h5>
         {tiendasFinales.map((elem, index)=>{
-          return (<a key={index} href={elem.link==='undefined'?null:elem.link?.includes('https') || elem.link?.includes('http')?elem.link:`https://${elem.link}`} target='_blank' className={styles.linksTiendas} > {elem.title}</a>)
+          return (<a key={index} href={elem.link==='undefined' || !elem.link ?null:elem.link?.includes('https') || elem.link?.includes('http')?elem.link:`https://${elem.link}`} target='_blank' className={styles.linksTiendas} > {elem.title}</a>)
         })}
       </div>
       <div className={styles.separador}>
@@ -87,22 +87,22 @@ export default function MenuDesplegable(){
         <Separador/>
       </div>
       <div className={styles.tiendas}>
-        <div className={styles.redes}>
+        <a target='_blank' href='https://www.instagram.com/hudsonkitchenware/' className={styles.redes}>
           <img src={instagram}/>
           <h6>@hudsonkitchenware</h6>
-        </div>
-        <div className={styles.redes}>
+        </a>
+        <a target='_blank' href='https://www.facebook.com/HudsonKitchenware/' className={styles.redes}>
           <img src={facebook}/>
           <h6>/HudsonKitchenware</h6>
-        </div>
-        <div className={styles.redes}>
+        </a>
+        <a target="_blank" href='https://twitter.com/HudsonKitchen_' className={styles.redes}>
           <img src={twitter} />
           <h6>@HudsonKitchen_</h6>
-        </div>
-        <div className={styles.redes}>
+        </a>
+        <a target='_blank' href='https://www.youtube.com/channel/UCmATVdmApr3S6W-rGrxyitQ' className={styles.redes}>
           <img src={youtube}/>
           <h6>Hudson Kitchenware</h6>
-        </div>
+        </a>
       </div>
     </div>
   )

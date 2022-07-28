@@ -4,7 +4,7 @@ import styles from './Circulo.module.css'
 export default function Circulo (props){
   return(
     <div className={styles.container}>
-      <a className={styles.subContainer} target='_blank' href={props.ruta==='undefined'?null:props.ruta.includes('https') || props.ruta.includes('http')?props.ruta:`https://${props.ruta}` }>
+      <a className={styles.subContainer} target='_blank' href={props.ruta==='undefined' || !props.ruta ?null:props.ruta?.includes('https') || props.ruta.includes('http')?props.ruta:`https://${props.ruta}` }>
       <div className={styles.Circulo}>
         <img alt='' draggable={false} className={styles.Img} src={props.srcImg}/>
       </div>

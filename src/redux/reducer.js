@@ -14,7 +14,8 @@ import {
   GET_CARD_CATALOGO,
   FALTA_COMPLETAR,
   CARGANDO_MAIL,
-  SEND_EMAIL
+  SEND_EMAIL,
+  GET_ACTIVO
   
 } from "./actions"
 import fotoCarbono from '../imagenes/U Y C ACERO CARBONO.png'
@@ -485,7 +486,15 @@ function rootReducer(state=initialState, action){
       cargandoMail: 'Email cargado correctamente',
     }
   }
-
+  if (action.type === GET_ACTIVO) {
+    console.log(action.payload);
+    if (action.payload?.length > 0){
+      return{
+        ...state,
+        activo:action.payload[0].activo
+      }
+    }
+  }
   
   
   return state
