@@ -43,9 +43,6 @@ export default function CardCatalogo(props){
     styles.VisibleRight:
     styles.InvisibleRight
   }`
-  useEffect(()=>{
-    console.log(color);
-  },[color])
   return (
     <div id={props.clave} ref={bloque} className={props.clave===0?clase2:clase}
     style={{

@@ -31,7 +31,7 @@ export default function Destacado(props){
     <div ref={bloque} className={`${styles.container} ${alturaPantalla + vieportHeight/1.4 >alturaBloque?styles.visible:styles.invisible}`}>
       <div className={styles.titles}>
         <h3>Productos destacados</h3>
-        <a className={styles.verMas}>VER MÁS</a>
+        <a href='https://shop.hudsoncocina.com/' target={'_blank'} className={styles.verMas}>VER MÁS</a>
       </div>
       <div className={`${styles.bottom} ${styles.bottomMobile}`}>
           <AliceCarousel

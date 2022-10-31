@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { typeCategorias } from '../types'
 export const ACTIVAR_MENU_DESPLEGABLE='ACTIVAR_MENU_DESPLEGABLE'
 export const CAMBIAR_NAV_BAR = 'CAMBIAR_NAV_BAR'
 export const CAMBIAR_OPCIONES = 'CAMBIAR_OPCIONES'
@@ -84,6 +85,9 @@ export function getData(propiedadName) {  //prop es el tipo (string) de coleccio
                 Credentials: "includes",
                 url: BASE_URL + "/getData/" + propiedadName,
             });
+            if (propiedadName === typeCategorias) {
+                console.log(json.data);
+            }
             return dispatch({ type: GET_DATA, payload: json.data, propiedadName });
         } catch (error) {
         }

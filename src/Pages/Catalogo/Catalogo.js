@@ -63,6 +63,7 @@ export default function Catalogo(props){
     if (catalogoSeleccionado?.footer || catalogoSeleccionado?.title) {
       selectMasterChef()
     }
+    console.log(catalogoSeleccionado);
   },[catalogoSeleccionado])
 
   return(

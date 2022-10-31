@@ -57,7 +57,7 @@ export default function Boton (props){
           <div className={`${styles.listContainer} ${dropMenu?styles.listaActiva:styles.listaInactiva}`}>
             {tiendasFinales.map((elem,index)=>{
               return(
-                <a target='_blank' key={index} href={elem.link} className={`${styles.text} ${styles.li}`}>{elem.title.toUpperCase()}</a>
+                <a target='_blank' key={index} href={!elem.link || elem.link === 'undefined' ?null:elem.link?.includes('https') || elem.link?.includes('http')?elem.link:`https://${elem.link}` } className={`${styles.text} ${styles.li}`}>{elem.title.toUpperCase()}</a>
               )
             })}
           </div>

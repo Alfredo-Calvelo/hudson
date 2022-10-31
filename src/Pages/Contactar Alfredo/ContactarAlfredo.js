@@ -6,8 +6,8 @@ export default function ContactarAlfredo(params) {
     <div className={styles.construccionContainer}>
       <div className={styles.cartelMedio}>
         <img className={styles.logo} src={logo}/>
-        <p>Lo sentimos, este sitio fue dado de baja</p>
-        <p>Por favor contactar con Servicio Tecnico</p>
+        <p>Lo sentimos, estamos teniendo algunos problemas tecnicos.</p>
+        <p>La web volverá a funcionar en breve</p>
       </div>
     </div>
   )

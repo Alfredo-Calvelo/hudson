@@ -22,10 +22,14 @@ export default function MenuCatalogo(){
     window.scrollTo(0,0)
   }
   const Catalogos = useSelector(state=>state.Catalogo)
+  
   useEffect(()=>{
     if (Catalogos) {
-      let titles = Catalogos.map((elem)=>{
-        return elem.title
+      let titles = []
+      Catalogos.map((elem)=>{
+        if (elem.visibilidad === 'Visible') {
+          return titles.push(elem.title)
+        }
       })
       setTitles(titles)
     }

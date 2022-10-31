@@ -112,8 +112,11 @@ export default function Home(){
   const [itemsIG,setItemsIG] = useState([])
   useEffect(()=>{
     if (state?.Catalogo) {
-      let itemsCarrusellDebajo =state?.Catalogo?.map((elem,index)=>{
-        return<CatalogCard key={index} tittle={elem.title} subTittle={elem.footer} textRuta='VER CATÁLOGO' img={elem.carrousellHomeIMG}/>
+      let itemsCarrusellDebajo =[]
+      state?.Catalogo?.map((elem,index)=>{
+        if (elem.visibilidad === 'Visible') {
+          itemsCarrusellDebajo.push(<CatalogCard key={index} tittle={elem.title} subTittle={elem.footer} textRuta='VER CATÁLOGO' img={elem.carrousellHomeIMG}/>)
+        }
       })
       if (itemsxD.length <= 0) {
         setItemsxD(itemsCarrusellDebajo)
@@ -125,12 +128,14 @@ export default function Home(){
       return state.social.instagram
     }
     let arr= []
-    state?.social?.instagram.forEach((elem,index)=>{
-      if (index <=5) {
-        arr.push(<CardUltimas key={index} id={elem.node.shortcode}/>)
-      }
-    })
-        return arr
+    if (state?.social?.instagram?.forEach) {
+      state?.social?.instagram?.forEach((elem,index)=>{
+        if (index <=5) {
+          arr.push(<CardUltimas key={index} id={elem.node.shortcode}/>)
+        }
+      })
+    }
+    return arr
   }
   useEffect(()=>{
     if (state?.social?.instagram && typeof state?.social === 'object') {

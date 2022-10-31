@@ -27,9 +27,16 @@ export default function Inspirado(props){
           arr =[...arr,<RecetaCard tipo={elem.tipo} key={index} img={elem.headerIMG} title={elem.title}/>,]
         }
       })
-
+      if (arr.length < 6) {
+        let diferencia = 6 - arr.length
+        for (let index = 0; index < diferencia; index++) {
+          arr.push(<div className={styles.vacio}></div>)
+        }
+      }
+      console.log(arr);
       setItems(arr)
     }
+    console.log(Recetas);
   },[Recetas])
 
   let alturaPantalla = useSelector(state=>state.alturaPantalla)

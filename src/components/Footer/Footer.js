@@ -89,7 +89,7 @@ export default function Footer(props){
             {
               categoriasFinales?.map((elem,index)=>{
                 return(
-                    <a key={index} target='_blank' href={elem.ruta==="undefined"?null:elem.ruta.includes('https') || elem.ruta.includes('http')?elem.ruta:`https://${elem.ruta}` } className={styles.links}>{elem.title}</a>
+                    <a key={index} target='_blank' href={!elem.ruta || elem.ruta==="undefined"?null:elem.ruta?.includes('https') || elem.ruta?.includes('http')?elem.ruta:`https://${elem.ruta}` } className={styles.links}>{elem.title}</a>
                 )
               })
             }
@@ -99,7 +99,9 @@ export default function Footer(props){
           <div className={styles.center}>
             <h3 className={styles.bottomTitle}>Catálogo</h3>
             {Catalogos?.map((elem,index)=>{
-              return <Link to={`../Catalogo/${elem.title}`} key={index} className={styles.links}>{elem.title}</Link>
+              if(elem.visibilidad === 'Visible'){
+                return <Link to={`../Catalogo/${elem.title}`} key={index} className={styles.links}>{elem.title}</Link>
+              }
             })}
           </div>
 
@@ -117,7 +119,7 @@ export default function Footer(props){
             <div className={`${styles.containers} ${styles.containerBottom}`}>
               <h3 className={styles.bottomTitle}>Tiendas Online</h3>
               {tiendasFinales.map((elem, index)=>{
-                return(<a target='_blank' key={index} href={elem.link==='undefined'?null:elem.link?.includes('https') || elem.link?.includes('http')?elem.link:`https://${elem.link}` } className={styles.links}> {elem.title} </a>)
+                return(<a target='_blank' key={index} href={!elem.link || elem.link==='undefined'?null:elem.link?.includes('https') || elem.link?.includes('http')?elem.link:`https://${elem.link}` } className={styles.links}> {elem.title} </a>)
               })}
             </div>
           </div>

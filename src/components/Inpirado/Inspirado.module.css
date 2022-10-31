@@ -41,6 +41,8 @@
   }
   .inspirado{
     margin: var(--marginDesktop);
-
+  }
+  .vacio{
+    width: 100%;
   }
 }

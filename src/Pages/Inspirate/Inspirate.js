@@ -40,16 +40,20 @@ export default function Inspirate(){
   const state = useSelector(state=>state)
   const [cosas,setCosas] = useState()
   useEffect(()=>{
-    let Recetas 
-    let Consejos
+    let Recetas = []
+    let Consejos = []
     if (state.Receta) {
-      Recetas = state?.Receta?.map(elem=>{
-        return {img:elem.desarrollo, text:elem.title,tipo:elem.tipo,fecha:elem.fechaCreacion,headerImg:elem.headerIMG}
+      state?.Receta?.forEach(elem=>{
+        if (elem.estado === 'Publicado') {
+          Recetas.push( {img:elem.desarrollo, text:elem.title,tipo:elem.tipo,fecha:elem.fechaCreacion,headerImg:elem.headerIMG})
+        }
       })
     }
     if (state.Consejo) {
-      Consejos =state?.Consejo?.map((elem,index)=>{
-        return{img:elem.desarrollo, text:elem.title,tipo:elem.tipo,fecha:elem.fechaCreacion,headerImg:elem.headerIMG}
+      state?.Consejo?.forEach((elem)=>{
+        if (elem.estado === 'Publicado') {
+          Consejos.push({img:elem.desarrollo, text:elem.title,tipo:elem.tipo,fecha:elem.fechaCreacion,headerImg:elem.headerIMG})
+        }
       })
     }
     

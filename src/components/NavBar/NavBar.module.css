@@ -140,14 +140,18 @@
   }
   .linkLogo,.linkLogoActivo{
     width: 13px;
-    /* transition: var(--transitionCorta); */
+    opacity: 0;
+    position: absolute;
+    transition: var(--transitionCorta);
+  }
+  .linkLogoActivo{
+    opacity: 1;
   }
   .linksLogos{
     /* transition: var(--transitionCorta); */
     display: flex;
-    gap: 20px;
     width: fit-content;
-    gap: 5px;
+    gap: 7px;
     margin: 0 10px 0 10px;
   }
   .cambiarIdiomaDesktop{
@@ -160,6 +164,11 @@
   }
   .logo,.logoActivo{
     width: 90px;
+  }
+  .linkLogoImgContainer{
+    width: 13px;
+    height: 13px;
+    padding-bottom: 0px;
   }
 }
 

@@ -50,30 +50,46 @@ export default function NavBar(){
 
   const [catalogosTitles,setCatalogosTitles] = useState()
   const [segundaColumnaTitles, setSegundaColumnaTitles] = useState()
+  const [terceraColumnaTitles, setTerceraColumnaTitles] = useState()
   const Catalogos = useSelector(state=>state.Catalogo)
   useEffect(()=>{
     if (Catalogos) {
       let titles = []
       let segundaColumna=[]
+      let terceraColumna =[]
+      let catalogosVisibles =[]
       Catalogos.forEach((elem,index)=>{
-        if (index<8) {
-          titles= [...titles,elem]
+        if (elem.visibilidad === 'Visible') {
+          catalogosVisibles.push(elem)
         }
-        else if(index> 7 && index<16){
-          segundaColumna=[...segundaColumna,elem]
+      })
+      catalogosVisibles.forEach((elem,index)=>{
+        if (elem.visibilidad === 'Visible') {
+          if (index<8) {
+            titles= [...titles,elem]
+          }
+          else if(index> 7 && index<16){
+            segundaColumna=[...segundaColumna,elem]
+          }
+          else if (index >15 && index <24) {
+            terceraColumna=[...terceraColumna, elem]
+          }
         }
       })
       setCatalogosTitles(titles)
       setSegundaColumnaTitles(segundaColumna)
+      setTerceraColumnaTitles(terceraColumna)
     }
   },[Catalogos])
 
   useEffect(()=>{
     if (CategoriasHome){
+      console.log(CategoriasHome);
       let categoriasFinaleslocal =[]
       CategoriasHome.map((elem)=>{
         categoriasFinaleslocal.push({title:elem.title.toUpperCase(),link:elem.link, nueva:true, tipo:'producto'})
       })
+
       setCategoriasFinales(categoriasFinaleslocal)
     }
   },[CategoriasHome])
@@ -88,6 +104,7 @@ export default function NavBar(){
     if (tipo==='productos') {
       setTitle('PRODUCTOS')
       setVerMas('VER TODOS')
+      console.log(categoriasFinales);
       setLinks(categoriasFinales)
     }else
     if (tipo === 'catalogo') {
@@ -182,7 +199,7 @@ export default function NavBar(){
             </a>
           </div>
       </div>
-      <DesplegableDesktop segundaColumna={tipoMenu==='catalogo'?segundaColumnaTitles:false} links={links} verMas={verMas} activo={desplegableActivo} title={title}/>
+      <DesplegableDesktop terceraColumna={tipoMenu==='catalogo'?terceraColumnaTitles:false} segundaColumna={tipoMenu==='catalogo'?segundaColumnaTitles:false} links={links} verMas={verMas} activo={desplegableActivo} title={title}/>
     </div>
   )
 }

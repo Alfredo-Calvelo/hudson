@@ -8,10 +8,10 @@ export default function DesplegableDesktopCard(props){
     const navigate = useNavigate()
     const CardCatalogo = useSelector(state=>state.CardCatalogo)
     const Catalogos = useSelector(state => state.Catalogo)
-    const [title, setTitle] = useState('')
-    const [colorTitle, setColorTitle] = useState('')
-    const [subTitle, setSubTitle] = useState('')
-    const [foto, setFoto] = useState('')
+    const [title, setTitle] = useState()
+    const [colorTitle, setColorTitle] = useState()
+    const [subTitle, setSubTitle] = useState()
+    const [foto, setFoto] = useState()
     useEffect(()=>{
         if (CardCatalogo && CardCatalogo.length > 0 && Catalogos && Catalogos.length > 0) {
             Catalogos.map((elem,index) => {
@@ -24,10 +24,12 @@ export default function DesplegableDesktopCard(props){
             setFoto(CardCatalogo[0].image)
 
         }
-    },[CardCatalogo])
+    })
+
     return(
         <>
-        {props.ruta?
+        {title && subTitle?
+        props.ruta?
         <div className={styles.container} onClick={()=>navigate(props.ruta)}>
             <div className={styles.titulos}>
                 <span style={props.masterchef?{color:'var(--naranjaMasterChef)'}:null} className={styles.title}>{props.title}</span>
@@ -38,12 +40,13 @@ export default function DesplegableDesktopCard(props){
         </div>
         :<div className={styles.container} onClick={()=>navigate(`../Catalogo/${title}`)}>
             <div className={styles.titulos}>
-                <span style={{color:colorTitle}} className={styles.title}>{title.toUpperCase()}</span>
+                <span style={{color:colorTitle}} className={styles.title}>{title?.toUpperCase()}</span>
                 <span className={styles.subTitle}>{subTitle}</span>
                 <span className={styles.rutaTitle}>VER CATALOGO <BsChevronRight/></span>
             </div>
             <img className={styles.img} src={foto}/>
         </div>
+        :null
         }
         </>
     )

@@ -60,13 +60,32 @@ export default function DesplegableDesktop (props){
                     <div className={styles.segundaColumna}>
                             {props.segundaColumna?.map((elem, index)=>{
                             let ruta = `../Catalogo/${elem.title}`
+
                             return (
                                 <Link key={index} to={ruta} className={styles.link}>
                                     <div className={styles.linkContainer}>
                                         {elem.icono && elem.iconoId?
                                         <img className={styles.masterChefImg} src={elem.icono}/> 
                                             :null}
-                                        <span style={{color:elem.color!=='Negro'?elem.color:''}} className={styles.link}>{elem.title?.toUpperCase()}</span>
+                                        <span style={{color:elem.colorMenu!=='Negro'?elem.colorMenu:''}} className={styles.link}>{elem.title?.toUpperCase()}</span>
+                                    </div>
+                                </Link>
+                                )
+                        })}
+                    </div>:null
+                    }
+                    {props.terceraColumna && props.terceraColumna.length>0?
+                    <div className={styles.segundaColumna}>
+                            {props.terceraColumna?.map((elem, index)=>{
+                            let ruta = `../Catalogo/${elem.title}`
+
+                            return (
+                                <Link key={index} to={ruta} className={styles.link}>
+                                    <div className={styles.linkContainer}>
+                                        {elem.icono && elem.iconoId?
+                                        <img className={styles.masterChefImg} src={elem.icono}/> 
+                                            :null}
+                                        <span style={{color:elem.colorMenu!=='Negro'?elem.colorMenu:''}} className={styles.link}>{elem.title?.toUpperCase()}</span>
                                     </div>
                                 </Link>
                                 )
