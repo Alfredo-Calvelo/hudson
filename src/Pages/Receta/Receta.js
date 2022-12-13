@@ -63,9 +63,11 @@ export default function Receta(){
       }
       setEstrellas(estrellas)
       let items =[]
+      console.log(RecetaSeleccionada);
       RecetaSeleccionada?.productos.forEach(elem=>{
         if (elem.archivo && elem.archivoId) {
-          items =[...items, <RecetaCarrusellCard img={elem.archivo} title={elem.nombre} subTitle={elem.caracteristicas}/>]
+          console.log(elem);
+          items =[...items, <RecetaCarrusellCard link={elem.link} img={elem.archivo} title={elem.nombre} subTitle={elem.caracteristicas}/>]
         }
       })
       setItems(items)
@@ -155,7 +157,13 @@ export default function Receta(){
             </div>
           </div>
         </div>
-        <iframe className={styles.videoMobile} width='100%'height='250px' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+
+        {
+          RecetaSeleccionada?.desarrollo.includes('cloudinary')
+          ?<img className={styles.fotoMobile} src={RecetaSeleccionada?.desarrollo}/>
+          :<iframe width='100%'height='250px' className={styles.iframeDesktop} src={`https://www.youtube.com/embed/${RecetaSeleccionada?.desarrollo}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        }
+        {/* <iframe className={styles.videoMobile} width='100%'height='250px' src="https://www.youtube.com/embed/dT4eVrFKEMo" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe> */}
         <div className={`${styles.receta} ${styles.preparacion}`}>
           <h3 className={styles.ingredientesTitle}>Preparación</h3>
           <ol className={styles.preparacionList}>

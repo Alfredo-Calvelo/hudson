@@ -134,7 +134,9 @@ a{
   position: relative;
   user-select: none;
 }
-
+.fotoMobile{
+  width: 100%;
+}
 
 @media (min-width:800px) {
   *{
@@ -211,6 +213,7 @@ a{
     align-content: center;
     justify-items: right;
   }
+
   .FotoDesktop{
     /* width: 100%;  */
     height: calc(60vh);

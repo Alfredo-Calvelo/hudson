@@ -3,7 +3,11 @@
   display: grid;
   justify-items: center;
   gap: 30px;
-
+  padding: 0 2em 0 2em;
+  user-select: none;
+}
+.link{
+  user-select: none;
 }
 .img{
   width: 300px;

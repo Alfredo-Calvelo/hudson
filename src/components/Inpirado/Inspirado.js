@@ -4,8 +4,10 @@ import fideos from '../../imagenes/fideos.jfif'
 import AliceCarousel from 'react-alice-carousel'
 import { useSelector } from 'react-redux';
 import { createRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Inspirado(props){
+  const navigate = useNavigate()
   const responsive = {
     0: { items: 2 },
     568: { items: 2 },
@@ -52,7 +54,7 @@ export default function Inspirado(props){
     <div ref={bloque} className={`${styles.inspirado} ${alturaPantalla + vieportHeight/1.6 >alturaBloque?styles.visible:styles.invisible}`}>
         <div className={styles.titles}>
           <h3>{props.title}</h3>
-          <h5 style={{cursor:'pointer'}}>VER MÁS</h5>
+          <h5 style={{cursor:'pointer'}} onClick={()=> navigate("../Inspirate/1")}>VER MÁS</h5>
         </div>
         <div className={styles.mobile}>
           {<AliceCarousel
